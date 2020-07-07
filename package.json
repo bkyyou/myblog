@@ -1,0 +1,21 @@
+{
+  "name": "myBlog",
+  "version": "0.0.1",
+  "description": "blog",
+  "main": "index.js",
+  "authors": {
+    "name": "bkyyou",
+    "email": ""
+  },
+  "repository": "/myBlog",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.0.0",
+    "@vuepress/plugin-back-to-top": "^1.0.0",
+    "@vuepress/plugin-medium-zoom": "^1.0.0"
+  }
+}
