@@ -27,7 +27,7 @@ git push -f git@github.com:bkyyou/myblog.git master:gh-pages
 # git push -u origin master
 # cd -
 
-echo $2
+# echo $2
 
 cd ../../../
 
