@@ -177,7 +177,16 @@ module.exports = {
           title: 'react', // 侧边栏名称
           collapsable: true, // 可折叠
           children: [
-            '', // 你的md文件地址
+            'react/react学习/1.1-搭建React环境', // 你的md文件地址
+            'react/react学习/2.1-组件和JSX', 
+            'react/react学习/2.2-Props、列表渲染、条件渲染', 
+            'react/react学习/2.3-Css In React', 
+            'react/react学习/3.1-事件处理', 
+            'react/react学习/3.2-认识State', 
+            'react/react学习/3.3-State进阶', 
+            'react/react学习/4.1-React Router(1)', 
+            'react/react学习/4.2-Ant Design', 
+            'react/react学习/5.1-React Virtual DOM 原理', 
           ]
         },
         {
@@ -310,6 +319,7 @@ module.exports = {
             'koa源码分析/3.请求处理流程解读',
             'koa源码分析/4.中间件机制剖析',
             'koa源码分析/5.异常捕获和错误处理',
+            'koa源码分析/6.compose简单实现',
           ],
         },
         {
@@ -331,6 +341,17 @@ module.exports = {
           children: [
             'Node.js 自动化测试/1.自动化构建与持续集成',
             'Node.js 自动化测试/2.单元测试概述',
+            'Node.js 自动化测试/3.单元测试实战与答疑',
+            'Node.js 自动化测试/4.单元小结',
+          ],
+        },
+        {
+          title: '第三方模块使用',
+          collapsable: true,
+          children: [
+            '第三方模块使用/1.inquirer交互式命令行工具',
+            '第三方模块使用/2.node读写excel-node-xlsx',
+            '第三方模块使用/3.ora一个优雅的终端微调器',
           ],
         },
       ]

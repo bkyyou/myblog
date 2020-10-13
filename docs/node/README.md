@@ -1,5 +1,18 @@
 # 前言
 
+console.log('可执行文件绝对路径', process.execPath);
+console.log('版本号', process.version);
+console.log('依赖库的版本号', process.versions);
+console.log('运行平台', process.platform);
+console.log('标准输入流', process.stdin);
+console.log('标准输出流', process.stdout);
+console.log('标准错误流', process.stderr);
+console.log('命令行参数数组', process.argv);
+console.log('系统环境变量', process.env);
+console.log('进程ID', process.pid);
+console.log('标题', process.title);
+console.log('处理器架构', process.arch);
+
 * 命令 模式下 输入 / 可以搜索
 search hit BOTTOM, continuing at TOP     按 n 下一个搜索
 
@@ -63,3 +76,10 @@ fs读取到的 二进制模块 可以通过  toString() 转换
 那么node他要去操作redis的话，如果node服务器与我们redis服务器。两个在同一台机器上的话，那么就可以用127.0.0.1或者localhost去访问都可以。但是如果我们的MYSQL程序，也就是我们的服务器程序，跟我们的数据库程序，两个不是在同一台机器上，那么就需要一个域名，或者说一个IP地址加端口，这样才能去访问。
 
 但是我们现在没有配置域名，所以就只是指采用这种IP地址加端口的方式去访问。
+
+
+
+// egg demo
+https://blog.csdn.net/weixin_34138056/article/details/88656654?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase
+
+https://github.com/bing127/Node-background-management-system

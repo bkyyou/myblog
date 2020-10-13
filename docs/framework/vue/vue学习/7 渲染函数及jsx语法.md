@@ -127,3 +127,57 @@ Vue.component('my-functional-button', {
   <p> second </p>
 </my-functional-component>
 ```
+
+## 函数式组件的应用
+
+```vue
+<template>
+  <grade-item>
+    slot
+  </grade-item>
+</tempalte>
+<script>
+function gradeItem() {
+  return {
+    functional: true,
+    render(createElement, { props, slots }) {
+      console.log('slots', slots);
+      return (
+        <div>
+          {slots().default}
+        </div>
+      )
+    }
+  }
+}
+export default {
+  components: {
+    gradeItem: gradeItem()
+  }
+}
+</script>
+
+```
+
+## css 实现加载中3个点跳动
+
+```html
+<style type="text/css">
+.loading:after {
+overflow: hidden;
+display: inline-block;
+vertical-align: bottom;
+animation: ellipsis 2s infinite;
+content: "\2026";
+}
+@keyframes ellipsis {
+from {
+width: 2px;
+}
+to {
+width: 15px;
+}
+}
+</style>
+<span class="loading"></span>
+```
