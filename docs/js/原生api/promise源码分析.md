@@ -82,3 +82,5 @@ new MyPromise(resolve => {
 
 
 ```
+
+https://zhuanlan.zhihu.com/p/54403706

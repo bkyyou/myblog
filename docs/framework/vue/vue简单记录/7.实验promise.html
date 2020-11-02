@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // new Promise((resolve, reject) => {
+    //   // resolve();
+    //   // reject();
+    //   // throw 'qq'
+    //   // Promise.reject("error")
+    //   // return new throw();
+    // })
+    //   .then(() => {
+    //     console.log('then1');
+    //   }, () => {
+    //     console.log('then2');
+    //   })
+    //   .catch(() => {
+    //     console.log('catch1');
+    //   })
+    new Promise((resolve, reject) => {
+      // resolve();
+      reject();
+      // throw 'qq'
+      // Promise.reject("error")
+      // return new throw();
+    })
+      .then(() => {
+        console.log('then1');
+        return Promise.resolve();
+      })
+      .catch(() => {
+        console.log('catch1');
+        return Promise.reject();
+      })
+      .then(() => {
+        console.log('删除');
+      })
+      .catch(() => {
+        console.log('取消删除');
+      })
+
+      // Promise.reject("error").
+  </script>
+</body>
+
+</html>

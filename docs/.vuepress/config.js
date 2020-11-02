@@ -73,6 +73,10 @@ module.exports = {
             text: 'node',
             link: '/node/'
           },
+          {
+            text: 'http',
+            link: '/http/'
+          },
         ]
       },
       {
@@ -237,6 +241,8 @@ module.exports = {
                 'vue/vue简单记录/keep-live',
                 'vue/vue简单记录/Vue中computed和watch的区别',
                 'vue/vue简单记录/5.Vue中插入HTML代码的方法',
+                'vue/vue简单记录/6.watch得执行顺序',
+                'vue/vue简单记录/8.vue.config.js 配置',
               ]
             }
           ]
@@ -249,6 +255,15 @@ module.exports = {
           children: [
             'jquery/1 jquery整体架构-核心功能函数揭秘',
             'jquery/2 选择器'
+          ]
+        }
+      ],
+      '/http/': [
+        {
+          title: 'http',
+          collapsable: true,
+          children: [
+            '1.在html页面设置不缓存',
           ]
         }
       ],
