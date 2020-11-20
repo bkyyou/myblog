@@ -236,13 +236,15 @@ module.exports = {
               title: 'vue简单记录',
               collapsable: true,
               children: [
-                'vue/vue简单记录/父子组件',
                 'vue/vue简单记录/provide和inject刷新当前路由（页面）',
                 'vue/vue简单记录/keep-live',
                 'vue/vue简单记录/Vue中computed和watch的区别',
+                'vue/vue简单记录/4.父子组件-组件传值（一）',
                 'vue/vue简单记录/5.Vue中插入HTML代码的方法',
                 'vue/vue简单记录/6.watch得执行顺序',
                 'vue/vue简单记录/8.vue.config.js 配置',
+                'vue/vue简单记录/9.Vuex mapAction的基本使用',
+                'vue/vue简单记录/10.组件传值（二）',
               ]
             }
           ]
