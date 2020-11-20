@@ -202,7 +202,8 @@ module.exports = {
               title: 'vue文档阅读',
               collapsable: true,
               children: [
-                'vue/vue文档阅读/mixins'
+                'vue/vue文档阅读/mixins',
+                'vue/vue文档阅读/4.自定义事件',
               ]
             },
             {
