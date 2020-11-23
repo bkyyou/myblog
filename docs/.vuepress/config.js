@@ -120,6 +120,7 @@ module.exports = {
               collapsable: true, // 可折叠
               children: [
                 '作用域/if中的函数声明',
+                '作用域/2.this指向',
               ]
             },
             {
