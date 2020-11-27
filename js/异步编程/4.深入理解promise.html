@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>4.深入理解promise | 毕克有的技术笔记</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    
+    <meta name="description" content="blog">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="preload" href="/myblog/assets/css/0.styles.607a679b.css" as="style"><link rel="preload" href="/myblog/assets/js/app.803dbd2d.js" as="script"><link rel="preload" href="/myblog/assets/js/2.67b8352c.js" as="script"><link rel="preload" href="/myblog/assets/js/118.1982cfc1.js" as="script"><link rel="prefetch" href="/myblog/assets/js/10.7f17d593.js"><link rel="prefetch" href="/myblog/assets/js/100.603cc8fb.js"><link rel="prefetch" href="/myblog/assets/js/101.403d319c.js"><link rel="prefetch" href="/myblog/assets/js/102.a0b192d4.js"><link rel="prefetch" href="/myblog/assets/js/103.f74866de.js"><link rel="prefetch" href="/myblog/assets/js/104.7c757894.js"><link rel="prefetch" href="/myblog/assets/js/105.80e31610.js"><link rel="prefetch" href="/myblog/assets/js/106.7d500f04.js"><link rel="prefetch" href="/myblog/assets/js/107.4359d39c.js"><link rel="prefetch" href="/myblog/assets/js/108.9f644e4a.js"><link rel="prefetch" href="/myblog/assets/js/109.099849c1.js"><link rel="prefetch" href="/myblog/assets/js/11.05b3d371.js"><link rel="prefetch" href="/myblog/assets/js/110.705e1a14.js"><link rel="prefetch" href="/myblog/assets/js/111.adb2d216.js"><link rel="prefetch" href="/myblog/assets/js/112.49babac1.js"><link rel="prefetch" href="/myblog/assets/js/113.0054665d.js"><link rel="prefetch" href="/myblog/assets/js/114.4e802ea0.js"><link rel="prefetch" href="/myblog/assets/js/115.02f67423.js"><link rel="prefetch" href="/myblog/assets/js/116.3fc8238d.js"><link rel="prefetch" href="/myblog/assets/js/117.54978570.js"><link rel="prefetch" href="/myblog/assets/js/119.07f9aae1.js"><link rel="prefetch" href="/myblog/assets/js/12.27a4b1b3.js"><link rel="prefetch" href="/myblog/assets/js/120.7dcdaa23.js"><link rel="prefetch" href="/myblog/assets/js/121.3c074f8a.js"><link rel="prefetch" href="/myblog/assets/js/122.7ce4251c.js"><link rel="prefetch" href="/myblog/assets/js/123.63ab81aa.js"><link rel="prefetch" href="/myblog/assets/js/124.59882302.js"><link rel="prefetch" href="/myblog/assets/js/125.b6e9487d.js"><link rel="prefetch" href="/myblog/assets/js/126.8f821868.js"><link rel="prefetch" href="/myblog/assets/js/127.744850a1.js"><link rel="prefetch" href="/myblog/assets/js/128.4a491fee.js"><link rel="prefetch" href="/myblog/assets/js/129.e00451b0.js"><link rel="prefetch" href="/myblog/assets/js/13.983136f4.js"><link rel="prefetch" href="/myblog/assets/js/130.13f4d1bb.js"><link rel="prefetch" href="/myblog/assets/js/131.49b6261e.js"><link rel="prefetch" href="/myblog/assets/js/132.85fb8a6d.js"><link rel="prefetch" href="/myblog/assets/js/133.8896daa1.js"><link rel="prefetch" href="/myblog/assets/js/134.9b60a1f2.js"><link rel="prefetch" href="/myblog/assets/js/135.10ccbc10.js"><link rel="prefetch" href="/myblog/assets/js/136.c43f9850.js"><link rel="prefetch" href="/myblog/assets/js/137.dfc5cc5c.js"><link rel="prefetch" href="/myblog/assets/js/138.a53903a8.js"><link rel="prefetch" href="/myblog/assets/js/139.63cd1f95.js"><link rel="prefetch" href="/myblog/assets/js/14.c34c146d.js"><link rel="prefetch" href="/myblog/assets/js/140.fab95181.js"><link rel="prefetch" href="/myblog/assets/js/141.c9b588d4.js"><link rel="prefetch" href="/myblog/assets/js/142.6eca52d2.js"><link rel="prefetch" href="/myblog/assets/js/143.9ed1119e.js"><link rel="prefetch" href="/myblog/assets/js/144.502d6c21.js"><link rel="prefetch" href="/myblog/assets/js/145.2c54e50f.js"><link rel="prefetch" href="/myblog/assets/js/146.c5b5bbb2.js"><link rel="prefetch" href="/myblog/assets/js/147.4e86e528.js"><link rel="prefetch" href="/myblog/assets/js/148.1ef9873a.js"><link rel="prefetch" href="/myblog/assets/js/149.a1cb6ae8.js"><link rel="prefetch" href="/myblog/assets/js/15.6102d6b5.js"><link rel="prefetch" href="/myblog/assets/js/150.a10fbe23.js"><link rel="prefetch" href="/myblog/assets/js/151.59b9a9bc.js"><link rel="prefetch" href="/myblog/assets/js/152.57d4b167.js"><link rel="prefetch" href="/myblog/assets/js/153.ade06a30.js"><link rel="prefetch" href="/myblog/assets/js/154.2090cd81.js"><link rel="prefetch" href="/myblog/assets/js/155.a5e86e2c.js"><link rel="prefetch" href="/myblog/assets/js/156.e81d346d.js"><link rel="prefetch" href="/myblog/assets/js/157.358f3149.js"><link rel="prefetch" href="/myblog/assets/js/158.11f1f37c.js"><link rel="prefetch" href="/myblog/assets/js/159.57a9cb16.js"><link rel="prefetch" href="/myblog/assets/js/16.3de902b6.js"><link rel="prefetch" href="/myblog/assets/js/160.c1b99214.js"><link rel="prefetch" href="/myblog/assets/js/161.7b807fce.js"><link rel="prefetch" href="/myblog/assets/js/162.6730e829.js"><link rel="prefetch" href="/myblog/assets/js/163.75d1c1e3.js"><link rel="prefetch" href="/myblog/assets/js/164.fa940089.js"><link rel="prefetch" href="/myblog/assets/js/165.18bcc44a.js"><link rel="prefetch" href="/myblog/assets/js/166.5bd61587.js"><link rel="prefetch" href="/myblog/assets/js/167.ea1df507.js"><link rel="prefetch" href="/myblog/assets/js/168.b3ad8e86.js"><link rel="prefetch" href="/myblog/assets/js/169.deaf5e2e.js"><link rel="prefetch" href="/myblog/assets/js/17.9d58a534.js"><link rel="prefetch" href="/myblog/assets/js/170.f7ee29f0.js"><link rel="prefetch" href="/myblog/assets/js/171.86a266b1.js"><link rel="prefetch" href="/myblog/assets/js/172.e9d53d6f.js"><link rel="prefetch" href="/myblog/assets/js/173.a043c992.js"><link rel="prefetch" href="/myblog/assets/js/174.fc1bd20a.js"><link rel="prefetch" href="/myblog/assets/js/175.26a568fe.js"><link rel="prefetch" href="/myblog/assets/js/176.0923d712.js"><link rel="prefetch" href="/myblog/assets/js/177.6aa47743.js"><link rel="prefetch" href="/myblog/assets/js/178.467404ff.js"><link rel="prefetch" href="/myblog/assets/js/179.4642e58d.js"><link rel="prefetch" href="/myblog/assets/js/18.918298b4.js"><link rel="prefetch" href="/myblog/assets/js/180.583caa77.js"><link rel="prefetch" href="/myblog/assets/js/181.3061a032.js"><link rel="prefetch" href="/myblog/assets/js/182.fe812b44.js"><link rel="prefetch" href="/myblog/assets/js/183.97a2a972.js"><link rel="prefetch" href="/myblog/assets/js/184.8893e554.js"><link rel="prefetch" href="/myblog/assets/js/185.e621728c.js"><link rel="prefetch" href="/myblog/assets/js/186.ebb617e4.js"><link rel="prefetch" href="/myblog/assets/js/187.61b4ead0.js"><link rel="prefetch" href="/myblog/assets/js/188.12a677e1.js"><link rel="prefetch" href="/myblog/assets/js/19.3b29316b.js"><link rel="prefetch" href="/myblog/assets/js/20.1b0f0899.js"><link rel="prefetch" href="/myblog/assets/js/21.3b97dee5.js"><link rel="prefetch" href="/myblog/assets/js/22.32120acb.js"><link rel="prefetch" href="/myblog/assets/js/23.6bc91273.js"><link rel="prefetch" href="/myblog/assets/js/24.96185d15.js"><link rel="prefetch" href="/myblog/assets/js/25.4d2a9ef3.js"><link rel="prefetch" href="/myblog/assets/js/26.3991814b.js"><link rel="prefetch" href="/myblog/assets/js/27.5973e0a8.js"><link rel="prefetch" href="/myblog/assets/js/28.6f9cfe06.js"><link rel="prefetch" href="/myblog/assets/js/29.5e7843df.js"><link rel="prefetch" href="/myblog/assets/js/3.6e9b35ac.js"><link rel="prefetch" href="/myblog/assets/js/30.687bb250.js"><link rel="prefetch" href="/myblog/assets/js/31.57f1fa4f.js"><link rel="prefetch" href="/myblog/assets/js/32.d37002c7.js"><link rel="prefetch" href="/myblog/assets/js/33.586cac0f.js"><link rel="prefetch" href="/myblog/assets/js/34.15819850.js"><link rel="prefetch" href="/myblog/assets/js/35.87b0dff6.js"><link rel="prefetch" href="/myblog/assets/js/36.3536d052.js"><link rel="prefetch" href="/myblog/assets/js/37.d4f2ba94.js"><link rel="prefetch" href="/myblog/assets/js/38.0c622dbb.js"><link rel="prefetch" href="/myblog/assets/js/39.8b1ca7da.js"><link rel="prefetch" href="/myblog/assets/js/4.4d150138.js"><link rel="prefetch" href="/myblog/assets/js/40.52e1214e.js"><link rel="prefetch" href="/myblog/assets/js/41.69a2a392.js"><link rel="prefetch" href="/myblog/assets/js/42.9164b1e1.js"><link rel="prefetch" href="/myblog/assets/js/43.7cd99839.js"><link rel="prefetch" href="/myblog/assets/js/44.9de8c506.js"><link rel="prefetch" href="/myblog/assets/js/45.b80eae3a.js"><link rel="prefetch" href="/myblog/assets/js/46.c42b2b5d.js"><link rel="prefetch" href="/myblog/assets/js/47.5963124b.js"><link rel="prefetch" href="/myblog/assets/js/48.f6158ad7.js"><link rel="prefetch" href="/myblog/assets/js/49.19158305.js"><link rel="prefetch" href="/myblog/assets/js/5.f94f4ab3.js"><link rel="prefetch" href="/myblog/assets/js/50.f4f03055.js"><link rel="prefetch" href="/myblog/assets/js/51.a8ed1b2e.js"><link rel="prefetch" href="/myblog/assets/js/52.6e18c93d.js"><link rel="prefetch" href="/myblog/assets/js/53.333b0adc.js"><link rel="prefetch" href="/myblog/assets/js/54.b4c460fc.js"><link rel="prefetch" href="/myblog/assets/js/55.79ff0b0c.js"><link rel="prefetch" href="/myblog/assets/js/56.40e306f6.js"><link rel="prefetch" href="/myblog/assets/js/57.5bca9049.js"><link rel="prefetch" href="/myblog/assets/js/58.e2148d8b.js"><link rel="prefetch" href="/myblog/assets/js/59.deaeed1f.js"><link rel="prefetch" href="/myblog/assets/js/6.3bbb9ba3.js"><link rel="prefetch" href="/myblog/assets/js/60.800489eb.js"><link rel="prefetch" href="/myblog/assets/js/61.648c65e8.js"><link rel="prefetch" href="/myblog/assets/js/62.f279cca7.js"><link rel="prefetch" href="/myblog/assets/js/63.93cdd2c9.js"><link rel="prefetch" href="/myblog/assets/js/64.8cc37e58.js"><link rel="prefetch" href="/myblog/assets/js/65.3b315fce.js"><link rel="prefetch" href="/myblog/assets/js/66.21c3cdb1.js"><link rel="prefetch" href="/myblog/assets/js/67.eb5eb99c.js"><link rel="prefetch" href="/myblog/assets/js/68.7ca54892.js"><link rel="prefetch" href="/myblog/assets/js/69.2c90bdf6.js"><link rel="prefetch" href="/myblog/assets/js/7.72a4837e.js"><link rel="prefetch" href="/myblog/assets/js/70.5412a79a.js"><link rel="prefetch" href="/myblog/assets/js/71.520f6253.js"><link rel="prefetch" href="/myblog/assets/js/72.c9a36472.js"><link rel="prefetch" href="/myblog/assets/js/73.d79bf96c.js"><link rel="prefetch" href="/myblog/assets/js/74.08de1430.js"><link rel="prefetch" href="/myblog/assets/js/75.49201e1a.js"><link rel="prefetch" href="/myblog/assets/js/76.c347626b.js"><link rel="prefetch" href="/myblog/assets/js/77.16dfc5eb.js"><link rel="prefetch" href="/myblog/assets/js/78.4795a7e7.js"><link rel="prefetch" href="/myblog/assets/js/79.f07f128b.js"><link rel="prefetch" href="/myblog/assets/js/8.8862bf8f.js"><link rel="prefetch" href="/myblog/assets/js/80.a5c1e302.js"><link rel="prefetch" href="/myblog/assets/js/81.46f23ea3.js"><link rel="prefetch" href="/myblog/assets/js/82.cd6a7c3f.js"><link rel="prefetch" href="/myblog/assets/js/83.cddd17be.js"><link rel="prefetch" href="/myblog/assets/js/84.b693ed3e.js"><link rel="prefetch" href="/myblog/assets/js/85.06a3b9f5.js"><link rel="prefetch" href="/myblog/assets/js/86.cf25290b.js"><link rel="prefetch" href="/myblog/assets/js/87.d1721174.js"><link rel="prefetch" href="/myblog/assets/js/88.89540c75.js"><link rel="prefetch" href="/myblog/assets/js/89.e115e4b5.js"><link rel="prefetch" href="/myblog/assets/js/9.a846d955.js"><link rel="prefetch" href="/myblog/assets/js/90.cef08d1a.js"><link rel="prefetch" href="/myblog/assets/js/91.8c8f8874.js"><link rel="prefetch" href="/myblog/assets/js/92.845921d7.js"><link rel="prefetch" href="/myblog/assets/js/93.1d0fbebf.js"><link rel="prefetch" href="/myblog/assets/js/94.6e7468e2.js"><link rel="prefetch" href="/myblog/assets/js/95.baaab09a.js"><link rel="prefetch" href="/myblog/assets/js/96.d2221a4c.js"><link rel="prefetch" href="/myblog/assets/js/97.e808be2b.js"><link rel="prefetch" href="/myblog/assets/js/98.10993340.js"><link rel="prefetch" href="/myblog/assets/js/99.a58d96a4.js">
+    <link rel="stylesheet" href="/myblog/assets/css/0.styles.607a679b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/myblog/" class="home-link router-link-active"><!----> <span class="site-name">毕克有的技术笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/js/" class="nav-link router-link-active">
+  js篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/css/" class="nav-link">
+  css篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/tool/" class="nav-link">
+  工具篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/framework/" class="nav-link">
+  框架篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/webapp/" class="nav-link">
+  移动端app开发
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/weChatMiniProgram/" class="nav-link">
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/node/" class="nav-link">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/http/" class="nav-link">
+  http
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码解析" class="dropdown-title"><span class="title">源码解析</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/sourceCode/" class="nav-link">
+  jQuery
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/js/" class="nav-link router-link-active">
+  js篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/css/" class="nav-link">
+  css篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/tool/" class="nav-link">
+  工具篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/framework/" class="nav-link">
+  框架篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/webapp/" class="nav-link">
+  移动端app开发
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/weChatMiniProgram/" class="nav-link">
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/node/" class="nav-link">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/http/" class="nav-link">
+  http
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码解析" class="dropdown-title"><span class="title">源码解析</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/sourceCode/" class="nav-link">
+  jQuery
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>js篇</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>api</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>实用方法</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>作用域</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>es6</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>异步编程</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/myblog/js/异步编程/1.理解异步.html" class="sidebar-link">1.理解异步</a></li><li><a href="/myblog/js/异步编程/2.Event Loop机制.html" class="sidebar-link">2.Event Loop机制</a></li><li><a href="/myblog/js/异步编程/3.异步编程方法-发布和订阅.html" class="sidebar-link">3.异步编程方法-发布和订阅</a></li><li><a href="/myblog/js/异步编程/4.深入理解promise.html" class="active sidebar-link">4.深入理解promise</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/myblog/js/异步编程/4.深入理解promise.html#promise规范" class="sidebar-link">promise规范</a></li><li class="sidebar-sub-header"><a href="/myblog/js/异步编程/4.深入理解promise.html#es6-promise-api" class="sidebar-link">ES6 Promise API</a></li><li class="sidebar-sub-header"><a href="/myblog/js/异步编程/4.深入理解promise.html#promise-实践" class="sidebar-link">Promise 实践</a></li></ul></li></ul></section></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="_4-深入理解promise"><a href="#_4-深入理解promise" class="header-anchor">#</a> 4.深入理解promise</h1> <h2 id="promise规范"><a href="#promise规范" class="header-anchor">#</a> promise规范</h2> <h3 id="promsie-a-规范"><a href="#promsie-a-规范" class="header-anchor">#</a> Promsie/A+ 规范</h3> <ul><li>术语
+<ul><li>promise  一个有then方法定义的对象或函数，行为符合本规范</li> <li>thenable 一个定义了then 方法的对象或函数</li> <li>值， value  任何JavaScript合法的值</li> <li>异常， exception throw 抛出的值</li> <li>拒绝原因， reason  一个标示promise被拒绝原因的值</li></ul></li></ul> <h3 id="promise-的三种状态"><a href="#promise-的三种状态" class="header-anchor">#</a> promise 的三种状态</h3> <ul><li>pending  等待</li> <li>fulfilled  完成</li> <li>rejected  拒绝</li></ul> <h3 id="then方法"><a href="#then方法" class="header-anchor">#</a> then方法</h3> <ul><li><p>then方法的参数</p> <ul><li>两个函数参数</li> <li>onFulfilled在promise完成后被调用，onRejected 在 promise 被拒绝后调用</li> <li>只能被调用一次</li></ul></li> <li><p>then方法 可以被调用多次</p></li> <li><p>then方法 的返回值： promise</p></li></ul> <h3 id="确定返回的promise的状态"><a href="#确定返回的promise的状态" class="header-anchor">#</a> 确定返回的promise的状态</h3> <ul><li><p>第一种情况
+onFulfilled 不是函数，promise1 的状态是 fulfilled   <br>
+status: fulfilled   <br>
+value: 同 promise1  <br></p></li> <li><p>第二种情况</p> <p>onRejected 不是函数，promise1 的状态是 rejected   <br>
+status: rejected   <br>
+reason: 同 promise1  <br></p></li> <li><p>第三种情况</p> <p>onFulfilled或者onRejected	return x， 将进入解析过程</p></li></ul> <h3 id="promise-解析过程"><a href="#promise-解析过程" class="header-anchor">#</a> promise 解析过程</h3> <ul><li>抽象模型 resolve(promise, x)</li> <li>如果promise和x指向相同的值</li> <li>如果x是一个promise</li> <li>如果x是一个对象或一个函数</li> <li>如果x不是对象也不是函数</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">promise<span class="token punctuation">,</span> x</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>x <span class="token operator">===</span> promise<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token function">reject</span><span class="token punctuation">(</span>promise<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">'cant be the same'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">ifPromise</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>state <span class="token operator">===</span> <span class="token string">'pending'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">return</span> x<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+				<span class="token function">resolve</span><span class="token punctuation">(</span>promise<span class="token punctuation">,</span> x<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+				<span class="token function">reject</span><span class="token punctuation">(</span>promise<span class="token punctuation">,</span> x<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span>
+
+		<span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>state <span class="token operator">===</span> <span class="token string">'fulfilled'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">return</span> <span class="token function">fufill</span><span class="token punctuation">(</span>promise<span class="token punctuation">,</span> x<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+
+		<span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>state <span class="token operator">===</span> <span class="token string">'rejected'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">return</span> <span class="token function">reject</span><span class="token punctuation">(</span>promise<span class="token punctuation">,</span> x<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isObject</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token function">isFunction</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">let</span> then<span class="token punctuation">;</span>
+		<span class="token keyword">try</span> <span class="token punctuation">{</span>
+			then <span class="token operator">=</span> x<span class="token punctuation">.</span>then<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">return</span> <span class="token function">reject</span><span class="token punctuation">(</span>promise<span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+
+		<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isFunction</span><span class="token punctuation">(</span>then<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">let</span> isCalled <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+			<span class="token keyword">try</span> <span class="token punctuation">{</span>
+				<span class="token function">then</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token function">resolvePromise</span><span class="token punctuation">(</span><span class="token parameter">y</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+					<span class="token keyword">if</span><span class="token punctuation">(</span>isCalled<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						<span class="token keyword">return</span><span class="token punctuation">;</span>
+					<span class="token punctuation">}</span>
+					isCalled <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+					<span class="token function">resolve</span><span class="token punctuation">(</span>promise<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token function">rejectPromsie</span><span class="token punctuation">(</span><span class="token parameter">r</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+					<span class="token keyword">if</span><span class="token punctuation">(</span>isCalled<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						<span class="token keyword">return</span><span class="token punctuation">;</span>
+					<span class="token punctuation">}</span>
+					isCalled <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+					<span class="token function">reject</span><span class="token punctuation">(</span>promise<span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span><span class="token punctuation">)</span>
+			<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>isCalled<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+					<span class="token keyword">return</span> <span class="token function">reject</span><span class="token punctuation">(</span>promise<span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+			<span class="token keyword">return</span> <span class="token function">fulfill</span><span class="token punctuation">(</span>promise<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token function">fulfill</span><span class="token punctuation">(</span>promise<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> promise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 1</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 2</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 4</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 3</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> promise <span class="token operator">=</span> Promise<span class="token punctuation">.</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">then</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    <span class="token function">then</span><span class="token punctuation">(</span>Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+		<span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		
+<span class="token comment">//  等同于</span>
+<span class="token keyword">const</span> promise1 <span class="token operator">=</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> promise2 <span class="token operator">=</span> promise1<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> promise3 <span class="token operator">=</span> promise2<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> promise4 <span class="token operator">=</span> promise3<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// 1</span>
+</code></pre></div><blockquote><p>then 中非函数就忽略</p></blockquote> <h2 id="es6-promise-api"><a href="#es6-promise-api" class="header-anchor">#</a> ES6 Promise API</h2> <h3 id="promise-构造函数"><a href="#promise-构造函数" class="header-anchor">#</a> Promise 构造函数</h3> <ul><li>构造函数</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// resolve()</span>
+	<span class="token comment">// reject()</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span> 
+</code></pre></div><ul><li>说明
+<ul><li>函数作为参数
+<ul><li>resolve函数将promise状态从 pending 变成resolve(fulfilled)</li> <li>reject 函数将 promise 状态 从 pending 变成 rejected</li></ul></li></ul></li></ul> <h3 id="静态方法"><a href="#静态方法" class="header-anchor">#</a> 静态方法</h3> <table><thead><tr><th>方法</th> <th>说明</th></tr></thead> <tbody><tr><td>Promise.resolve(param)</td> <td>等同于 new Promise(function(resolve, reject){resolve(param)})</td></tr> <tr><td>Promise.reject(param)</td> <td>等同于 new Promise(function(resolve, reject){reject(reason)})</td></tr> <tr><td>Promise.all([p1, ..., pn])</td> <td>输入一组promise返回一个新的promise，全部promise都是fulfilled结果才是fulfilled</td></tr> <tr><td>Promise.allSettled([p1, ..., pn])</td> <td>输入一组promise返回一个新的promise，所有的promise状态改变后结果promise变成fulfilled状态</td></tr> <tr><td>Promise.race([p1, ..., pn])</td> <td>输入一组promise返回一个新的promise，结果promise的状态跟随第一个变化的promise状态</td></tr></tbody></table> <h3 id="promise-实例上的方法"><a href="#promise-实例上的方法" class="header-anchor">#</a> Promise 实例上的方法</h3> <table><thead><tr><th>方法</th> <th>说明</th></tr></thead> <tbody><tr><td>promise.then(onFulfilled, onRejected)</td> <td>promise状态改变之后的回调，返回新的promise对象</td></tr> <tr><td>promise.catch(function(reason){})</td> <td>同promise.then(null, onRejected), promise对象为rejected的回调</td></tr> <tr><td>promise.finally(function(resson){})</td> <td>同 promise.then(function(){//test}, function(){//test}), 不管promise状态如何都会执行</td></tr></tbody></table> <h3 id="注意点"><a href="#注意点" class="header-anchor">#</a> 注意点</h3> <ul><li>then, catch 返回的 primise 是新的primise，不是原来的 promise。</li> <li>promise 对象的错误会 ‘冒泡’， 知道被捕获为止， 错误会被下一个catch语句捕获。</li></ul> <h2 id="promise-实践"><a href="#promise-实践" class="header-anchor">#</a> Promise 实践</h2> <h3 id="最佳实践"><a href="#最佳实践" class="header-anchor">#</a> 最佳实践</h3> <ul><li>不要忘记 catch 捕获错误</li> <li>then 方法中使用 return</li> <li>传递函数给 then 方法</li> <li>不要把 promise 写成嵌套</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * 题目
+ * 3秒之后亮一次红灯， 再过两秒亮一次黄灯，再过1秒亮一次绿灯，用 promise 实现
+ * console.log 模拟亮灯
+ * 
+ * 拆解
+ * 多少秒后亮某个灯
+ * 顺序两一批deng
+ * 循环两一批灯
+ *  
+*/</span>
+<span class="token keyword">function</span> <span class="token function">light</span><span class="token punctuation">(</span><span class="token parameter">color<span class="token punctuation">,</span> second</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+			console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token operator">+</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+			console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>color<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span> second <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">orderLight</span><span class="token punctuation">(</span><span class="token parameter">list</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">var</span> promise <span class="token operator">=</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	list<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		promise <span class="token operator">=</span> promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">return</span> <span class="token function">light</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>color<span class="token punctuation">,</span> item<span class="token punctuation">.</span>second<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment">// promise = promise.then(light(item.color, item.second));</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		<span class="token function">orderLight</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> list <span class="token operator">=</span> <span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		color<span class="token operator">:</span> <span class="token string">'yellow'</span><span class="token punctuation">,</span>
+		second<span class="token operator">:</span> <span class="token number">3</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">{</span>
+		color<span class="token operator">:</span> <span class="token string">'red'</span><span class="token punctuation">,</span>
+		second<span class="token operator">:</span> <span class="token number">2</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">{</span>
+		color<span class="token operator">:</span> <span class="token string">'green'</span><span class="token punctuation">,</span>
+		second<span class="token operator">:</span> <span class="token number">1</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+
+<span class="token function">orderLight</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// then 中 返回 promise 时， 会等到 resolve 或者 reject 才往下执行； 其他情况不管</span>
+<span class="token comment">// new Promise(function (resolve) {</span>
+<span class="token comment">// 	setTimeout(() =&gt; {</span>
+<span class="token comment">// 		console.log(1);</span>
+<span class="token comment">// 		resolve(2);</span>
+<span class="token comment">// 	}, 2000);</span>
+<span class="token comment">// }).then(function (val) {</span>
+<span class="token comment">// 	// setTimeout(() =&gt; {</span>
+<span class="token comment">// 	// 	console.log(val);</span>
+<span class="token comment">// 	// 	return 3;</span>
+<span class="token comment">// 	// 	// return new Promise(function (resolve) {</span>
+<span class="token comment">// 	// 	// 	resolve(3);</span>
+<span class="token comment">// 	// 	// });</span>
+<span class="token comment">// 	// }, 1000);</span>
+
+<span class="token comment">// 	// return new Promise(function (resolve) {</span>
+<span class="token comment">// 	// 	setTimeout(() =&gt; {</span>
+<span class="token comment">// 	// 		console.log(val);</span>
+<span class="token comment">// 	// 		resolve(3)</span>
+<span class="token comment">// 	// 	}, 1000);</span>
+<span class="token comment">// 	// });</span>
+
+<span class="token comment">// 	// setTimeout(() =&gt; {</span>
+<span class="token comment">// 	// 	console.log(val);</span>
+<span class="token comment">// 	// }, 1000);</span>
+
+<span class="token comment">// 	// return 3;</span>
+<span class="token comment">// }).then(val =&gt; {</span>
+<span class="token comment">// 	console.log(val);</span>
+<span class="token comment">// 	setTimeout(() =&gt; {</span>
+<span class="token comment">// 		console.log(val);</span>
+<span class="token comment">// 	}, 1000);</span>
+<span class="token comment">// }).catch(err =&gt; {</span>
+<span class="token comment">// 	console.log(err);</span>
+<span class="token comment">// })</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/myblog/js/异步编程/3.异步编程方法-发布和订阅.html" class="prev">
+        3.异步编程方法-发布和订阅
+      </a></span> <!----></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/myblog/assets/js/app.803dbd2d.js" defer></script><script src="/myblog/assets/js/2.67b8352c.js" defer></script><script src="/myblog/assets/js/118.1982cfc1.js" defer></script>
+  </body>
+</html>

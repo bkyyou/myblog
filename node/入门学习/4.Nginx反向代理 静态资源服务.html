@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>4.Nginx反向代理 静态资源服务 | 毕克有的技术笔记</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    
+    <meta name="description" content="blog">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="preload" href="/myblog/assets/css/0.styles.607a679b.css" as="style"><link rel="preload" href="/myblog/assets/js/app.803dbd2d.js" as="script"><link rel="preload" href="/myblog/assets/js/2.67b8352c.js" as="script"><link rel="preload" href="/myblog/assets/js/143.9ed1119e.js" as="script"><link rel="prefetch" href="/myblog/assets/js/10.7f17d593.js"><link rel="prefetch" href="/myblog/assets/js/100.603cc8fb.js"><link rel="prefetch" href="/myblog/assets/js/101.403d319c.js"><link rel="prefetch" href="/myblog/assets/js/102.a0b192d4.js"><link rel="prefetch" href="/myblog/assets/js/103.f74866de.js"><link rel="prefetch" href="/myblog/assets/js/104.7c757894.js"><link rel="prefetch" href="/myblog/assets/js/105.80e31610.js"><link rel="prefetch" href="/myblog/assets/js/106.7d500f04.js"><link rel="prefetch" href="/myblog/assets/js/107.4359d39c.js"><link rel="prefetch" href="/myblog/assets/js/108.9f644e4a.js"><link rel="prefetch" href="/myblog/assets/js/109.099849c1.js"><link rel="prefetch" href="/myblog/assets/js/11.05b3d371.js"><link rel="prefetch" href="/myblog/assets/js/110.705e1a14.js"><link rel="prefetch" href="/myblog/assets/js/111.adb2d216.js"><link rel="prefetch" href="/myblog/assets/js/112.49babac1.js"><link rel="prefetch" href="/myblog/assets/js/113.0054665d.js"><link rel="prefetch" href="/myblog/assets/js/114.4e802ea0.js"><link rel="prefetch" href="/myblog/assets/js/115.02f67423.js"><link rel="prefetch" href="/myblog/assets/js/116.3fc8238d.js"><link rel="prefetch" href="/myblog/assets/js/117.54978570.js"><link rel="prefetch" href="/myblog/assets/js/118.1982cfc1.js"><link rel="prefetch" href="/myblog/assets/js/119.07f9aae1.js"><link rel="prefetch" href="/myblog/assets/js/12.27a4b1b3.js"><link rel="prefetch" href="/myblog/assets/js/120.7dcdaa23.js"><link rel="prefetch" href="/myblog/assets/js/121.3c074f8a.js"><link rel="prefetch" href="/myblog/assets/js/122.7ce4251c.js"><link rel="prefetch" href="/myblog/assets/js/123.63ab81aa.js"><link rel="prefetch" href="/myblog/assets/js/124.59882302.js"><link rel="prefetch" href="/myblog/assets/js/125.b6e9487d.js"><link rel="prefetch" href="/myblog/assets/js/126.8f821868.js"><link rel="prefetch" href="/myblog/assets/js/127.744850a1.js"><link rel="prefetch" href="/myblog/assets/js/128.4a491fee.js"><link rel="prefetch" href="/myblog/assets/js/129.e00451b0.js"><link rel="prefetch" href="/myblog/assets/js/13.983136f4.js"><link rel="prefetch" href="/myblog/assets/js/130.13f4d1bb.js"><link rel="prefetch" href="/myblog/assets/js/131.49b6261e.js"><link rel="prefetch" href="/myblog/assets/js/132.85fb8a6d.js"><link rel="prefetch" href="/myblog/assets/js/133.8896daa1.js"><link rel="prefetch" href="/myblog/assets/js/134.9b60a1f2.js"><link rel="prefetch" href="/myblog/assets/js/135.10ccbc10.js"><link rel="prefetch" href="/myblog/assets/js/136.c43f9850.js"><link rel="prefetch" href="/myblog/assets/js/137.dfc5cc5c.js"><link rel="prefetch" href="/myblog/assets/js/138.a53903a8.js"><link rel="prefetch" href="/myblog/assets/js/139.63cd1f95.js"><link rel="prefetch" href="/myblog/assets/js/14.c34c146d.js"><link rel="prefetch" href="/myblog/assets/js/140.fab95181.js"><link rel="prefetch" href="/myblog/assets/js/141.c9b588d4.js"><link rel="prefetch" href="/myblog/assets/js/142.6eca52d2.js"><link rel="prefetch" href="/myblog/assets/js/144.502d6c21.js"><link rel="prefetch" href="/myblog/assets/js/145.2c54e50f.js"><link rel="prefetch" href="/myblog/assets/js/146.c5b5bbb2.js"><link rel="prefetch" href="/myblog/assets/js/147.4e86e528.js"><link rel="prefetch" href="/myblog/assets/js/148.1ef9873a.js"><link rel="prefetch" href="/myblog/assets/js/149.a1cb6ae8.js"><link rel="prefetch" href="/myblog/assets/js/15.6102d6b5.js"><link rel="prefetch" href="/myblog/assets/js/150.a10fbe23.js"><link rel="prefetch" href="/myblog/assets/js/151.59b9a9bc.js"><link rel="prefetch" href="/myblog/assets/js/152.57d4b167.js"><link rel="prefetch" href="/myblog/assets/js/153.ade06a30.js"><link rel="prefetch" href="/myblog/assets/js/154.2090cd81.js"><link rel="prefetch" href="/myblog/assets/js/155.a5e86e2c.js"><link rel="prefetch" href="/myblog/assets/js/156.e81d346d.js"><link rel="prefetch" href="/myblog/assets/js/157.358f3149.js"><link rel="prefetch" href="/myblog/assets/js/158.11f1f37c.js"><link rel="prefetch" href="/myblog/assets/js/159.57a9cb16.js"><link rel="prefetch" href="/myblog/assets/js/16.3de902b6.js"><link rel="prefetch" href="/myblog/assets/js/160.c1b99214.js"><link rel="prefetch" href="/myblog/assets/js/161.7b807fce.js"><link rel="prefetch" href="/myblog/assets/js/162.6730e829.js"><link rel="prefetch" href="/myblog/assets/js/163.75d1c1e3.js"><link rel="prefetch" href="/myblog/assets/js/164.fa940089.js"><link rel="prefetch" href="/myblog/assets/js/165.18bcc44a.js"><link rel="prefetch" href="/myblog/assets/js/166.5bd61587.js"><link rel="prefetch" href="/myblog/assets/js/167.ea1df507.js"><link rel="prefetch" href="/myblog/assets/js/168.b3ad8e86.js"><link rel="prefetch" href="/myblog/assets/js/169.deaf5e2e.js"><link rel="prefetch" href="/myblog/assets/js/17.9d58a534.js"><link rel="prefetch" href="/myblog/assets/js/170.f7ee29f0.js"><link rel="prefetch" href="/myblog/assets/js/171.86a266b1.js"><link rel="prefetch" href="/myblog/assets/js/172.e9d53d6f.js"><link rel="prefetch" href="/myblog/assets/js/173.a043c992.js"><link rel="prefetch" href="/myblog/assets/js/174.fc1bd20a.js"><link rel="prefetch" href="/myblog/assets/js/175.26a568fe.js"><link rel="prefetch" href="/myblog/assets/js/176.0923d712.js"><link rel="prefetch" href="/myblog/assets/js/177.6aa47743.js"><link rel="prefetch" href="/myblog/assets/js/178.467404ff.js"><link rel="prefetch" href="/myblog/assets/js/179.4642e58d.js"><link rel="prefetch" href="/myblog/assets/js/18.918298b4.js"><link rel="prefetch" href="/myblog/assets/js/180.583caa77.js"><link rel="prefetch" href="/myblog/assets/js/181.3061a032.js"><link rel="prefetch" href="/myblog/assets/js/182.fe812b44.js"><link rel="prefetch" href="/myblog/assets/js/183.97a2a972.js"><link rel="prefetch" href="/myblog/assets/js/184.8893e554.js"><link rel="prefetch" href="/myblog/assets/js/185.e621728c.js"><link rel="prefetch" href="/myblog/assets/js/186.ebb617e4.js"><link rel="prefetch" href="/myblog/assets/js/187.61b4ead0.js"><link rel="prefetch" href="/myblog/assets/js/188.12a677e1.js"><link rel="prefetch" href="/myblog/assets/js/19.3b29316b.js"><link rel="prefetch" href="/myblog/assets/js/20.1b0f0899.js"><link rel="prefetch" href="/myblog/assets/js/21.3b97dee5.js"><link rel="prefetch" href="/myblog/assets/js/22.32120acb.js"><link rel="prefetch" href="/myblog/assets/js/23.6bc91273.js"><link rel="prefetch" href="/myblog/assets/js/24.96185d15.js"><link rel="prefetch" href="/myblog/assets/js/25.4d2a9ef3.js"><link rel="prefetch" href="/myblog/assets/js/26.3991814b.js"><link rel="prefetch" href="/myblog/assets/js/27.5973e0a8.js"><link rel="prefetch" href="/myblog/assets/js/28.6f9cfe06.js"><link rel="prefetch" href="/myblog/assets/js/29.5e7843df.js"><link rel="prefetch" href="/myblog/assets/js/3.6e9b35ac.js"><link rel="prefetch" href="/myblog/assets/js/30.687bb250.js"><link rel="prefetch" href="/myblog/assets/js/31.57f1fa4f.js"><link rel="prefetch" href="/myblog/assets/js/32.d37002c7.js"><link rel="prefetch" href="/myblog/assets/js/33.586cac0f.js"><link rel="prefetch" href="/myblog/assets/js/34.15819850.js"><link rel="prefetch" href="/myblog/assets/js/35.87b0dff6.js"><link rel="prefetch" href="/myblog/assets/js/36.3536d052.js"><link rel="prefetch" href="/myblog/assets/js/37.d4f2ba94.js"><link rel="prefetch" href="/myblog/assets/js/38.0c622dbb.js"><link rel="prefetch" href="/myblog/assets/js/39.8b1ca7da.js"><link rel="prefetch" href="/myblog/assets/js/4.4d150138.js"><link rel="prefetch" href="/myblog/assets/js/40.52e1214e.js"><link rel="prefetch" href="/myblog/assets/js/41.69a2a392.js"><link rel="prefetch" href="/myblog/assets/js/42.9164b1e1.js"><link rel="prefetch" href="/myblog/assets/js/43.7cd99839.js"><link rel="prefetch" href="/myblog/assets/js/44.9de8c506.js"><link rel="prefetch" href="/myblog/assets/js/45.b80eae3a.js"><link rel="prefetch" href="/myblog/assets/js/46.c42b2b5d.js"><link rel="prefetch" href="/myblog/assets/js/47.5963124b.js"><link rel="prefetch" href="/myblog/assets/js/48.f6158ad7.js"><link rel="prefetch" href="/myblog/assets/js/49.19158305.js"><link rel="prefetch" href="/myblog/assets/js/5.f94f4ab3.js"><link rel="prefetch" href="/myblog/assets/js/50.f4f03055.js"><link rel="prefetch" href="/myblog/assets/js/51.a8ed1b2e.js"><link rel="prefetch" href="/myblog/assets/js/52.6e18c93d.js"><link rel="prefetch" href="/myblog/assets/js/53.333b0adc.js"><link rel="prefetch" href="/myblog/assets/js/54.b4c460fc.js"><link rel="prefetch" href="/myblog/assets/js/55.79ff0b0c.js"><link rel="prefetch" href="/myblog/assets/js/56.40e306f6.js"><link rel="prefetch" href="/myblog/assets/js/57.5bca9049.js"><link rel="prefetch" href="/myblog/assets/js/58.e2148d8b.js"><link rel="prefetch" href="/myblog/assets/js/59.deaeed1f.js"><link rel="prefetch" href="/myblog/assets/js/6.3bbb9ba3.js"><link rel="prefetch" href="/myblog/assets/js/60.800489eb.js"><link rel="prefetch" href="/myblog/assets/js/61.648c65e8.js"><link rel="prefetch" href="/myblog/assets/js/62.f279cca7.js"><link rel="prefetch" href="/myblog/assets/js/63.93cdd2c9.js"><link rel="prefetch" href="/myblog/assets/js/64.8cc37e58.js"><link rel="prefetch" href="/myblog/assets/js/65.3b315fce.js"><link rel="prefetch" href="/myblog/assets/js/66.21c3cdb1.js"><link rel="prefetch" href="/myblog/assets/js/67.eb5eb99c.js"><link rel="prefetch" href="/myblog/assets/js/68.7ca54892.js"><link rel="prefetch" href="/myblog/assets/js/69.2c90bdf6.js"><link rel="prefetch" href="/myblog/assets/js/7.72a4837e.js"><link rel="prefetch" href="/myblog/assets/js/70.5412a79a.js"><link rel="prefetch" href="/myblog/assets/js/71.520f6253.js"><link rel="prefetch" href="/myblog/assets/js/72.c9a36472.js"><link rel="prefetch" href="/myblog/assets/js/73.d79bf96c.js"><link rel="prefetch" href="/myblog/assets/js/74.08de1430.js"><link rel="prefetch" href="/myblog/assets/js/75.49201e1a.js"><link rel="prefetch" href="/myblog/assets/js/76.c347626b.js"><link rel="prefetch" href="/myblog/assets/js/77.16dfc5eb.js"><link rel="prefetch" href="/myblog/assets/js/78.4795a7e7.js"><link rel="prefetch" href="/myblog/assets/js/79.f07f128b.js"><link rel="prefetch" href="/myblog/assets/js/8.8862bf8f.js"><link rel="prefetch" href="/myblog/assets/js/80.a5c1e302.js"><link rel="prefetch" href="/myblog/assets/js/81.46f23ea3.js"><link rel="prefetch" href="/myblog/assets/js/82.cd6a7c3f.js"><link rel="prefetch" href="/myblog/assets/js/83.cddd17be.js"><link rel="prefetch" href="/myblog/assets/js/84.b693ed3e.js"><link rel="prefetch" href="/myblog/assets/js/85.06a3b9f5.js"><link rel="prefetch" href="/myblog/assets/js/86.cf25290b.js"><link rel="prefetch" href="/myblog/assets/js/87.d1721174.js"><link rel="prefetch" href="/myblog/assets/js/88.89540c75.js"><link rel="prefetch" href="/myblog/assets/js/89.e115e4b5.js"><link rel="prefetch" href="/myblog/assets/js/9.a846d955.js"><link rel="prefetch" href="/myblog/assets/js/90.cef08d1a.js"><link rel="prefetch" href="/myblog/assets/js/91.8c8f8874.js"><link rel="prefetch" href="/myblog/assets/js/92.845921d7.js"><link rel="prefetch" href="/myblog/assets/js/93.1d0fbebf.js"><link rel="prefetch" href="/myblog/assets/js/94.6e7468e2.js"><link rel="prefetch" href="/myblog/assets/js/95.baaab09a.js"><link rel="prefetch" href="/myblog/assets/js/96.d2221a4c.js"><link rel="prefetch" href="/myblog/assets/js/97.e808be2b.js"><link rel="prefetch" href="/myblog/assets/js/98.10993340.js"><link rel="prefetch" href="/myblog/assets/js/99.a58d96a4.js">
+    <link rel="stylesheet" href="/myblog/assets/css/0.styles.607a679b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/myblog/" class="home-link router-link-active"><!----> <span class="site-name">毕克有的技术笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/js/" class="nav-link">
+  js篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/css/" class="nav-link">
+  css篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/tool/" class="nav-link">
+  工具篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/framework/" class="nav-link">
+  框架篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/webapp/" class="nav-link">
+  移动端app开发
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/weChatMiniProgram/" class="nav-link">
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/node/" class="nav-link router-link-active">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/http/" class="nav-link">
+  http
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码解析" class="dropdown-title"><span class="title">源码解析</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/sourceCode/" class="nav-link">
+  jQuery
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/js/" class="nav-link">
+  js篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/css/" class="nav-link">
+  css篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/tool/" class="nav-link">
+  工具篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/framework/" class="nav-link">
+  框架篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/webapp/" class="nav-link">
+  移动端app开发
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/weChatMiniProgram/" class="nav-link">
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/node/" class="nav-link router-link-active">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/http/" class="nav-link">
+  http
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码解析" class="dropdown-title"><span class="title">源码解析</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/sourceCode/" class="nav-link">
+  jQuery
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>node入门学习</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/myblog/node/入门学习/1.es6快速入门.html" class="sidebar-link">1.es6快速入门</a></li><li><a href="/myblog/node/入门学习/2.服务端开发入门-node静态服务端.html" class="sidebar-link">2.服务端开发入门-node静态服务端</a></li><li><a href="/myblog/node/入门学习/3.Linux快速上手玩转典型应用.html" class="sidebar-link">3.Linux快速上手玩转典型应用</a></li><li><a href="/myblog/node/入门学习/4.Nginx反向代理 静态资源服务.html" class="active sidebar-link">4.Nginx反向代理 静态资源服务</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/myblog/node/入门学习/4.Nginx反向代理 静态资源服务.html#nginx简介" class="sidebar-link">Nginx简介</a></li><li class="sidebar-sub-header"><a href="/myblog/node/入门学习/4.Nginx反向代理 静态资源服务.html#选择nginx的理由" class="sidebar-link">选择Nginx的理由</a></li><li class="sidebar-sub-header"><a href="/myblog/node/入门学习/4.Nginx反向代理 静态资源服务.html#nginx安装前准备" class="sidebar-link">Nginx安装前准备</a></li><li class="sidebar-sub-header"><a href="/myblog/node/入门学习/4.Nginx反向代理 静态资源服务.html#nginx编译安装" class="sidebar-link">Nginx编译安装</a></li><li class="sidebar-sub-header"><a href="/myblog/node/入门学习/4.Nginx反向代理 静态资源服务.html#nginx配置与优化" class="sidebar-link">Nginx配置与优化</a></li><li class="sidebar-sub-header"><a href="/myblog/node/入门学习/4.Nginx反向代理 静态资源服务.html#rewrite重写" class="sidebar-link">Rewrite重写</a></li><li class="sidebar-sub-header"><a href="/myblog/node/入门学习/4.Nginx反向代理 静态资源服务.html#反向代理及负载均衡" class="sidebar-link">反向代理及负载均衡</a></li></ul></li><li><a href="/myblog/node/入门学习/5.redis的入门与应用.html" class="sidebar-link">5.redis的入门与应用</a></li><li><a href="/myblog/node/入门学习/6.MongoDB入门与应用.html" class="sidebar-link">6.MongoDB入门与应用</a></li><li><a href="/myblog/node/入门学习/7.MySQL入门与应用.html" class="sidebar-link">7.MySQL入门与应用</a></li><li><a href="/myblog/node/入门学习/8.通讯协议详解.html" class="sidebar-link">8.通讯协议详解</a></li><li><a href="/myblog/node/入门学习/9.异步IO实现现状.html" class="sidebar-link">9.异步IO实现现状</a></li><li><a href="/myblog/node/入门学习/10.异步编程的优势与难点.html" class="sidebar-link">10.异步编程的优势与难点</a></li><li><a href="/myblog/node/入门学习/11.ES6+异步编程解决方案.html" class="sidebar-link">11.ES6+异步编程解决方案</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Koa源码分析</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>egg.js应用实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node.js 自动化测试</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第三方模块使用</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="_4-nginx反向代理-静态资源服务"><a href="#_4-nginx反向代理-静态资源服务" class="header-anchor">#</a> 4.Nginx反向代理 静态资源服务</h1> <h2 id="nginx简介"><a href="#nginx简介" class="header-anchor">#</a> Nginx简介</h2> <p>Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时也提供了IMAP/POP3/SMTP服务。它是由俄罗斯人Igor Sysoev（伊戈尔·塞索耶夫）编写的。</p> <p>Nginx是一款轻量级的Web 服务器，因它的稳定性、丰富的功能集、示例配置文件和低系统资源消耗而闻名。其特点是占用内存少，并发能力强，事实上Nginx的并发能力在同类型的web服务器中表现较好。</p> <p>在国内，已经有百度、京东、新浪、网易、腾讯、淘宝等多家网站使用Nginx作为Web服务器或反向代理服务器。</p> <h2 id="选择nginx的理由"><a href="#选择nginx的理由" class="header-anchor">#</a> 选择Nginx的理由</h2> <ul><li>高并发连接<br>
+官方测试Nginx能够支持5万并发连接，在实际生产环境中可支撑2-4万并发连接数。</li> <li>消耗内存少<br>
+在同等硬件环境下，Nginx的处理能力相当于Apache的5-10倍。</li> <li>成本低廉<br>
+Nginx作为开源软件，可以免费使用，并且可用于商业用途。</li> <li>其它理由
+配置文件非常简单
+支持Rewrite重写规则
+内置健康检查功能
+节省带宽
+稳定性高</li></ul> <h2 id="nginx安装前准备"><a href="#nginx安装前准备" class="header-anchor">#</a> Nginx安装前准备</h2> <p>gcc编译器：用于官网源码进行编译，依赖于gcc环境。 <br>
+依赖模块：Nginx的一些模块需要第三方库支持。 <br>
+下载地址：http://nginx.org/en/download.html。</p> <div class="language- extra-class"><pre class="language-text"><code>yum -y install gcc gcc-c++ autoconf automake
+
+yum -y install zlib zlib-devel openssl openssl-devel pcre pcre-devel
+
+wget -O /tmp/nginx.tar.gz http://nginx.org/download/nginx-1.16.1.tar.gz   // -O 是大写的
+</code></pre></div><h2 id="nginx编译安装"><a href="#nginx编译安装" class="header-anchor">#</a> Nginx编译安装</h2> <div class="language-text extra-class"><pre class="language-text"><code># 解压
+tar -zxvf /tmp/nginx.tar.gz
+cd /tmp/nginx-1.16.1/
+
+# 配置安装路径
+./configure --prefix=/usr/local/nginx
+# 编译
+make
+# 安装
+make install
+</code></pre></div><p>// 下边的操作是查看 nginx 是否安装成功 <br>
+cd /usr/local/nginx  <br>
+cd sbin/ <br>
+./nginx        //没有配置环境变量只能 ./nginx <br>
+ps -ef | grep ngin   // 查看进程 <br>
+./nginx -s stop  // 停止 nginx</p> <ul><li>配置环境变量  为了能使用 nginx 命令 <br>
+vim /etc/profile  <br>
+// 在配置文件的最后进行配置环境变量  <br>
+NGINX_HOME=/usr/local/nginx    <br>
+export PATH=$PATH:$NGINX_HOME/sbin	  <br></li></ul> <blockquote><p>usr 没有 e 的 <br>
+有的程序是 sbin 有的是 bin  <br></p></blockquote> <p>source /etc/profile    // 刷新环境变量  <br></p> <blockquote><p>运行命令 nginx</p></blockquote> <ul><li><p>端口配置
+firewall-cmd --zone=public --list-ports  // 查看所有端口  <br>
+firewall-cmd --zone=public --add-port=80/tcp    // 临时开放 80 端口 <br>
+firewall-cmd --zone=public --add-port=80/tcp	--permanent  // 永久开放 80 端口 <br>
+// 如果还是不行 需要进行 reload <br>
+firewall-cmd --reload</p></li> <li><p>修改 nginx 默认页</p> <p>nginx 的默认页位置 <br>
+/usr/local/nginx/html 下的 index.html    // index.html 中需要设置字符集  &lt;meta charset=&quot;utf-8&quot; /&gt;</p></li> <li><p>nginx 的相关操作命令
+nginx -s stop   // 直接找到进程关闭，很粗暴  <br>
+nginx -s quit   // 平缓关闭，不会接收新的请求 ，并且将当前的网络请求处理完之后，关闭  <br>
+nginx -s reload  // 重新加载配置文件  <br>
+nginx -t    			 // 检查默认配置文件  <br>
+nginx -t -c 路径   // 自己的配置文件  <br></p></li> <li><p>将 nginx 添加到 系统服务  TODO 没有配置完，需要看后期的课件  <br>
+添加之后可以使用  service nginx start 来启动 nginx <br>
+cd  /usr/lib/systemd/system <br>
+ll || grep firewalld <br></p></li></ul> <p>配置完之后就可以使用  systemctl 来启动服务  <br>
+systemctl enable nginx   开机启动  <br>
+systemctl disable fillwall  移除防火墙  <br></p> <h2 id="nginx配置与优化"><a href="#nginx配置与优化" class="header-anchor">#</a> Nginx配置与优化</h2> <h3 id="配置文件结构"><a href="#配置文件结构" class="header-anchor">#</a> 配置文件结构</h3> <ul><li><p><strong>配置文件位置</strong> <br>
+cd /usr/local/nginx/conf/ <br>
+vim nginx.conf</p></li> <li><p>文件介绍
+分为三块: 全局区域, events区域,  http区域.</p></li></ul> <ol><li>全局区域  <br>
+// 使用的用户和组 <br>
+usr nobody; <br>
+// 指定工作衍生的进程 <br>
+worker_precess 1; <br>
+// 指定错误日志的存放路径 <br>
+error_log logs/error.log; <br>
+// pid 位置 <br>
+pid  logs/nginx.pid;</li></ol> <p>vim /usr/local/nginx/logs/nginx.pid</p> <ol start="2"><li>events区域 <br>
+可以指定我们使用的 io 模型 <br></li> <li>http 区域 <br>
+http 里有 server 区域， 是对主机的设置。一个虚拟主机就是一个 server 块。 <br></li></ol> <h3 id="虚拟主机配置"><a href="#虚拟主机配置" class="header-anchor">#</a> 虚拟主机配置</h3> <p>在 http 内进行配置</p> <div class="language- extra-class"><pre class="language-text"><code>// 以后买的域名绑定到网站上就是在这配置
+server {
+	// 端口
+	listen 80;
+	// 主机名
+	server_name  aaa.domain.com;
+	// 访问日志的存放路径     combined 是log 默认的格式
+	access_log   logs/aaa.domain.com.access.log combined;     // 或者
+	access_log   logs/aaa.domain.com.access.log mylogformat;    // mylogformat 是自己定义的格式
+	location / {
+		index  index.html  index.php;
+		root   /data/htdocs/aaa.domain.com;
+	}
+}
+</code></pre></div><p>mkdir -p /data/htdocs/aaa.domain.com  <br>
+vim index.html  <br>
+在 hosts 文件中配置 域名  <br>
+192.168.2.179 aaa.domain.com</p> <h3 id="日志配置与切割"><a href="#日志配置与切割" class="header-anchor">#</a> 日志配置与切割</h3> <ul><li>日志配置   <br>
+可以放在 http 中 也可以放在 server中，http表示所有虚拟主机的， server表示单个的。	   <br>
+log_format mylogformat '$http_x_forward_for - $remote_user [$time_local]';  // 定义打印格式  <br></li></ul> <p>tail -f /usr/local/nginx/logs/aaa.domian.com.access.log   // 实时刷新  <br>
+没有反应，主动结束进程试试看  <br>
+kill -USER1 '/usr/local/nginx/logs/nginx.pid'  <br>
+kill -USER1 'cat /usr/local/nginx/logs/nginx.pid'  <br>
+ps -ef | grep nginx =&gt; kill -USER1 16633 // ps 查到的  <br></p> <ul><li>切割</li></ul> <h3 id="压缩输出配置"><a href="#压缩输出配置" class="header-anchor">#</a> 压缩输出配置</h3> <p>在 gzip on 的位置配置  <br>
+gzip  on;  // 开启 gzip  <br>
+gzip_min_length 1k;  // 最小长度  <br>
+gzip_buffers 4 16K;  <br>
+gzip_http-version 1.1;  <br>
+gzip_comp_level 2;  //编译等级  <br>
+gzip_types text/plain application/x-javas text/css application/xml  <br>
+gzip_vary on;  <br></p> <h2 id="rewrite重写"><a href="#rewrite重写" class="header-anchor">#</a> Rewrite重写</h2> <p>Rewrite主要功能就是实现URL重写。 <br>
+通过Rewrite规则，可以实现规范的URL。 <br></p> <div class="language- extra-class"><pre class="language-text"><code>server{
+	location / {
+		rewrite ^(.*).htmp$ /rewrite.html;
+	}	
+}
+
+</code></pre></div><h2 id="反向代理及负载均衡"><a href="#反向代理及负载均衡" class="header-anchor">#</a> 反向代理及负载均衡</h2> <p>正向代理代理客户端，反向代理代理服务端</p> <h3 id="反向代理"><a href="#反向代理" class="header-anchor">#</a> 反向代理</h3> <p>指以代理服务器来接收Internet上的连接请求，然后将请求转发给网络上的服务器，并将从该服务器得到的结果返回给Internet上请求连接的客户端，此时代理服务器对外就表现为一个服务器。</p> <ol><li>在 http 中进行配置</li></ol> <div class="language- extra-class"><pre class="language-text"><code>server {
+	// 端口
+	listen 80;
+	// 主机名
+	server_name daili.com;
+	location / {
+		proxy_pass http://${ip}:8080;  // proxy_pass 域名，没有ssh 只能访问 http 的网站
+		index index.html index.php;
+	}
+}
+</code></pre></div><ol start="2"><li>配置域名
+ip  daili.com</li></ol> <h3 id="负载均衡"><a href="#负载均衡" class="header-anchor">#</a> 负载均衡</h3> <p>由多台服务器以对称的方式组成一个服务器集合，每台服务器都具有等价的地位，都可以单独对外提供服务而无需其它服务器的辅助。</p> <div class="language- extra-class"><pre class="language-text"><code>// 全局
+upstream myserver1 {
+	server 192.168.2.114:8080;
+}
+upstream myserver2 {
+	server 192.168.2.114:8081;
+}
+upstream myserver {
+	server 192.168.2.114:8080;
+	server 192.168.2.114:8081;
+}
+
+server {
+	// 端口
+	listen 80;
+	// 主机名
+	server_name daili.com;
+	location / {
+		proxy_pass http://myserver;
+		index index.html index.php;
+	}
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>server {
+	// 端口
+	listen 80;
+	// 主机名
+	server_name daili.com;
+	location / {
+		proxy_pass http://myserver;
+		index index.html index.php;
+	}
+	location ~ \.php$ s{
+		fastcgi 127.0.0.1:9000;   // fpm
+	}
+}
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/myblog/node/入门学习/3.Linux快速上手玩转典型应用.html" class="prev">
+        3.Linux快速上手玩转典型应用
+      </a></span> <span class="next"><a href="/myblog/node/入门学习/5.redis的入门与应用.html">
+        5.redis的入门与应用
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/myblog/assets/js/app.803dbd2d.js" defer></script><script src="/myblog/assets/js/2.67b8352c.js" defer></script><script src="/myblog/assets/js/143.9ed1119e.js" defer></script>
+  </body>
+</html>

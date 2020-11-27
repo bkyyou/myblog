@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>2.	单元测试概述 | 毕克有的技术笔记</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    
+    <meta name="description" content="blog">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="preload" href="/myblog/assets/css/0.styles.607a679b.css" as="style"><link rel="preload" href="/myblog/assets/js/app.803dbd2d.js" as="script"><link rel="preload" href="/myblog/assets/js/2.67b8352c.js" as="script"><link rel="preload" href="/myblog/assets/js/33.586cac0f.js" as="script"><link rel="prefetch" href="/myblog/assets/js/10.7f17d593.js"><link rel="prefetch" href="/myblog/assets/js/100.603cc8fb.js"><link rel="prefetch" href="/myblog/assets/js/101.403d319c.js"><link rel="prefetch" href="/myblog/assets/js/102.a0b192d4.js"><link rel="prefetch" href="/myblog/assets/js/103.f74866de.js"><link rel="prefetch" href="/myblog/assets/js/104.7c757894.js"><link rel="prefetch" href="/myblog/assets/js/105.80e31610.js"><link rel="prefetch" href="/myblog/assets/js/106.7d500f04.js"><link rel="prefetch" href="/myblog/assets/js/107.4359d39c.js"><link rel="prefetch" href="/myblog/assets/js/108.9f644e4a.js"><link rel="prefetch" href="/myblog/assets/js/109.099849c1.js"><link rel="prefetch" href="/myblog/assets/js/11.05b3d371.js"><link rel="prefetch" href="/myblog/assets/js/110.705e1a14.js"><link rel="prefetch" href="/myblog/assets/js/111.adb2d216.js"><link rel="prefetch" href="/myblog/assets/js/112.49babac1.js"><link rel="prefetch" href="/myblog/assets/js/113.0054665d.js"><link rel="prefetch" href="/myblog/assets/js/114.4e802ea0.js"><link rel="prefetch" href="/myblog/assets/js/115.02f67423.js"><link rel="prefetch" href="/myblog/assets/js/116.3fc8238d.js"><link rel="prefetch" href="/myblog/assets/js/117.54978570.js"><link rel="prefetch" href="/myblog/assets/js/118.1982cfc1.js"><link rel="prefetch" href="/myblog/assets/js/119.07f9aae1.js"><link rel="prefetch" href="/myblog/assets/js/12.27a4b1b3.js"><link rel="prefetch" href="/myblog/assets/js/120.7dcdaa23.js"><link rel="prefetch" href="/myblog/assets/js/121.3c074f8a.js"><link rel="prefetch" href="/myblog/assets/js/122.7ce4251c.js"><link rel="prefetch" href="/myblog/assets/js/123.63ab81aa.js"><link rel="prefetch" href="/myblog/assets/js/124.59882302.js"><link rel="prefetch" href="/myblog/assets/js/125.b6e9487d.js"><link rel="prefetch" href="/myblog/assets/js/126.8f821868.js"><link rel="prefetch" href="/myblog/assets/js/127.744850a1.js"><link rel="prefetch" href="/myblog/assets/js/128.4a491fee.js"><link rel="prefetch" href="/myblog/assets/js/129.e00451b0.js"><link rel="prefetch" href="/myblog/assets/js/13.983136f4.js"><link rel="prefetch" href="/myblog/assets/js/130.13f4d1bb.js"><link rel="prefetch" href="/myblog/assets/js/131.49b6261e.js"><link rel="prefetch" href="/myblog/assets/js/132.85fb8a6d.js"><link rel="prefetch" href="/myblog/assets/js/133.8896daa1.js"><link rel="prefetch" href="/myblog/assets/js/134.9b60a1f2.js"><link rel="prefetch" href="/myblog/assets/js/135.10ccbc10.js"><link rel="prefetch" href="/myblog/assets/js/136.c43f9850.js"><link rel="prefetch" href="/myblog/assets/js/137.dfc5cc5c.js"><link rel="prefetch" href="/myblog/assets/js/138.a53903a8.js"><link rel="prefetch" href="/myblog/assets/js/139.63cd1f95.js"><link rel="prefetch" href="/myblog/assets/js/14.c34c146d.js"><link rel="prefetch" href="/myblog/assets/js/140.fab95181.js"><link rel="prefetch" href="/myblog/assets/js/141.c9b588d4.js"><link rel="prefetch" href="/myblog/assets/js/142.6eca52d2.js"><link rel="prefetch" href="/myblog/assets/js/143.9ed1119e.js"><link rel="prefetch" href="/myblog/assets/js/144.502d6c21.js"><link rel="prefetch" href="/myblog/assets/js/145.2c54e50f.js"><link rel="prefetch" href="/myblog/assets/js/146.c5b5bbb2.js"><link rel="prefetch" href="/myblog/assets/js/147.4e86e528.js"><link rel="prefetch" href="/myblog/assets/js/148.1ef9873a.js"><link rel="prefetch" href="/myblog/assets/js/149.a1cb6ae8.js"><link rel="prefetch" href="/myblog/assets/js/15.6102d6b5.js"><link rel="prefetch" href="/myblog/assets/js/150.a10fbe23.js"><link rel="prefetch" href="/myblog/assets/js/151.59b9a9bc.js"><link rel="prefetch" href="/myblog/assets/js/152.57d4b167.js"><link rel="prefetch" href="/myblog/assets/js/153.ade06a30.js"><link rel="prefetch" href="/myblog/assets/js/154.2090cd81.js"><link rel="prefetch" href="/myblog/assets/js/155.a5e86e2c.js"><link rel="prefetch" href="/myblog/assets/js/156.e81d346d.js"><link rel="prefetch" href="/myblog/assets/js/157.358f3149.js"><link rel="prefetch" href="/myblog/assets/js/158.11f1f37c.js"><link rel="prefetch" href="/myblog/assets/js/159.57a9cb16.js"><link rel="prefetch" href="/myblog/assets/js/16.3de902b6.js"><link rel="prefetch" href="/myblog/assets/js/160.c1b99214.js"><link rel="prefetch" href="/myblog/assets/js/161.7b807fce.js"><link rel="prefetch" href="/myblog/assets/js/162.6730e829.js"><link rel="prefetch" href="/myblog/assets/js/163.75d1c1e3.js"><link rel="prefetch" href="/myblog/assets/js/164.fa940089.js"><link rel="prefetch" href="/myblog/assets/js/165.18bcc44a.js"><link rel="prefetch" href="/myblog/assets/js/166.5bd61587.js"><link rel="prefetch" href="/myblog/assets/js/167.ea1df507.js"><link rel="prefetch" href="/myblog/assets/js/168.b3ad8e86.js"><link rel="prefetch" href="/myblog/assets/js/169.deaf5e2e.js"><link rel="prefetch" href="/myblog/assets/js/17.9d58a534.js"><link rel="prefetch" href="/myblog/assets/js/170.f7ee29f0.js"><link rel="prefetch" href="/myblog/assets/js/171.86a266b1.js"><link rel="prefetch" href="/myblog/assets/js/172.e9d53d6f.js"><link rel="prefetch" href="/myblog/assets/js/173.a043c992.js"><link rel="prefetch" href="/myblog/assets/js/174.fc1bd20a.js"><link rel="prefetch" href="/myblog/assets/js/175.26a568fe.js"><link rel="prefetch" href="/myblog/assets/js/176.0923d712.js"><link rel="prefetch" href="/myblog/assets/js/177.6aa47743.js"><link rel="prefetch" href="/myblog/assets/js/178.467404ff.js"><link rel="prefetch" href="/myblog/assets/js/179.4642e58d.js"><link rel="prefetch" href="/myblog/assets/js/18.918298b4.js"><link rel="prefetch" href="/myblog/assets/js/180.583caa77.js"><link rel="prefetch" href="/myblog/assets/js/181.3061a032.js"><link rel="prefetch" href="/myblog/assets/js/182.fe812b44.js"><link rel="prefetch" href="/myblog/assets/js/183.97a2a972.js"><link rel="prefetch" href="/myblog/assets/js/184.8893e554.js"><link rel="prefetch" href="/myblog/assets/js/185.e621728c.js"><link rel="prefetch" href="/myblog/assets/js/186.ebb617e4.js"><link rel="prefetch" href="/myblog/assets/js/187.61b4ead0.js"><link rel="prefetch" href="/myblog/assets/js/188.12a677e1.js"><link rel="prefetch" href="/myblog/assets/js/19.3b29316b.js"><link rel="prefetch" href="/myblog/assets/js/20.1b0f0899.js"><link rel="prefetch" href="/myblog/assets/js/21.3b97dee5.js"><link rel="prefetch" href="/myblog/assets/js/22.32120acb.js"><link rel="prefetch" href="/myblog/assets/js/23.6bc91273.js"><link rel="prefetch" href="/myblog/assets/js/24.96185d15.js"><link rel="prefetch" href="/myblog/assets/js/25.4d2a9ef3.js"><link rel="prefetch" href="/myblog/assets/js/26.3991814b.js"><link rel="prefetch" href="/myblog/assets/js/27.5973e0a8.js"><link rel="prefetch" href="/myblog/assets/js/28.6f9cfe06.js"><link rel="prefetch" href="/myblog/assets/js/29.5e7843df.js"><link rel="prefetch" href="/myblog/assets/js/3.6e9b35ac.js"><link rel="prefetch" href="/myblog/assets/js/30.687bb250.js"><link rel="prefetch" href="/myblog/assets/js/31.57f1fa4f.js"><link rel="prefetch" href="/myblog/assets/js/32.d37002c7.js"><link rel="prefetch" href="/myblog/assets/js/34.15819850.js"><link rel="prefetch" href="/myblog/assets/js/35.87b0dff6.js"><link rel="prefetch" href="/myblog/assets/js/36.3536d052.js"><link rel="prefetch" href="/myblog/assets/js/37.d4f2ba94.js"><link rel="prefetch" href="/myblog/assets/js/38.0c622dbb.js"><link rel="prefetch" href="/myblog/assets/js/39.8b1ca7da.js"><link rel="prefetch" href="/myblog/assets/js/4.4d150138.js"><link rel="prefetch" href="/myblog/assets/js/40.52e1214e.js"><link rel="prefetch" href="/myblog/assets/js/41.69a2a392.js"><link rel="prefetch" href="/myblog/assets/js/42.9164b1e1.js"><link rel="prefetch" href="/myblog/assets/js/43.7cd99839.js"><link rel="prefetch" href="/myblog/assets/js/44.9de8c506.js"><link rel="prefetch" href="/myblog/assets/js/45.b80eae3a.js"><link rel="prefetch" href="/myblog/assets/js/46.c42b2b5d.js"><link rel="prefetch" href="/myblog/assets/js/47.5963124b.js"><link rel="prefetch" href="/myblog/assets/js/48.f6158ad7.js"><link rel="prefetch" href="/myblog/assets/js/49.19158305.js"><link rel="prefetch" href="/myblog/assets/js/5.f94f4ab3.js"><link rel="prefetch" href="/myblog/assets/js/50.f4f03055.js"><link rel="prefetch" href="/myblog/assets/js/51.a8ed1b2e.js"><link rel="prefetch" href="/myblog/assets/js/52.6e18c93d.js"><link rel="prefetch" href="/myblog/assets/js/53.333b0adc.js"><link rel="prefetch" href="/myblog/assets/js/54.b4c460fc.js"><link rel="prefetch" href="/myblog/assets/js/55.79ff0b0c.js"><link rel="prefetch" href="/myblog/assets/js/56.40e306f6.js"><link rel="prefetch" href="/myblog/assets/js/57.5bca9049.js"><link rel="prefetch" href="/myblog/assets/js/58.e2148d8b.js"><link rel="prefetch" href="/myblog/assets/js/59.deaeed1f.js"><link rel="prefetch" href="/myblog/assets/js/6.3bbb9ba3.js"><link rel="prefetch" href="/myblog/assets/js/60.800489eb.js"><link rel="prefetch" href="/myblog/assets/js/61.648c65e8.js"><link rel="prefetch" href="/myblog/assets/js/62.f279cca7.js"><link rel="prefetch" href="/myblog/assets/js/63.93cdd2c9.js"><link rel="prefetch" href="/myblog/assets/js/64.8cc37e58.js"><link rel="prefetch" href="/myblog/assets/js/65.3b315fce.js"><link rel="prefetch" href="/myblog/assets/js/66.21c3cdb1.js"><link rel="prefetch" href="/myblog/assets/js/67.eb5eb99c.js"><link rel="prefetch" href="/myblog/assets/js/68.7ca54892.js"><link rel="prefetch" href="/myblog/assets/js/69.2c90bdf6.js"><link rel="prefetch" href="/myblog/assets/js/7.72a4837e.js"><link rel="prefetch" href="/myblog/assets/js/70.5412a79a.js"><link rel="prefetch" href="/myblog/assets/js/71.520f6253.js"><link rel="prefetch" href="/myblog/assets/js/72.c9a36472.js"><link rel="prefetch" href="/myblog/assets/js/73.d79bf96c.js"><link rel="prefetch" href="/myblog/assets/js/74.08de1430.js"><link rel="prefetch" href="/myblog/assets/js/75.49201e1a.js"><link rel="prefetch" href="/myblog/assets/js/76.c347626b.js"><link rel="prefetch" href="/myblog/assets/js/77.16dfc5eb.js"><link rel="prefetch" href="/myblog/assets/js/78.4795a7e7.js"><link rel="prefetch" href="/myblog/assets/js/79.f07f128b.js"><link rel="prefetch" href="/myblog/assets/js/8.8862bf8f.js"><link rel="prefetch" href="/myblog/assets/js/80.a5c1e302.js"><link rel="prefetch" href="/myblog/assets/js/81.46f23ea3.js"><link rel="prefetch" href="/myblog/assets/js/82.cd6a7c3f.js"><link rel="prefetch" href="/myblog/assets/js/83.cddd17be.js"><link rel="prefetch" href="/myblog/assets/js/84.b693ed3e.js"><link rel="prefetch" href="/myblog/assets/js/85.06a3b9f5.js"><link rel="prefetch" href="/myblog/assets/js/86.cf25290b.js"><link rel="prefetch" href="/myblog/assets/js/87.d1721174.js"><link rel="prefetch" href="/myblog/assets/js/88.89540c75.js"><link rel="prefetch" href="/myblog/assets/js/89.e115e4b5.js"><link rel="prefetch" href="/myblog/assets/js/9.a846d955.js"><link rel="prefetch" href="/myblog/assets/js/90.cef08d1a.js"><link rel="prefetch" href="/myblog/assets/js/91.8c8f8874.js"><link rel="prefetch" href="/myblog/assets/js/92.845921d7.js"><link rel="prefetch" href="/myblog/assets/js/93.1d0fbebf.js"><link rel="prefetch" href="/myblog/assets/js/94.6e7468e2.js"><link rel="prefetch" href="/myblog/assets/js/95.baaab09a.js"><link rel="prefetch" href="/myblog/assets/js/96.d2221a4c.js"><link rel="prefetch" href="/myblog/assets/js/97.e808be2b.js"><link rel="prefetch" href="/myblog/assets/js/98.10993340.js"><link rel="prefetch" href="/myblog/assets/js/99.a58d96a4.js">
+    <link rel="stylesheet" href="/myblog/assets/css/0.styles.607a679b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/myblog/" class="home-link router-link-active"><!----> <span class="site-name">毕克有的技术笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/js/" class="nav-link">
+  js篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/css/" class="nav-link">
+  css篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/tool/" class="nav-link">
+  工具篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/framework/" class="nav-link">
+  框架篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/webapp/" class="nav-link">
+  移动端app开发
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/weChatMiniProgram/" class="nav-link">
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/node/" class="nav-link router-link-active">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/http/" class="nav-link">
+  http
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码解析" class="dropdown-title"><span class="title">源码解析</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/sourceCode/" class="nav-link">
+  jQuery
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/js/" class="nav-link">
+  js篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/css/" class="nav-link">
+  css篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/tool/" class="nav-link">
+  工具篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/framework/" class="nav-link">
+  框架篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/webapp/" class="nav-link">
+  移动端app开发
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/weChatMiniProgram/" class="nav-link">
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/node/" class="nav-link router-link-active">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/http/" class="nav-link">
+  http
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码解析" class="dropdown-title"><span class="title">源码解析</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/sourceCode/" class="nav-link">
+  jQuery
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>node入门学习</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Koa源码分析</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>egg.js应用实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Node.js 自动化测试</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/myblog/node/Node.js 自动化测试/1.自动化构建与持续集成.html" class="sidebar-link">1.自动化构建与持续集成</a></li><li><a href="/myblog/node/Node.js 自动化测试/2.单元测试概述.html" class="active sidebar-link">2.	单元测试概述</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/myblog/node/Node.js 自动化测试/2.单元测试概述.html#软件测试手段" class="sidebar-link">软件测试手段</a></li><li class="sidebar-sub-header"><a href="/myblog/node/Node.js 自动化测试/2.单元测试概述.html#黑盒测试和白盒测试" class="sidebar-link">黑盒测试和白盒测试</a></li><li class="sidebar-sub-header"><a href="/myblog/node/Node.js 自动化测试/2.单元测试概述.html#静态测试和动态测试" class="sidebar-link">静态测试和动态测试</a></li><li class="sidebar-sub-header"><a href="/myblog/node/Node.js 自动化测试/2.单元测试概述.html#单元测试框架" class="sidebar-link">单元测试框架</a></li><li class="sidebar-sub-header"><a href="/myblog/node/Node.js 自动化测试/2.单元测试概述.html#基于-mocha-的自动化测试框架" class="sidebar-link">基于 Mocha 的自动化测试框架</a></li><li class="sidebar-sub-header"><a href="/myblog/node/Node.js 自动化测试/2.单元测试概述.html#测试模式" class="sidebar-link">测试模式</a></li><li class="sidebar-sub-header"><a href="/myblog/node/Node.js 自动化测试/2.单元测试概述.html#demo" class="sidebar-link">DEMO</a></li></ul></li><li><a href="/myblog/node/Node.js 自动化测试/3.单元测试实战与答疑.html" class="sidebar-link">3.单元测试实战</a></li><li><a href="/myblog/node/Node.js 自动化测试/4.单元小结.html" class="sidebar-link">4.单元小结</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第三方模块使用</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="_2-单元测试概述"><a href="#_2-单元测试概述" class="header-anchor">#</a> 2.	单元测试概述</h1> <h2 id="软件测试手段"><a href="#软件测试手段" class="header-anchor">#</a> 软件测试手段</h2> <p>测试和证明</p> <h2 id="黑盒测试和白盒测试"><a href="#黑盒测试和白盒测试" class="header-anchor">#</a> 黑盒测试和白盒测试</h2> <p>是否了解软件代码</p> <h2 id="静态测试和动态测试"><a href="#静态测试和动态测试" class="header-anchor">#</a> 静态测试和动态测试</h2> <p>是否运行程序的代码</p> <p>Static 不运行   检查程序代码  <br>
+Dynamic 运行</p> <ul><li>开发人员干的
+<ul><li>静态白盒测试  静态代码检查</li> <li>动态黑盒测试  单元测试</li></ul></li></ul> <h2 id="单元测试框架"><a href="#单元测试框架" class="header-anchor">#</a> 单元测试框架</h2> <ul><li>JUnit java</li> <li>numit .net</li> <li>MOCHA  ARMA Jest  Javascript</li></ul> <p>chaijs.com</p> <p>-D 开发依赖
+-S 项目依赖</p> <h2 id="基于-mocha-的自动化测试框架"><a href="#基于-mocha-的自动化测试框架" class="header-anchor">#</a> 基于 Mocha 的自动化测试框架</h2> <ul><li>自动化单元测试
+<ul><li>自动化前端代码测试</li> <li>自动化后端代码测试</li></ul></li> <li>自动化接口测试</li> <li>自动会 UI 测试</li></ul> <h2 id="测试模式"><a href="#测试模式" class="header-anchor">#</a> 测试模式</h2> <h3 id="tdd"><a href="#tdd" class="header-anchor">#</a> TDD</h3> <p>先有测试代码， 后有程序代码</p> <h3 id="bdd"><a href="#bdd" class="header-anchor">#</a> BDD</h3> <p>先有程序代码， 后有测试代码</p> <h2 id="demo"><a href="#demo" class="header-anchor">#</a> DEMO</h2> <p>#!/usr/bin/node  代码解释器</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// sum.js</span>
+
+<span class="token keyword">if</span><span class="token punctuation">(</span>prcoess<span class="token punctuation">.</span>argv<span class="token punctuation">.</span>length <span class="token operator">!==</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'./sum.js x y'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	process<span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> x <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> y <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> add <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./add.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// console.log(`${x} + ${y} = ${Number(x) + Number(y)}`)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>x<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> + </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>y<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> = </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token function">add</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+
+<span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">let</span> _x <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">let</span> _y <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isNaN</span><span class="token punctuation">(</span>_x<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token function">isNaN</span><span class="token punctuation">(</span>_y<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token number">NaN</span>
+	<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> _x <span class="token operator">+</span> _y<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>需要给以上代码做模块化</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// add.js</span>
+<span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">let</span> _x <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">let</span> _y <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isNaN</span><span class="token punctuation">(</span>_x<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token function">isNaN</span><span class="token punctuation">(</span>_y<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token number">NaN</span>
+	<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> _x <span class="token operator">+</span> _y<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> add<span class="token punctuation">;</span>
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>1. 创建一个远程仓库 unit-testing
+2. 新建 sum.js   // 代码在上面
+3. npm init -y
+4. npm i -D mocha chai 
+5. 新建一个 test 文件夹， 当前文件夹下新建 add.test.js // 代码在 5.1 中
+
+describe 测试套件
+it  测试用例
+describe('加法函数的单元测试', function() {
+	it('0 + 0 = 0', function(){
+		expect(add(0, 0)).to.be.equl(0);
+	});
+
+	it('1 + 0 = 1', function() {
+		expect(add(1, 0)).to.be.equl(1);
+	});
+})
+
+6. 执行
+
+6.1 手动执行
+执行测试脚本命令 
+./node_modules/mocha/bin/mocha test/add.test.js  执行一个文件
+./node_modules/mocha/bin/mocha                   执行 test 文件下所有单元测试
+./node_modules/.bin/mocha                   执行 test 文件下所有单元测试; 这块有个符号链接，映射，类似于后台设置的映射
+
+6.2
+{
+	scripts: {
+		&quot;test&quot;: &quot;mocha&quot;
+	}
+}
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 5.1</span>
+<span class="token comment">// describe 测试套件</span>
+<span class="token comment">// it  测试用例</span>
+<span class="token keyword">const</span> add <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'../add'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> expect <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'chai'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>expect<span class="token punctuation">;</span>
+
+<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'加法函数的单元测试'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'0 + 0 = 0'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token function">expect</span><span class="token punctuation">(</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>to<span class="token punctuation">.</span>be<span class="token punctuation">.</span><span class="token function">equl</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'1 + 0 = 1'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token function">expect</span><span class="token punctuation">(</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>to<span class="token punctuation">.</span>be<span class="token punctuation">.</span><span class="token function">equl</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p><img src="/myblog/assets/img/2.1.3c601b85.png" alt="命令执行的原理">;</p> <div class="language- extra-class"><pre class="language-text"><code>// 这个文件 会 自动执行 npm install 和 npm test
+// 新建 文件  .travis.yml
+language: node_js
+node_js:
+  - &quot;node&quot;
+branches:
+  only:
+    - master
+
+</code></pre></div><p>冒烟测试
+./sum.js 3 4</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/myblog/node/Node.js 自动化测试/1.自动化构建与持续集成.html" class="prev">
+        1.自动化构建与持续集成
+      </a></span> <span class="next"><a href="/myblog/node/Node.js 自动化测试/3.单元测试实战与答疑.html">
+        3.单元测试实战
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/myblog/assets/js/app.803dbd2d.js" defer></script><script src="/myblog/assets/js/2.67b8352c.js" defer></script><script src="/myblog/assets/js/33.586cac0f.js" defer></script>
+  </body>
+</html>

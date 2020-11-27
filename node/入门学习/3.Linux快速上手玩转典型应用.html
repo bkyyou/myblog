@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>3.Linux快速上手玩转典型应用 | 毕克有的技术笔记</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    
+    <meta name="description" content="blog">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="preload" href="/myblog/assets/css/0.styles.607a679b.css" as="style"><link rel="preload" href="/myblog/assets/js/app.803dbd2d.js" as="script"><link rel="preload" href="/myblog/assets/js/2.67b8352c.js" as="script"><link rel="preload" href="/myblog/assets/js/142.6eca52d2.js" as="script"><link rel="prefetch" href="/myblog/assets/js/10.7f17d593.js"><link rel="prefetch" href="/myblog/assets/js/100.603cc8fb.js"><link rel="prefetch" href="/myblog/assets/js/101.403d319c.js"><link rel="prefetch" href="/myblog/assets/js/102.a0b192d4.js"><link rel="prefetch" href="/myblog/assets/js/103.f74866de.js"><link rel="prefetch" href="/myblog/assets/js/104.7c757894.js"><link rel="prefetch" href="/myblog/assets/js/105.80e31610.js"><link rel="prefetch" href="/myblog/assets/js/106.7d500f04.js"><link rel="prefetch" href="/myblog/assets/js/107.4359d39c.js"><link rel="prefetch" href="/myblog/assets/js/108.9f644e4a.js"><link rel="prefetch" href="/myblog/assets/js/109.099849c1.js"><link rel="prefetch" href="/myblog/assets/js/11.05b3d371.js"><link rel="prefetch" href="/myblog/assets/js/110.705e1a14.js"><link rel="prefetch" href="/myblog/assets/js/111.adb2d216.js"><link rel="prefetch" href="/myblog/assets/js/112.49babac1.js"><link rel="prefetch" href="/myblog/assets/js/113.0054665d.js"><link rel="prefetch" href="/myblog/assets/js/114.4e802ea0.js"><link rel="prefetch" href="/myblog/assets/js/115.02f67423.js"><link rel="prefetch" href="/myblog/assets/js/116.3fc8238d.js"><link rel="prefetch" href="/myblog/assets/js/117.54978570.js"><link rel="prefetch" href="/myblog/assets/js/118.1982cfc1.js"><link rel="prefetch" href="/myblog/assets/js/119.07f9aae1.js"><link rel="prefetch" href="/myblog/assets/js/12.27a4b1b3.js"><link rel="prefetch" href="/myblog/assets/js/120.7dcdaa23.js"><link rel="prefetch" href="/myblog/assets/js/121.3c074f8a.js"><link rel="prefetch" href="/myblog/assets/js/122.7ce4251c.js"><link rel="prefetch" href="/myblog/assets/js/123.63ab81aa.js"><link rel="prefetch" href="/myblog/assets/js/124.59882302.js"><link rel="prefetch" href="/myblog/assets/js/125.b6e9487d.js"><link rel="prefetch" href="/myblog/assets/js/126.8f821868.js"><link rel="prefetch" href="/myblog/assets/js/127.744850a1.js"><link rel="prefetch" href="/myblog/assets/js/128.4a491fee.js"><link rel="prefetch" href="/myblog/assets/js/129.e00451b0.js"><link rel="prefetch" href="/myblog/assets/js/13.983136f4.js"><link rel="prefetch" href="/myblog/assets/js/130.13f4d1bb.js"><link rel="prefetch" href="/myblog/assets/js/131.49b6261e.js"><link rel="prefetch" href="/myblog/assets/js/132.85fb8a6d.js"><link rel="prefetch" href="/myblog/assets/js/133.8896daa1.js"><link rel="prefetch" href="/myblog/assets/js/134.9b60a1f2.js"><link rel="prefetch" href="/myblog/assets/js/135.10ccbc10.js"><link rel="prefetch" href="/myblog/assets/js/136.c43f9850.js"><link rel="prefetch" href="/myblog/assets/js/137.dfc5cc5c.js"><link rel="prefetch" href="/myblog/assets/js/138.a53903a8.js"><link rel="prefetch" href="/myblog/assets/js/139.63cd1f95.js"><link rel="prefetch" href="/myblog/assets/js/14.c34c146d.js"><link rel="prefetch" href="/myblog/assets/js/140.fab95181.js"><link rel="prefetch" href="/myblog/assets/js/141.c9b588d4.js"><link rel="prefetch" href="/myblog/assets/js/143.9ed1119e.js"><link rel="prefetch" href="/myblog/assets/js/144.502d6c21.js"><link rel="prefetch" href="/myblog/assets/js/145.2c54e50f.js"><link rel="prefetch" href="/myblog/assets/js/146.c5b5bbb2.js"><link rel="prefetch" href="/myblog/assets/js/147.4e86e528.js"><link rel="prefetch" href="/myblog/assets/js/148.1ef9873a.js"><link rel="prefetch" href="/myblog/assets/js/149.a1cb6ae8.js"><link rel="prefetch" href="/myblog/assets/js/15.6102d6b5.js"><link rel="prefetch" href="/myblog/assets/js/150.a10fbe23.js"><link rel="prefetch" href="/myblog/assets/js/151.59b9a9bc.js"><link rel="prefetch" href="/myblog/assets/js/152.57d4b167.js"><link rel="prefetch" href="/myblog/assets/js/153.ade06a30.js"><link rel="prefetch" href="/myblog/assets/js/154.2090cd81.js"><link rel="prefetch" href="/myblog/assets/js/155.a5e86e2c.js"><link rel="prefetch" href="/myblog/assets/js/156.e81d346d.js"><link rel="prefetch" href="/myblog/assets/js/157.358f3149.js"><link rel="prefetch" href="/myblog/assets/js/158.11f1f37c.js"><link rel="prefetch" href="/myblog/assets/js/159.57a9cb16.js"><link rel="prefetch" href="/myblog/assets/js/16.3de902b6.js"><link rel="prefetch" href="/myblog/assets/js/160.c1b99214.js"><link rel="prefetch" href="/myblog/assets/js/161.7b807fce.js"><link rel="prefetch" href="/myblog/assets/js/162.6730e829.js"><link rel="prefetch" href="/myblog/assets/js/163.75d1c1e3.js"><link rel="prefetch" href="/myblog/assets/js/164.fa940089.js"><link rel="prefetch" href="/myblog/assets/js/165.18bcc44a.js"><link rel="prefetch" href="/myblog/assets/js/166.5bd61587.js"><link rel="prefetch" href="/myblog/assets/js/167.ea1df507.js"><link rel="prefetch" href="/myblog/assets/js/168.b3ad8e86.js"><link rel="prefetch" href="/myblog/assets/js/169.deaf5e2e.js"><link rel="prefetch" href="/myblog/assets/js/17.9d58a534.js"><link rel="prefetch" href="/myblog/assets/js/170.f7ee29f0.js"><link rel="prefetch" href="/myblog/assets/js/171.86a266b1.js"><link rel="prefetch" href="/myblog/assets/js/172.e9d53d6f.js"><link rel="prefetch" href="/myblog/assets/js/173.a043c992.js"><link rel="prefetch" href="/myblog/assets/js/174.fc1bd20a.js"><link rel="prefetch" href="/myblog/assets/js/175.26a568fe.js"><link rel="prefetch" href="/myblog/assets/js/176.0923d712.js"><link rel="prefetch" href="/myblog/assets/js/177.6aa47743.js"><link rel="prefetch" href="/myblog/assets/js/178.467404ff.js"><link rel="prefetch" href="/myblog/assets/js/179.4642e58d.js"><link rel="prefetch" href="/myblog/assets/js/18.918298b4.js"><link rel="prefetch" href="/myblog/assets/js/180.583caa77.js"><link rel="prefetch" href="/myblog/assets/js/181.3061a032.js"><link rel="prefetch" href="/myblog/assets/js/182.fe812b44.js"><link rel="prefetch" href="/myblog/assets/js/183.97a2a972.js"><link rel="prefetch" href="/myblog/assets/js/184.8893e554.js"><link rel="prefetch" href="/myblog/assets/js/185.e621728c.js"><link rel="prefetch" href="/myblog/assets/js/186.ebb617e4.js"><link rel="prefetch" href="/myblog/assets/js/187.61b4ead0.js"><link rel="prefetch" href="/myblog/assets/js/188.12a677e1.js"><link rel="prefetch" href="/myblog/assets/js/19.3b29316b.js"><link rel="prefetch" href="/myblog/assets/js/20.1b0f0899.js"><link rel="prefetch" href="/myblog/assets/js/21.3b97dee5.js"><link rel="prefetch" href="/myblog/assets/js/22.32120acb.js"><link rel="prefetch" href="/myblog/assets/js/23.6bc91273.js"><link rel="prefetch" href="/myblog/assets/js/24.96185d15.js"><link rel="prefetch" href="/myblog/assets/js/25.4d2a9ef3.js"><link rel="prefetch" href="/myblog/assets/js/26.3991814b.js"><link rel="prefetch" href="/myblog/assets/js/27.5973e0a8.js"><link rel="prefetch" href="/myblog/assets/js/28.6f9cfe06.js"><link rel="prefetch" href="/myblog/assets/js/29.5e7843df.js"><link rel="prefetch" href="/myblog/assets/js/3.6e9b35ac.js"><link rel="prefetch" href="/myblog/assets/js/30.687bb250.js"><link rel="prefetch" href="/myblog/assets/js/31.57f1fa4f.js"><link rel="prefetch" href="/myblog/assets/js/32.d37002c7.js"><link rel="prefetch" href="/myblog/assets/js/33.586cac0f.js"><link rel="prefetch" href="/myblog/assets/js/34.15819850.js"><link rel="prefetch" href="/myblog/assets/js/35.87b0dff6.js"><link rel="prefetch" href="/myblog/assets/js/36.3536d052.js"><link rel="prefetch" href="/myblog/assets/js/37.d4f2ba94.js"><link rel="prefetch" href="/myblog/assets/js/38.0c622dbb.js"><link rel="prefetch" href="/myblog/assets/js/39.8b1ca7da.js"><link rel="prefetch" href="/myblog/assets/js/4.4d150138.js"><link rel="prefetch" href="/myblog/assets/js/40.52e1214e.js"><link rel="prefetch" href="/myblog/assets/js/41.69a2a392.js"><link rel="prefetch" href="/myblog/assets/js/42.9164b1e1.js"><link rel="prefetch" href="/myblog/assets/js/43.7cd99839.js"><link rel="prefetch" href="/myblog/assets/js/44.9de8c506.js"><link rel="prefetch" href="/myblog/assets/js/45.b80eae3a.js"><link rel="prefetch" href="/myblog/assets/js/46.c42b2b5d.js"><link rel="prefetch" href="/myblog/assets/js/47.5963124b.js"><link rel="prefetch" href="/myblog/assets/js/48.f6158ad7.js"><link rel="prefetch" href="/myblog/assets/js/49.19158305.js"><link rel="prefetch" href="/myblog/assets/js/5.f94f4ab3.js"><link rel="prefetch" href="/myblog/assets/js/50.f4f03055.js"><link rel="prefetch" href="/myblog/assets/js/51.a8ed1b2e.js"><link rel="prefetch" href="/myblog/assets/js/52.6e18c93d.js"><link rel="prefetch" href="/myblog/assets/js/53.333b0adc.js"><link rel="prefetch" href="/myblog/assets/js/54.b4c460fc.js"><link rel="prefetch" href="/myblog/assets/js/55.79ff0b0c.js"><link rel="prefetch" href="/myblog/assets/js/56.40e306f6.js"><link rel="prefetch" href="/myblog/assets/js/57.5bca9049.js"><link rel="prefetch" href="/myblog/assets/js/58.e2148d8b.js"><link rel="prefetch" href="/myblog/assets/js/59.deaeed1f.js"><link rel="prefetch" href="/myblog/assets/js/6.3bbb9ba3.js"><link rel="prefetch" href="/myblog/assets/js/60.800489eb.js"><link rel="prefetch" href="/myblog/assets/js/61.648c65e8.js"><link rel="prefetch" href="/myblog/assets/js/62.f279cca7.js"><link rel="prefetch" href="/myblog/assets/js/63.93cdd2c9.js"><link rel="prefetch" href="/myblog/assets/js/64.8cc37e58.js"><link rel="prefetch" href="/myblog/assets/js/65.3b315fce.js"><link rel="prefetch" href="/myblog/assets/js/66.21c3cdb1.js"><link rel="prefetch" href="/myblog/assets/js/67.eb5eb99c.js"><link rel="prefetch" href="/myblog/assets/js/68.7ca54892.js"><link rel="prefetch" href="/myblog/assets/js/69.2c90bdf6.js"><link rel="prefetch" href="/myblog/assets/js/7.72a4837e.js"><link rel="prefetch" href="/myblog/assets/js/70.5412a79a.js"><link rel="prefetch" href="/myblog/assets/js/71.520f6253.js"><link rel="prefetch" href="/myblog/assets/js/72.c9a36472.js"><link rel="prefetch" href="/myblog/assets/js/73.d79bf96c.js"><link rel="prefetch" href="/myblog/assets/js/74.08de1430.js"><link rel="prefetch" href="/myblog/assets/js/75.49201e1a.js"><link rel="prefetch" href="/myblog/assets/js/76.c347626b.js"><link rel="prefetch" href="/myblog/assets/js/77.16dfc5eb.js"><link rel="prefetch" href="/myblog/assets/js/78.4795a7e7.js"><link rel="prefetch" href="/myblog/assets/js/79.f07f128b.js"><link rel="prefetch" href="/myblog/assets/js/8.8862bf8f.js"><link rel="prefetch" href="/myblog/assets/js/80.a5c1e302.js"><link rel="prefetch" href="/myblog/assets/js/81.46f23ea3.js"><link rel="prefetch" href="/myblog/assets/js/82.cd6a7c3f.js"><link rel="prefetch" href="/myblog/assets/js/83.cddd17be.js"><link rel="prefetch" href="/myblog/assets/js/84.b693ed3e.js"><link rel="prefetch" href="/myblog/assets/js/85.06a3b9f5.js"><link rel="prefetch" href="/myblog/assets/js/86.cf25290b.js"><link rel="prefetch" href="/myblog/assets/js/87.d1721174.js"><link rel="prefetch" href="/myblog/assets/js/88.89540c75.js"><link rel="prefetch" href="/myblog/assets/js/89.e115e4b5.js"><link rel="prefetch" href="/myblog/assets/js/9.a846d955.js"><link rel="prefetch" href="/myblog/assets/js/90.cef08d1a.js"><link rel="prefetch" href="/myblog/assets/js/91.8c8f8874.js"><link rel="prefetch" href="/myblog/assets/js/92.845921d7.js"><link rel="prefetch" href="/myblog/assets/js/93.1d0fbebf.js"><link rel="prefetch" href="/myblog/assets/js/94.6e7468e2.js"><link rel="prefetch" href="/myblog/assets/js/95.baaab09a.js"><link rel="prefetch" href="/myblog/assets/js/96.d2221a4c.js"><link rel="prefetch" href="/myblog/assets/js/97.e808be2b.js"><link rel="prefetch" href="/myblog/assets/js/98.10993340.js"><link rel="prefetch" href="/myblog/assets/js/99.a58d96a4.js">
+    <link rel="stylesheet" href="/myblog/assets/css/0.styles.607a679b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/myblog/" class="home-link router-link-active"><!----> <span class="site-name">毕克有的技术笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/js/" class="nav-link">
+  js篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/css/" class="nav-link">
+  css篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/tool/" class="nav-link">
+  工具篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/framework/" class="nav-link">
+  框架篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/webapp/" class="nav-link">
+  移动端app开发
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/weChatMiniProgram/" class="nav-link">
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/node/" class="nav-link router-link-active">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/http/" class="nav-link">
+  http
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码解析" class="dropdown-title"><span class="title">源码解析</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/sourceCode/" class="nav-link">
+  jQuery
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/js/" class="nav-link">
+  js篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/css/" class="nav-link">
+  css篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/tool/" class="nav-link">
+  工具篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/framework/" class="nav-link">
+  框架篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/webapp/" class="nav-link">
+  移动端app开发
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/weChatMiniProgram/" class="nav-link">
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/node/" class="nav-link router-link-active">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/http/" class="nav-link">
+  http
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码解析" class="dropdown-title"><span class="title">源码解析</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/sourceCode/" class="nav-link">
+  jQuery
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>node入门学习</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/myblog/node/入门学习/1.es6快速入门.html" class="sidebar-link">1.es6快速入门</a></li><li><a href="/myblog/node/入门学习/2.服务端开发入门-node静态服务端.html" class="sidebar-link">2.服务端开发入门-node静态服务端</a></li><li><a href="/myblog/node/入门学习/3.Linux快速上手玩转典型应用.html" class="active sidebar-link">3.Linux快速上手玩转典型应用</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/myblog/node/入门学习/3.Linux快速上手玩转典型应用.html#linux-简介" class="sidebar-link">Linux 简介</a></li><li class="sidebar-sub-header"><a href="/myblog/node/入门学习/3.Linux快速上手玩转典型应用.html#linux-应用领域" class="sidebar-link">Linux 应用领域</a></li><li class="sidebar-sub-header"><a href="/myblog/node/入门学习/3.Linux快速上手玩转典型应用.html#linux-安装" class="sidebar-link">Linux 安装</a></li><li class="sidebar-sub-header"><a href="/myblog/node/入门学习/3.Linux快速上手玩转典型应用.html#常用命令" class="sidebar-link">常用命令</a></li><li class="sidebar-sub-header"><a href="/myblog/node/入门学习/3.Linux快速上手玩转典型应用.html#玩转典型应用" class="sidebar-link">玩转典型应用</a></li></ul></li><li><a href="/myblog/node/入门学习/4.Nginx反向代理 静态资源服务.html" class="sidebar-link">4.Nginx反向代理 静态资源服务</a></li><li><a href="/myblog/node/入门学习/5.redis的入门与应用.html" class="sidebar-link">5.redis的入门与应用</a></li><li><a href="/myblog/node/入门学习/6.MongoDB入门与应用.html" class="sidebar-link">6.MongoDB入门与应用</a></li><li><a href="/myblog/node/入门学习/7.MySQL入门与应用.html" class="sidebar-link">7.MySQL入门与应用</a></li><li><a href="/myblog/node/入门学习/8.通讯协议详解.html" class="sidebar-link">8.通讯协议详解</a></li><li><a href="/myblog/node/入门学习/9.异步IO实现现状.html" class="sidebar-link">9.异步IO实现现状</a></li><li><a href="/myblog/node/入门学习/10.异步编程的优势与难点.html" class="sidebar-link">10.异步编程的优势与难点</a></li><li><a href="/myblog/node/入门学习/11.ES6+异步编程解决方案.html" class="sidebar-link">11.ES6+异步编程解决方案</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Koa源码分析</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>egg.js应用实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node.js 自动化测试</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第三方模块使用</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="_3-linux快速上手玩转典型应用"><a href="#_3-linux快速上手玩转典型应用" class="header-anchor">#</a> 3.Linux快速上手玩转典型应用</h1> <h2 id="linux-简介"><a href="#linux-简介" class="header-anchor">#</a> Linux 简介</h2> <div class="language- extra-class"><pre><code>Linux 内核最初只是由芬兰人林纳斯·托瓦兹（Linus Torvalds）在赫尔辛基大学上学时出于个人爱好而编写的。
+
+Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个基于 POSIX 和 UNIX 的多用户、多任务、支持多线程和多 CPU 的操作系统。
+
+Linux 能运行主要的 UNIX 工具软件、应用程序和网络协议。它支持 32 位和 64 位硬件。Linux 继承了 Unix 以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统
+</code></pre></div><h2 id="linux-应用领域"><a href="#linux-应用领域" class="header-anchor">#</a> Linux 应用领域</h2> <ul><li>服务器系统
+以 Linux 为基础的LAMP 技术， 是网站服务供应商最常使用平台。</li> <li>桌面系统
+新版本的 Linux 系统特别在桌面应用方面进行了改进，完全可以作为图形界面操作系统来使用。</li> <li>嵌入式系统
+现在很多移动设备也采用基于 Linux 的嵌入式系统， 例如机顶盒，移动电话及移动设备等</li> <li>电子政务
+Linux 在安全性方面的独特优势，使得它在政府应用领域大行其道。目前一些国家正在将其电子政务系统向 Linux 平台迁移。</li></ul> <h2 id="linux-安装"><a href="#linux-安装" class="header-anchor">#</a> Linux 安装</h2> <h3 id="安装虚拟机"><a href="#安装虚拟机" class="header-anchor">#</a> 安装虚拟机</h3> <ul><li>Virtualbox</li> <li>VMWare</li></ul> <h3 id="安装-centos-7"><a href="#安装-centos-7" class="header-anchor">#</a> 安装 CentOS 7</h3> <ol><li>下载地址： http://mirrors.163.com/centos/7/isos/x86_64/      <br>
+选择的是  CentOS-7-x86_64-DVD-1908.iso</li> <li>选择语言   <br></li> <li>选择安装目标磁盘   <br></li> <li>设置root用户密码   <br></li></ol> <ul><li>新建  <br>
+类型： Linux <br>
+版本：Red Hat(64-bit) <br></li></ul> <h2 id="常用命令"><a href="#常用命令" class="header-anchor">#</a> 常用命令</h2> <h3 id="查看ip"><a href="#查看ip" class="header-anchor">#</a> 查看ip</h3> <p><strong>通过 yum install net-tools安装来使用下面的命令。</strong></p> <ul><li>ifconfig<br>
+mini版没有安装此命令，需要自己安装。</li> <li>ip addr<br>
+显示ip信息。能够看到网卡。</li> <li>reboot 重启</li> <li>poweroff 关机</li></ul> <h3 id="yum-命令"><a href="#yum-命令" class="header-anchor">#</a> yum 命令</h3> <p>yum  是一个在CentOS中的shell前端软件包管理器。(自带的)</p> <ul><li>yum update   更新所有软件。</li> <li>yum install     安装指定的软件。</li> <li>yum remove  删除指定的软件。</li></ul> <h3 id="vi-vim"><a href="#vi-vim" class="header-anchor">#</a> vi / vim</h3> <p>vim 是 vi 的升级版</p> <ul><li>命令模式</li></ul> <ol><li>i 切换到输入模式</li> <li>x 删除当前光标所在处字符</li> <li>: 切换到底线命令模式 (esc 之后 : ???)</li></ol> <ul><li><p>输入模式</p></li> <li><p>底线命令模式</p></li></ul> <ol><li>q 退出程序</li> <li>w 保存文件</li> <li>set number 显示行</li></ol> <p>wq 保存并退出</p> <p>cd /tmp/
+touch demo.txt
+vi demo.txt  // 进入文件</p> <h3 id="联网的操作步骤"><a href="#联网的操作步骤" class="header-anchor">#</a> 联网的操作步骤</h3> <ul><li>修改 ONBOOT 配置
+vi /etc/sysconfig/network-scripts/ifcfg-enp0s3  （enp0s3 是网卡？？？TODO）</li></ul> <blockquote><p>修改完 ONBOOT no 改为 yes，之后重启， 如果没有设置 桥接网卡 需要关机设置，之后启动。</p></blockquote> <p>连接方式设置路径：设置 =&gt; 网络 =&gt; 网卡1 =&gt; 桥接网卡（在安装的虚拟机界面进行操作）</p> <blockquote><p>联网是为了远程登陆
+所有信息都是以文件的形式保存</p></blockquote> <p>改完之后 可以使用 ping 来验证是否连接网络
+ping www.baidu.com</p> <h3 id="远程操作"><a href="#远程操作" class="header-anchor">#</a> 远程操作</h3> <p>ssh root@192.168.2.164</p> <p>下载 vim</p> <h3 id="系统信息"><a href="#系统信息" class="header-anchor">#</a> 系统信息</h3> <ul><li>free -m   内存信息。</li> <li>df -h        硬盘信息。</li> <li>cat /proc/cpuinfo   cpu信息。</li></ul> <h3 id="文件系统"><a href="#文件系统" class="header-anchor">#</a> 文件系统</h3> <ul><li><p>cd        进入目录。</p></li> <li><p>ls        列出目录信息，ls -al | ll 列出详细信息。</p> <p>ls -al
+drwxr-xr-x
+d 开头表示文件夹 - 开头表示文件
+(d 之后 的数字)
+前面三位 创建者的权限
+中间三位 创建者所在的用户组
+后面三位 是拥有者权限</p> <p>用户 组用户 其他用户 ？？？</p> <p>r - 4 read
+w - 2 write
+x - 1 可执行
+杠（-） - 没有权限
+777 权限
+创建者，所在用户组，拥有组三者的权限都是 可读 可写 可执行</p></li> <li><p>touch   	 新建文件。</p></li> <li><p>mkdir   	 新建目录。
+mkdir -p /data/www   -p 多层下一直创建</p></li> <li><p>rm         删除文件或目录。<br>
+rm -r study/ <br>
+rm demo.txt <br>
+rm -rf 不用询问是否删除，会直接删除 <br></p></li> <li><p>cp         复制。 <br>
+cp demo.txt demo1.txt</p></li> <li><p>mv         移动（重命名）。 <br>
+mv demo1.txt /home/ <br>
+mv demo1.txt study.txt   可以改名</p></li></ul> <h3 id="搜索、查找、读取"><a href="#搜索、查找、读取" class="header-anchor">#</a> 搜索、查找、读取</h3> <ul><li>tail           从文件尾部读取。
+tail study.txt</li> <li>head        从文件头部读取。
+head study.txt</li> <li>cat            读取整个文件。</li> <li>more/less        分页读取。
+more | less study.txt	<br>
+less 可前后翻页</li> <li>grep         搜索关键字。
+cat study.txt | grep hello     读取study.txt文件，查找 hello</li> <li>find          查找文件。
+find study.txt | grep hello</li> <li>|                通过管道传递命令。</li></ul> <h3 id="压缩和解压"><a href="#压缩和解压" class="header-anchor">#</a> 压缩和解压</h3> <ul><li>tar            用于压缩及解压。</li> <li>tar -czvf      打包压缩。
+tar -czvf 1.tar.gz study.txt</li> <li>tar -tzvf      列出压缩文件内容。
+tar -tzvf 1.tar.gz</li> <li>tar -xzvf      解压文件。
+tar -xzvf 1.tar.gz</li></ul> <p>也可以通过  下载 zip 实现打包
+yum install zip</p> <h3 id="用户操作"><a href="#用户操作" class="header-anchor">#</a> 用户操作</h3> <ul><li><p>useradd/adduser           添加用户。
+在 centerOS 没有区别 , ubuntu 有一定区别<br>
+useradd study <br>
+创建完之后需要 cd home/ 到 home 文件夹下面。 在 home 文件夹下设置密码。</p></li> <li><p>passwd        						设置密码。
+passwd study 之后 输入密码 <br>
+可以同时登录两个用户，exit | logout 退出</p></li> <li><p>userdel         					删除用户。</p></li> <li><p>sudo                			提权。 (提升权限)</p></li></ul> <h3 id="更换yum源"><a href="#更换yum源" class="header-anchor">#</a> 更换yum源</h3> <p>需要下载 wget
+yum install wget</p> <ol><li><p>备份/etc/yum.repos.d/CentOS-Base.repo <br>
+先 cd 到 /etc/yum.repos.d/ 目录下 <br>
+cd /etc/yum.repos.d/</p> <p>mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</p></li> <li><p>下载对应版本repo文件，并放入目录</p> <p>wget http://mirrors.163.com/.help/CentOS7-Base-163.repo <br>
+mv CentOS7-Base-163.repo CentOS-Base.repo</p></li> <li><p>生成缓存</p> <p>yum clean all <br>
+yum makecache</p></li></ol> <p>网易镜像站
+http://mirrors.163.com/.help/centos.html</p> <h2 id="玩转典型应用"><a href="#玩转典型应用" class="header-anchor">#</a> 玩转典型应用</h2> <h3 id="服务设置"><a href="#服务设置" class="header-anchor">#</a> 服务设置</h3> <p>firewall 防火墙，现在需要的安装防火墙强程序。</p> <ol><li>安装    yum install firewalld</li> <li>启动    service firewalld start</li> <li>检查服务状态    service firewalld status
+Active: active(running) 正在运行</li> <li>关闭/禁用    service firewalld stop/disabled</li> <li>重启 service firewalld restart</li></ol> <h3 id="防火墙设置"><a href="#防火墙设置" class="header-anchor">#</a> 防火墙设置</h3> <ul><li>查询服务    firewall-cmd  --list-services</li> <li>查询开放端口    firewall-cmd --list-ports
+默认关闭全部端口</li> <li>查询端口    firewall-cmd --query-port=80/tcp</li> <li>添加开放端口    firewall-cmd --add-port=3306/tcp
+添加 80 和 3306 端口
+firewall--cmd --add-port=80/tcp --permanent   // 永久开放端口</li></ul> <h3 id="apache"><a href="#apache" class="header-anchor">#</a> Apache</h3> <p>Apache 的安装位置
+cd /etc/httpd/
+vim conf.d/  (vim conf.d)
+cd conf
+vim httpd.conf (apache 配置文件)</p> <ul><li>服务设置</li></ul> <ol><li>安装    yum install httpd</li> <li>启动    service httpd start</li> <li>检查服务状态    service httpd status</li> <li>关闭/重启    service httpd stop/restart (restart httpd.service)</li> <li>ps -ef 查看进程
+ps -ef | grep httpd</li></ol> <ul><li>Apache 设置</li></ul> <ol><li>虚拟主机设置</li> <li>伪静态操作</li></ol> <p>配置文件中的说明</p> <blockquote><p>配置文件中 Include conf.modules.d/*.conf 表示包含的模块</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;Directory /&gt;
+	AllowOverride none
+	Require all denied  // 所有的访问都是拒绝访问，访问需配置
+&lt;/Directory&gt;
+</code></pre></div></blockquote> <blockquote><p>DocumentRoot &quot;/var/www/html&quot;  根目录</p></blockquote> <blockquote><div class="language- extra-class"><pre class="language-text"><code>&lt;IfModule dir_module /&gt;
+	DirectoryIndex index.html  // 默认访问
+&lt;/IfModule&gt;
+</code></pre></div></blockquote> <ul><li>配置多域名 配置虚拟主机</li></ul> <blockquote><p>更改配置文件需要重启</p></blockquote> <ol><li>搜索 virtual</li> <li>新建 VirtualHost<div class="language- extra-class"><pre class="language-text"><code>&lt;VirtualHost *:80&gt;
+	ServerName www.study.test
+	DocumentRoot /data/www
+&lt;/VirtualHost&gt;
+</code></pre></div></li> <li>将 ip 地址 配置成 虚拟主机的域名
+192.168.2.164 www.study.test
+ipconfig /flushdns window下刷新dns</li> <li>配置文件路径和需要注销的配置
+cd /     cd到绝对目录下
+mkdir -p /data/www   -p 多层下一直创建
+touch index.html
+vim index.html
+// 此时访问是 403 ，需更改权限
+vim /etc/httpd/conf/httpd.conf 将 下面设置用#的注销掉</li></ol> <div class="language- extra-class"><pre class="language-text"><code>&lt;Directory /&gt;
+	AllowOverride none
+	Require all denied  // 所有的访问都是拒绝访问，访问需配置
+&lt;/Directory&gt;
+</code></pre></div><ol start="5"><li>配置允许访问</li></ol> <div class="language- extra-class"><pre class="language-text"><code>&lt;VirtualHost *:80&gt;
+	ServerName www.study.test
+	DocumentRoot /data/www
+
+	&lt;Directory &quot;/data/www&quot;&gt;
+		// 3yy 是复制
+		AllowOverride None
+		Options Indexes FollowSymLinks
+		Require all granted
+	&lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</code></pre></div><p>之后重启服务 service httped restart
+6. 设置成宽松模式
+setenforce 0 将apache 设置成宽松模式</p> <ul><li>配置伪静态页面
+将 php 包装成 html， 在 httpd.conf 中进行设置</li></ul> <ol><li>进入到 httpd.conf 文件
+vim /etc/httpd/conf/httpd.conf</li> <li>设置配置文件
+搜索 loadModule, 之后进行添加</li></ol> <p>LoadModule rewrite_module moudles/mod_rewrite.so</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;VirtualHost *:80&gt;
+	ServerName www.study.test
+	DocumentRoot /data/www
+
+	&lt;Directory &quot;/data/www&quot;&gt;
+		// 3yy 是复制
+		AllowOverride None
+		Options Indexes FollowSymLinks
+		Require all granted
+		&lt;IfModule mod_rewrite.c&gt;
+			RewriteEngine On
+			RewriteRule ^(.*).htmp% index.html
+		&lt;/If&gt;
+	&lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</code></pre></div><p>检查 http -t</p> <ul><li>PHP</li></ul> <ol><li>安装php5.6</li> <li>配置源 webtatic.com</li> <li>php-fpm安装</li> <li>安装php扩展</li></ol> <p>镜像站
+https://webtatic.com</p> <div class="language- extra-class"><pre class="language-text"><code>yum install epel-release
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+yum install php56w-fpm
+yum install php-cli php-common php-gd php-mbstring php-mcrypt php-mysql php-pdo
+</code></pre></div><ol><li>service php-fpm start
+ps -ef | grep fpm</li> <li>配置文件
+vim /etc/httpd/conf/httpd.conf  在最后进行配置<div class="language- extra-class"><pre class="language-text"><code>	&lt;FilesMatch .php$&gt;
+    setHandler &quot;proxy:fcgi://127.0.0.1:9000&quot;
+   &lt;/FileMatch&gt;
+</code></pre></div></li> <li>vim /data/www/a.php</li></ol> <div class="language-php extra-class"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?</span>php<span class="token operator">&gt;</span>
+	<span class="token keyword">echo</span> <span class="token function">time</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">phpinfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token delimiter important">?&gt;</span></span>
+</code></pre></div><ul><li>MySQL</li></ul> <ol><li><p>下载源</p></li> <li><p>安装源</p></li> <li><p>安装MySQL
+yum search mysql <br>
+yun list installed || grep mysql <br>
+yun list installed || grep maria <br></p> <p>yum remove mariadb-libs.x86_64</p></li> <li><p>配置MySQL</p></li></ol> <div class="language- extra-class"><pre class="language-text"><code>wget https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
+rpm -ivh mysql80-community-release-el7-1.noarch.rpm
+yum install mysql-community-server
+</code></pre></div><p>// 启动mysqlzuih
+ps -ef | grep mysql
+service mysqld srart
+sudo service mysqld start</p> <p>// 拿到 临时密码的情况
+mysql -uroot -p   // 进入 mysql TODO ???
+cat /var/log/mysqld.log | grep password  // 查看 mysql 的临时密码
+alter user user() identified mysql_native_password by    // 更改密码</p> <p>// 没拿到密码的情况
+sudo u -    // 提权
+vim /etc/my.cnf  之后找到最后一行设置
+#跳过验证表
+skip-grant-tables
+service mysqld restart  // 重启服务
+mysql     // 直接进入
+查 user 表   // \G 是格式化的意思
+user =&gt; usr mysql =&gt; show tables =&gt; select * from user \G =&gt; select Host,User from user \G</p> <p>// select Host,User from user 将 localhost 改成 % 就可以开启远程</p> <p>alter user 'root'@'%' identified mysql_native_password by 'rooot'  // 更改密码</p> <p>改 root 密码
+set globla vaildate_password_lenght=0
+show variables like &quot;validate_password%&quot;</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/myblog/node/入门学习/2.服务端开发入门-node静态服务端.html" class="prev">
+        2.服务端开发入门-node静态服务端
+      </a></span> <span class="next"><a href="/myblog/node/入门学习/4.Nginx反向代理 静态资源服务.html">
+        4.Nginx反向代理 静态资源服务
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/myblog/assets/js/app.803dbd2d.js" defer></script><script src="/myblog/assets/js/2.67b8352c.js" defer></script><script src="/myblog/assets/js/142.6eca52d2.js" defer></script>
+  </body>
+</html>
