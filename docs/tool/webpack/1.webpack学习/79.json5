@@ -1,0 +1,119 @@
+{
+  "modeInfo": {
+    "defaultMode": "color"
+  },
+  "themes": [
+    {
+      "id": "green",
+      "supportTypes": ["ss_yw","ss_yy","ss_sx", "bsp_yw", "bsp_yy", "bsp_sx", "lm_yy"],
+      "form": {
+        "color": "#94e095",
+        "text": "",
+        "signImage": "https://icprs.koolearn.com/basic/3761949F905E0534/ss79/theme/green_sign.jpg"
+      },
+      "mould": {
+        "bgImage": "https://icprs.koolearn.com/basic/3761949F905E0534/ss79/theme/green_bg_4.png",
+        "titleTextColor": "#1fb574",
+        "boxShadowColor": "#63d4a2"
+      }
+    },
+    {
+      "id": "blue",
+      "supportTypes": ["ss_yw","ss_yy","ss_sx", "bsp_yw", "bsp_yy", "bsp_sx", "lm_yy"],
+      "form": {
+        "color": "#70caff",
+        "text": "",
+        "signImage": "https://icprs.koolearn.com/basic/3761949F905E0534/ss79/theme/blue_sign.jpg"
+      },
+      "mould": {
+        "bgImage": "https://icprs.koolearn.com/basic/3761949F905E0534/ss79/theme/blue_bg_4.png",
+        "titleTextColor": "#20ACFF",
+        "boxShadowColor": "#52B3FF"
+      }
+    },
+    {
+      "id": "violet",
+      "supportTypes": ["ss_yw","ss_yy","ss_sx", "bsp_yw", "bsp_yy", "bsp_sx", "lm_yy"],
+      "form": {
+        "color": "#b8afff",
+        "text": "",
+        "signImage": "https://icprs.koolearn.com/basic/3761949F905E0534/ss79/theme/violet_sign.jpg"
+      },
+      "mould": {
+        "bgImage": "https://icprs.koolearn.com/basic/3761949F905E0534/ss79/theme/violet_bg_4.png",
+        "titleTextColor": "#725FFF",
+        "boxShadowColor": "#A599FF"
+      }
+    },
+    {
+      "id": "yellow",
+      "supportTypes": ["ss_yw","ss_yy","ss_sx", "bsp_yw", "bsp_yy", "bsp_sx", "lm_yy"],
+      "form": {
+        "color": "#ffa175",
+        "text": "",
+        "signImage": "https://icprs.koolearn.com/basic/3761949F905E0534/ss79/theme/yellow_sign.jpg"
+      },
+      "mould": {
+        "bgImage": "https://icprs.koolearn.com/basic/3761949F905E0534/ss79/theme/yellow_bg_4.png",
+        "titleTextColor": "#FF7B3D",
+        "boxShadowColor": "#FC7D51"
+      }
+    },
+    {
+      "id": "lightViolet",
+      "supportTypes": ["ss_yw","ss_yy","ss_sx","xzk_yw","xzk_yy","xzk_sx", "bsp_yw", "bsp_yy", "bsp_sx", "lm_yy"],
+      "form": {
+        "color": "#e3e6ff",
+        "text": "",
+        "signImage": "https://icprs.koolearn.com/basic/3761949F905E0534/ss79/theme/light_violet_sign.jpg"
+      },
+      "mould": {
+        "bgImage": "https://icprs.koolearn.com/basic/3761949F905E0534/ss79/theme/light_violet_bg_4.png",
+        "titleTextColor": "#899bff",
+        "boxShadowColor": "#c6d1fd"
+      }
+    },
+    {
+      "id": "lightYellow",
+      "supportTypes": ["ss_yw","ss_yy","ss_sx","xzk_yw","xzk_yy","xzk_sx", "bsp_yw", "bsp_yy", "bsp_sx", "lm_yy"],
+      "form": {
+        "color": "#ffefc9",
+        "text": "",
+        "signImage": "https://icprs.koolearn.com/basic/3761949F905E0534/ss79/theme/light_yellow_sign.jpg"
+      },
+      "mould": {
+        "bgImage": "https://icprs.koolearn.com/basic/3761949F905E0534/ss79/theme/light_yellow_bg_4.png",
+        "titleTextColor": "#FFA200",
+        "boxShadowColor": "#FFD97C"
+      }
+    },
+    {
+      "id": "lightRed",
+      "supportTypes": ["ss_yw","ss_yy","ss_sx","xzk_yw","xzk_yy","xzk_sx", "bsp_yw", "bsp_yy", "bsp_sx", "lm_yy"],
+      "form": {
+        "color": "#ffe3e3",
+        "text": "",
+        "signImage": "https://icprs.koolearn.com/basic/3761949F905E0534/ss79/theme/light_red_sign.jpg"
+      },
+      "mould": {
+        "bgImage": "https://icprs.koolearn.com/basic/3761949F905E0534/ss79/theme/light_red_bg_4.png",
+        "titleTextColor": "#FF8C8C",
+        "boxShadowColor": "#FFCCCC"
+      }
+    },
+    {
+      "id": "lightGreen",
+      "supportTypes": ["ss_yw","ss_yy","ss_sx","xzk_yw","xzk_yy","xzk_sx", "bsp_yw", "bsp_yy", "bsp_sx", "lm_yy"],
+      "form": {
+        "color": "#ddf7e1",
+        "text": "",
+        "signImage": "https://icprs.koolearn.com/basic/3761949F905E0534/ss79/theme/light_green_sign.jpg"
+      },
+      "mould": {
+        "bgImage": "https://icprs.koolearn.com/basic/3761949F905E0534/ss79/theme/light_green_bg_4.png",
+        "titleTextColor": "#62D186",
+        "boxShadowColor": "#BBE8C2"
+      }
+    }
+  ]
+}

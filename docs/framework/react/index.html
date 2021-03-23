@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html,body {
+      width: 100%;
+      height: 100%;
+    }
+
+    .parent {
+      position: absolute;
+      left: 100px;
+      top: 100px;
+      width: 100px;
+      height: 100px;
+    }
+
+    .child {
+      width: 100%;
+      height: 100%;
+      background-color: skyblue;
+      position: fixed;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="child"></div>
+  </div>
+  <script>
+    let count = 0;
+    while (true) {
+      console.log(1111);
+      if (count++ > 8) break;
+      return
+    }
+  </script>
+</body>
+</html>

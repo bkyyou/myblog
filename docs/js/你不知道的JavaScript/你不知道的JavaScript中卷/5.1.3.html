@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // foo: for (var i = 0; i < 4; i++) {
+    //   for (var j = 0; j < 4; j++) {
+    //     if (j == i) {
+    //       continue foo
+    //     }
+        
+    //     if ((j * i) % 2 == 1) {
+    //       continue
+    //     }
+
+    //     console.log(i, j);
+    //   }
+    // }
+
+    foo: for (var i = 0; i < 4; i++) {
+      for (var j = 0; j < 4; j++) {
+        
+        if ((j * i) >= 3) {
+          console.log('stopping', i, j);
+          break foo;
+        }
+
+        console.log(i, j);
+      }
+    }
+
+    /*
+    * break
+    * 跳出所执行的代码块
+    * 
+    * foo:
+    * 跳出所执行的标签
+    */
+
+    function foo() {
+      bar: {
+        console.log('hello');
+        break bar;
+        console.log('never runs');
+      }
+      console.log('World');
+    }
+
+  </script>
+</body>
+</html>

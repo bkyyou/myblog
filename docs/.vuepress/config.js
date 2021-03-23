@@ -97,29 +97,71 @@ module.exports = {
           collapsable: false,
           children: [
             {
-              title: 'api', // 侧边栏名称
+              title: '函数', // 侧边栏名称
               collapsable: true, // 可折叠
               children: [
                 // '', // 你的md文件地址
-                '原生api/Object.defineProperty()和defineProperties()',
-                '原生api/hasOwnProperty,instanceof,typeof',
-                '原生api/js中的隐式转换',
-                '原生api/promise源码分析',
-
+                '函数/1 JavaScript中内存管理',
+                '函数/2. 如何保证代码质量',
+                '函数/3.发布订阅和观察者模式',
+                '函数/4.分片上传',
+                '函数/5.函数回掉变为同步',
               ]
             },
             {
               title: '实用方法', // 侧边栏名称
               collapsable: true, // 可折叠
               children: [
-                '实用方法/将数据转换成树结构',
+                '实用方法/1.将数据转换成树结构',
+                '实用方法/2.将数字每三个用逗号隔开',
+                '实用方法/1.将数据转换成树结构',
+              ]
+            },
+            {
+              title: '数据处理', // 侧边栏名称
+              collapsable: true, // 可折叠
+              children: [
+                '数据处理/1.JS获取数组最后5个值',
+              ]
+            },
+            {
+              title: '异步编程', // 侧边栏名称
+              collapsable: true, // 可折叠
+              children: [
+                '异步编程/1.理解异步',
+                '异步编程/2.Event Loop机制',
+                '异步编程/3.异步编程方法-发布和订阅',
+                '异步编程/4.深入理解promise',
+              ]
+            },
+            {
+              title: 'api', // 侧边栏名称
+              collapsable: true, // 可折叠
+              children: [
+                // '', // 你的md文件地址
+                '原生api/1.promise源码分析',
+                '原生api/2.Object.defineProperty()和defineProperties()',
+                '原生api/3.js中的隐式转换',
+                '原生api/4.hasOwnProperty,instanceof,typeof',
+                '原生api/5.获取iframe节点的window对象',
+                '原生api/6.Object.freeze 性能优化',
+                '原生api/7.javascript的隐式转换和 toString valueof的调用情况',
+                '原生api/8.js监听浏览器tab窗口切换',
+                '原生api/9.获取iframe内和父元素的方法',
+              ]
+            },
+            {
+              title: '正则表达式学习', // 侧边栏名称
+              collapsable: true, // 可折叠
+              children: [
+                '正则表达式学习/1.正则表达式',
               ]
             },
             {
               title: '作用域', // 侧边栏名称
               collapsable: true, // 可折叠
               children: [
-                '作用域/if中的函数声明',
+                '作用域/1.if中的函数声明',
                 '作用域/2.this指向',
               ]
             },
@@ -132,16 +174,20 @@ module.exports = {
               ]
             },
             {
-              title: '异步编程', // 侧边栏名称
+              title: 'jquery', // 侧边栏名称
               collapsable: true, // 可折叠
               children: [
-                '异步编程/1.理解异步',
-                '异步编程/2.Event Loop机制',
-                '异步编程/3.异步编程方法-发布和订阅',
-                '异步编程/4.深入理解promise',
+                'jquery/1.offset的使用',
               ]
-            }
-
+            },
+            {
+              title: 'js中的隐式转换', // 侧边栏名称
+              collapsable: true, // 可折叠
+              children: [
+                'js中的隐式转换/1.隐式转换',
+                'js中的隐式转换/2.a===9 && a===3',
+              ]
+            },
           ]
         }
       ],
@@ -175,7 +221,15 @@ module.exports = {
           children: [
             'nvm/', // 你的md文件地址
           ]
-        }
+        },
+        {
+          title: 'git', // 侧边栏名称
+          collapsable: true, // 可折叠
+          children: [
+            'git/1.git取消add操作',
+            'git/2..gitignore 忽略文件和忽略已经提交过的文件', // 你的md文件地址
+          ]
+        },
       ],
       '/framework/': [
         {
@@ -192,6 +246,14 @@ module.exports = {
             'react/react学习/4.1-React Router(1)', 
             'react/react学习/4.2-Ant Design', 
             'react/react学习/5.1-React Virtual DOM 原理', 
+            'react/react学习/5.2-React Reconciliation-上', 
+            'react/react学习/6.4-React Hooks', 
+            'react/react学习/6.5-React New Feature', 
+            'react/react学习/7.1-Redux 入门', 
+            'react/react学习/7.2-Redux 进阶', 
+            'react/react学习/7.4-Mobx 入门', 
+            'react/react学习/7.5-Context API 前世今生', 
+            'react/react学习/8.1-TypeScript', 
           ]
         },
         {
@@ -244,6 +306,7 @@ module.exports = {
                 'vue/vue简单记录/4.父子组件-组件传值（一）',
                 'vue/vue简单记录/5.Vue中插入HTML代码的方法',
                 'vue/vue简单记录/6.watch得执行顺序',
+                'vue/vue简单记录/7.Vue.extend()实现MessageBox弹窗',
                 'vue/vue简单记录/8.vue.config.js 配置',
                 'vue/vue简单记录/9.Vuex mapAction的基本使用',
                 'vue/vue简单记录/10.组件传值（二）',
@@ -371,6 +434,16 @@ module.exports = {
             '第三方模块使用/1.inquirer交互式命令行工具',
             '第三方模块使用/2.node读写excel-node-xlsx',
             '第三方模块使用/3.ora一个优雅的终端微调器',
+          ],
+        },
+        {
+          title: 'node内置对象学习',
+          collapsable: true,
+          children: [
+            'node内置对象学习/1.child_process',
+            'node内置对象学习/2.process介绍（核心对象）',
+            'node内置对象学习/3.fs',
+            'node内置对象学习/4.os',
           ],
         },
       ]
