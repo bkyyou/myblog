@@ -19,3 +19,6 @@ For more details, please head VuePress's [documentation](https://v1.vuepress.vue
 
 后端视频处理工具  ffmpeg
 
+RBAC（基于角色的访问控制权限的基本模型）<br>
+https://blog.csdn.net/weixin_41174072/article/details/83387223
+

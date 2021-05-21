@@ -204,15 +204,46 @@ module.exports = {
       '/tool/': [
         {
           title: 'webpack', // 侧边栏名称
-          collapsable: true, // 可折叠
+          collapsable: false, // 可折叠
           children: [
-            'webpack/', // 你的md文件地址
-            'webpack/1 webpack的使用',
-            'webpack/2 webpack的核心概念',
-            'webpack/3 webpack 打包',
-            'webpack/4 js的编译',
-            'webpack/26 webpack打包速度优化', // 你的md文件地址
-            'webpack/27 webpack工程化实践'
+            {
+              title: '1.webpack学习', // 侧边栏名称
+              collapsable: true, // 可折叠
+              children: [
+                'webpack/1.webpack学习/1.初识 webpack',
+                'webpack/1.webpack学习/2.webpack优化',
+                'webpack/1.webpack学习/3.webpack的实现',
+                'webpack/1.webpack学习/4.如何调适和阅读webpack源码',
+                'webpack/1.webpack学习/5.webpack自定义loader',
+              ]
+            },
+            {
+              title: '2.整理练习webpack的错误',
+              collapsable: true,
+              children: [
+                'webpack/2.整理练习webpack的错误/1.wrong'
+              ]
+            },
+            {
+              title: '3.webpack学习', // 侧边栏名称
+              collapsable: true, // 可折叠
+              children: [
+                // '3.webpack/', // 你的md文件地址
+                'webpack/3.webpack学习/1 webpack的使用',
+                'webpack/3.webpack学习/2 webpack的核心概念',
+                'webpack/3.webpack学习/3 webpack 打包',
+                'webpack/3.webpack学习/4 js的编译',
+                'webpack/3.webpack学习/26 webpack打包速度优化', // 你的md文件地址
+                'webpack/3.webpack学习/27 webpack工程化实践'
+              ]
+            },
+            // 'webpack/', // 你的md文件地址
+            // 'webpack/1 webpack的使用',
+            // 'webpack/2 webpack的核心概念',
+            // 'webpack/3 webpack 打包',
+            // 'webpack/4 js的编译',
+            // 'webpack/26 webpack打包速度优化', // 你的md文件地址
+            // 'webpack/27 webpack工程化实践'
           ]
         },
         {
@@ -228,6 +259,21 @@ module.exports = {
           children: [
             'git/1.git取消add操作',
             'git/2..gitignore 忽略文件和忽略已经提交过的文件', // 你的md文件地址
+          ]
+        },
+        {
+          title: 'Docker', // 侧边栏名称
+          collapsable: true, // 可折叠
+          children: [
+            {
+              title: '1.Docker学习', // 侧边栏名称
+              collapsable: true, // 可折叠
+              children: [
+                'Docker/1.Docker学习/1.Docker学习大纲',
+                'Docker/1.Docker学习/2.Docker基础',
+                'Docker/1.Docker学习/3.练习',
+              ]
+            },
           ]
         },
       ],
