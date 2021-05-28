@@ -272,6 +272,9 @@ module.exports = {
                 'Docker/1.Docker学习/1.Docker学习大纲',
                 'Docker/1.Docker学习/2.Docker基础',
                 'Docker/1.Docker学习/3.练习',
+                'Docker/1.Docker学习/4.Portainer可视化面板安装',
+                'Docker/1.Docker学习/5.docker镜像讲解',
+                'Docker/1.Docker学习/7.DockerFIle',
               ]
             },
           ]
