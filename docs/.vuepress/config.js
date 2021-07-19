@@ -114,7 +114,9 @@ module.exports = {
               children: [
                 '实用方法/1.将数据转换成树结构',
                 '实用方法/2.将数字每三个用逗号隔开',
-                '实用方法/1.将数据转换成树结构',
+                '实用方法/3.适配',
+                '实用方法/4.分批请求',
+                '实用方法/5.拖拽事件与点击事件共同执行',
               ]
             },
             {
@@ -204,15 +206,46 @@ module.exports = {
       '/tool/': [
         {
           title: 'webpack', // 侧边栏名称
-          collapsable: true, // 可折叠
+          collapsable: false, // 可折叠
           children: [
-            'webpack/', // 你的md文件地址
-            'webpack/1 webpack的使用',
-            'webpack/2 webpack的核心概念',
-            'webpack/3 webpack 打包',
-            'webpack/4 js的编译',
-            'webpack/26 webpack打包速度优化', // 你的md文件地址
-            'webpack/27 webpack工程化实践'
+            {
+              title: '1.webpack学习', // 侧边栏名称
+              collapsable: true, // 可折叠
+              children: [
+                'webpack/1.webpack学习/1.初识 webpack',
+                'webpack/1.webpack学习/2.webpack优化',
+                'webpack/1.webpack学习/3.webpack的实现',
+                'webpack/1.webpack学习/4.如何调适和阅读webpack源码',
+                'webpack/1.webpack学习/5.webpack自定义loader',
+              ]
+            },
+            {
+              title: '2.整理练习webpack的错误',
+              collapsable: true,
+              children: [
+                'webpack/2.整理练习webpack的错误/1.wrong'
+              ]
+            },
+            {
+              title: '3.webpack学习', // 侧边栏名称
+              collapsable: true, // 可折叠
+              children: [
+                // '3.webpack/', // 你的md文件地址
+                'webpack/3.webpack学习/1 webpack的使用',
+                'webpack/3.webpack学习/2 webpack的核心概念',
+                'webpack/3.webpack学习/3 webpack 打包',
+                'webpack/3.webpack学习/4 js的编译',
+                'webpack/3.webpack学习/26 webpack打包速度优化', // 你的md文件地址
+                'webpack/3.webpack学习/27 webpack工程化实践'
+              ]
+            },
+            // 'webpack/', // 你的md文件地址
+            // 'webpack/1 webpack的使用',
+            // 'webpack/2 webpack的核心概念',
+            // 'webpack/3 webpack 打包',
+            // 'webpack/4 js的编译',
+            // 'webpack/26 webpack打包速度优化', // 你的md文件地址
+            // 'webpack/27 webpack工程化实践'
           ]
         },
         {
@@ -228,6 +261,49 @@ module.exports = {
           children: [
             'git/1.git取消add操作',
             'git/2..gitignore 忽略文件和忽略已经提交过的文件', // 你的md文件地址
+            'git/3.git merge 一个指定文件',
+          ]
+        },
+        {
+          title: 'Docker', // 侧边栏名称
+          collapsable: true, // 可折叠
+          children: [
+            {
+              title: '1.Docker学习', // 侧边栏名称
+              collapsable: true, // 可折叠
+              children: [
+                'Docker/1.Docker学习/1.Docker学习大纲',
+                'Docker/1.Docker学习/2.Docker基础',
+                'Docker/1.Docker学习/3.练习',
+                'Docker/1.Docker学习/4.Portainer可视化面板安装',
+                'Docker/1.Docker学习/5.docker镜像讲解',
+                'Docker/1.Docker学习/7.DockerFIle',
+                'Docker/1.Docker学习/8.Docker网络',
+              ]
+            },
+          ]
+        },
+        {
+          title: 'mysql', // 侧边栏名称
+          collapsable: true, // 可折叠
+          children: [
+            {
+              title: 'mysql学习', // 侧边栏名称
+              collapsable: true, // 可折叠
+              children: [
+                'mysql/mysql学习/1.初识mysql',
+                'mysql/mysql学习/2.操作数据库',
+                'mysql/mysql学习/3.列的数据类型讲解',
+                'mysql/mysql学习/4.DQL 查询数据',
+                'mysql/mysql学习/5.MySQL函数',
+                'mysql/mysql学习/6.SELECT小结',
+                'mysql/mysql学习/7.事务',
+                'mysql/mysql学习/8.索引介绍及索引分类',
+                'mysql/mysql学习/9.权限管理和备份',
+                'mysql/mysql学习/10.规范数据库设计',
+                'mysql/mysql学习/11.JDBC',
+              ]
+            },
           ]
         },
       ],

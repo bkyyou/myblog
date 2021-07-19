@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      /* margin: 200px auto; */
+      position: absolute;
+      left: 100px;
+      top: 0;
+    }
+    #wrapper {
+      width: 400px;
+      height: 400px;
+      position: relative;
+      margin: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrapper">
+
+    <div class="container">
+  
+    </div>
+  </div>
+  <script>
+    let el = document.getElementsByClassName('container')[0];
+    console.log('el', el);
+    console.log('el.offsetLeft', el.offsetLeft);
+    el.onmousedown = function(event) {
+      let pointX = event.clientX - el.offsetLeft // 鼠标位置X减去元素距离左边距离（鼠标到元素左边的距离）
+      let pointY = event.clientY - el.offsetTop // 鼠标位置Y减去距离顶部距离（鼠标到元素顶部的高度）  
+      console.log('pointX', pointX);
+      console.log('pointY', pointY);
+
+      console.log('event.clientX', event.clientX);
+      console.log('el.offsetLeft', el.offsetLeft);
+    }
+  </script>
+</body>
+</html>

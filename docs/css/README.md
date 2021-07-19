@@ -1,5 +1,12 @@
 # 探秘 flex
 
+* CSS ::marker 让文字序号更有意思
+https://juejin.cn/post/6973849126609879047
+
+* CSS 滤镜 : backdrop-filter
+
+* css cubic-bezier
+
 ## flex 上下文中神奇的自动 margin
 
 为了引出本文的主题，先看看这个问题，最快水平垂直居中一个元素的方法是什么？
