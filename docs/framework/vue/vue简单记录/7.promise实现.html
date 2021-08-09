@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    class Mypromise {
+      constructor(executor) {
+        this.status = 'pending'  //状态值
+        this.value = undefined   //成功的返回值
+        this.reason = undefined	 //失败的返回值
+        this.onResolvedCallbacks = [] //成功的回调函数
+        this.onRejectedCallbacks = [] //失败的回调函数
+        // 成功
+        let resolve = (value) => {
+          // pending用来屏蔽的，resolve和reject只能调用一个，不能同时调用，这就是pending的作用
+          if (this.status == 'pending') {
+            this.status = 'fullFilled'
+            this.value = value
+            // 发布执行函数
+            this.onResolvedCallbacks.forEach(fn => fn())
+          }
+        }
+        // 失败
+        let reject = (reason) => {
+          if (this.status == 'pending') {
+            this.status = 'rejected'
+            this.reason = reason
+            //失败执行函数
+            this.onRejectedCallbacks.forEach(fn => fn())
+          }
+        }
+        try {
+          // 执行函数
+          executor(resolve, reject)
+        } catch (err) {
+          // 失败则直接执行reject函数
+          reject(err)
+        }
+      }
+      then(onFullFilled, onRejected) {
+        // 这样就是一个递归
+        let promise2 = new Mypromise((resolve, reject) => {
+          // 箭头函数，无论this一直是指向最外层的对象
+          // 同步
+          let x
+          if (this.status == 'fullFilled') {
+            setTimeout(() => {
+              try {
+                x = onFullFilled(this.value)
+                // 添加一个resolvePromise（）的方法来判断x跟promise2的状态，决定promise2是走成功还是失败
+                resolvePromise(promise2, x, resolve, reject)
+              } catch (err) { // 中间任何一个环节报错都要走reject()
+                reject(err)
+              }
+            }, 0) // 同步无法使用promise2，所以借用setiTimeout异步的方式
+            // MDN 0>=4ms
+          }
+          if (this.status == 'rejected') {
+            setTimeout(() => {
+              try {
+                x = onRejected(this.value)
+                resolvePromise(promise2, x, resolve, reject)
+              } catch (err) { // 中间任何一个环节报错都要走reject()
+                reject(err)
+              }
+            }, 0) // 同步无法使用promise2，所以借用setiTimeout异步的方式
+          }
+          // 异步
+          if (this.status == 'pending') {
+            // 在pending状态的时候先订阅
+            this.onResolvedCallbacks.push(() => {
+              // todo
+              setTimeout(() => {
+                try {
+                  x = onFullFilled(this.value)
+                  resolvePromise(promise2, x, resolve, reject)
+                } catch (err) { // 中间任何一个环节报错都要走reject()
+                  reject(err)
+                }
+              }, 0) // 同步无法使用promise2，所以借用setiTimeout异步的方式
+            })
+            this.onRejectedCallbacks.push(() => { // todo
+              setTimeout(() => {
+                try {
+                  x = onRejected(this.value)
+                  resolvePromise(promise2, x, resolve, reject)
+                } catch (err) { // 中间任何一个环节报错都要走reject()
+                  reject(err)
+                }
+              }, 0) // 同步无法使用promise2，所以借用setiTimeout异步的方式
+            })
+          }
+        })
+        return promise2
+      }
+    }
+
+    const resolvePromise = (promise2, x, resolve, reject) => {
+      // x和promise2不能是同一个人，如果是同一个人就报错
+      if (promise2 === x) {
+        return reject(
+          new TypeError('Chaining cycle detected for promise #<promise>')
+        )
+      }
+      // 判断如果x是否是一个对象，判断函数是否是对象的方法有：typeof instanceof constructor toString
+      if (typeof x === 'object' && x != null || typeof x === 'function') {
+        try {
+          let then = x.then // 取then可以报错，报错就走reject()
+          if (typeof then === 'function') {
+            // 用then.call()为了避免在使用一次x.then报错
+            then.call(x, y => {
+              console.log('y', y)
+              resolve(y)// 采用promise的成功结果，并且向下传递
+            }, r => {
+              reject(r)// 采用promise的失败结果，并且向下传递
+            })
+          } else {
+            resolve(x)// x不是一个函数，是一个对象
+          }
+        } catch (err) {
+          reject(err)
+        }
+      } else {
+        // x是一个普通值
+        resolve(x)
+      }
+    }
+
+    const p = new Mypromise((resolve, reject) => {
+      setTimeout(function() {
+        // resolve('success') // 异步调用的时候，this.status一直是pending状态,不会执行代码了，因此要改装成发布订阅者模式
+        reject('failed')
+      }, 1000)
+      // resolve('success') // 走了成功就不会走失败了
+      // throw new Error('失败') // 失败了也会走resolve
+      // reject('failed')
+    })
+    p.then((res) => {
+      console.log(res)
+    }, (err) => {
+      console.log(err)
+    })
+    p.then((res) => {
+      console.log(res)
+    }, (err) => {
+      console.log(err)
+    })
+    p.then((res) => {
+      console.log(res)
+    }, (err) => {
+      console.log(err)
+    })
+
+
+  </script>
+</body>
+
+</html>

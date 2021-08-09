@@ -25,15 +25,22 @@
     //     console.log('catch1');
     //   })
     new Promise((resolve, reject) => {
-      // resolve();
-      reject();
+      resolve();
+      // reject();
       // throw 'qq'
       // Promise.reject("error")
       // return new throw();
     })
       .then(() => {
         console.log('then1');
-        return Promise.resolve();
+        // return Promise.resolve();
+        return  new Promise(resolve => {
+          setTimeout(() => {
+            resolve()
+          }, 1000);
+        }).then(() => {
+          console.log(1)
+        })
       })
       .catch(() => {
         console.log('catch1');
