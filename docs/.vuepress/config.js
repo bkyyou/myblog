@@ -306,6 +306,13 @@ module.exports = {
             },
           ]
         },
+        {
+          title: '脚手架工具', // 侧边栏名称
+          collapsable: true, // 可折叠
+          children: [
+            'scaffoldingTools/1.创建 Generator 模块', // 你的md文件地址
+          ]
+        },
         // {
         //   title: 'Docker', // 侧边栏名称
         //   collapsable: true, // 可折叠
