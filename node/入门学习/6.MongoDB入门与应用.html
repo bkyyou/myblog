@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>6.MongoDB入门与应用 | 毕克有的技术笔记</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="blog">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/myblog/assets/css/0.styles.7e951629.css" as="style"><link rel="preload" href="/myblog/assets/js/app.8b94ae54.js" as="script"><link rel="preload" href="/myblog/assets/js/2.a7c83499.js" as="script"><link rel="preload" href="/myblog/assets/js/185.208c0c05.js" as="script"><link rel="prefetch" href="/myblog/assets/js/10.363b8a18.js"><link rel="prefetch" href="/myblog/assets/js/100.5ec4d60f.js"><link rel="prefetch" href="/myblog/assets/js/101.d20740ed.js"><link rel="prefetch" href="/myblog/assets/js/102.5c5e8569.js"><link rel="prefetch" href="/myblog/assets/js/103.7d43997d.js"><link rel="prefetch" href="/myblog/assets/js/104.0c5c2f2a.js"><link rel="prefetch" href="/myblog/assets/js/105.a67781ab.js"><link rel="prefetch" href="/myblog/assets/js/106.d78f40bb.js"><link rel="prefetch" href="/myblog/assets/js/107.40174bdc.js"><link rel="prefetch" href="/myblog/assets/js/108.35da1e74.js"><link rel="prefetch" href="/myblog/assets/js/109.efa27e58.js"><link rel="prefetch" href="/myblog/assets/js/11.ba30b9f3.js"><link rel="prefetch" href="/myblog/assets/js/110.8a3b5d5b.js"><link rel="prefetch" href="/myblog/assets/js/111.2463b700.js"><link rel="prefetch" href="/myblog/assets/js/112.099ae4f7.js"><link rel="prefetch" href="/myblog/assets/js/113.c60602de.js"><link rel="prefetch" href="/myblog/assets/js/114.d96d868a.js"><link rel="prefetch" href="/myblog/assets/js/115.e3dfb18e.js"><link rel="prefetch" href="/myblog/assets/js/116.742b12bf.js"><link rel="prefetch" href="/myblog/assets/js/117.e60c2b3b.js"><link rel="prefetch" href="/myblog/assets/js/118.245ccb23.js"><link rel="prefetch" href="/myblog/assets/js/119.ff7c881d.js"><link rel="prefetch" href="/myblog/assets/js/12.592cbaa7.js"><link rel="prefetch" href="/myblog/assets/js/120.0f56287f.js"><link rel="prefetch" href="/myblog/assets/js/121.78bfbf79.js"><link rel="prefetch" href="/myblog/assets/js/122.8bf82b41.js"><link rel="prefetch" href="/myblog/assets/js/123.64208c83.js"><link rel="prefetch" href="/myblog/assets/js/124.c2e71ae9.js"><link rel="prefetch" href="/myblog/assets/js/125.cc03464d.js"><link rel="prefetch" href="/myblog/assets/js/126.0c5fa2d3.js"><link rel="prefetch" href="/myblog/assets/js/127.6e39b599.js"><link rel="prefetch" href="/myblog/assets/js/128.ad59224c.js"><link rel="prefetch" href="/myblog/assets/js/129.0d8c4eee.js"><link rel="prefetch" href="/myblog/assets/js/13.a59a5ce3.js"><link rel="prefetch" href="/myblog/assets/js/130.dd3e5ef1.js"><link rel="prefetch" href="/myblog/assets/js/131.101b62e1.js"><link rel="prefetch" href="/myblog/assets/js/132.3fe92be3.js"><link rel="prefetch" href="/myblog/assets/js/133.012e9cf7.js"><link rel="prefetch" href="/myblog/assets/js/134.ae944b70.js"><link rel="prefetch" href="/myblog/assets/js/135.eac3c49c.js"><link rel="prefetch" href="/myblog/assets/js/136.a6c0410d.js"><link rel="prefetch" href="/myblog/assets/js/137.cb8c8721.js"><link rel="prefetch" href="/myblog/assets/js/138.dc1f840a.js"><link rel="prefetch" href="/myblog/assets/js/139.372fdc9e.js"><link rel="prefetch" href="/myblog/assets/js/14.5835a5b8.js"><link rel="prefetch" href="/myblog/assets/js/140.899d5210.js"><link rel="prefetch" href="/myblog/assets/js/141.146bf5d2.js"><link rel="prefetch" href="/myblog/assets/js/142.ef68aa99.js"><link rel="prefetch" href="/myblog/assets/js/143.420182ae.js"><link rel="prefetch" href="/myblog/assets/js/144.a9e7ea0b.js"><link rel="prefetch" href="/myblog/assets/js/145.047b74fe.js"><link rel="prefetch" href="/myblog/assets/js/146.b5dfad9f.js"><link rel="prefetch" href="/myblog/assets/js/147.475bc1b0.js"><link rel="prefetch" href="/myblog/assets/js/148.ee7f2e4c.js"><link rel="prefetch" href="/myblog/assets/js/149.2c37f8df.js"><link rel="prefetch" href="/myblog/assets/js/15.660d580e.js"><link rel="prefetch" href="/myblog/assets/js/150.ec174675.js"><link rel="prefetch" href="/myblog/assets/js/151.8a30d4ac.js"><link rel="prefetch" href="/myblog/assets/js/152.ff202788.js"><link rel="prefetch" href="/myblog/assets/js/153.a7411560.js"><link rel="prefetch" href="/myblog/assets/js/154.23bf2d6e.js"><link rel="prefetch" href="/myblog/assets/js/155.6a77a50c.js"><link rel="prefetch" href="/myblog/assets/js/156.e2a0fba4.js"><link rel="prefetch" href="/myblog/assets/js/157.2bebb338.js"><link rel="prefetch" href="/myblog/assets/js/158.95fb34fa.js"><link rel="prefetch" href="/myblog/assets/js/159.381b567c.js"><link rel="prefetch" href="/myblog/assets/js/16.f413630f.js"><link rel="prefetch" href="/myblog/assets/js/160.691aa3d0.js"><link rel="prefetch" href="/myblog/assets/js/161.8cb64830.js"><link rel="prefetch" href="/myblog/assets/js/162.d7e47e93.js"><link rel="prefetch" href="/myblog/assets/js/163.13ffb328.js"><link rel="prefetch" href="/myblog/assets/js/164.d8ca4a09.js"><link rel="prefetch" href="/myblog/assets/js/165.f0fe1c81.js"><link rel="prefetch" href="/myblog/assets/js/166.5d4f43c0.js"><link rel="prefetch" href="/myblog/assets/js/167.2ac5b7b2.js"><link rel="prefetch" href="/myblog/assets/js/168.32371a59.js"><link rel="prefetch" href="/myblog/assets/js/169.1f55c1d2.js"><link rel="prefetch" href="/myblog/assets/js/17.e209770b.js"><link rel="prefetch" href="/myblog/assets/js/170.9dad2c8a.js"><link rel="prefetch" href="/myblog/assets/js/171.93b67e73.js"><link rel="prefetch" href="/myblog/assets/js/172.425a10d0.js"><link rel="prefetch" href="/myblog/assets/js/173.f1390bd2.js"><link rel="prefetch" href="/myblog/assets/js/174.0d813b63.js"><link rel="prefetch" href="/myblog/assets/js/175.29f7a0ec.js"><link rel="prefetch" href="/myblog/assets/js/176.4455a85b.js"><link rel="prefetch" href="/myblog/assets/js/177.47e6314b.js"><link rel="prefetch" href="/myblog/assets/js/178.addc5725.js"><link rel="prefetch" href="/myblog/assets/js/179.dfa5957e.js"><link rel="prefetch" href="/myblog/assets/js/18.f99ccb53.js"><link rel="prefetch" href="/myblog/assets/js/180.729394ac.js"><link rel="prefetch" href="/myblog/assets/js/181.c8b58a50.js"><link rel="prefetch" href="/myblog/assets/js/182.ecdfefe5.js"><link rel="prefetch" href="/myblog/assets/js/183.bb9eb7d5.js"><link rel="prefetch" href="/myblog/assets/js/184.a6043e75.js"><link rel="prefetch" href="/myblog/assets/js/186.eb679cc7.js"><link rel="prefetch" href="/myblog/assets/js/187.810e2d47.js"><link rel="prefetch" href="/myblog/assets/js/188.6f7aa89d.js"><link rel="prefetch" href="/myblog/assets/js/189.5f9d5892.js"><link rel="prefetch" href="/myblog/assets/js/19.1baa0546.js"><link rel="prefetch" href="/myblog/assets/js/190.bb2c6e5f.js"><link rel="prefetch" href="/myblog/assets/js/191.a79726de.js"><link rel="prefetch" href="/myblog/assets/js/192.b371fd96.js"><link rel="prefetch" href="/myblog/assets/js/193.86d5d65d.js"><link rel="prefetch" href="/myblog/assets/js/194.ffd7b709.js"><link rel="prefetch" href="/myblog/assets/js/195.7c1fe716.js"><link rel="prefetch" href="/myblog/assets/js/196.6da9f830.js"><link rel="prefetch" href="/myblog/assets/js/197.f344835b.js"><link rel="prefetch" href="/myblog/assets/js/198.7a968f26.js"><link rel="prefetch" href="/myblog/assets/js/199.8a614358.js"><link rel="prefetch" href="/myblog/assets/js/20.af305f63.js"><link rel="prefetch" href="/myblog/assets/js/200.4e143b06.js"><link rel="prefetch" href="/myblog/assets/js/201.8c6c197d.js"><link rel="prefetch" href="/myblog/assets/js/202.166aa27a.js"><link rel="prefetch" href="/myblog/assets/js/203.1896892b.js"><link rel="prefetch" href="/myblog/assets/js/204.341183e1.js"><link rel="prefetch" href="/myblog/assets/js/205.8fdc403b.js"><link rel="prefetch" href="/myblog/assets/js/206.f8bc8de4.js"><link rel="prefetch" href="/myblog/assets/js/207.05252155.js"><link rel="prefetch" href="/myblog/assets/js/208.fe8b4761.js"><link rel="prefetch" href="/myblog/assets/js/209.28b5e854.js"><link rel="prefetch" href="/myblog/assets/js/21.938e142e.js"><link rel="prefetch" href="/myblog/assets/js/210.2f1c7064.js"><link rel="prefetch" href="/myblog/assets/js/211.f0f5afcb.js"><link rel="prefetch" href="/myblog/assets/js/212.83dcb1e8.js"><link rel="prefetch" href="/myblog/assets/js/213.efe45a86.js"><link rel="prefetch" href="/myblog/assets/js/214.c862a2e7.js"><link rel="prefetch" href="/myblog/assets/js/215.0128ea1c.js"><link rel="prefetch" href="/myblog/assets/js/216.3b3cd43d.js"><link rel="prefetch" href="/myblog/assets/js/217.3e3fa319.js"><link rel="prefetch" href="/myblog/assets/js/218.ccd91234.js"><link rel="prefetch" href="/myblog/assets/js/219.72862609.js"><link rel="prefetch" href="/myblog/assets/js/22.b3c26cb1.js"><link rel="prefetch" href="/myblog/assets/js/220.1a90a643.js"><link rel="prefetch" href="/myblog/assets/js/221.5270f845.js"><link rel="prefetch" href="/myblog/assets/js/222.78356f59.js"><link rel="prefetch" href="/myblog/assets/js/223.f7669494.js"><link rel="prefetch" href="/myblog/assets/js/224.340ea29f.js"><link rel="prefetch" href="/myblog/assets/js/225.c7d289f8.js"><link rel="prefetch" href="/myblog/assets/js/226.1c6efd53.js"><link rel="prefetch" href="/myblog/assets/js/227.2445f8ac.js"><link rel="prefetch" href="/myblog/assets/js/228.f084cec4.js"><link rel="prefetch" href="/myblog/assets/js/229.eda7b512.js"><link rel="prefetch" href="/myblog/assets/js/23.ca7a3609.js"><link rel="prefetch" href="/myblog/assets/js/230.ed948dba.js"><link rel="prefetch" href="/myblog/assets/js/231.5b9c5497.js"><link rel="prefetch" href="/myblog/assets/js/232.dc814c2d.js"><link rel="prefetch" href="/myblog/assets/js/233.2d6730d9.js"><link rel="prefetch" href="/myblog/assets/js/234.13dbace3.js"><link rel="prefetch" href="/myblog/assets/js/235.44e61b24.js"><link rel="prefetch" href="/myblog/assets/js/236.a80b9096.js"><link rel="prefetch" href="/myblog/assets/js/237.ca36bbba.js"><link rel="prefetch" href="/myblog/assets/js/238.6c803898.js"><link rel="prefetch" href="/myblog/assets/js/239.f1cf6fe1.js"><link rel="prefetch" href="/myblog/assets/js/24.1ef86de7.js"><link rel="prefetch" href="/myblog/assets/js/240.75cb9945.js"><link rel="prefetch" href="/myblog/assets/js/241.89f29ff1.js"><link rel="prefetch" href="/myblog/assets/js/242.783c90e5.js"><link rel="prefetch" href="/myblog/assets/js/243.c6376a40.js"><link rel="prefetch" href="/myblog/assets/js/244.d13cce00.js"><link rel="prefetch" href="/myblog/assets/js/245.fab29513.js"><link rel="prefetch" href="/myblog/assets/js/246.adf5c2d3.js"><link rel="prefetch" href="/myblog/assets/js/247.e69563c9.js"><link rel="prefetch" href="/myblog/assets/js/248.7aea3a26.js"><link rel="prefetch" href="/myblog/assets/js/249.932cf003.js"><link rel="prefetch" href="/myblog/assets/js/25.d0383043.js"><link rel="prefetch" href="/myblog/assets/js/250.83c3b508.js"><link rel="prefetch" href="/myblog/assets/js/251.ea5d6fcc.js"><link rel="prefetch" href="/myblog/assets/js/252.8e713434.js"><link rel="prefetch" href="/myblog/assets/js/253.742cc163.js"><link rel="prefetch" href="/myblog/assets/js/254.e8c5a1e5.js"><link rel="prefetch" href="/myblog/assets/js/26.630e1518.js"><link rel="prefetch" href="/myblog/assets/js/27.ccb67911.js"><link rel="prefetch" href="/myblog/assets/js/28.ba766e49.js"><link rel="prefetch" href="/myblog/assets/js/29.e541ef04.js"><link rel="prefetch" href="/myblog/assets/js/3.a0896d3c.js"><link rel="prefetch" href="/myblog/assets/js/30.108048b1.js"><link rel="prefetch" href="/myblog/assets/js/31.9cc6a20b.js"><link rel="prefetch" href="/myblog/assets/js/32.67b08274.js"><link rel="prefetch" href="/myblog/assets/js/33.3f42d489.js"><link rel="prefetch" href="/myblog/assets/js/34.ca2bf2ec.js"><link rel="prefetch" href="/myblog/assets/js/35.b916c46c.js"><link rel="prefetch" href="/myblog/assets/js/36.2954eacb.js"><link rel="prefetch" href="/myblog/assets/js/37.2f2720d2.js"><link rel="prefetch" href="/myblog/assets/js/38.92eb47d8.js"><link rel="prefetch" href="/myblog/assets/js/39.0b1b65d8.js"><link rel="prefetch" href="/myblog/assets/js/4.ab89ca31.js"><link rel="prefetch" href="/myblog/assets/js/40.13881c83.js"><link rel="prefetch" href="/myblog/assets/js/41.66c512e1.js"><link rel="prefetch" href="/myblog/assets/js/42.0f824394.js"><link rel="prefetch" href="/myblog/assets/js/43.701308a1.js"><link rel="prefetch" href="/myblog/assets/js/44.55bed480.js"><link rel="prefetch" href="/myblog/assets/js/45.d3b97b50.js"><link rel="prefetch" href="/myblog/assets/js/46.720c09fd.js"><link rel="prefetch" href="/myblog/assets/js/47.47ed3750.js"><link rel="prefetch" href="/myblog/assets/js/48.9ec589be.js"><link rel="prefetch" href="/myblog/assets/js/49.34abd764.js"><link rel="prefetch" href="/myblog/assets/js/5.947be5d0.js"><link rel="prefetch" href="/myblog/assets/js/50.0cb0abba.js"><link rel="prefetch" href="/myblog/assets/js/51.c8ddf4dd.js"><link rel="prefetch" href="/myblog/assets/js/52.ebd0e070.js"><link rel="prefetch" href="/myblog/assets/js/53.da888a41.js"><link rel="prefetch" href="/myblog/assets/js/54.a53ae915.js"><link rel="prefetch" href="/myblog/assets/js/55.e5c61ed4.js"><link rel="prefetch" href="/myblog/assets/js/56.34639725.js"><link rel="prefetch" href="/myblog/assets/js/57.03dde0f9.js"><link rel="prefetch" href="/myblog/assets/js/58.7a99f3ef.js"><link rel="prefetch" href="/myblog/assets/js/59.a501a276.js"><link rel="prefetch" href="/myblog/assets/js/6.d4615e53.js"><link rel="prefetch" href="/myblog/assets/js/60.481f73f8.js"><link rel="prefetch" href="/myblog/assets/js/61.5507bb31.js"><link rel="prefetch" href="/myblog/assets/js/62.a5698aa3.js"><link rel="prefetch" href="/myblog/assets/js/63.b9a4cc43.js"><link rel="prefetch" href="/myblog/assets/js/64.c59a1aa1.js"><link rel="prefetch" href="/myblog/assets/js/65.0e9f550a.js"><link rel="prefetch" href="/myblog/assets/js/66.f8afb570.js"><link rel="prefetch" href="/myblog/assets/js/67.2f0726d7.js"><link rel="prefetch" href="/myblog/assets/js/68.93eaef9a.js"><link rel="prefetch" href="/myblog/assets/js/69.897e055b.js"><link rel="prefetch" href="/myblog/assets/js/7.e346764f.js"><link rel="prefetch" href="/myblog/assets/js/70.491bd939.js"><link rel="prefetch" href="/myblog/assets/js/71.99cf2e51.js"><link rel="prefetch" href="/myblog/assets/js/72.3bf4eeba.js"><link rel="prefetch" href="/myblog/assets/js/73.d6707f18.js"><link rel="prefetch" href="/myblog/assets/js/74.7847a2d3.js"><link rel="prefetch" href="/myblog/assets/js/75.4e340a3c.js"><link rel="prefetch" href="/myblog/assets/js/76.25945691.js"><link rel="prefetch" href="/myblog/assets/js/77.ac2df828.js"><link rel="prefetch" href="/myblog/assets/js/78.9d922e6a.js"><link rel="prefetch" href="/myblog/assets/js/79.fbf78d73.js"><link rel="prefetch" href="/myblog/assets/js/8.18dea722.js"><link rel="prefetch" href="/myblog/assets/js/80.23ea2e4e.js"><link rel="prefetch" href="/myblog/assets/js/81.3cd2bac9.js"><link rel="prefetch" href="/myblog/assets/js/82.9d08a6d9.js"><link rel="prefetch" href="/myblog/assets/js/83.f628ba64.js"><link rel="prefetch" href="/myblog/assets/js/84.a5c61ea6.js"><link rel="prefetch" href="/myblog/assets/js/85.83cc21ca.js"><link rel="prefetch" href="/myblog/assets/js/86.4e46a31e.js"><link rel="prefetch" href="/myblog/assets/js/87.c540c1fa.js"><link rel="prefetch" href="/myblog/assets/js/88.ce250152.js"><link rel="prefetch" href="/myblog/assets/js/89.7d2b4a8b.js"><link rel="prefetch" href="/myblog/assets/js/9.36f61896.js"><link rel="prefetch" href="/myblog/assets/js/90.8b2bd4d5.js"><link rel="prefetch" href="/myblog/assets/js/91.277d4600.js"><link rel="prefetch" href="/myblog/assets/js/92.482d06ee.js"><link rel="prefetch" href="/myblog/assets/js/93.aba2fb10.js"><link rel="prefetch" href="/myblog/assets/js/94.08d78a6c.js"><link rel="prefetch" href="/myblog/assets/js/95.9f29b215.js"><link rel="prefetch" href="/myblog/assets/js/96.6aad276d.js"><link rel="prefetch" href="/myblog/assets/js/97.1f001349.js"><link rel="prefetch" href="/myblog/assets/js/98.eaf31225.js"><link rel="prefetch" href="/myblog/assets/js/99.4417c184.js">
+    <link rel="stylesheet" href="/myblog/assets/css/0.styles.7e951629.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/myblog/" class="home-link router-link-active"><!----> <span class="site-name">毕克有的技术笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="技术笔记" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/js/" class="nav-link">
+  js篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/css/" class="nav-link">
+  css篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/tool/" class="nav-link">
+  工具篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/framework/" class="nav-link">
+  框架篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/webapp/" class="nav-link">
+  移动端app开发
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/weChatMiniProgram/" class="nav-link">
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/node/" class="nav-link router-link-active">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/http/" class="nav-link">
+  http
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码解析" class="dropdown-title"><span class="title">源码解析</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码解析" class="mobile-dropdown-title"><span class="title">源码解析</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/sourceCode/" class="nav-link">
+  jQuery
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="技术笔记" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/js/" class="nav-link">
+  js篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/css/" class="nav-link">
+  css篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/tool/" class="nav-link">
+  工具篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/framework/" class="nav-link">
+  框架篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/webapp/" class="nav-link">
+  移动端app开发
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/weChatMiniProgram/" class="nav-link">
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/node/" class="nav-link router-link-active">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/http/" class="nav-link">
+  http
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码解析" class="dropdown-title"><span class="title">源码解析</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码解析" class="mobile-dropdown-title"><span class="title">源码解析</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/sourceCode/" class="nav-link">
+  jQuery
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>node入门学习</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/myblog/node/入门学习/1.es6快速入门.html" class="sidebar-link">1.es6快速入门</a></li><li><a href="/myblog/node/入门学习/2.服务端开发入门-node静态服务端.html" class="sidebar-link">2.服务端开发入门-node静态服务端</a></li><li><a href="/myblog/node/入门学习/3.Linux快速上手玩转典型应用.html" class="sidebar-link">3.Linux快速上手玩转典型应用</a></li><li><a href="/myblog/node/入门学习/4.Nginx反向代理 静态资源服务.html" class="sidebar-link">4.Nginx反向代理 静态资源服务</a></li><li><a href="/myblog/node/入门学习/5.redis的入门与应用.html" class="sidebar-link">5.redis的入门与应用</a></li><li><a href="/myblog/node/入门学习/6.MongoDB入门与应用.html" class="active sidebar-link">6.MongoDB入门与应用</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/myblog/node/入门学习/6.MongoDB入门与应用.html#mongodb简介" class="sidebar-link">MongoDB简介</a></li><li class="sidebar-sub-header"><a href="/myblog/node/入门学习/6.MongoDB入门与应用.html#mongodb特性" class="sidebar-link">MongoDB特性</a></li><li class="sidebar-sub-header"><a href="/myblog/node/入门学习/6.MongoDB入门与应用.html#mongodb安装与配置" class="sidebar-link">MongoDB安装与配置</a></li><li class="sidebar-sub-header"><a href="/myblog/node/入门学习/6.MongoDB入门与应用.html#mongodb数据查询与应用" class="sidebar-link">MongoDB数据查询与应用</a></li><li class="sidebar-sub-header"><a href="/myblog/node/入门学习/6.MongoDB入门与应用.html#远程登录" class="sidebar-link">远程登录</a></li></ul></li><li><a href="/myblog/node/入门学习/7.MySQL入门与应用.html" class="sidebar-link">7.MySQL入门与应用</a></li><li><a href="/myblog/node/入门学习/8.通讯协议详解.html" class="sidebar-link">8.通讯协议详解</a></li><li><a href="/myblog/node/入门学习/9.异步IO实现现状.html" class="sidebar-link">9.异步IO实现现状</a></li><li><a href="/myblog/node/入门学习/10.异步编程的优势与难点.html" class="sidebar-link">10.异步编程的优势与难点</a></li><li><a href="/myblog/node/入门学习/11.ES6+异步编程解决方案.html" class="sidebar-link">11.ES6+异步编程解决方案</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Koa源码分析</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>egg.js应用实践</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node.js 自动化测试</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第三方模块使用</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>node内置对象学习</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="_6-mongodb入门与应用"><a href="#_6-mongodb入门与应用" class="header-anchor">#</a> 6.MongoDB入门与应用</h1> <h2 id="mongodb简介"><a href="#mongodb简介" class="header-anchor">#</a> MongoDB简介</h2> <p>MongoDB是一个基于分布式文件存储的数据库。由C++语言编写，旨在为WEB应用提供可扩展的高性能数据存储解决方案。</p> <p>MongoDB是一个介于关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的。它支持的数据结构非常松散，是类似json的bson格式，因此可以存储比较复杂的数据类型。Mongo最大的特点是它支持的查询语言非常强大，其语法有点类似于面向对象的查询语言，几乎可以实现类似关系数据库单表查询的绝大部分功能，而且还支持对数据建立索引。</p> <h2 id="mongodb特性"><a href="#mongodb特性" class="header-anchor">#</a> MongoDB特性</h2> <ul><li>高可扩展性</li> <li>没有复杂关系</li> <li>低成本</li> <li>半结构化数据</li> <li>架构灵活</li></ul> <p>多表查询不及 sql ，在服务端对 js 执行效率比较低，读写性能不出色</p> <h2 id="mongodb安装与配置"><a href="#mongodb安装与配置" class="header-anchor">#</a> MongoDB安装与配置</h2> <p>官网 mongodb.com</p> <p>download 版本 <br>
+version: 		current release  <br>
+OS: 				RHEL 7.2 Linux IBM Z Series <br>
+Pageage: 		server <br></p> <h3 id="安装-mongodb-community-edition"><a href="#安装-mongodb-community-edition" class="header-anchor">#</a> 安装 MongoDB Community Edition</h3> <p>阿里云镜像 https://developer.aliyun.com/mirror/</p> <ul><li><p>配置MongoDB yum源</p> <ol><li>创建 <br>
+vim /etc/yum.repos.d/mongodb-org.repo  <br></li> <li>写文件</li></ol> <div class="language- extra-class"><pre class="language-text"><code>	[mongodb-org]
+	name = MongoDB Repository
+	baseurl = https://mirrors.aliyun.com/mongodb/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
+	pgpcheck = 1
+	enable = 1
+	gpgkey = https://www.mongodb.org/static/pgp/server-4.2.asc
+</code></pre></div></li> <li><p>yum search mongodb
+查看 要下载 的内容， yun install -y mongodb  或者  yum install -y mongodb-org</p></li> <li><p>通过yum 安装 MongoDB
+yun install -y mongodb <br>
+或者 <br>
+yum install -y mongodb-org</p></li></ul> <ol start="3"><li><p>启动MongoDB
+service mongod start</p> <p>mongo 安装位置  /usr/bin 文件夹下</p> <blockquote><p>service mongod start 启动之后，就不能再 mongo 的安装位置 ./mongod 命令启动，否则会与之前的启动生成的文件冲突。</p></blockquote> <blockquote><p>查看运行不一样的启动命令之后再不能启动的原因 <br>
+service mongod  status  // 查看 mongod 状态 <br>
+tar -f /var/log/mongod/mongod.log // 查看mongod日志 <br><br>
+// 此时原因是 在 /var/lib/mongo/ 下有几个文件没有操作权限了。 <br>
+chown mongod:mongod -R WiredTigerLAS.wt WiredTiger.turtle   <br>
+// 修改用户权限，修改这两个文件的权限  WiredTigerLAS.wt WiredTiger.turtle 此时这个文件夹下的文件的 用户名 和 用户组 都是  mongod  ， 此时还没有启动 <br>
+chown mongod:mongod -R mongo/    // 在 lib 文件下操作此命令</p></blockquote></li></ol> <h3 id="mongodb常用配置"><a href="#mongodb常用配置" class="header-anchor">#</a> MongoDB常用配置</h3> <p>配置文件位置 /etc/mongod.conf</p> <ul><li>配置文件mongod.conf  <br></li></ul> <ol><li><p>日志配置				systemLog  <br></p></li> <li><p>数据存储配置			storage  <br>
+storage : <br>
+journal:   // 表示是否开启 journal 日志持久存储，用来恢复日志的 ，最基础的特性。 <br>
+enable： ture // 默认开启， 对 mongodb 进程有帮助 <br></p></li> <li><p>进程管理配置			processManagement  <br>
+processManagement:  <br>
+fork: true  // 后台运行 <br>
+pidFilePath:      <br>
+timeZoneInfo: /usr/share/zoneinfo</p></li> <li><p>网络配置				net  <br>
+net:   <br>
+port: 27017 <br>
+bindIp: 127.0.0.1 <br></p></li> <li><p>安全配置				security  <br>
+security:
+// 开启用户访问控制 ， 不配置 客户端 拿到 ip 就可以访问数据库。<br>
+authorization: enabled</p></li></ol> <h2 id="mongodb数据查询与应用"><a href="#mongodb数据查询与应用" class="header-anchor">#</a> MongoDB数据查询与应用</h2> <h3 id="mongodb基础概念"><a href="#mongodb基础概念" class="header-anchor">#</a> MongoDB基础概念</h3> <ul><li><p>文档：数据的基本单元，相当于关系型数据库中的行</p> <ol><li>由键值对组成的有序集  <br></li> <li>不仅区分大小写，还区分数据类型  <br></li></ol></li> <li><p>集合：多个文档组成集合，文档可以是不同的结构，相当于关系型数据库中的表</p> <ol><li>不能以system开头，且不能使用保留字符  <br></li> <li>动态模式可以使一个集合中包含多样化文档对象  <br></li></ol></li> <li><p>数据库：多个集合聚合组成数据库</p> <ol><li>数据库名称区分大小写  <br></li> <li>几个特殊意义的数据库：admin(用户数据)、local(本地数据)、config(配置数据)  <br></li></ol></li></ul> <h3 id="mongodb客户端shell"><a href="#mongodb客户端shell" class="header-anchor">#</a> MongoDB客户端shell</h3> <ul><li>客户端shell可以使用命令行与MongoDB实例进行交互。 <br></li> <li>它是一个功能完备的JavaScript解释器，所以又称为JavaScript shell，可以运行任意JavaScript代码。 <br></li> <li>通过shell可以对数据进行基本操作：CURD <br></li></ul> <p>mongo	直接进入命令行</p> <p>用 shell 执行 javascript <br>
+cd /tmp <br>
+vim run.js <br></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> userName <span class="token operator">=</span> <span class="token string">'zs'</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> timeStamp <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> insertData <span class="token operator">=</span> <span class="token punctuation">{</span>
+	loginUser<span class="token operator">:</span> userName<span class="token punctuation">,</span>
+	loginTime<span class="token operator">:</span> timeStamp
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> db <span class="token operator">=</span> <span class="token function">connect</span><span class="token punctuation">(</span><span class="token string">'log'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 连接数据库；</span>
+<span class="token keyword">var</span> msg <span class="token operator">=</span> db<span class="token punctuation">.</span>login<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>insertData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">print</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>mongo run.js <br>
+mongo <br>
+use log <br>
+show tables <br>
+db.login.find()</p> <p>// 批量插入</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> userName <span class="token operator">=</span> <span class="token string">'zs'</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> timeStamp <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> loginData <span class="token operator">=</span> <span class="token punctuation">{</span>
+	loginUser<span class="token operator">:</span> userName<span class="token punctuation">,</span>
+	loginTime<span class="token operator">:</span> timeStamp
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> insertData <span class="token operator">=</span> <span class="token punctuation">[</span> loginData <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">1000</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	insertData<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>count<span class="token operator">:</span> i<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> db <span class="token operator">=</span> <span class="token function">connect</span><span class="token punctuation">(</span><span class="token string">'log'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 连接数据库；</span>
+<span class="token keyword">var</span> msg <span class="token operator">=</span> db<span class="token punctuation">.</span>login<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>insertData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">print</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>写好之后输入命令 <br>
+mongo run.js <br>
+mongo <br>
+use log   // 直接mongo 默认的是 test 数据库<br>
+db.login.find()</p> <p>db  // db 命令 显示当前数据库名字 <br>
+show dbs //</p> <p>mongo --host 127.0.0.1 --port 27017 <br>
+mongo 127.0.0.1:27017  <br>
+mongo 127.0.0.1:27017/log</p> <h3 id="mongodb连接"><a href="#mongodb连接" class="header-anchor">#</a> MongoDB连接</h3> <div class="language- extra-class"><pre class="language-text"><code>// 标准URI连接语法
+// 连接 host1 ， host2 可以连接 复制机 （TODO 名称可能不对）， 当 host1 挂掉的时候，会直接连 host2
+mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
+
+// 例子
+mongo  'mongodb://127.0.0.1:27017'
+</code></pre></div><ul><li>mongodb://   					<br>	
+uri协议，固定格式   <br></li> <li>username:password@	    <br>	
+可选，连接数据库用户验证    <br></li> <li>host		    <br>	
+必须指定至少一个host，如果连接复制集，可指定多个主机地址    <br></li> <li>port			    <br>	
+可选，默认为27017    <br></li> <li>/database				    <br>
+连接数据库名称，若不指定默认打开test数据库    <br></li> <li>?options		    <br>			
+连接选项</li></ul> <h3 id="mongodb用户管理"><a href="#mongodb用户管理" class="header-anchor">#</a> MongoDB用户管理</h3> <blockquote><p>所有角色</p></blockquote> <table><thead><tr><th>权限</th> <th>说明</th></tr></thead> <tbody><tr><td>read</td> <td>允许用户读取指定数据库</td></tr> <tr><td>readWrite</td> <td>允许用户读写指定数据库</td></tr> <tr><td>dbAdmin</td> <td>允许用户在指定数据库中执行管理函数，如索引创建、删除，查看统计或访问system.profile</td></tr> <tr><td>userAdmin</td> <td>允许用户向system.users集合写入，可以找指定数据库里创建、删除和管理用户</td></tr> <tr><td>clusterAdmin</td> <td>只在admin数据库中可用，赋予用户所有分片和复制集相关函数的管理权限。</td></tr> <tr><td>readAnyDatabase</td> <td>只在admin数据库中可用，赋予用户所有数据库的读权限</td></tr> <tr><td>readWriteAnyDatabase</td> <td>只在admin数据库中可用，赋予用户所有数据库的读写权限</td></tr> <tr><td>userAdminAnyDatabase</td> <td>只在admin数据库中可用，赋予用户所有数据库的userAdmin权限</td></tr> <tr><td>dbAdminAnyDatabase</td> <td>只在admin数据库中可用，赋予用户所有数据库的dbAdmin权限。</td></tr> <tr><td>root</td> <td>只在admin数据库中可用。超级账号，超级权限</td></tr></tbody></table> <ul><li>新建用户</li></ul> <div class="language- extra-class"><pre class="language-text"><code>show dbs   // 
+use admin   
+db.createUser({
+	user: 'root',
+	pwd: 'root',
+	roles: [{role: 'root', db: 'admin'}]   // db 代表的是数据库
+})
+show tables
+db.system.users.find()
+db.system.users.find().pertty()  // 格式化
+
+</code></pre></div><ul><li>开启权限</li></ul> <div class="language- extra-class"><pre class="language-text"><code>// mongod.conf 开启用户访问权限
+security: 
+		// 开启用户访问控制 ， 不配置 客户端 拿到 ip 就可以访问数据库。&lt;br&gt;
+		authorization: enabled
+
+// 修改 enabled , defrag 配置，配置为 never  
+echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled 
+echo never &gt; /sys/kernel/mm/transparent_hugepage/defrag
+
+// 运行 mongodb
+server mongod start
+// mongo 会提示 该如何操作， 操作如下 
+db.disableFreeMonitoring();
+
+server mongod restart
+
+// 连接数据库
+mongo 'mongodb://root:root@127.0.0.1:27017/admin'   // 新建用户先连接到超级管理员上，之后创建用户
+
+// 为 log 数据库新建read用户
+use log
+db.createUser({
+	user: 'log',
+	pwd: 'log',
+	roles: [{role: 'read', db: 'log'}]   // db 代表的是数据库
+})
+mongo 'mongodb://log:log@127.0.0.1:27017/log'   // 新建用户先连接到超级管理员上，之后创建用户
+show tables   // 得到 表 的名字
+db.login.find()   // login  表的名字
+db.login.insert({loginUser: 'log'})   // 返回 ok: 0, errmsg:  &quot;...'
+
+mongo 'mongodb://root:root@127.0.0.1:27017/admin'   // 新建用户先连接到超级管理员上，之后创建用户
+
+// 为 log 数据库新建 readWrite 用户
+use log
+db.createUser({
+	user: 'log1',
+	pwd: 'log1',
+	roles: [{role: 'readWrite', db: 'log'}]   // db 代表的是数据库
+})
+mongo 'mongodb://log1:log1@127.0.0.1:27017/log'   // 新建用户先连接到超级管理员上，之后创建用户
+show tables   // 得到 表 的名字
+db.login.find()   // login  表的名字
+db.login.insert({loginUser: 'log'})   // 返回 ok: 0, errmsg:  &quot;...'
+// db.login.find().skip(1001).pretty()
+</code></pre></div><blockquote><p>创建单个数据库用户，就在这个数据库下创建用户 <br>
+要全局的 就在 admin 数据库下创建</p></blockquote> <h3 id="mongodb数据库、集合操作"><a href="#mongodb数据库、集合操作" class="header-anchor">#</a> MongoDB数据库、集合操作</h3> <ul><li><p>use database		<br>
+切换数据库，<strong>如果不存在则创建</strong>， datbase 表示数据库名称</p></li> <li><p>show dbs				<br>
+查看所有数据库</p></li> <li><p>db					<br>
+查看当前数据库</p></li> <li><p>db.dropDatabase()		<br>
+删除当前数据库</p></li> <li><p>db.createCollection('collection')		<br>
+创建集合  （集合 理解为 表）</p></li> <li><p>db.collection.renameCollection ('x')	<br>
+重命名集合</p></li> <li><p>db.login.drop() <br>
+删除集合  login 是集合的名字</p></li></ul> <h3 id="mongodb文档操作"><a href="#mongodb文档操作" class="header-anchor">#</a> MongoDB文档操作</h3> <p>collection 是表的名字</p> <ul><li><p>db.collection.insert(document)		<br>
+插入文档 ，<strong>如果没有这张表，则会新建表</strong></p></li> <li><p>db.collection.update(query,update) 	<br>
+更新文档</p> <blockquote><p>参数还有第三个对象， 一般不用</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>	db.test.insert({
+		title: 'title',
+		descripttion: 'des',
+		by: 'by',
+		url: 'url',
+		tab: ['mongodb', 'database', 'noSQL'],
+		score: 100
+	})
+
+	db.test.update({'title': 'title'}, {$set: {'title': 'MongoDB'}})
+
+	db.test.find().pretty()
+</code></pre></div></li> <li><p>db.collection.deleteOne(query)	<br>
+删除单个文档</p> <div class="language- extra-class"><pre class="language-text"><code>	// 删除 count 为 6 的数据
+	db.login.deleteOne({count: 6})  
+</code></pre></div></li> <li><p>db.collection.deleteMany(query)		<br>
+删除多个文档</p> <div class="language- extra-class"><pre class="language-text"><code>	// 删除 count 小于 2 的数据
+	db.login.deleteMany({'count': {$lte: 2}})
+</code></pre></div></li> <li><p>db.collection.find(query,projection)	<br>
+查找文档 <br>
+query 查询条件 <br>
+projection  匹配条件 id: 1 name：0      1 是 显示</p> <p>find 第一个参数 query 是条件 <br>
+find 第二个参数 projection 如果不写相当胡 select *  <br></p> <div class="language- extra-class"><pre class="language-text"><code>	db.test.find({}, {_id: 1, title: 1}) // 数据只打印 _id , title
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>	// 查找一定条数的数据 db.login.find.limit()
+	db.login.find.limit(10) // 查找 十条 数据	
+
+	// 查找具体位置的数据 db.login.find.skip()
+	db.login.find.skip(900) // 查找 九百条 之后的 数据	
+</code></pre></div></li></ul> <h3 id="文档查询-特殊符号"><a href="#文档查询-特殊符号" class="header-anchor">#</a> 文档查询$特殊符号</h3> <ul><li><p>$lt / $lte		<br>
+小于(&lt;) / 小于等于(&lt;=)</p></li> <li><p>$gt / $gte		<br>
+大于(&gt;) / 大于等于(&gt;=)</p></li> <li><p>$ne		<br>
+不等于(!=)</p></li> <li><p>$or		<br>
+条件查询 or</p></li> <li><p>$set		<br>
+update操作时set</p></li> <li><p>$unset	<br>
+删除字段</p></li></ul> <h2 id="远程登录"><a href="#远程登录" class="header-anchor">#</a> 远程登录</h2> <div class="language- extra-class"><pre class="language-text"><code>	mongo &quot;mongodb://root:root@192.168.31.114/admin  // 这里可能登不上去，查看 port端口是否开启
+	
+	firewall-cmd --add-port=27017/tcp --permanent
+	firewall-cmd --reload
+
+	// 在 mongo.conf 中 将 bindIp 注销掉
+	# bindIp: 127.0.0.1
+	bindIp: 0.0.0.0
+	service mongod restart
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/myblog/node/入门学习/5.redis的入门与应用.html" class="prev">
+        5.redis的入门与应用
+      </a></span> <span class="next"><a href="/myblog/node/入门学习/7.MySQL入门与应用.html">
+        7.MySQL入门与应用
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/myblog/assets/js/app.8b94ae54.js" defer></script><script src="/myblog/assets/js/2.a7c83499.js" defer></script><script src="/myblog/assets/js/185.208c0c05.js" defer></script>
+  </body>
+</html>

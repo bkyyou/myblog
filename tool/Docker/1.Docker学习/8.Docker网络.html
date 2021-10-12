@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>8.Docker网络 | 毕克有的技术笔记</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="blog">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/myblog/assets/css/0.styles.7e951629.css" as="style"><link rel="preload" href="/myblog/assets/js/app.8b94ae54.js" as="script"><link rel="preload" href="/myblog/assets/js/2.a7c83499.js" as="script"><link rel="preload" href="/myblog/assets/js/4.ab89ca31.js" as="script"><link rel="prefetch" href="/myblog/assets/js/10.363b8a18.js"><link rel="prefetch" href="/myblog/assets/js/100.5ec4d60f.js"><link rel="prefetch" href="/myblog/assets/js/101.d20740ed.js"><link rel="prefetch" href="/myblog/assets/js/102.5c5e8569.js"><link rel="prefetch" href="/myblog/assets/js/103.7d43997d.js"><link rel="prefetch" href="/myblog/assets/js/104.0c5c2f2a.js"><link rel="prefetch" href="/myblog/assets/js/105.a67781ab.js"><link rel="prefetch" href="/myblog/assets/js/106.d78f40bb.js"><link rel="prefetch" href="/myblog/assets/js/107.40174bdc.js"><link rel="prefetch" href="/myblog/assets/js/108.35da1e74.js"><link rel="prefetch" href="/myblog/assets/js/109.efa27e58.js"><link rel="prefetch" href="/myblog/assets/js/11.ba30b9f3.js"><link rel="prefetch" href="/myblog/assets/js/110.8a3b5d5b.js"><link rel="prefetch" href="/myblog/assets/js/111.2463b700.js"><link rel="prefetch" href="/myblog/assets/js/112.099ae4f7.js"><link rel="prefetch" href="/myblog/assets/js/113.c60602de.js"><link rel="prefetch" href="/myblog/assets/js/114.d96d868a.js"><link rel="prefetch" href="/myblog/assets/js/115.e3dfb18e.js"><link rel="prefetch" href="/myblog/assets/js/116.742b12bf.js"><link rel="prefetch" href="/myblog/assets/js/117.e60c2b3b.js"><link rel="prefetch" href="/myblog/assets/js/118.245ccb23.js"><link rel="prefetch" href="/myblog/assets/js/119.ff7c881d.js"><link rel="prefetch" href="/myblog/assets/js/12.592cbaa7.js"><link rel="prefetch" href="/myblog/assets/js/120.0f56287f.js"><link rel="prefetch" href="/myblog/assets/js/121.78bfbf79.js"><link rel="prefetch" href="/myblog/assets/js/122.8bf82b41.js"><link rel="prefetch" href="/myblog/assets/js/123.64208c83.js"><link rel="prefetch" href="/myblog/assets/js/124.c2e71ae9.js"><link rel="prefetch" href="/myblog/assets/js/125.cc03464d.js"><link rel="prefetch" href="/myblog/assets/js/126.0c5fa2d3.js"><link rel="prefetch" href="/myblog/assets/js/127.6e39b599.js"><link rel="prefetch" href="/myblog/assets/js/128.ad59224c.js"><link rel="prefetch" href="/myblog/assets/js/129.0d8c4eee.js"><link rel="prefetch" href="/myblog/assets/js/13.a59a5ce3.js"><link rel="prefetch" href="/myblog/assets/js/130.dd3e5ef1.js"><link rel="prefetch" href="/myblog/assets/js/131.101b62e1.js"><link rel="prefetch" href="/myblog/assets/js/132.3fe92be3.js"><link rel="prefetch" href="/myblog/assets/js/133.012e9cf7.js"><link rel="prefetch" href="/myblog/assets/js/134.ae944b70.js"><link rel="prefetch" href="/myblog/assets/js/135.eac3c49c.js"><link rel="prefetch" href="/myblog/assets/js/136.a6c0410d.js"><link rel="prefetch" href="/myblog/assets/js/137.cb8c8721.js"><link rel="prefetch" href="/myblog/assets/js/138.dc1f840a.js"><link rel="prefetch" href="/myblog/assets/js/139.372fdc9e.js"><link rel="prefetch" href="/myblog/assets/js/14.5835a5b8.js"><link rel="prefetch" href="/myblog/assets/js/140.899d5210.js"><link rel="prefetch" href="/myblog/assets/js/141.146bf5d2.js"><link rel="prefetch" href="/myblog/assets/js/142.ef68aa99.js"><link rel="prefetch" href="/myblog/assets/js/143.420182ae.js"><link rel="prefetch" href="/myblog/assets/js/144.a9e7ea0b.js"><link rel="prefetch" href="/myblog/assets/js/145.047b74fe.js"><link rel="prefetch" href="/myblog/assets/js/146.b5dfad9f.js"><link rel="prefetch" href="/myblog/assets/js/147.475bc1b0.js"><link rel="prefetch" href="/myblog/assets/js/148.ee7f2e4c.js"><link rel="prefetch" href="/myblog/assets/js/149.2c37f8df.js"><link rel="prefetch" href="/myblog/assets/js/15.660d580e.js"><link rel="prefetch" href="/myblog/assets/js/150.ec174675.js"><link rel="prefetch" href="/myblog/assets/js/151.8a30d4ac.js"><link rel="prefetch" href="/myblog/assets/js/152.ff202788.js"><link rel="prefetch" href="/myblog/assets/js/153.a7411560.js"><link rel="prefetch" href="/myblog/assets/js/154.23bf2d6e.js"><link rel="prefetch" href="/myblog/assets/js/155.6a77a50c.js"><link rel="prefetch" href="/myblog/assets/js/156.e2a0fba4.js"><link rel="prefetch" href="/myblog/assets/js/157.2bebb338.js"><link rel="prefetch" href="/myblog/assets/js/158.95fb34fa.js"><link rel="prefetch" href="/myblog/assets/js/159.381b567c.js"><link rel="prefetch" href="/myblog/assets/js/16.f413630f.js"><link rel="prefetch" href="/myblog/assets/js/160.691aa3d0.js"><link rel="prefetch" href="/myblog/assets/js/161.8cb64830.js"><link rel="prefetch" href="/myblog/assets/js/162.d7e47e93.js"><link rel="prefetch" href="/myblog/assets/js/163.13ffb328.js"><link rel="prefetch" href="/myblog/assets/js/164.d8ca4a09.js"><link rel="prefetch" href="/myblog/assets/js/165.f0fe1c81.js"><link rel="prefetch" href="/myblog/assets/js/166.5d4f43c0.js"><link rel="prefetch" href="/myblog/assets/js/167.2ac5b7b2.js"><link rel="prefetch" href="/myblog/assets/js/168.32371a59.js"><link rel="prefetch" href="/myblog/assets/js/169.1f55c1d2.js"><link rel="prefetch" href="/myblog/assets/js/17.e209770b.js"><link rel="prefetch" href="/myblog/assets/js/170.9dad2c8a.js"><link rel="prefetch" href="/myblog/assets/js/171.93b67e73.js"><link rel="prefetch" href="/myblog/assets/js/172.425a10d0.js"><link rel="prefetch" href="/myblog/assets/js/173.f1390bd2.js"><link rel="prefetch" href="/myblog/assets/js/174.0d813b63.js"><link rel="prefetch" href="/myblog/assets/js/175.29f7a0ec.js"><link rel="prefetch" href="/myblog/assets/js/176.4455a85b.js"><link rel="prefetch" href="/myblog/assets/js/177.47e6314b.js"><link rel="prefetch" href="/myblog/assets/js/178.addc5725.js"><link rel="prefetch" href="/myblog/assets/js/179.dfa5957e.js"><link rel="prefetch" href="/myblog/assets/js/18.f99ccb53.js"><link rel="prefetch" href="/myblog/assets/js/180.729394ac.js"><link rel="prefetch" href="/myblog/assets/js/181.c8b58a50.js"><link rel="prefetch" href="/myblog/assets/js/182.ecdfefe5.js"><link rel="prefetch" href="/myblog/assets/js/183.bb9eb7d5.js"><link rel="prefetch" href="/myblog/assets/js/184.a6043e75.js"><link rel="prefetch" href="/myblog/assets/js/185.208c0c05.js"><link rel="prefetch" href="/myblog/assets/js/186.eb679cc7.js"><link rel="prefetch" href="/myblog/assets/js/187.810e2d47.js"><link rel="prefetch" href="/myblog/assets/js/188.6f7aa89d.js"><link rel="prefetch" href="/myblog/assets/js/189.5f9d5892.js"><link rel="prefetch" href="/myblog/assets/js/19.1baa0546.js"><link rel="prefetch" href="/myblog/assets/js/190.bb2c6e5f.js"><link rel="prefetch" href="/myblog/assets/js/191.a79726de.js"><link rel="prefetch" href="/myblog/assets/js/192.b371fd96.js"><link rel="prefetch" href="/myblog/assets/js/193.86d5d65d.js"><link rel="prefetch" href="/myblog/assets/js/194.ffd7b709.js"><link rel="prefetch" href="/myblog/assets/js/195.7c1fe716.js"><link rel="prefetch" href="/myblog/assets/js/196.6da9f830.js"><link rel="prefetch" href="/myblog/assets/js/197.f344835b.js"><link rel="prefetch" href="/myblog/assets/js/198.7a968f26.js"><link rel="prefetch" href="/myblog/assets/js/199.8a614358.js"><link rel="prefetch" href="/myblog/assets/js/20.af305f63.js"><link rel="prefetch" href="/myblog/assets/js/200.4e143b06.js"><link rel="prefetch" href="/myblog/assets/js/201.8c6c197d.js"><link rel="prefetch" href="/myblog/assets/js/202.166aa27a.js"><link rel="prefetch" href="/myblog/assets/js/203.1896892b.js"><link rel="prefetch" href="/myblog/assets/js/204.341183e1.js"><link rel="prefetch" href="/myblog/assets/js/205.8fdc403b.js"><link rel="prefetch" href="/myblog/assets/js/206.f8bc8de4.js"><link rel="prefetch" href="/myblog/assets/js/207.05252155.js"><link rel="prefetch" href="/myblog/assets/js/208.fe8b4761.js"><link rel="prefetch" href="/myblog/assets/js/209.28b5e854.js"><link rel="prefetch" href="/myblog/assets/js/21.938e142e.js"><link rel="prefetch" href="/myblog/assets/js/210.2f1c7064.js"><link rel="prefetch" href="/myblog/assets/js/211.f0f5afcb.js"><link rel="prefetch" href="/myblog/assets/js/212.83dcb1e8.js"><link rel="prefetch" href="/myblog/assets/js/213.efe45a86.js"><link rel="prefetch" href="/myblog/assets/js/214.c862a2e7.js"><link rel="prefetch" href="/myblog/assets/js/215.0128ea1c.js"><link rel="prefetch" href="/myblog/assets/js/216.3b3cd43d.js"><link rel="prefetch" href="/myblog/assets/js/217.3e3fa319.js"><link rel="prefetch" href="/myblog/assets/js/218.ccd91234.js"><link rel="prefetch" href="/myblog/assets/js/219.72862609.js"><link rel="prefetch" href="/myblog/assets/js/22.b3c26cb1.js"><link rel="prefetch" href="/myblog/assets/js/220.1a90a643.js"><link rel="prefetch" href="/myblog/assets/js/221.5270f845.js"><link rel="prefetch" href="/myblog/assets/js/222.78356f59.js"><link rel="prefetch" href="/myblog/assets/js/223.f7669494.js"><link rel="prefetch" href="/myblog/assets/js/224.340ea29f.js"><link rel="prefetch" href="/myblog/assets/js/225.c7d289f8.js"><link rel="prefetch" href="/myblog/assets/js/226.1c6efd53.js"><link rel="prefetch" href="/myblog/assets/js/227.2445f8ac.js"><link rel="prefetch" href="/myblog/assets/js/228.f084cec4.js"><link rel="prefetch" href="/myblog/assets/js/229.eda7b512.js"><link rel="prefetch" href="/myblog/assets/js/23.ca7a3609.js"><link rel="prefetch" href="/myblog/assets/js/230.ed948dba.js"><link rel="prefetch" href="/myblog/assets/js/231.5b9c5497.js"><link rel="prefetch" href="/myblog/assets/js/232.dc814c2d.js"><link rel="prefetch" href="/myblog/assets/js/233.2d6730d9.js"><link rel="prefetch" href="/myblog/assets/js/234.13dbace3.js"><link rel="prefetch" href="/myblog/assets/js/235.44e61b24.js"><link rel="prefetch" href="/myblog/assets/js/236.a80b9096.js"><link rel="prefetch" href="/myblog/assets/js/237.ca36bbba.js"><link rel="prefetch" href="/myblog/assets/js/238.6c803898.js"><link rel="prefetch" href="/myblog/assets/js/239.f1cf6fe1.js"><link rel="prefetch" href="/myblog/assets/js/24.1ef86de7.js"><link rel="prefetch" href="/myblog/assets/js/240.75cb9945.js"><link rel="prefetch" href="/myblog/assets/js/241.89f29ff1.js"><link rel="prefetch" href="/myblog/assets/js/242.783c90e5.js"><link rel="prefetch" href="/myblog/assets/js/243.c6376a40.js"><link rel="prefetch" href="/myblog/assets/js/244.d13cce00.js"><link rel="prefetch" href="/myblog/assets/js/245.fab29513.js"><link rel="prefetch" href="/myblog/assets/js/246.adf5c2d3.js"><link rel="prefetch" href="/myblog/assets/js/247.e69563c9.js"><link rel="prefetch" href="/myblog/assets/js/248.7aea3a26.js"><link rel="prefetch" href="/myblog/assets/js/249.932cf003.js"><link rel="prefetch" href="/myblog/assets/js/25.d0383043.js"><link rel="prefetch" href="/myblog/assets/js/250.83c3b508.js"><link rel="prefetch" href="/myblog/assets/js/251.ea5d6fcc.js"><link rel="prefetch" href="/myblog/assets/js/252.8e713434.js"><link rel="prefetch" href="/myblog/assets/js/253.742cc163.js"><link rel="prefetch" href="/myblog/assets/js/254.e8c5a1e5.js"><link rel="prefetch" href="/myblog/assets/js/26.630e1518.js"><link rel="prefetch" href="/myblog/assets/js/27.ccb67911.js"><link rel="prefetch" href="/myblog/assets/js/28.ba766e49.js"><link rel="prefetch" href="/myblog/assets/js/29.e541ef04.js"><link rel="prefetch" href="/myblog/assets/js/3.a0896d3c.js"><link rel="prefetch" href="/myblog/assets/js/30.108048b1.js"><link rel="prefetch" href="/myblog/assets/js/31.9cc6a20b.js"><link rel="prefetch" href="/myblog/assets/js/32.67b08274.js"><link rel="prefetch" href="/myblog/assets/js/33.3f42d489.js"><link rel="prefetch" href="/myblog/assets/js/34.ca2bf2ec.js"><link rel="prefetch" href="/myblog/assets/js/35.b916c46c.js"><link rel="prefetch" href="/myblog/assets/js/36.2954eacb.js"><link rel="prefetch" href="/myblog/assets/js/37.2f2720d2.js"><link rel="prefetch" href="/myblog/assets/js/38.92eb47d8.js"><link rel="prefetch" href="/myblog/assets/js/39.0b1b65d8.js"><link rel="prefetch" href="/myblog/assets/js/40.13881c83.js"><link rel="prefetch" href="/myblog/assets/js/41.66c512e1.js"><link rel="prefetch" href="/myblog/assets/js/42.0f824394.js"><link rel="prefetch" href="/myblog/assets/js/43.701308a1.js"><link rel="prefetch" href="/myblog/assets/js/44.55bed480.js"><link rel="prefetch" href="/myblog/assets/js/45.d3b97b50.js"><link rel="prefetch" href="/myblog/assets/js/46.720c09fd.js"><link rel="prefetch" href="/myblog/assets/js/47.47ed3750.js"><link rel="prefetch" href="/myblog/assets/js/48.9ec589be.js"><link rel="prefetch" href="/myblog/assets/js/49.34abd764.js"><link rel="prefetch" href="/myblog/assets/js/5.947be5d0.js"><link rel="prefetch" href="/myblog/assets/js/50.0cb0abba.js"><link rel="prefetch" href="/myblog/assets/js/51.c8ddf4dd.js"><link rel="prefetch" href="/myblog/assets/js/52.ebd0e070.js"><link rel="prefetch" href="/myblog/assets/js/53.da888a41.js"><link rel="prefetch" href="/myblog/assets/js/54.a53ae915.js"><link rel="prefetch" href="/myblog/assets/js/55.e5c61ed4.js"><link rel="prefetch" href="/myblog/assets/js/56.34639725.js"><link rel="prefetch" href="/myblog/assets/js/57.03dde0f9.js"><link rel="prefetch" href="/myblog/assets/js/58.7a99f3ef.js"><link rel="prefetch" href="/myblog/assets/js/59.a501a276.js"><link rel="prefetch" href="/myblog/assets/js/6.d4615e53.js"><link rel="prefetch" href="/myblog/assets/js/60.481f73f8.js"><link rel="prefetch" href="/myblog/assets/js/61.5507bb31.js"><link rel="prefetch" href="/myblog/assets/js/62.a5698aa3.js"><link rel="prefetch" href="/myblog/assets/js/63.b9a4cc43.js"><link rel="prefetch" href="/myblog/assets/js/64.c59a1aa1.js"><link rel="prefetch" href="/myblog/assets/js/65.0e9f550a.js"><link rel="prefetch" href="/myblog/assets/js/66.f8afb570.js"><link rel="prefetch" href="/myblog/assets/js/67.2f0726d7.js"><link rel="prefetch" href="/myblog/assets/js/68.93eaef9a.js"><link rel="prefetch" href="/myblog/assets/js/69.897e055b.js"><link rel="prefetch" href="/myblog/assets/js/7.e346764f.js"><link rel="prefetch" href="/myblog/assets/js/70.491bd939.js"><link rel="prefetch" href="/myblog/assets/js/71.99cf2e51.js"><link rel="prefetch" href="/myblog/assets/js/72.3bf4eeba.js"><link rel="prefetch" href="/myblog/assets/js/73.d6707f18.js"><link rel="prefetch" href="/myblog/assets/js/74.7847a2d3.js"><link rel="prefetch" href="/myblog/assets/js/75.4e340a3c.js"><link rel="prefetch" href="/myblog/assets/js/76.25945691.js"><link rel="prefetch" href="/myblog/assets/js/77.ac2df828.js"><link rel="prefetch" href="/myblog/assets/js/78.9d922e6a.js"><link rel="prefetch" href="/myblog/assets/js/79.fbf78d73.js"><link rel="prefetch" href="/myblog/assets/js/8.18dea722.js"><link rel="prefetch" href="/myblog/assets/js/80.23ea2e4e.js"><link rel="prefetch" href="/myblog/assets/js/81.3cd2bac9.js"><link rel="prefetch" href="/myblog/assets/js/82.9d08a6d9.js"><link rel="prefetch" href="/myblog/assets/js/83.f628ba64.js"><link rel="prefetch" href="/myblog/assets/js/84.a5c61ea6.js"><link rel="prefetch" href="/myblog/assets/js/85.83cc21ca.js"><link rel="prefetch" href="/myblog/assets/js/86.4e46a31e.js"><link rel="prefetch" href="/myblog/assets/js/87.c540c1fa.js"><link rel="prefetch" href="/myblog/assets/js/88.ce250152.js"><link rel="prefetch" href="/myblog/assets/js/89.7d2b4a8b.js"><link rel="prefetch" href="/myblog/assets/js/9.36f61896.js"><link rel="prefetch" href="/myblog/assets/js/90.8b2bd4d5.js"><link rel="prefetch" href="/myblog/assets/js/91.277d4600.js"><link rel="prefetch" href="/myblog/assets/js/92.482d06ee.js"><link rel="prefetch" href="/myblog/assets/js/93.aba2fb10.js"><link rel="prefetch" href="/myblog/assets/js/94.08d78a6c.js"><link rel="prefetch" href="/myblog/assets/js/95.9f29b215.js"><link rel="prefetch" href="/myblog/assets/js/96.6aad276d.js"><link rel="prefetch" href="/myblog/assets/js/97.1f001349.js"><link rel="prefetch" href="/myblog/assets/js/98.eaf31225.js"><link rel="prefetch" href="/myblog/assets/js/99.4417c184.js">
+    <link rel="stylesheet" href="/myblog/assets/css/0.styles.7e951629.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/myblog/" class="home-link router-link-active"><!----> <span class="site-name">毕克有的技术笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="技术笔记" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/js/" class="nav-link">
+  js篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/css/" class="nav-link">
+  css篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/tool/" class="nav-link router-link-active">
+  工具篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/framework/" class="nav-link">
+  框架篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/webapp/" class="nav-link">
+  移动端app开发
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/weChatMiniProgram/" class="nav-link">
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/node/" class="nav-link">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/http/" class="nav-link">
+  http
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码解析" class="dropdown-title"><span class="title">源码解析</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码解析" class="mobile-dropdown-title"><span class="title">源码解析</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/sourceCode/" class="nav-link">
+  jQuery
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="技术笔记" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/js/" class="nav-link">
+  js篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/css/" class="nav-link">
+  css篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/tool/" class="nav-link router-link-active">
+  工具篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/framework/" class="nav-link">
+  框架篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/webapp/" class="nav-link">
+  移动端app开发
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/weChatMiniProgram/" class="nav-link">
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/node/" class="nav-link">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/http/" class="nav-link">
+  http
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码解析" class="dropdown-title"><span class="title">源码解析</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码解析" class="mobile-dropdown-title"><span class="title">源码解析</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/sourceCode/" class="nav-link">
+  jQuery
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>webpack</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>1.webpack学习</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/myblog/tool/webpack/1.webpack学习/1.初识 webpack.html" class="sidebar-link">1.初识 webpack</a></li><li><a href="/myblog/tool/webpack/1.webpack学习/2.webpack优化.html" class="sidebar-link">2.webpack优化</a></li><li><a href="/myblog/tool/webpack/1.webpack学习/3.webpack的实现.html" class="sidebar-link">3.webpack的实现</a></li><li><a href="/myblog/tool/webpack/1.webpack学习/4.如何调适和阅读webpack源码.html" class="sidebar-link">4.如何调适和阅读webpack源码</a></li><li><a href="/myblog/tool/webpack/1.webpack学习/5.webpack自定义loader.html" class="sidebar-link">5.webpack自定义loader</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>2.整理练习webpack的错误</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>3.webpack学习</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>nvm</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>git</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Docker</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>1.Docker学习</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/myblog/tool/Docker/1.Docker学习/1.Docker学习大纲.html" class="sidebar-link">Docker学习大纲</a></li><li><a href="/myblog/tool/Docker/1.Docker学习/2.Docker基础.html" class="sidebar-link">2.Docker基础</a></li><li><a href="/myblog/tool/Docker/1.Docker学习/3.练习.html" class="sidebar-link">3.练习</a></li><li><a href="/myblog/tool/Docker/1.Docker学习/4.Portainer可视化面板安装.html" class="sidebar-link">4.Portainer可视化面板安装</a></li><li><a href="/myblog/tool/Docker/1.Docker学习/5.docker镜像讲解.html" class="sidebar-link">5.docker镜像讲解</a></li><li><a href="/myblog/tool/Docker/1.Docker学习/7.DockerFIle.html" class="sidebar-link">7.Dockerfile</a></li><li><a href="/myblog/tool/Docker/1.Docker学习/8.Docker网络.html" class="active sidebar-link">8.Docker网络</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/myblog/tool/Docker/1.Docker学习/8.Docker网络.html#理解-docker0" class="sidebar-link">理解 Docker0</a></li><li class="sidebar-sub-header"><a href="/myblog/tool/Docker/1.Docker学习/8.Docker网络.html#原理" class="sidebar-link">原理</a></li><li class="sidebar-sub-header"><a href="/myblog/tool/Docker/1.Docker学习/8.Docker网络.html#容器互联" class="sidebar-link">容器互联</a></li><li class="sidebar-sub-header"><a href="/myblog/tool/Docker/1.Docker学习/8.Docker网络.html#自定义网络" class="sidebar-link">自定义网络</a></li><li class="sidebar-sub-header"><a href="/myblog/tool/Docker/1.Docker学习/8.Docker网络.html#网络连通" class="sidebar-link">网络连通</a></li><li class="sidebar-sub-header"><a href="/myblog/tool/Docker/1.Docker学习/8.Docker网络.html#实战-部署-redis-集群" class="sidebar-link">实战：部署 redis 集群</a></li></ul></li></ul></section></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>mysql</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>脚手架工具</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="_8-docker网络"><a href="#_8-docker网络" class="header-anchor">#</a> 8.Docker网络</h1> <p>铺垫容器编排，集群部署</p> <ul><li>清空所有环境，方便理解</li></ul> <p>容器全部清空
+docker rm -f $(docker ps -aq)</p> <p>删除全部镜像
+docker rmi -f $(docker images -aq)</p> <h2 id="理解-docker0"><a href="#理解-docker0" class="header-anchor">#</a> 理解 Docker0</h2> <ol><li>清空所有环境</li></ol> <ul><li>1.1 测试</li></ul> <div class="language-s extra-class"><pre class="language-text"><code>ip addr
+</code></pre></div><p><img src="/myblog/assets/img/8.1.3f8a98a8.jpg" alt="显示ip"></p> <ol start="2"><li>三个网络</li></ol> <p>问题： docker 是如何处理容器</p> <p><img src="/myblog/assets/img/8.2.f257494b.jpg" alt="容器连接？"></p> <div class="language-s extra-class"><pre class="language-text"><code># 运行 tomcat
+docker run -d -P --name tomcat01 tomcat
+
+# 查看运行 tomcat 的 ip， 发现容器启动的时候会得到一个 eth0@if117 的地址， docker 分配的
+docker exec -it tomcat01 ip addr
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+116: eth0@if117: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default 
+    link/ether 02:42:ac:12:00:03 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet 172.18.0.3/16 brd 172.18.255.255 scope global eth0
+       valid_lft forever preferred_lft forever
+
+# 思考：linux 能不能 ping 通容器内部
+[root@VM-0-4-centos ~]# ping 172.18.0.3
+PING 172.18.0.3 (172.18.0.3) 56(84) bytes of data.
+64 bytes from 172.18.0.3: icmp_seq=1 ttl=64 time=0.065 ms
+64 bytes from 172.18.0.3: icmp_seq=2 ttl=64 time=0.043 ms
+64 bytes from 172.18.0.3: icmp_seq=3 ttl=64 time=0.042 ms
+# linux 可以 ping 通 docker 容器内部
+</code></pre></div><h2 id="原理"><a href="#原理" class="header-anchor">#</a> 原理</h2> <ol><li>我们每启动一个 docker 容器，docker 就会给 docker 容器分配一个ip，我们只要安装了 docker ，就会有一个网卡 docker0。
+桥接模式，使用的技术 evth-pair 技术</li></ol> <ul><li>再次测试 ip addr</li></ul> <p><img src="/myblog/assets/img/8.3.06a6294b.jpg" alt="再次测试ip addr"></p> <ol start="2"><li>在启动一个容器测试,发现又多了一对网卡</li></ol> <div class="language-s extra-class"><pre class="language-text"><code>[root@VM-0-4-centos ~]# docker run -d -P --name tomcat02 tomcat
+</code></pre></div><p><img src="/myblog/assets/img/8.4.2afa2cda.jpg" alt="再次测试ip addr"></p> <blockquote><p>我们发现容器带来的网卡，都是一对对的
+evth-pair 就是一对虚拟设备接口，他们都是成对出现的，一端连着协议，一端彼此相连
+正因为有这个特性，evth-pair 充当一个桥梁，连接各种网络设备
+OpenStac, Docker 容器之间的连接， OVS的连接，都是使用 evth-pair 技术</p></blockquote> <ol start="3"><li>测试一下 tomcat02 ping tomcat01</li></ol> <div class="language-s extra-class"><pre class="language-text"><code>[root@VM-0-4-centos ~]# docker exec -it tomcat02 ping 172.18.0.3 
+PING 172.18.0.3 (172.18.0.3) 56(84) bytes of data.
+64 bytes from 172.18.0.3: icmp_seq=1 ttl=64 time=0.082 ms
+64 bytes from 172.18.0.3: icmp_seq=2 ttl=64 time=0.052 ms
+64 bytes from 172.18.0.3: icmp_seq=3 ttl=64 time=0.052 ms
+</code></pre></div><ul><li>结论：容器和容器之后是可以 ping 通的</li></ul> <p><img src="/myblog/assets/img/8.5.641bad1d.jpg" alt="容器之间网络原理"></p> <ul><li>结论： tomcat01 和 tomcat02 是公用的一个路由器，docker0。</li> <li>所有容器再不指定网络的情况下，都是 docker0 路由的，docker 会给我们容器分配一个默认的可用 ip</li></ul> <p>255.255.0.1/16</p> <p>000000.000000.000000.000000</p> <p>255.255.255.255</p> <p>255.255.0.0   代表一个网络</p> <p>存放个数  255 * 255 - 0.0.0.0(回环地址) - 255.255.255.255(最终地址)   大概约等于 65535</p> <p>255.255.0.1/24 如果是这种代表最后 255 个代表网络范围的</p> <ul><li>小结</li></ul> <p><img src="/myblog/assets/img/8.6.133c5d51.jpg" alt="容器之间网络原理"></p> <p>Docker 使用的是 Linux 的桥接，宿主机中是一个 Docker 容器的网桥 docker0。</p> <p>Docker 中所有的网络接口都是虚拟的。虚拟的转发效率高</p> <p>只要容器删除，对应的网桥一对就没了</p> <div class="language-s extra-class"><pre class="language-text"><code># 查看网卡
+[root@VM-0-4-centos ~]# docker network ls
+NETWORK ID     NAME      DRIVER    SCOPE
+9d496db23b85   bridge    bridge    local
+d4b48b153adb   host      host      local
+629b73161751   none      null      local
+[root@VM-0-4-centos ~]# docker network  inspect 9d496db23b85
+</code></pre></div><p><img src="/myblog/assets/img/8.7.c6461c3d.jpg" alt="容器之间网络原理"></p> <ul><li>思考</li></ul> <p>我们编写了一个微服务，database url=ip；项目不重启，数据库ip换掉了，我们希望可以处理这个问题，我们可以名字来访问容器？</p> <h2 id="容器互联"><a href="#容器互联" class="header-anchor">#</a> 容器互联</h2> <ul><li>直接使用名字不行</li></ul> <div class="language-s extra-class"><pre class="language-text"><code>[root@VM-0-4-centos ~]# docker exec  -it tomcat01 ping tomcat02 
+ping: tomcat02: Name or service not known
+</code></pre></div><ul><li>--link 解决</li></ul> <div class="language-s extra-class"><pre class="language-text"><code># 启动，并连接网络
+[root@VM-0-4-centos ~]# docker run -d -P --name tomcat03 --link tomcat02 tomcat
+4e54df893ce4da6e19df2a28bfe32ebac46971d4b61526dd61f381dfd1ab8b86
+
+# tomcat03 ping tomcat02
+[root@VM-0-4-centos ~]# docker exec -it tomcat03 ping tomcat02
+PING tomcat02 (172.18.0.4) 56(84) bytes of data.
+64 bytes from tomcat02 (172.18.0.4): icmp_seq=1 ttl=64 time=0.101 ms
+64 bytes from tomcat02 (172.18.0.4): icmp_seq=2 ttl=64 time=0.055 ms
+64 bytes from tomcat02 (172.18.0.4): icmp_seq=3 ttl=64 time=0.055 ms
+
+# 反向可以ping通么
+docker network --help
+</code></pre></div><ul><li>探究 inspect</li></ul> <div class="language-s extra-class"><pre class="language-text"><code># 查看网卡
+[root@VM-0-4-centos ~]# docker network ls
+NETWORK ID     NAME      DRIVER    SCOPE
+9d496db23b85   bridge    bridge    local
+d4b48b153adb   host      host      local
+629b73161751   none      null      local
+[root@VM-0-4-centos ~]# docker network  inspect 9d496db23b85
+</code></pre></div><p><img src="/myblog/assets/img/8.8.3230a623.jpg" alt="容器之间网络原理"></p> <ul><li><p>其实这个 tomcat03 就是在本地配置了 tomcat02 的配置</p></li> <li><p>示范</p></li></ul> <div class="language-s extra-class"><pre class="language-text"><code># hosts  配置之后访问 baidu， 连接到 这个ip
+127.0.0.1   www.baidu.com 
+</code></pre></div><ul><li>查看真实 hosts 配置</li></ul> <div class="language-s extra-class"><pre class="language-text"><code>[root@VM-0-4-centos ~]# docker exec -it tomcat03 cat /etc/hosts
+127.0.0.1       localhost
+::1     localhost ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+172.18.0.4      tomcat02 e20a7e22a6c9  # 配置
+172.18.0.5      4e54df893ce4
+</code></pre></div><blockquote><p>本质探究： --link 就是我们在 hosts 配置增加了一个 172.18.0.4      tomcat02 e20a7e22a6c9</p></blockquote> <p>我们现在使用 docker， 不推荐使用 --link 了。 自定义网络不适用 docker0!!!</p> <p>docker0 问题： 不支持容器名链接访问</p> <h2 id="自定义网络"><a href="#自定义网络" class="header-anchor">#</a> 自定义网络</h2> <p>容器互联</p> <h3 id="查看所有的-docker-网络"><a href="#查看所有的-docker-网络" class="header-anchor">#</a> 查看所有的 docker 网络</h3> <div class="language-s extra-class"><pre class="language-text"><code># bridge 就是 docker0
+[root@VM-0-4-centos ~]# docker network ls
+NETWORK ID     NAME      DRIVER    SCOPE   
+9d496db23b85   bridge    bridge    local
+d4b48b153adb   host      host      local
+629b73161751   none      null      local
+</code></pre></div><h3 id="网络模式"><a href="#网络模式" class="header-anchor">#</a> 网络模式</h3> <ul><li>bridge</li></ul> <p>桥接模式： 桥接 docker（默认，自己创建网络也使用 bridge 模式）</p> <ul><li>none</li></ul> <p>不配置网络</p> <ul><li>host</li></ul> <p>和宿主机共享网络</p> <ul><li>container</li></ul> <p>容器内可以网络联通 （不建议使用，局限很大）</p> <h3 id="测试"><a href="#测试" class="header-anchor">#</a> 测试</h3> <ol><li>删除所有容器，保证环境干净</li></ol> <div class="language-s extra-class"><pre class="language-text"><code>docker rm -f $(docker ps -aq)
+</code></pre></div><ol start="2"><li>自定义网络</li></ol> <ul><li>2.1 分析命令</li></ul> <div class="language-s extra-class"><pre class="language-text"><code># 我们直接启动命令 --net bridge, 而这个就是我们的 docker0
+# docker run -d -P --name tomcat01 --net bridge tomcat
+docker run -d -P --name tomcat01  tomcat  # 直接启动会有默认参数 --net bridge
+</code></pre></div><ul><li>2.2 docker0 特点</li></ul> <p>默认，域名不能访问，--link可以打通</p> <ul><li>2.3 创建网络</li></ul> <div class="language-s extra-class"><pre class="language-text"><code>docker network create --driver bridge --subnet 192.168.0.0/16 --gateway 192.168.0.1 mynet 
+
+# 自定义网络
+# --driver bridge
+# --subnet 192.168.0.0/16  192.168.0.2 - 192.168.255.255
+# --gateway 192.168.0.1 
+
+# 演示
+[root@VM-0-4-centos ~]# docker network create --driver bridge --subnet 192.168.0.0/16 --gateway 192.168.0.1 mynet
+9439177a11dd7269a82fcc6d0403340f332c31007d97de24aaa98b4a305a07b0
+[root@VM-0-4-centos ~]# docker network ls
+NETWORK ID     NAME      DRIVER    SCOPE
+9d496db23b85   bridge    bridge    local
+d4b48b153adb   host      host      local
+9439177a11dd   mynet     bridge    local
+629b73161751   none      null      local
+</code></pre></div><ul><li>查看自定义网络</li></ul> <p>我们自己的网络积极创建好了</p> <div class="language-s extra-class"><pre class="language-text"><code>docker network inspect mynet
+</code></pre></div><p><img src="/myblog/assets/img/8.9.09e51f35.jpg" alt="查看自定义网络"></p> <ul><li>测试</li></ul> <div class="language-s extra-class"><pre class="language-text"><code>[root@VM-0-4-centos ~]# docker run -d -P --name tomcat-net-01 --net mynet tomcat
+015fa36baa493235beee6fa5464f4fb8c5d8897ae7bf1b97eab857c6d9c7c197
+[root@VM-0-4-centos ~]# docker run -d -P --name tomcat-net-02 --net mynet tomcat
+b53af3d80e9c891f4473b4d7159a283714c18ace6eba9bcd1929ada700d0bdeb
+</code></pre></div><ul><li>查看</li></ul> <p>命令</p> <div class="language-s extra-class"><pre class="language-text"><code>docker inspect mynet
+
+docker network inspect mynet
+</code></pre></div><p><img src="/myblog/assets/img/8.10.64dfa575.jpg" alt="查看自定义网络"></p> <ul><li>再次测试 ping 连接</li></ul> <div class="language-s extra-class"><pre class="language-text"><code>[root@VM-0-4-centos ~]# docker exec -it tomcat-net-01 ping tomcat-net-02
+PING tomcat-net-02 (192.168.0.3) 56(84) bytes of data.
+64 bytes from tomcat-net-02.mynet (192.168.0.3): icmp_seq=1 ttl=64 time=0.041 ms
+64 bytes from tomcat-net-02.mynet (192.168.0.3): icmp_seq=2 ttl=64 time=0.054 ms
+64 bytes from tomcat-net-02.mynet (192.168.0.3): icmp_seq=3 ttl=64 time=0.053 ms
+</code></pre></div><blockquote><p>现在不实用 --link 也可以 ping 名字了</p></blockquote> <p>我们自定义的网络 docker 都已经帮我们维护好了对应的关系，推荐我们平时这样使用网络</p> <p>好处：</p> <p>redis: 不同的集群使用不同的网络，保证集群是安全和健康的</p> <p>mysql: 不同的集群使用不同的网络，保证集群是安全和健康的</p> <h2 id="网络连通"><a href="#网络连通" class="header-anchor">#</a> 网络连通</h2> <div class="language-s extra-class"><pre class="language-text"><code>docker network connect [options] network container
+</code></pre></div><p><img src="/myblog/assets/img/8.11.45794245.jpg" alt="网络连通"></p> <p><img src="/myblog/assets/img/8.12.16c6813d.jpg" alt="网络连通"></p> <h3 id="测试打通-tomcat01-mynet"><a href="#测试打通-tomcat01-mynet" class="header-anchor">#</a> 测试打通 tomcat01 - mynet</h3> <ul><li>命令</li></ul> <div class="language-s extra-class"><pre class="language-text"><code>docker network connect mynet tomcat01
+</code></pre></div><ul><li>效果</li></ul> <div class="language-s extra-class"><pre class="language-text"><code>[root@VM-0-4-centos ~]# docker network connect mynet tomcat01
+[root@VM-0-4-centos ~]# docker network inspect mynet
+[
+    {
+        &quot;Name&quot;: &quot;mynet&quot;,
+        &quot;Id&quot;: &quot;9439177a11dd7269a82fcc6d0403340f332c31007d97de24aaa98b4a305a07b0&quot;,
+        &quot;Created&quot;: &quot;2021-06-08T09:50:37.156555443+08:00&quot;,
+        &quot;Scope&quot;: &quot;local&quot;,
+        &quot;Driver&quot;: &quot;bridge&quot;,
+        &quot;EnableIPv6&quot;: false,
+        &quot;IPAM&quot;: {
+            &quot;Driver&quot;: &quot;default&quot;,
+            &quot;Options&quot;: {},
+            &quot;Config&quot;: [
+                {
+                    &quot;Subnet&quot;: &quot;192.168.0.0/16&quot;,
+                    &quot;Gateway&quot;: &quot;192.168.0.1&quot;
+                }
+            ]
+        },
+        &quot;Internal&quot;: false,
+        &quot;Attachable&quot;: false,
+        &quot;Ingress&quot;: false,
+        &quot;ConfigFrom&quot;: {
+            &quot;Network&quot;: &quot;&quot;
+        },
+        &quot;ConfigOnly&quot;: false,
+        &quot;Containers&quot;: {
+            &quot;015fa36baa493235beee6fa5464f4fb8c5d8897ae7bf1b97eab857c6d9c7c197&quot;: {
+                &quot;Name&quot;: &quot;tomcat-net-01&quot;,
+                &quot;EndpointID&quot;: &quot;15f8c0ae77724f7c1b9cf85e2054e53acda4f1240f00f8cab242a0667f5a3be9&quot;,
+                &quot;MacAddress&quot;: &quot;02:42:c0:a8:00:02&quot;,
+                &quot;IPv4Address&quot;: &quot;192.168.0.2/16&quot;,
+                &quot;IPv6Address&quot;: &quot;&quot;
+            },
+            &quot;108ce0bc7c91e5409267b8a224d1fc389c1223937ea6a4b9c2984e83d921c31f&quot;: {
+                &quot;Name&quot;: &quot;tomcat01&quot;,
+                &quot;EndpointID&quot;: &quot;1b83f080b99059cedcb46aff336d2dabb8b514f5031308cc86a9d51ce5cb95db&quot;,
+                &quot;MacAddress&quot;: &quot;02:42:c0:a8:00:04&quot;,
+                &quot;IPv4Address&quot;: &quot;192.168.0.4/16&quot;,
+                &quot;IPv6Address&quot;: &quot;&quot;
+            },
+            &quot;b53af3d80e9c891f4473b4d7159a283714c18ace6eba9bcd1929ada700d0bdeb&quot;: {
+                &quot;Name&quot;: &quot;tomcat-net-02&quot;,
+                &quot;EndpointID&quot;: &quot;971311eeeb8652839e4b793d07f8403901246f5a03c49ae390e85bea076070a8&quot;,
+                &quot;MacAddress&quot;: &quot;02:42:c0:a8:00:03&quot;,
+                &quot;IPv4Address&quot;: &quot;192.168.0.3/16&quot;,
+                &quot;IPv6Address&quot;: &quot;&quot;
+            }
+        },
+        &quot;Options&quot;: {},
+        &quot;Labels&quot;: {}
+    }
+]
+</code></pre></div><ul><li><p>联通之后就是将 tomcat01  放到了 mynet 网络下？</p></li> <li><p>一个容器两个 ip 地址！！！</p></li></ul> <p><img src="/myblog/assets/img/8.13.2ff996f4.jpg" alt="网络连通"></p> <h3 id="再次尝试-ping-连接"><a href="#再次尝试-ping-连接" class="header-anchor">#</a> 再次尝试 ping 连接</h3> <div class="language-s extra-class"><pre class="language-text"><code>[root@VM-0-4-centos ~]# docker exec -it tomcat01 ping tomcat-net-01
+PING tomcat-net-01 (192.168.0.2) 56(84) bytes of data.
+64 bytes from tomcat-net-01.mynet (192.168.0.2): icmp_seq=1 ttl=64 time=0.063 ms
+64 bytes from tomcat-net-01.mynet (192.168.0.2): icmp_seq=2 ttl=64 time=0.056 ms
+64 bytes from tomcat-net-01.mynet (192.168.0.2): icmp_seq=3 ttl=64 time=0.053 ms
+</code></pre></div><ul><li>结论</li></ul> <p>假设要跨网络操作别人，就需要使用 docker network connect 进行联通！！！</p> <h2 id="实战-部署-redis-集群"><a href="#实战-部署-redis-集群" class="header-anchor">#</a> 实战：部署 redis 集群</h2> <ol><li>构建网络</li></ol> <div class="language-s extra-class"><pre class="language-text"><code>[root@VM-0-4-centos ~]# docker network create redis --subnet 172.38.0.0/16
+3bb41ccc5128531f6684e6009bd6f9538ac4c38943e61acb5f937803ecd20934
+</code></pre></div><ol start="2"><li>shell 脚本</li></ol> <div class="language-s extra-class"><pre class="language-text"><code>for port in $(seq 1 6); \
+do \
+mkdir -p /mydata/redis/node-${port}/conf
+touch /mydata/redis/node-${port}/conf
+cat &lt;&lt; EOF &gt;/mydata/redis/node-${port}/conf/redis.conf
+port 6379
+bind 0.0.0.0
+cluster-enabled ues
+cluster config file nodes.conf
+cluster-node-timeout 5000
+cluster-announce-ip 172.38.0.1${port}
+cluster-announce-port 6379
+cluster-announce-bus-port 16379
+appendonly yes
+EOF
+done
+</code></pre></div><ol start="3"><li>查看</li></ol> <div class="language-s extra-class"><pre class="language-text"><code>cd /mydata/redis 
+下边有 node-1 node-2 node-3 node-4 node-5 node-6
+</code></pre></div><div class="language-s extra-class"><pre class="language-text"><code>[root@VM-0-4-centos ~]# cd /mydata/
+[root@VM-0-4-centos mydata]# ls
+redis
+[root@VM-0-4-centos mydata]# cd redis/
+[root@VM-0-4-centos redis]# ls
+node-1  node-2  node-3  node-4  node-5  node-6
+[root@VM-0-4-centos redis]# cd node-1
+[root@VM-0-4-centos node-1]# ls
+conf
+[root@VM-0-4-centos node-1]# cd conf/
+[root@VM-0-4-centos conf]# ls
+redis.conf
+[root@VM-0-4-centos conf]# cat redis.conf 
+port 6379
+bind 0.0.0.0
+cluster-enabled ues
+cluster config file nodes.conf
+cluster-node-timeout 5000
+cluster-announce-ip 172.38.0.11
+cluster-announce-port 6379
+cluster-announce-bus-port 16379
+appendonly yes
+</code></pre></div><ol start="4"><li>启动</li></ol> <div class="language-s extra-class"><pre class="language-text"><code>docker run -p 637${port}:6379 -p 1637${port}:16379 --name redis-${port} \
+-v /mydata/redis/node-${port}/data:/data \
+-v /mydata/redis/node-${port}/conf/redis.conf:/etc/redis/redis.conf \
+-d --net redis --ip 172.38.0.1${port} redis:5.0.9-alpine3.11 redis-server /etc/redis/redis.conf
+
+docker run -p 6371:6379 -p 16371:16379 --name redis-1 \
+-v /mydata/redis/node-1/data:/data \
+-v /mydata/redis/node-1/conf/redis.conf:/etc/redis/redis.conf \
+-d --net redis --ip 172.38.0.11 redis:5.0.9-alpine3.11 redis-server /etc/redis/redis.conf
+
+docker run -p 6372:6379 -p 16372:16379 --name redis-2 \
+-v /mydata/redis/node-2/data:/data \
+-v /mydata/redis/node-2/conf/redis.conf:/etc/redis/redis.conf \
+-d --net redis --ip 172.38.0.12 redis:5.0.9-alpine3.11 redis-server /etc/redis/redis.conf
+
+docker run -p 6373:6379 -p 16373:16379 --name redis-3 \
+-v /mydata/redis/node-3/data:/data \
+-v /mydata/redis/node-3/conf/redis.conf:/etc/redis/redis.conf \
+-d --net redis --ip 172.38.0.13 redis:5.0.9-alpine3.11 redis-server /etc/redis/redis.conf
+
+docker run -p 6374:6379 -p 16374:16379 --name redis-4 \
+-v /mydata/redis/node-4/data:/data \
+-v /mydata/redis/node-4/conf/redis.conf:/etc/redis/redis.conf \
+-d --net redis --ip 172.38.0.14 redis:5.0.9-alpine3.11 redis-server /etc/redis/redis.conf
+
+docker run -p 6375:6379 -p 16375:16379 --name redis-5 \
+-v /mydata/redis/node-5/data:/data \
+-v /mydata/redis/node-5/conf/redis.conf:/etc/redis/redis.conf \
+-d --net redis --ip 172.38.0.15 redis:5.0.9-alpine3.11 redis-server /etc/redis/redis.conf
+
+docker run -p 6376:6379 -p 16376:16379 --name redis-6 \
+-v /mydata/redis/node-6/data:/data \
+-v /mydata/redis/node-6/conf/redis.conf:/etc/redis/redis.conf \
+-d --net redis --ip 172.38.0.16 redis:5.0.9-alpine3.11 redis-server /etc/redis/redis.conf
+</code></pre></div><ol start="5"><li>创建集群</li></ol> <div class="language-s extra-class"><pre class="language-text"><code>redis-cli --cluster create 172.38.0.11:6379 172.38.0.12:6379 172.38.0.13:6379 172.38.0.14:6379 172.38.0.15:6379 172.38.0.16:6379 --cluster-replicas 1
+</code></pre></div><ol start="6"><li>进入容器</li></ol> <p>docker exec -it redis-1 /bin/bash bash是找不到</p> <div class="language-s extra-class"><pre class="language-text"><code>docker exec -it redis-1 /bin/sh 
+</code></pre></div><p>TODO 不会redis，看不懂</p> <p>https://www.bilibili.com/video/BV1og4y1q7M4?p=38&amp;spm_id_from=pageDriver</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/myblog/tool/Docker/1.Docker学习/7.DockerFIle.html" class="prev">
+        7.Dockerfile
+      </a></span> <span class="next"><a href="/myblog/tool/mysql/mysql学习/1.初识mysql.html">
+        1.初识mysql
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/myblog/assets/js/app.8b94ae54.js" defer></script><script src="/myblog/assets/js/2.a7c83499.js" defer></script><script src="/myblog/assets/js/4.ab89ca31.js" defer></script>
+  </body>
+</html>
