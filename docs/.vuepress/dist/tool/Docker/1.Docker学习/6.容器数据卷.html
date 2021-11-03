@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>6.容器数据卷 | 毕克有的技术笔记</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="blog">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/myblog/assets/css/0.styles.40e1e284.css" as="style"><link rel="preload" href="/myblog/assets/js/app.a57ac0d5.js" as="script"><link rel="preload" href="/myblog/assets/js/2.c43035d6.js" as="script"><link rel="preload" href="/myblog/assets/js/7.39c3366e.js" as="script"><link rel="prefetch" href="/myblog/assets/js/10.07b7921f.js"><link rel="prefetch" href="/myblog/assets/js/100.11a25418.js"><link rel="prefetch" href="/myblog/assets/js/101.2a4b9d1b.js"><link rel="prefetch" href="/myblog/assets/js/102.5c5e8569.js"><link rel="prefetch" href="/myblog/assets/js/103.7d43997d.js"><link rel="prefetch" href="/myblog/assets/js/104.56909006.js"><link rel="prefetch" href="/myblog/assets/js/105.b356d601.js"><link rel="prefetch" href="/myblog/assets/js/106.b6a2693a.js"><link rel="prefetch" href="/myblog/assets/js/107.5763fe96.js"><link rel="prefetch" href="/myblog/assets/js/108.7e427146.js"><link rel="prefetch" href="/myblog/assets/js/109.9b832835.js"><link rel="prefetch" href="/myblog/assets/js/11.ba30b9f3.js"><link rel="prefetch" href="/myblog/assets/js/110.4cc8da0d.js"><link rel="prefetch" href="/myblog/assets/js/111.3c0d1470.js"><link rel="prefetch" href="/myblog/assets/js/112.04dd0c30.js"><link rel="prefetch" href="/myblog/assets/js/113.0ce6f7f9.js"><link rel="prefetch" href="/myblog/assets/js/114.66a4dad0.js"><link rel="prefetch" href="/myblog/assets/js/115.588e3a1c.js"><link rel="prefetch" href="/myblog/assets/js/116.e4692081.js"><link rel="prefetch" href="/myblog/assets/js/117.eeb46d05.js"><link rel="prefetch" href="/myblog/assets/js/118.9ce6a379.js"><link rel="prefetch" href="/myblog/assets/js/119.cbc5ddc4.js"><link rel="prefetch" href="/myblog/assets/js/12.06827346.js"><link rel="prefetch" href="/myblog/assets/js/120.6956fcb0.js"><link rel="prefetch" href="/myblog/assets/js/121.78bfbf79.js"><link rel="prefetch" href="/myblog/assets/js/122.8bf82b41.js"><link rel="prefetch" href="/myblog/assets/js/123.76579dce.js"><link rel="prefetch" href="/myblog/assets/js/124.d4c46e2e.js"><link rel="prefetch" href="/myblog/assets/js/125.840cbbf6.js"><link rel="prefetch" href="/myblog/assets/js/126.2778cb68.js"><link rel="prefetch" href="/myblog/assets/js/127.c9c81372.js"><link rel="prefetch" href="/myblog/assets/js/128.7f369399.js"><link rel="prefetch" href="/myblog/assets/js/129.3878b4e7.js"><link rel="prefetch" href="/myblog/assets/js/13.88316be5.js"><link rel="prefetch" href="/myblog/assets/js/130.2d23c388.js"><link rel="prefetch" href="/myblog/assets/js/131.8cf1c94b.js"><link rel="prefetch" href="/myblog/assets/js/132.0dc37921.js"><link rel="prefetch" href="/myblog/assets/js/133.012e9cf7.js"><link rel="prefetch" href="/myblog/assets/js/134.8f011d37.js"><link rel="prefetch" href="/myblog/assets/js/135.415d7d13.js"><link rel="prefetch" href="/myblog/assets/js/136.e72bbd13.js"><link rel="prefetch" href="/myblog/assets/js/137.06a48200.js"><link rel="prefetch" href="/myblog/assets/js/138.33080acc.js"><link rel="prefetch" href="/myblog/assets/js/139.8384e0b0.js"><link rel="prefetch" href="/myblog/assets/js/14.99d3dca8.js"><link rel="prefetch" href="/myblog/assets/js/140.4cb6c178.js"><link rel="prefetch" href="/myblog/assets/js/141.146bf5d2.js"><link rel="prefetch" href="/myblog/assets/js/142.ef68aa99.js"><link rel="prefetch" href="/myblog/assets/js/143.19e37b30.js"><link rel="prefetch" href="/myblog/assets/js/144.f62c30d3.js"><link rel="prefetch" href="/myblog/assets/js/145.a2723ae4.js"><link rel="prefetch" href="/myblog/assets/js/146.fbe03b4d.js"><link rel="prefetch" href="/myblog/assets/js/147.7db49bd4.js"><link rel="prefetch" href="/myblog/assets/js/148.e7ae552b.js"><link rel="prefetch" href="/myblog/assets/js/149.6cf7b502.js"><link rel="prefetch" href="/myblog/assets/js/15.82a2c4f9.js"><link rel="prefetch" href="/myblog/assets/js/150.ab4d2bdb.js"><link rel="prefetch" href="/myblog/assets/js/151.6401db4c.js"><link rel="prefetch" href="/myblog/assets/js/152.ff202788.js"><link rel="prefetch" href="/myblog/assets/js/153.b2f9b547.js"><link rel="prefetch" href="/myblog/assets/js/154.cc4e224d.js"><link rel="prefetch" href="/myblog/assets/js/155.6a77a50c.js"><link rel="prefetch" href="/myblog/assets/js/156.2c0b1622.js"><link rel="prefetch" href="/myblog/assets/js/157.7577fe0d.js"><link rel="prefetch" href="/myblog/assets/js/158.2355a21e.js"><link rel="prefetch" href="/myblog/assets/js/159.ea745bb9.js"><link rel="prefetch" href="/myblog/assets/js/16.1d2ec6d3.js"><link rel="prefetch" href="/myblog/assets/js/160.2a07aac3.js"><link rel="prefetch" href="/myblog/assets/js/161.8cb64830.js"><link rel="prefetch" href="/myblog/assets/js/162.d7e47e93.js"><link rel="prefetch" href="/myblog/assets/js/163.77bde8ea.js"><link rel="prefetch" href="/myblog/assets/js/164.d8ca4a09.js"><link rel="prefetch" href="/myblog/assets/js/165.7f52c854.js"><link rel="prefetch" href="/myblog/assets/js/166.2953e745.js"><link rel="prefetch" href="/myblog/assets/js/167.2ac5b7b2.js"><link rel="prefetch" href="/myblog/assets/js/168.6cb98427.js"><link rel="prefetch" href="/myblog/assets/js/169.72a4effc.js"><link rel="prefetch" href="/myblog/assets/js/17.915983b2.js"><link rel="prefetch" href="/myblog/assets/js/170.5f61fdfe.js"><link rel="prefetch" href="/myblog/assets/js/171.6fef5a4d.js"><link rel="prefetch" href="/myblog/assets/js/172.181ad380.js"><link rel="prefetch" href="/myblog/assets/js/173.c4eb27f2.js"><link rel="prefetch" href="/myblog/assets/js/174.0ad1026c.js"><link rel="prefetch" href="/myblog/assets/js/175.ab2c05d3.js"><link rel="prefetch" href="/myblog/assets/js/176.4455a85b.js"><link rel="prefetch" href="/myblog/assets/js/177.521ff190.js"><link rel="prefetch" href="/myblog/assets/js/178.9d6c9d99.js"><link rel="prefetch" href="/myblog/assets/js/179.4bc87309.js"><link rel="prefetch" href="/myblog/assets/js/18.3e5e0b45.js"><link rel="prefetch" href="/myblog/assets/js/180.729394ac.js"><link rel="prefetch" href="/myblog/assets/js/181.c8b58a50.js"><link rel="prefetch" href="/myblog/assets/js/182.9426b0d5.js"><link rel="prefetch" href="/myblog/assets/js/183.bb9eb7d5.js"><link rel="prefetch" href="/myblog/assets/js/184.c4406c54.js"><link rel="prefetch" href="/myblog/assets/js/185.a177ac1c.js"><link rel="prefetch" href="/myblog/assets/js/186.a6d1b500.js"><link rel="prefetch" href="/myblog/assets/js/187.3c2ca942.js"><link rel="prefetch" href="/myblog/assets/js/188.4d6fb5e8.js"><link rel="prefetch" href="/myblog/assets/js/189.8ccd0358.js"><link rel="prefetch" href="/myblog/assets/js/19.cb20c224.js"><link rel="prefetch" href="/myblog/assets/js/190.ea07e988.js"><link rel="prefetch" href="/myblog/assets/js/191.403bbf9b.js"><link rel="prefetch" href="/myblog/assets/js/192.b371fd96.js"><link rel="prefetch" href="/myblog/assets/js/193.eabeb879.js"><link rel="prefetch" href="/myblog/assets/js/194.4e00185b.js"><link rel="prefetch" href="/myblog/assets/js/195.4f9082bf.js"><link rel="prefetch" href="/myblog/assets/js/196.aafa19a9.js"><link rel="prefetch" href="/myblog/assets/js/197.4bda5f3e.js"><link rel="prefetch" href="/myblog/assets/js/198.6b64b087.js"><link rel="prefetch" href="/myblog/assets/js/199.b9718ea4.js"><link rel="prefetch" href="/myblog/assets/js/20.c798f29c.js"><link rel="prefetch" href="/myblog/assets/js/200.1597dffd.js"><link rel="prefetch" href="/myblog/assets/js/201.9bb6fc04.js"><link rel="prefetch" href="/myblog/assets/js/202.ce59ca28.js"><link rel="prefetch" href="/myblog/assets/js/203.1896892b.js"><link rel="prefetch" href="/myblog/assets/js/204.c9d0c180.js"><link rel="prefetch" href="/myblog/assets/js/205.9ff44edd.js"><link rel="prefetch" href="/myblog/assets/js/206.1cf8d218.js"><link rel="prefetch" href="/myblog/assets/js/207.96e97b0c.js"><link rel="prefetch" href="/myblog/assets/js/208.1e33d4c8.js"><link rel="prefetch" href="/myblog/assets/js/209.ada731c2.js"><link rel="prefetch" href="/myblog/assets/js/21.655abeaa.js"><link rel="prefetch" href="/myblog/assets/js/210.2f1c7064.js"><link rel="prefetch" href="/myblog/assets/js/211.ca3cee97.js"><link rel="prefetch" href="/myblog/assets/js/212.5ac12744.js"><link rel="prefetch" href="/myblog/assets/js/213.faf9a9c9.js"><link rel="prefetch" href="/myblog/assets/js/214.c4400c5d.js"><link rel="prefetch" href="/myblog/assets/js/215.9380f85a.js"><link rel="prefetch" href="/myblog/assets/js/216.3c53519d.js"><link rel="prefetch" href="/myblog/assets/js/217.3c25255e.js"><link rel="prefetch" href="/myblog/assets/js/218.4096d396.js"><link rel="prefetch" href="/myblog/assets/js/219.3ba50632.js"><link rel="prefetch" href="/myblog/assets/js/22.5e1f4388.js"><link rel="prefetch" href="/myblog/assets/js/220.41879c75.js"><link rel="prefetch" href="/myblog/assets/js/221.6c0a23c2.js"><link rel="prefetch" href="/myblog/assets/js/222.26b099e8.js"><link rel="prefetch" href="/myblog/assets/js/223.95014eca.js"><link rel="prefetch" href="/myblog/assets/js/224.a1d696d4.js"><link rel="prefetch" href="/myblog/assets/js/225.4263fbfe.js"><link rel="prefetch" href="/myblog/assets/js/226.509b1730.js"><link rel="prefetch" href="/myblog/assets/js/227.6028d6f5.js"><link rel="prefetch" href="/myblog/assets/js/228.5e8563b6.js"><link rel="prefetch" href="/myblog/assets/js/229.b917cdb6.js"><link rel="prefetch" href="/myblog/assets/js/23.13a086fa.js"><link rel="prefetch" href="/myblog/assets/js/230.945106e6.js"><link rel="prefetch" href="/myblog/assets/js/231.365cdd0a.js"><link rel="prefetch" href="/myblog/assets/js/232.f939e861.js"><link rel="prefetch" href="/myblog/assets/js/233.f4f923b0.js"><link rel="prefetch" href="/myblog/assets/js/234.3e277502.js"><link rel="prefetch" href="/myblog/assets/js/235.44e61b24.js"><link rel="prefetch" href="/myblog/assets/js/236.a80b9096.js"><link rel="prefetch" href="/myblog/assets/js/237.ca36bbba.js"><link rel="prefetch" href="/myblog/assets/js/238.d3964ee9.js"><link rel="prefetch" href="/myblog/assets/js/239.47b44c27.js"><link rel="prefetch" href="/myblog/assets/js/24.dbd26072.js"><link rel="prefetch" href="/myblog/assets/js/240.1e84b031.js"><link rel="prefetch" href="/myblog/assets/js/241.edb84980.js"><link rel="prefetch" href="/myblog/assets/js/242.fcdf735c.js"><link rel="prefetch" href="/myblog/assets/js/243.54202e94.js"><link rel="prefetch" href="/myblog/assets/js/244.7c026007.js"><link rel="prefetch" href="/myblog/assets/js/245.c4fc4f2a.js"><link rel="prefetch" href="/myblog/assets/js/246.62970817.js"><link rel="prefetch" href="/myblog/assets/js/247.e69563c9.js"><link rel="prefetch" href="/myblog/assets/js/248.7aea3a26.js"><link rel="prefetch" href="/myblog/assets/js/249.c4f2d870.js"><link rel="prefetch" href="/myblog/assets/js/25.0663a650.js"><link rel="prefetch" href="/myblog/assets/js/250.fa474404.js"><link rel="prefetch" href="/myblog/assets/js/251.62aed90e.js"><link rel="prefetch" href="/myblog/assets/js/252.0167dd95.js"><link rel="prefetch" href="/myblog/assets/js/253.4e214afb.js"><link rel="prefetch" href="/myblog/assets/js/254.2f5d33fc.js"><link rel="prefetch" href="/myblog/assets/js/26.ab9cdd70.js"><link rel="prefetch" href="/myblog/assets/js/27.60025544.js"><link rel="prefetch" href="/myblog/assets/js/28.ba766e49.js"><link rel="prefetch" href="/myblog/assets/js/29.93798c70.js"><link rel="prefetch" href="/myblog/assets/js/3.c86b0f8e.js"><link rel="prefetch" href="/myblog/assets/js/30.84df4894.js"><link rel="prefetch" href="/myblog/assets/js/31.8ad4a49d.js"><link rel="prefetch" href="/myblog/assets/js/32.3348c92b.js"><link rel="prefetch" href="/myblog/assets/js/33.9a59fde7.js"><link rel="prefetch" href="/myblog/assets/js/34.ae6fd224.js"><link rel="prefetch" href="/myblog/assets/js/35.27056c49.js"><link rel="prefetch" href="/myblog/assets/js/36.41db82f9.js"><link rel="prefetch" href="/myblog/assets/js/37.2f2720d2.js"><link rel="prefetch" href="/myblog/assets/js/38.a24f4abc.js"><link rel="prefetch" href="/myblog/assets/js/39.0bf5bf04.js"><link rel="prefetch" href="/myblog/assets/js/4.842d3f04.js"><link rel="prefetch" href="/myblog/assets/js/40.d5451484.js"><link rel="prefetch" href="/myblog/assets/js/41.7403060e.js"><link rel="prefetch" href="/myblog/assets/js/42.8e52d854.js"><link rel="prefetch" href="/myblog/assets/js/43.6d3c54a3.js"><link rel="prefetch" href="/myblog/assets/js/44.5eb1214a.js"><link rel="prefetch" href="/myblog/assets/js/45.2332b00e.js"><link rel="prefetch" href="/myblog/assets/js/46.280b9baa.js"><link rel="prefetch" href="/myblog/assets/js/47.47ed3750.js"><link rel="prefetch" href="/myblog/assets/js/48.04d186c6.js"><link rel="prefetch" href="/myblog/assets/js/49.04478990.js"><link rel="prefetch" href="/myblog/assets/js/5.7c2c7f0e.js"><link rel="prefetch" href="/myblog/assets/js/50.ce5f0298.js"><link rel="prefetch" href="/myblog/assets/js/51.2e2b8083.js"><link rel="prefetch" href="/myblog/assets/js/52.f7ae824c.js"><link rel="prefetch" href="/myblog/assets/js/53.da888a41.js"><link rel="prefetch" href="/myblog/assets/js/54.f880428d.js"><link rel="prefetch" href="/myblog/assets/js/55.db9fc1a7.js"><link rel="prefetch" href="/myblog/assets/js/56.3cf7f6e3.js"><link rel="prefetch" href="/myblog/assets/js/57.732a9978.js"><link rel="prefetch" href="/myblog/assets/js/58.6b41b2e6.js"><link rel="prefetch" href="/myblog/assets/js/59.dc52124b.js"><link rel="prefetch" href="/myblog/assets/js/6.d0e2dea7.js"><link rel="prefetch" href="/myblog/assets/js/60.5f44ebad.js"><link rel="prefetch" href="/myblog/assets/js/61.5507bb31.js"><link rel="prefetch" href="/myblog/assets/js/62.a5698aa3.js"><link rel="prefetch" href="/myblog/assets/js/63.b9a4cc43.js"><link rel="prefetch" href="/myblog/assets/js/64.c59a1aa1.js"><link rel="prefetch" href="/myblog/assets/js/65.0e9f550a.js"><link rel="prefetch" href="/myblog/assets/js/66.949dfdc7.js"><link rel="prefetch" href="/myblog/assets/js/67.9421c16f.js"><link rel="prefetch" href="/myblog/assets/js/68.1ef91538.js"><link rel="prefetch" href="/myblog/assets/js/69.83581b60.js"><link rel="prefetch" href="/myblog/assets/js/70.29feaf98.js"><link rel="prefetch" href="/myblog/assets/js/71.0ab96622.js"><link rel="prefetch" href="/myblog/assets/js/72.3697dc49.js"><link rel="prefetch" href="/myblog/assets/js/73.f8da4c1d.js"><link rel="prefetch" href="/myblog/assets/js/74.d96f8c75.js"><link rel="prefetch" href="/myblog/assets/js/75.11173df1.js"><link rel="prefetch" href="/myblog/assets/js/76.c3f17014.js"><link rel="prefetch" href="/myblog/assets/js/77.34d99fd1.js"><link rel="prefetch" href="/myblog/assets/js/78.0e36e77a.js"><link rel="prefetch" href="/myblog/assets/js/79.09c6e157.js"><link rel="prefetch" href="/myblog/assets/js/8.56dfc095.js"><link rel="prefetch" href="/myblog/assets/js/80.23bc22b8.js"><link rel="prefetch" href="/myblog/assets/js/81.01b23d1c.js"><link rel="prefetch" href="/myblog/assets/js/82.aee036bc.js"><link rel="prefetch" href="/myblog/assets/js/83.73944dc9.js"><link rel="prefetch" href="/myblog/assets/js/84.153d52d6.js"><link rel="prefetch" href="/myblog/assets/js/85.a1bb5344.js"><link rel="prefetch" href="/myblog/assets/js/86.9913fb3c.js"><link rel="prefetch" href="/myblog/assets/js/87.1e13d29b.js"><link rel="prefetch" href="/myblog/assets/js/88.1301cf1e.js"><link rel="prefetch" href="/myblog/assets/js/89.7d2b4a8b.js"><link rel="prefetch" href="/myblog/assets/js/9.65d4632d.js"><link rel="prefetch" href="/myblog/assets/js/90.8b2bd4d5.js"><link rel="prefetch" href="/myblog/assets/js/91.66d83ae9.js"><link rel="prefetch" href="/myblog/assets/js/92.1de93a91.js"><link rel="prefetch" href="/myblog/assets/js/93.aba2fb10.js"><link rel="prefetch" href="/myblog/assets/js/94.26917b96.js"><link rel="prefetch" href="/myblog/assets/js/95.4970a974.js"><link rel="prefetch" href="/myblog/assets/js/96.0583d1f4.js"><link rel="prefetch" href="/myblog/assets/js/97.ba312663.js"><link rel="prefetch" href="/myblog/assets/js/98.eaf31225.js"><link rel="prefetch" href="/myblog/assets/js/99.4417c184.js">
+    <link rel="stylesheet" href="/myblog/assets/css/0.styles.40e1e284.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/myblog/" class="home-link router-link-active"><!----> <span class="site-name">毕克有的技术笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="技术笔记" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/js/" class="nav-link">
+  js篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/css/" class="nav-link">
+  css篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/tool/" class="nav-link router-link-active">
+  工具篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/framework/" class="nav-link">
+  框架篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/webapp/" class="nav-link">
+  移动端app开发
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/weChatMiniProgram/" class="nav-link">
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/node/" class="nav-link">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/http/" class="nav-link">
+  http
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码解析" class="dropdown-title"><span class="title">源码解析</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码解析" class="mobile-dropdown-title"><span class="title">源码解析</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/sourceCode/" class="nav-link">
+  jQuery
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="技术笔记" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/js/" class="nav-link">
+  js篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/css/" class="nav-link">
+  css篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/tool/" class="nav-link router-link-active">
+  工具篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/framework/" class="nav-link">
+  框架篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/webapp/" class="nav-link">
+  移动端app开发
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/weChatMiniProgram/" class="nav-link">
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/node/" class="nav-link">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/http/" class="nav-link">
+  http
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码解析" class="dropdown-title"><span class="title">源码解析</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码解析" class="mobile-dropdown-title"><span class="title">源码解析</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/sourceCode/" class="nav-link">
+  jQuery
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>webpack</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>1.webpack学习</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/myblog/tool/webpack/1.webpack学习/1.初识 webpack.html" class="sidebar-link">1.初识 webpack</a></li><li><a href="/myblog/tool/webpack/1.webpack学习/2.webpack优化.html" class="sidebar-link">2.webpack优化</a></li><li><a href="/myblog/tool/webpack/1.webpack学习/3.webpack的实现.html" class="sidebar-link">3.webpack的实现</a></li><li><a href="/myblog/tool/webpack/1.webpack学习/4.如何调适和阅读webpack源码.html" class="sidebar-link">4.如何调适和阅读webpack源码</a></li><li><a href="/myblog/tool/webpack/1.webpack学习/5.webpack自定义loader.html" class="sidebar-link">5.webpack自定义loader</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>2.整理练习webpack的错误</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>3.webpack学习</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>nvm</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>git</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Docker</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>mysql</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>脚手架工具</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="_6-容器数据卷"><a href="#_6-容器数据卷" class="header-anchor">#</a> 6.容器数据卷</h1> <blockquote><p>之前都是入门，容器数据卷，Dockerfile，Docker网络才是精髓</p></blockquote> <h2 id="docker-的理念回顾"><a href="#docker-的理念回顾" class="header-anchor">#</a> docker 的理念回顾</h2> <p>将应用和环境打包成一个镜像</p> <p>数据如果在一个容器中，如果删除容器，数据就会丢失！ 需求：数据可以持久化</p> <p>mysql 容器删了数据没了！需求：mysql数据可以存在本地</p> <p>容器之间可以有一个数据共享的技术！docker 容器产生的数据同步到本地。这就是卷技术，目录的挂载，将我们的容器目录挂载到 linux 上</p> <p><img src="/myblog/assets/img/6.1.992ff3e0.jpg" alt="卷技术图示"></p> <p>总结： 容器的持久化和同步操作，容器间也是可以数据共享的</p> <h2 id="使用数据卷"><a href="#使用数据卷" class="header-anchor">#</a> 使用数据卷</h2> <ul><li><ol><li>方式一：使用命令挂载</li></ol></li></ul> <div class="language- extra-class"><pre class="language-text"><code># 端口映射
+docker run -it -p 主机端口:容器内端口
+
+# 目录映射
+docker run -it -v 主机目录:容器内目录
+</code></pre></div><ul><li>1.1 测试</li></ul> <div class="language- extra-class"><pre class="language-text"><code>docker run -it -v /home/ceshi:/home centos /bin/bash
+</code></pre></div><p>docker inspect 容器id 来查询启动之后的详细信息
+<img src="/myblog/assets/img/6.2.c061b552.jpg" alt="是否挂载成功图示"></p> <p><img src="/myblog/assets/img/6.3.22713c6e.jpg" alt="测试文件的同步"></p> <ul><li>反向操作也是可行的， 再测试</li></ul> <ol><li>停止容器</li> <li>宿主机上修改文件</li> <li>启动容器
+docker start 容器id
+这个停止的容器id    docker ps -a</li> <li>容器的数据依旧是同步的</li></ol> <div class="language- extra-class"><pre class="language-text"><code>&quot;test.java&quot; 1L, 19C written
+[root@VM-0-4-centos ceshi]# ll
+total 4
+-rw-r--r-- 1 root root 19 May 27 19:26 test.java
+[root@VM-0-4-centos ceshi]# ls
+test.java
+[root@VM-0-4-centos ceshi]# docker ps
+CONTAINER ID   IMAGE                 COMMAND                  CREATED        STATUS        PORTS                                                                                  NAMES
+e6debf8740bf   tomcat                &quot;catalina.sh run&quot;        34 hours ago   Up 34 hours   0.0.0.0:8080-&gt;8080/tcp, :::8080-&gt;8080/tcp                                              hopeful_kowalevski
+07bf8d7bfbf7   portainer/portainer   &quot;/portainer&quot;             2 days ago     Up 2 days     0.0.0.0:8088-&gt;9000/tcp, :::8088-&gt;9000/tcp                                              epic_keldysh
+8d4a7b0a60b1   elasticsearch:7.6.2   &quot;/usr/local/bin/dock…&quot;   2 days ago     Up 2 days     0.0.0.0:9200-&gt;9200/tcp, :::9200-&gt;9200/tcp, 0.0.0.0:9300-&gt;9300/tcp, :::9300-&gt;9300/tcp   elasticsearch02
+[root@VM-0-4-centos ceshi]# 
+[root@VM-0-4-centos ceshi]# 
+[root@VM-0-4-centos ceshi]# 
+[root@VM-0-4-centos ceshi]# 
+[root@VM-0-4-centos ceshi]# 
+[root@VM-0-4-centos ceshi]# 
+[root@VM-0-4-centos ceshi]# 
+[root@VM-0-4-centos ceshi]# 
+[root@VM-0-4-centos ceshi]# docker start 9875dc1a4506
+9875dc1a4506
+[root@VM-0-4-centos ceshi]# docker ps
+CONTAINER ID   IMAGE                 COMMAND                  CREATED         STATUS         PORTS                                                                                  NAMES
+9875dc1a4506   centos                &quot;/bin/bash&quot;              7 minutes ago   Up 2 seconds                                                                                          blissful_stonebraker
+e6debf8740bf   tomcat                &quot;catalina.sh run&quot;        34 hours ago    Up 34 hours    0.0.0.0:8080-&gt;8080/tcp, :::8080-&gt;8080/tcp                                              hopeful_kowalevski
+07bf8d7bfbf7   portainer/portainer   &quot;/portainer&quot;             2 days ago      Up 2 days      0.0.0.0:8088-&gt;9000/tcp, :::8088-&gt;9000/tcp                                              epic_keldysh
+8d4a7b0a60b1   elasticsearch:7.6.2   &quot;/usr/local/bin/dock…&quot;   2 days ago      Up 2 days      0.0.0.0:9200-&gt;9200/tcp, :::9200-&gt;9200/tcp, 0.0.0.0:9300-&gt;9300/tcp, :::9300-&gt;9300/tcp   elasticsearch02
+[root@VM-0-4-centos ceshi]# 
+[root@VM-0-4-centos ceshi]# 
+[root@VM-0-4-centos ceshi]# docker attach 9875dc1a4506
+[root@9875dc1a4506 /]# cd home/
+[root@9875dc1a4506 home]# ls
+test.java
+[root@9875dc1a4506 home]# cat test.java 
+hello,linux update
+[root@9875dc1a4506 home]# 
+</code></pre></div><p><img src="/myblog/assets/img/6.3.22713c6e.jpg" alt="反向测试文件的同步"></p> <ul><li>好处： 我们以后修改只需要在本地修改即可，容器内可以自动同步</li></ul> <h2 id="实战-安装-mysql"><a href="#实战-安装-mysql" class="header-anchor">#</a> 实战： 安装 MySQL</h2> <p>思考： mysql 数据持久化的问题</p> <p>mysql 默认是 3306 端口</p> <div class="language-s extra-class"><pre class="language-text"><code># 获取镜像
+[root@VM-0-4-centos ~]# docker pull mysql:5.7
+
+# 运行容器，需要做数据挂载
+# 安装启动 mysql ，需要配置密码，这是要注意的
+docker run -d -p 3310:3306 -v /home/mysql/conf:/etc/mysql/conf.d -v /home/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 --name mysql01 mysql:5.7
+# -d 后台运行
+# -p 端口映射
+# -v 卷挂载
+# -e 环境配置
+# --name 配置名字
+
+# 启动成功之后，我们可以在本地使用 sqlyog 或者 navicat 连接测试一下
+# navicat 连接到服务器的3310 - 3310 和容器内的3306 映射
+
+# 在本地创建一个数据库，查看一下我们映射的路径是否ok
+
+# 进入容器
+docker exec -it 9f32db909413 /bin/bash
+
+# 最后是进入MySQL命令行，就跟正常进入MySQL命令行一样：
+mysql -u root -p
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>docker ps -a
+</code></pre></div><ul><li>官方测试命令</li></ul> <p>$ docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag</p> <h3 id="彻底删除容器"><a href="#彻底删除容器" class="header-anchor">#</a> 彻底删除容器</h3> <div class="language- extra-class"><pre class="language-text"><code>docker rm -f mysql01
+</code></pre></div><p>挂载到本地数据依旧没有丢失</p> <h3 id="具名挂载-和-匿名挂载"><a href="#具名挂载-和-匿名挂载" class="header-anchor">#</a> 具名挂载 和 匿名挂载</h3> <h4 id="匿名挂载"><a href="#匿名挂载" class="header-anchor">#</a> 匿名挂载</h4> <p>-P   表示随机映射端口</p> <div class="language- extra-class"><pre class="language-text"><code>docker run -d -P --name nginx01 -v /etc/nginx nginx
+</code></pre></div><ul><li>查看所有的卷的情况</li></ul> <div class="language- extra-class"><pre class="language-text"><code>## 查看卷信息
+docker volume ls
+
+local     8257f65b5f07b993f8b7d69a83ad992c628f989edeb94631ae455041a0a49e62
+
+# 这里发现，这就是匿名挂载，我们在 -v 只写了容器内的路径，没有容器外的路径
+</code></pre></div><h4 id="具名挂载"><a href="#具名挂载" class="header-anchor">#</a> 具名挂载</h4> <div class="language-s extra-class"><pre class="language-text"><code># 启动 ngxin
+docker run -d -P --name nginx02 -v juming-nginx:/etc/nginx  nginx
+# juming-nginx 不是地址 加 / 表示地址
+
+[root@VM-0-4-centos home]# docker run -d -P --name nginx02 -v juming-nginx:/etc/nginx  nginx
+07714059169e645399de4c5a78b9c5d73c71ef8683c8a88f252466711965cb1d
+[root@VM-0-4-centos home]# docker volume ls
+DRIVER    VOLUME NAME
+local     8257f65b5f07b993f8b7d69a83ad992c628f989edeb94631ae455041a0a49e62
+local     2619117434c999a1344d582478c0ef4be77956d51e0af7e411a6699ed6bd9147
+local     juming-nginx
+
+# 通过 -v 卷名:容器内路径
+
+# 查看卷信息
+[root@VM-0-4-centos home]# docker volume inspect juming-nginx
+[
+    {
+        &quot;CreatedAt&quot;: &quot;2021-05-27T20:47:45+08:00&quot;,
+        &quot;Driver&quot;: &quot;local&quot;,
+        &quot;Labels&quot;: null,
+        &quot;Mountpoint&quot;: &quot;/var/lib/docker/volumes/juming-nginx/_data&quot;,
+        &quot;Name&quot;: &quot;juming-nginx&quot;,
+        &quot;Options&quot;: null,
+        &quot;Scope&quot;: &quot;local&quot;
+    }
+]
+# 表示地址 &quot;Mountpoint&quot;: &quot;/var/lib/docker/volumes/juming-nginx/_data&quot;
+</code></pre></div><blockquote><p>/var/lib/docker/    docker 的工作目录</p></blockquote> <p>所有的 docker 容器内的卷，没有指定目录的情况下，都是在 ‘/var/lib/docker/volume/xxx/_data’ (xxx卷名)</p> <p>我们通过具名挂载可以方便的找到我们的一个卷，大多数情况在使用 具名挂载</p> <h4 id="如何确定是匿名挂载还是具名挂载-还是指定路径挂载"><a href="#如何确定是匿名挂载还是具名挂载-还是指定路径挂载" class="header-anchor">#</a> 如何确定是匿名挂载还是具名挂载，还是指定路径挂载</h4> <p>-v 容器内路径   匿名挂载</p> <p>-v 卷名:容器内路径   具名挂载</p> <p>-v /宿主机路径:容器内路径   指定路径挂载</p> <h4 id="拓展"><a href="#拓展" class="header-anchor">#</a> 拓展</h4> <ul><li>通过 -v 容器内路径:ro rw 改变读写权限</li></ul> <p>ro    readonly    只读</p> <p>rw    readwrite   可读可写</p> <p>ro  只要看到 ro 就说明这个路径只能通过宿主机来操作，容器内部无法修改</p> <blockquote><p>一旦设置了容器权限，容器对我们挂载出来的内容就有限定了</p></blockquote> <div class="language-s extra-class"><pre class="language-text"><code>docker run -d -P --name nginx02 -v juming-nginx:/etc/nginx:ro  nginx
+docker run -d -P --name nginx02 -v juming-nginx:/etc/nginx:rw  nginx
+</code></pre></div><h2 id="数据卷容器"><a href="#数据卷容器" class="header-anchor">#</a> 数据卷容器</h2> <p>多个 mysql 同步数据</p> <p><img src="/myblog/assets/img/6.8.97851f3b.jpg" alt="数据卷容器"></p> <h3 id="测试"><a href="#测试" class="header-anchor">#</a> 测试</h3> <div class="language-s extra-class"><pre class="language-text"><code># 启动镜像
+docker run -it --name docker01 kuangshen/centos:1.0
+# 或者  写镜像名字需要写版本
+docker run -it --name docker01 镜像id
+
+# 查看容器目录
+[root@f2330dddd733 /]# ls
+bin  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var  volume01  volume02
+[root@f2330dddd733 /]# ls -l   
+total 56
+lrwxrwxrwx   1 root root    7 Nov  3  2020 bin -&gt; usr/bin
+drwxr-xr-x   5 root root  360 May 29 10:59 dev
+drwxr-xr-x   1 root root 4096 May 29 10:59 etc
+drwxr-xr-x   2 root root 4096 Nov  3  2020 home
+lrwxrwxrwx   1 root root    7 Nov  3  2020 lib -&gt; usr/lib
+lrwxrwxrwx   1 root root    9 Nov  3  2020 lib64 -&gt; usr/lib64
+drwx------   2 root root 4096 Dec  4 17:37 lost+found
+drwxr-xr-x   2 root root 4096 Nov  3  2020 media
+drwxr-xr-x   2 root root 4096 Nov  3  2020 mnt
+drwxr-xr-x   2 root root 4096 Nov  3  2020 opt
+dr-xr-xr-x 122 root root    0 May 29 10:59 proc
+dr-xr-x---   2 root root 4096 Dec  4 17:37 root
+drwxr-xr-x  11 root root 4096 Dec  4 17:37 run
+lrwxrwxrwx   1 root root    8 Nov  3  2020 sbin -&gt; usr/sbin
+drwxr-xr-x   2 root root 4096 Nov  3  2020 srv
+dr-xr-xr-x  13 root root    0 May 27 02:10 sys
+drwxrwxrwt   7 root root 4096 Dec  4 17:37 tmp
+drwxr-xr-x  12 root root 4096 Dec  4 17:37 usr
+drwxr-xr-x  20 root root 4096 Dec  4 17:37 var
+drwxr-xr-x   2 root root 4096 May 29 10:59 volume01
+drwxr-xr-x   2 root root 4096 May 29 10:59 volume02
+[root@f2330dddd733 /]# 
+</code></pre></div><p><img src="/myblog/assets/img/6.9.827b89c9.png" alt="查看容器docker01目录"></p> <div class="language-s extra-class"><pre class="language-text"><code>[root@VM-0-4-centos ~]# docker run -it --name docker02 --volumes-from docker01 kuangshen/centos:1.0
+[root@a0ddf53f1f32 /]# ls -l
+total 56
+lrwxrwxrwx   1 root root    7 Nov  3  2020 bin -&gt; usr/bin
+drwxr-xr-x   5 root root  360 May 29 12:17 dev
+drwxr-xr-x   1 root root 4096 May 29 12:17 etc
+drwxr-xr-x   2 root root 4096 Nov  3  2020 home
+lrwxrwxrwx   1 root root    7 Nov  3  2020 lib -&gt; usr/lib
+lrwxrwxrwx   1 root root    9 Nov  3  2020 lib64 -&gt; usr/lib64
+drwx------   2 root root 4096 Dec  4 17:37 lost+found
+drwxr-xr-x   2 root root 4096 Nov  3  2020 media
+drwxr-xr-x   2 root root 4096 Nov  3  2020 mnt
+drwxr-xr-x   2 root root 4096 Nov  3  2020 opt
+dr-xr-xr-x 125 root root    0 May 29 12:17 proc
+dr-xr-x---   2 root root 4096 Dec  4 17:37 root
+drwxr-xr-x  11 root root 4096 Dec  4 17:37 run
+lrwxrwxrwx   1 root root    8 Nov  3  2020 sbin -&gt; usr/sbin
+drwxr-xr-x   2 root root 4096 Nov  3  2020 srv
+dr-xr-xr-x  13 root root    0 May 27 02:10 sys
+drwxrwxrwt   7 root root 4096 Dec  4 17:37 tmp
+drwxr-xr-x  12 root root 4096 Dec  4 17:37 usr
+drwxr-xr-x  20 root root 4096 Dec  4 17:37 var
+drwxr-xr-x   2 root root 4096 May 29 10:59 volume01
+drwxr-xr-x   2 root root 4096 May 29 10:59 volume02
+</code></pre></div><ul><li>新建 docker02 同步 docker01</li></ul> <p><img src="/myblog/assets/img/6.12.3ffc71eb.png" alt="解释volumes-from"></p> <p><img src="/myblog/assets/img/6.13.72772720.png" alt="解释volumes-from"></p> <p><img src="/myblog/assets/img/6.10.54ec939c.png" alt="查看容器docker02"></p> <ul><li>新建 docker03 同步 docker01</li></ul> <p><img src="/myblog/assets/img/6.11.c2a289e5.png" alt="查看容器docker01"></p> <ul><li>测试：删除 docker01，查看docker02，docker03是否还可以访问文件</li></ul> <p>测试依旧可以访问</p> <p><img src="/myblog/assets/img/6.14.a3f72ae7.png" alt="容器卷是拷贝"></p> <h3 id="多个-mysql-实现数据共享"><a href="#多个-mysql-实现数据共享" class="header-anchor">#</a> 多个 mysql 实现数据共享</h3> <p>实现两个容器数据同步</p> <div class="language-s extra-class"><pre class="language-text"><code># 最开始写法
+docker run -d -p 3310:3306 -v /home/mysql/conf:/etc/mysql/conf.d -v /home/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 --name mysql01 mysql:5.7
+
+# 不指定 本地目录
+docker run -d -p 3310:3306 -v /etc/mysql/conf.d -v /var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 --name mysql01 mysql:5.7
+
+# 启动 mysql02
+docker run -d -p 3310:3306 -v /etc/mysql/conf.d -v /var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 --name mysql01 mysql:5.7
+</code></pre></div><ul><li>结论</li></ul> <p>容器之间配置信息的传递，数据卷容器的生命周期一直持续到没有容器使用为止</p> <p>但是一旦你持久到本地，这个时候，本地的数据是不会删除的</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/myblog/assets/js/app.a57ac0d5.js" defer></script><script src="/myblog/assets/js/2.c43035d6.js" defer></script><script src="/myblog/assets/js/7.39c3366e.js" defer></script>
+  </body>
+</html>

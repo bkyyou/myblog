@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>4.基础功能（二） | 毕克有的技术笔记</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="blog">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/myblog/assets/css/0.styles.40e1e284.css" as="style"><link rel="preload" href="/myblog/assets/js/app.a57ac0d5.js" as="script"><link rel="preload" href="/myblog/assets/js/2.c43035d6.js" as="script"><link rel="preload" href="/myblog/assets/js/163.77bde8ea.js" as="script"><link rel="prefetch" href="/myblog/assets/js/10.07b7921f.js"><link rel="prefetch" href="/myblog/assets/js/100.11a25418.js"><link rel="prefetch" href="/myblog/assets/js/101.2a4b9d1b.js"><link rel="prefetch" href="/myblog/assets/js/102.5c5e8569.js"><link rel="prefetch" href="/myblog/assets/js/103.7d43997d.js"><link rel="prefetch" href="/myblog/assets/js/104.56909006.js"><link rel="prefetch" href="/myblog/assets/js/105.b356d601.js"><link rel="prefetch" href="/myblog/assets/js/106.b6a2693a.js"><link rel="prefetch" href="/myblog/assets/js/107.5763fe96.js"><link rel="prefetch" href="/myblog/assets/js/108.7e427146.js"><link rel="prefetch" href="/myblog/assets/js/109.9b832835.js"><link rel="prefetch" href="/myblog/assets/js/11.ba30b9f3.js"><link rel="prefetch" href="/myblog/assets/js/110.4cc8da0d.js"><link rel="prefetch" href="/myblog/assets/js/111.3c0d1470.js"><link rel="prefetch" href="/myblog/assets/js/112.04dd0c30.js"><link rel="prefetch" href="/myblog/assets/js/113.0ce6f7f9.js"><link rel="prefetch" href="/myblog/assets/js/114.66a4dad0.js"><link rel="prefetch" href="/myblog/assets/js/115.588e3a1c.js"><link rel="prefetch" href="/myblog/assets/js/116.e4692081.js"><link rel="prefetch" href="/myblog/assets/js/117.eeb46d05.js"><link rel="prefetch" href="/myblog/assets/js/118.9ce6a379.js"><link rel="prefetch" href="/myblog/assets/js/119.cbc5ddc4.js"><link rel="prefetch" href="/myblog/assets/js/12.06827346.js"><link rel="prefetch" href="/myblog/assets/js/120.6956fcb0.js"><link rel="prefetch" href="/myblog/assets/js/121.78bfbf79.js"><link rel="prefetch" href="/myblog/assets/js/122.8bf82b41.js"><link rel="prefetch" href="/myblog/assets/js/123.76579dce.js"><link rel="prefetch" href="/myblog/assets/js/124.d4c46e2e.js"><link rel="prefetch" href="/myblog/assets/js/125.840cbbf6.js"><link rel="prefetch" href="/myblog/assets/js/126.2778cb68.js"><link rel="prefetch" href="/myblog/assets/js/127.c9c81372.js"><link rel="prefetch" href="/myblog/assets/js/128.7f369399.js"><link rel="prefetch" href="/myblog/assets/js/129.3878b4e7.js"><link rel="prefetch" href="/myblog/assets/js/13.88316be5.js"><link rel="prefetch" href="/myblog/assets/js/130.2d23c388.js"><link rel="prefetch" href="/myblog/assets/js/131.8cf1c94b.js"><link rel="prefetch" href="/myblog/assets/js/132.0dc37921.js"><link rel="prefetch" href="/myblog/assets/js/133.012e9cf7.js"><link rel="prefetch" href="/myblog/assets/js/134.8f011d37.js"><link rel="prefetch" href="/myblog/assets/js/135.415d7d13.js"><link rel="prefetch" href="/myblog/assets/js/136.e72bbd13.js"><link rel="prefetch" href="/myblog/assets/js/137.06a48200.js"><link rel="prefetch" href="/myblog/assets/js/138.33080acc.js"><link rel="prefetch" href="/myblog/assets/js/139.8384e0b0.js"><link rel="prefetch" href="/myblog/assets/js/14.99d3dca8.js"><link rel="prefetch" href="/myblog/assets/js/140.4cb6c178.js"><link rel="prefetch" href="/myblog/assets/js/141.146bf5d2.js"><link rel="prefetch" href="/myblog/assets/js/142.ef68aa99.js"><link rel="prefetch" href="/myblog/assets/js/143.19e37b30.js"><link rel="prefetch" href="/myblog/assets/js/144.f62c30d3.js"><link rel="prefetch" href="/myblog/assets/js/145.a2723ae4.js"><link rel="prefetch" href="/myblog/assets/js/146.fbe03b4d.js"><link rel="prefetch" href="/myblog/assets/js/147.7db49bd4.js"><link rel="prefetch" href="/myblog/assets/js/148.e7ae552b.js"><link rel="prefetch" href="/myblog/assets/js/149.6cf7b502.js"><link rel="prefetch" href="/myblog/assets/js/15.82a2c4f9.js"><link rel="prefetch" href="/myblog/assets/js/150.ab4d2bdb.js"><link rel="prefetch" href="/myblog/assets/js/151.6401db4c.js"><link rel="prefetch" href="/myblog/assets/js/152.ff202788.js"><link rel="prefetch" href="/myblog/assets/js/153.b2f9b547.js"><link rel="prefetch" href="/myblog/assets/js/154.cc4e224d.js"><link rel="prefetch" href="/myblog/assets/js/155.6a77a50c.js"><link rel="prefetch" href="/myblog/assets/js/156.2c0b1622.js"><link rel="prefetch" href="/myblog/assets/js/157.7577fe0d.js"><link rel="prefetch" href="/myblog/assets/js/158.2355a21e.js"><link rel="prefetch" href="/myblog/assets/js/159.ea745bb9.js"><link rel="prefetch" href="/myblog/assets/js/16.1d2ec6d3.js"><link rel="prefetch" href="/myblog/assets/js/160.2a07aac3.js"><link rel="prefetch" href="/myblog/assets/js/161.8cb64830.js"><link rel="prefetch" href="/myblog/assets/js/162.d7e47e93.js"><link rel="prefetch" href="/myblog/assets/js/164.d8ca4a09.js"><link rel="prefetch" href="/myblog/assets/js/165.7f52c854.js"><link rel="prefetch" href="/myblog/assets/js/166.2953e745.js"><link rel="prefetch" href="/myblog/assets/js/167.2ac5b7b2.js"><link rel="prefetch" href="/myblog/assets/js/168.6cb98427.js"><link rel="prefetch" href="/myblog/assets/js/169.72a4effc.js"><link rel="prefetch" href="/myblog/assets/js/17.915983b2.js"><link rel="prefetch" href="/myblog/assets/js/170.5f61fdfe.js"><link rel="prefetch" href="/myblog/assets/js/171.6fef5a4d.js"><link rel="prefetch" href="/myblog/assets/js/172.181ad380.js"><link rel="prefetch" href="/myblog/assets/js/173.c4eb27f2.js"><link rel="prefetch" href="/myblog/assets/js/174.0ad1026c.js"><link rel="prefetch" href="/myblog/assets/js/175.ab2c05d3.js"><link rel="prefetch" href="/myblog/assets/js/176.4455a85b.js"><link rel="prefetch" href="/myblog/assets/js/177.521ff190.js"><link rel="prefetch" href="/myblog/assets/js/178.9d6c9d99.js"><link rel="prefetch" href="/myblog/assets/js/179.4bc87309.js"><link rel="prefetch" href="/myblog/assets/js/18.3e5e0b45.js"><link rel="prefetch" href="/myblog/assets/js/180.729394ac.js"><link rel="prefetch" href="/myblog/assets/js/181.c8b58a50.js"><link rel="prefetch" href="/myblog/assets/js/182.9426b0d5.js"><link rel="prefetch" href="/myblog/assets/js/183.bb9eb7d5.js"><link rel="prefetch" href="/myblog/assets/js/184.c4406c54.js"><link rel="prefetch" href="/myblog/assets/js/185.a177ac1c.js"><link rel="prefetch" href="/myblog/assets/js/186.a6d1b500.js"><link rel="prefetch" href="/myblog/assets/js/187.3c2ca942.js"><link rel="prefetch" href="/myblog/assets/js/188.4d6fb5e8.js"><link rel="prefetch" href="/myblog/assets/js/189.8ccd0358.js"><link rel="prefetch" href="/myblog/assets/js/19.cb20c224.js"><link rel="prefetch" href="/myblog/assets/js/190.ea07e988.js"><link rel="prefetch" href="/myblog/assets/js/191.403bbf9b.js"><link rel="prefetch" href="/myblog/assets/js/192.b371fd96.js"><link rel="prefetch" href="/myblog/assets/js/193.eabeb879.js"><link rel="prefetch" href="/myblog/assets/js/194.4e00185b.js"><link rel="prefetch" href="/myblog/assets/js/195.4f9082bf.js"><link rel="prefetch" href="/myblog/assets/js/196.aafa19a9.js"><link rel="prefetch" href="/myblog/assets/js/197.4bda5f3e.js"><link rel="prefetch" href="/myblog/assets/js/198.6b64b087.js"><link rel="prefetch" href="/myblog/assets/js/199.b9718ea4.js"><link rel="prefetch" href="/myblog/assets/js/20.c798f29c.js"><link rel="prefetch" href="/myblog/assets/js/200.1597dffd.js"><link rel="prefetch" href="/myblog/assets/js/201.9bb6fc04.js"><link rel="prefetch" href="/myblog/assets/js/202.ce59ca28.js"><link rel="prefetch" href="/myblog/assets/js/203.1896892b.js"><link rel="prefetch" href="/myblog/assets/js/204.c9d0c180.js"><link rel="prefetch" href="/myblog/assets/js/205.9ff44edd.js"><link rel="prefetch" href="/myblog/assets/js/206.1cf8d218.js"><link rel="prefetch" href="/myblog/assets/js/207.96e97b0c.js"><link rel="prefetch" href="/myblog/assets/js/208.1e33d4c8.js"><link rel="prefetch" href="/myblog/assets/js/209.ada731c2.js"><link rel="prefetch" href="/myblog/assets/js/21.655abeaa.js"><link rel="prefetch" href="/myblog/assets/js/210.2f1c7064.js"><link rel="prefetch" href="/myblog/assets/js/211.ca3cee97.js"><link rel="prefetch" href="/myblog/assets/js/212.5ac12744.js"><link rel="prefetch" href="/myblog/assets/js/213.faf9a9c9.js"><link rel="prefetch" href="/myblog/assets/js/214.c4400c5d.js"><link rel="prefetch" href="/myblog/assets/js/215.9380f85a.js"><link rel="prefetch" href="/myblog/assets/js/216.3c53519d.js"><link rel="prefetch" href="/myblog/assets/js/217.3c25255e.js"><link rel="prefetch" href="/myblog/assets/js/218.4096d396.js"><link rel="prefetch" href="/myblog/assets/js/219.3ba50632.js"><link rel="prefetch" href="/myblog/assets/js/22.5e1f4388.js"><link rel="prefetch" href="/myblog/assets/js/220.41879c75.js"><link rel="prefetch" href="/myblog/assets/js/221.6c0a23c2.js"><link rel="prefetch" href="/myblog/assets/js/222.26b099e8.js"><link rel="prefetch" href="/myblog/assets/js/223.95014eca.js"><link rel="prefetch" href="/myblog/assets/js/224.a1d696d4.js"><link rel="prefetch" href="/myblog/assets/js/225.4263fbfe.js"><link rel="prefetch" href="/myblog/assets/js/226.509b1730.js"><link rel="prefetch" href="/myblog/assets/js/227.6028d6f5.js"><link rel="prefetch" href="/myblog/assets/js/228.5e8563b6.js"><link rel="prefetch" href="/myblog/assets/js/229.b917cdb6.js"><link rel="prefetch" href="/myblog/assets/js/23.13a086fa.js"><link rel="prefetch" href="/myblog/assets/js/230.945106e6.js"><link rel="prefetch" href="/myblog/assets/js/231.365cdd0a.js"><link rel="prefetch" href="/myblog/assets/js/232.f939e861.js"><link rel="prefetch" href="/myblog/assets/js/233.f4f923b0.js"><link rel="prefetch" href="/myblog/assets/js/234.3e277502.js"><link rel="prefetch" href="/myblog/assets/js/235.44e61b24.js"><link rel="prefetch" href="/myblog/assets/js/236.a80b9096.js"><link rel="prefetch" href="/myblog/assets/js/237.ca36bbba.js"><link rel="prefetch" href="/myblog/assets/js/238.d3964ee9.js"><link rel="prefetch" href="/myblog/assets/js/239.47b44c27.js"><link rel="prefetch" href="/myblog/assets/js/24.dbd26072.js"><link rel="prefetch" href="/myblog/assets/js/240.1e84b031.js"><link rel="prefetch" href="/myblog/assets/js/241.edb84980.js"><link rel="prefetch" href="/myblog/assets/js/242.fcdf735c.js"><link rel="prefetch" href="/myblog/assets/js/243.54202e94.js"><link rel="prefetch" href="/myblog/assets/js/244.7c026007.js"><link rel="prefetch" href="/myblog/assets/js/245.c4fc4f2a.js"><link rel="prefetch" href="/myblog/assets/js/246.62970817.js"><link rel="prefetch" href="/myblog/assets/js/247.e69563c9.js"><link rel="prefetch" href="/myblog/assets/js/248.7aea3a26.js"><link rel="prefetch" href="/myblog/assets/js/249.c4f2d870.js"><link rel="prefetch" href="/myblog/assets/js/25.0663a650.js"><link rel="prefetch" href="/myblog/assets/js/250.fa474404.js"><link rel="prefetch" href="/myblog/assets/js/251.62aed90e.js"><link rel="prefetch" href="/myblog/assets/js/252.0167dd95.js"><link rel="prefetch" href="/myblog/assets/js/253.4e214afb.js"><link rel="prefetch" href="/myblog/assets/js/254.2f5d33fc.js"><link rel="prefetch" href="/myblog/assets/js/26.ab9cdd70.js"><link rel="prefetch" href="/myblog/assets/js/27.60025544.js"><link rel="prefetch" href="/myblog/assets/js/28.ba766e49.js"><link rel="prefetch" href="/myblog/assets/js/29.93798c70.js"><link rel="prefetch" href="/myblog/assets/js/3.c86b0f8e.js"><link rel="prefetch" href="/myblog/assets/js/30.84df4894.js"><link rel="prefetch" href="/myblog/assets/js/31.8ad4a49d.js"><link rel="prefetch" href="/myblog/assets/js/32.3348c92b.js"><link rel="prefetch" href="/myblog/assets/js/33.9a59fde7.js"><link rel="prefetch" href="/myblog/assets/js/34.ae6fd224.js"><link rel="prefetch" href="/myblog/assets/js/35.27056c49.js"><link rel="prefetch" href="/myblog/assets/js/36.41db82f9.js"><link rel="prefetch" href="/myblog/assets/js/37.2f2720d2.js"><link rel="prefetch" href="/myblog/assets/js/38.a24f4abc.js"><link rel="prefetch" href="/myblog/assets/js/39.0bf5bf04.js"><link rel="prefetch" href="/myblog/assets/js/4.842d3f04.js"><link rel="prefetch" href="/myblog/assets/js/40.d5451484.js"><link rel="prefetch" href="/myblog/assets/js/41.7403060e.js"><link rel="prefetch" href="/myblog/assets/js/42.8e52d854.js"><link rel="prefetch" href="/myblog/assets/js/43.6d3c54a3.js"><link rel="prefetch" href="/myblog/assets/js/44.5eb1214a.js"><link rel="prefetch" href="/myblog/assets/js/45.2332b00e.js"><link rel="prefetch" href="/myblog/assets/js/46.280b9baa.js"><link rel="prefetch" href="/myblog/assets/js/47.47ed3750.js"><link rel="prefetch" href="/myblog/assets/js/48.04d186c6.js"><link rel="prefetch" href="/myblog/assets/js/49.04478990.js"><link rel="prefetch" href="/myblog/assets/js/5.7c2c7f0e.js"><link rel="prefetch" href="/myblog/assets/js/50.ce5f0298.js"><link rel="prefetch" href="/myblog/assets/js/51.2e2b8083.js"><link rel="prefetch" href="/myblog/assets/js/52.f7ae824c.js"><link rel="prefetch" href="/myblog/assets/js/53.da888a41.js"><link rel="prefetch" href="/myblog/assets/js/54.f880428d.js"><link rel="prefetch" href="/myblog/assets/js/55.db9fc1a7.js"><link rel="prefetch" href="/myblog/assets/js/56.3cf7f6e3.js"><link rel="prefetch" href="/myblog/assets/js/57.732a9978.js"><link rel="prefetch" href="/myblog/assets/js/58.6b41b2e6.js"><link rel="prefetch" href="/myblog/assets/js/59.dc52124b.js"><link rel="prefetch" href="/myblog/assets/js/6.d0e2dea7.js"><link rel="prefetch" href="/myblog/assets/js/60.5f44ebad.js"><link rel="prefetch" href="/myblog/assets/js/61.5507bb31.js"><link rel="prefetch" href="/myblog/assets/js/62.a5698aa3.js"><link rel="prefetch" href="/myblog/assets/js/63.b9a4cc43.js"><link rel="prefetch" href="/myblog/assets/js/64.c59a1aa1.js"><link rel="prefetch" href="/myblog/assets/js/65.0e9f550a.js"><link rel="prefetch" href="/myblog/assets/js/66.949dfdc7.js"><link rel="prefetch" href="/myblog/assets/js/67.9421c16f.js"><link rel="prefetch" href="/myblog/assets/js/68.1ef91538.js"><link rel="prefetch" href="/myblog/assets/js/69.83581b60.js"><link rel="prefetch" href="/myblog/assets/js/7.39c3366e.js"><link rel="prefetch" href="/myblog/assets/js/70.29feaf98.js"><link rel="prefetch" href="/myblog/assets/js/71.0ab96622.js"><link rel="prefetch" href="/myblog/assets/js/72.3697dc49.js"><link rel="prefetch" href="/myblog/assets/js/73.f8da4c1d.js"><link rel="prefetch" href="/myblog/assets/js/74.d96f8c75.js"><link rel="prefetch" href="/myblog/assets/js/75.11173df1.js"><link rel="prefetch" href="/myblog/assets/js/76.c3f17014.js"><link rel="prefetch" href="/myblog/assets/js/77.34d99fd1.js"><link rel="prefetch" href="/myblog/assets/js/78.0e36e77a.js"><link rel="prefetch" href="/myblog/assets/js/79.09c6e157.js"><link rel="prefetch" href="/myblog/assets/js/8.56dfc095.js"><link rel="prefetch" href="/myblog/assets/js/80.23bc22b8.js"><link rel="prefetch" href="/myblog/assets/js/81.01b23d1c.js"><link rel="prefetch" href="/myblog/assets/js/82.aee036bc.js"><link rel="prefetch" href="/myblog/assets/js/83.73944dc9.js"><link rel="prefetch" href="/myblog/assets/js/84.153d52d6.js"><link rel="prefetch" href="/myblog/assets/js/85.a1bb5344.js"><link rel="prefetch" href="/myblog/assets/js/86.9913fb3c.js"><link rel="prefetch" href="/myblog/assets/js/87.1e13d29b.js"><link rel="prefetch" href="/myblog/assets/js/88.1301cf1e.js"><link rel="prefetch" href="/myblog/assets/js/89.7d2b4a8b.js"><link rel="prefetch" href="/myblog/assets/js/9.65d4632d.js"><link rel="prefetch" href="/myblog/assets/js/90.8b2bd4d5.js"><link rel="prefetch" href="/myblog/assets/js/91.66d83ae9.js"><link rel="prefetch" href="/myblog/assets/js/92.1de93a91.js"><link rel="prefetch" href="/myblog/assets/js/93.aba2fb10.js"><link rel="prefetch" href="/myblog/assets/js/94.26917b96.js"><link rel="prefetch" href="/myblog/assets/js/95.4970a974.js"><link rel="prefetch" href="/myblog/assets/js/96.0583d1f4.js"><link rel="prefetch" href="/myblog/assets/js/97.ba312663.js"><link rel="prefetch" href="/myblog/assets/js/98.eaf31225.js"><link rel="prefetch" href="/myblog/assets/js/99.4417c184.js">
+    <link rel="stylesheet" href="/myblog/assets/css/0.styles.40e1e284.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/myblog/" class="home-link router-link-active"><!----> <span class="site-name">毕克有的技术笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="技术笔记" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/js/" class="nav-link">
+  js篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/css/" class="nav-link">
+  css篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/tool/" class="nav-link">
+  工具篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/framework/" class="nav-link">
+  框架篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/webapp/" class="nav-link">
+  移动端app开发
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/weChatMiniProgram/" class="nav-link">
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/node/" class="nav-link router-link-active">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/http/" class="nav-link">
+  http
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码解析" class="dropdown-title"><span class="title">源码解析</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码解析" class="mobile-dropdown-title"><span class="title">源码解析</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/sourceCode/" class="nav-link">
+  jQuery
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="技术笔记" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/js/" class="nav-link">
+  js篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/css/" class="nav-link">
+  css篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/tool/" class="nav-link">
+  工具篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/framework/" class="nav-link">
+  框架篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/webapp/" class="nav-link">
+  移动端app开发
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/weChatMiniProgram/" class="nav-link">
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/node/" class="nav-link router-link-active">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/http/" class="nav-link">
+  http
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码解析" class="dropdown-title"><span class="title">源码解析</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码解析" class="mobile-dropdown-title"><span class="title">源码解析</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/sourceCode/" class="nav-link">
+  jQuery
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>node入门学习</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Koa源码分析</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>egg.js应用实践</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/myblog/node/egg.js应用实践/1.Egg vs Koa.html" class="sidebar-link">1.Egg vs Koa</a></li><li><a href="/myblog/node/egg.js应用实践/2.基础概念-Egg应用.html" class="sidebar-link">2.基础概念-Egg应用</a></li><li><a href="/myblog/node/egg.js应用实践/3.基础功能（一）.html" class="sidebar-link">3.基础功能（一）</a></li><li><a href="/myblog/node/egg.js应用实践/4.基础功能（二）.html" class="active sidebar-link">4.基础功能（二）</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/myblog/node/egg.js应用实践/4.基础功能（二）.html#配置详情" class="sidebar-link">配置详情</a></li><li class="sidebar-sub-header"><a href="/myblog/node/egg.js应用实践/4.基础功能（二）.html#中间件应用" class="sidebar-link">中间件应用</a></li><li class="sidebar-sub-header"><a href="/myblog/node/egg.js应用实践/4.基础功能（二）.html#框架扩展" class="sidebar-link">框架扩展</a></li></ul></li><li><a href="/myblog/node/egg.js应用实践/5.插件运用.html" class="sidebar-link">5. 插件运用</a></li><li><a href="/myblog/node/egg.js应用实践/6.egg应用实践.html" class="sidebar-link">6.egg应用实践</a></li><li><a href="/myblog/node/egg.js应用实践/7.本地开发.html" class="sidebar-link">7.本地开发</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node.js 自动化测试</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第三方模块使用</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>node内置对象学习</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="_4-基础功能-二"><a href="#_4-基础功能-二" class="header-anchor">#</a> 4.基础功能（二）</h1> <h2 id="配置详情"><a href="#配置详情" class="header-anchor">#</a> 配置详情</h2> <p>框架提供了强大且可扩展的高配功能，可以自动合并应用，插件框架的配置，顺序覆盖，且可以根据环境维护不同的配置。合并后的配置可以从 app.config 获取。</p> <p>Egg 采用代码管理配置，配置变更也应该经过 review 后才能发布。应用包本身是可以部署在多个环境的，只需要指定运行环境即可。</p> <h3 id="多环境配置"><a href="#多环境配置" class="header-anchor">#</a> 多环境配置</h3> <ul><li><p>config.default.js 为默认的配置文件，所有环境都会加载这个配置文件。</p></li> <li><p>当指定 env 时，会同时加载对应的配置文件，并覆盖默认配置文件的同名配置</p></li></ul> <div class="language- extra-class"><pre class="language-text"><code>config
+  |
+	|---config.default.js
+	|---config.prod.js
+	|---config.unittest.js
+	|---config.local.js
+</code></pre></div><h3 id="配置写法"><a href="#配置写法" class="header-anchor">#</a> 配置写法</h3> <ul><li>配置文件</li></ul> <ol><li>配置文件返回是一个 object 对象，可以覆盖框架的一些配置，应用也可以将自己业务配置放到这里管理</li></ol> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 两种方式</span>
+
+<span class="token comment">// 通过 module.exports 导出一个对象</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+	<span class="token operator">...</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 通过 exports.key = value 导出</span>
+exports<span class="token punctuation">.</span>keys <span class="token operator">=</span> <span class="token string">'my-cookie-secret-key'</span><span class="token punctuation">;</span>
+exports<span class="token punctuation">.</span>logger <span class="token operator">=</span> <span class="token punctuation">{</span>
+	<span class="token operator">...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ol start="2"><li>配置文件还返回一个 function， 可以接受 appinfo 参数。</li></ol> <p>appinfo 属性有：
+pkg =&gt; package.json
+name =&gt; 应用名，同 pkg.name
+baseDir =&gt; 应用目录，admin账户为 /home/main
+root =&gt; 应用根目录，只有在 local 和 unittest 环境为 baseDir, 其他都为 HOME</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 将 logger 目录放在代码目录下</span>
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">reqire</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token parameter">appinfo</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token punctuation">{</span>
+		logger<span class="token operator">:</span><span class="token punctuation">{</span>
+			dir<span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>appInfo<span class="token punctuation">.</span>baseDir<span class="token punctuation">,</span> <span class="token string">'logs'</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="配置文件加载顺序"><a href="#配置文件加载顺序" class="header-anchor">#</a> 配置文件加载顺序</h3> <p>应用，插件，框架都可以定义这些配置，而且目录结构都是一致的，但存在优先级 （应用 &gt; 框架 &gt; 插件），相对于此运行环境的优先级会更高</p> <ul><li>插件 config.default.js</li> <li>框架 config.default.js</li> <li>应用 config.default.js</li> <li>插件 config.prod.js</li> <li>框架 config.prod.js</li> <li>应用 config.prod.js</li></ul> <h2 id="中间件应用"><a href="#中间件应用" class="header-anchor">#</a> 中间件应用</h2> <p>Egg 是基于 Koa 实现的，所以 Egg 的中间件形式的和 Koa 的中间件形式是一样的， 都是基于洋葱圈模型。每次我们编写一个中间件，就相当于在洋葱圈外面包了一层。</p> <h3 id="中间件编写"><a href="#中间件编写" class="header-anchor">#</a> 中间件编写</h3> <p>框架约定一个中间件是一个放置在 app/middleware 目录下的单独文件，他需要 exports 一个普通的 function ， 接收两个参数：</p> <ul><li>options 中间件的配置项，框架会将 app.config[${middlewareName}] 传经来。</li> <li>app: 当前应用 Application 的实例</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// app/middleware/xxx.js</span>
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">options<span class="token punctuation">,</span> app</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">gzip</span> <span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+		<span class="token comment">// code</span>
+
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><h3 id="中间件使用"><a href="#中间件使用" class="header-anchor">#</a> 中间件使用</h3> <blockquote><p>前两种方法是对应的全局的</p></blockquote> <ul><li>在应用使用中间件： 通过配置来加载自定义中间件，并决定他们的顺序</li> <li>在框架和插件中使用文件，不支持配置文件加载中间件</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// app.js</span>
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token parameter">app</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token comment">// 在中间件最前面插入一个中间件</span>
+	app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>coreMiddleware<span class="token punctuation">.</span><span class="token function">unshift</span><span class="token punctuation">(</span><span class="token string">'report'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>直接在 app/router.js 中实例化和挂载中间件</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> gzip <span class="token operator">=</span> app<span class="token punctuation">.</span>middleware<span class="token punctuation">.</span><span class="token function">gzip</span><span class="token punctuation">(</span><span class="token punctuation">{</span>threshold<span class="token operator">:</span> <span class="token number">1024</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span>router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/needgzip'</span><span class="token punctuation">,</span> gzip<span class="token punctuation">,</span> app<span class="token punctuation">.</span>controller<span class="token punctuation">.</span>handler<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><ul><li>除了应用层加载中间层之外，框架自身和其他的插件也会加载许多中间件。</li> <li>在框架里面引入 Koa 中间件生态，需要按照框架的规范来应用加载 koa 中间件。</li></ul> <h3 id="中间件配置"><a href="#中间件配置" class="header-anchor">#</a> 中间件配置</h3> <ul><li>无论是应用层加载的中间件还是框架自带中间层，都支持中间件通过配置项。</li> <li>enable： 控制中间件是否开启</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+	bodyParser<span class="token operator">:</span> <span class="token punctuation">{</span>
+		enable<span class="token operator">:</span> <span class="token boolean">false</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>match 设置只有符合某些规则的请求才会经过这个中间件</li> <li>ignore 设置符合某些规则的请求不经过这个中间件</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// match 和 ignore 不允许同时配置</span>
+<span class="token punctuation">{</span>
+	gzip<span class="token operator">:</span> <span class="token punctuation">{</span>
+		match<span class="token operator">:</span> <span class="token string">'/static'</span>
+	<span class="token punctuation">}</span>
+	<span class="token comment">// 可以写正则</span>
+	gzip<span class="token operator">:</span> <span class="token punctuation">{</span>
+		<span class="token function">match</span><span class="token punctuation">(</span><span class="token parameter">ctx</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">const</span> reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">iphone|ipad|ipod</span><span class="token regex-delimiter">/</span><span class="token regex-flags">i</span></span>
+			<span class="token keyword">return</span> reg<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'user-agent'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="框架扩展"><a href="#框架扩展" class="header-anchor">#</a> 框架扩展</h2> <h3 id="框架提供了多种扩展点扩展自身的功能"><a href="#框架提供了多种扩展点扩展自身的功能" class="header-anchor">#</a> 框架提供了多种扩展点扩展自身的功能</h3> <ul><li>Appliction</li> <li>Context</li> <li>Request</li> <li>Response</li> <li>Helper</li></ul> <h3 id="appliction-扩展"><a href="#appliction-扩展" class="header-anchor">#</a> Appliction 扩展</h3> <p>框架会把 app/extend/application.js 中定义的对象与 Koa Application 的 prototype 对象进行合并，在应用启动时会基于扩展后的 prototype 生成 app 对象</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 推荐使用 Symbol + Getter 的模式</span>
+
+<span class="token keyword">const</span> <span class="token constant">BAR</span> <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">'Application#bar'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+	<span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">param</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token comment">// this 就是 app 对象，在其中可以调用 app 上的其他方法，或访问属性</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">get</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token comment">// this 就是 app 对象，在其中可以调用 app 上的其他方法，或者访问属性</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">[</span><span class="token constant">BAR</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token comment">// 实际情况肯定跟复杂</span>
+			<span class="token keyword">this</span><span class="token punctuation">[</span><span class="token constant">BAR</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>config<span class="token punctuation">.</span>xx <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>config<span class="token punctuation">.</span>yy<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">[</span><span class="token constant">BAR</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="context-扩展"><a href="#context-扩展" class="header-anchor">#</a> Context 扩展</h3> <p>框架会把 app/extend/Context.js 中定义的对象与 Koa Context 的 prototype 对象进行合并，在应用启动时会基于扩展后的 prototype 生成 ctx 对象</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 推荐使用 Symbol + Getter 的模式</span>
+
+<span class="token keyword">const</span> <span class="token constant">BAR</span> <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">'Context#bar'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+	<span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">param</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token comment">// this 就是 ctx 对象，在其中可以调用 ctx 上的其他方法，或访问属性</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">get</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token comment">// this 就是 ctx 对象，在其中可以调用 ctx 上的其他方法，或者访问属性</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">[</span><span class="token constant">BAR</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token comment">// 例如可以从 header 中获取， 实际情况肯定跟复杂</span>
+			<span class="token keyword">this</span><span class="token punctuation">[</span><span class="token constant">BAR</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'x-bar'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">[</span><span class="token constant">BAR</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="request-扩展"><a href="#request-扩展" class="header-anchor">#</a> Request 扩展</h3> <p>框架会把 app/extend/request.js 中定义的对象与 内置对象 request 的 prototype 对象进行合并，在应用启动时会基于扩展后的 prototype 生成 request 对象</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 推荐使用 Symbol + Getter 的模式</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+	<span class="token keyword">get</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">param</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'x-request-foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="response-扩展"><a href="#response-扩展" class="header-anchor">#</a> Response 扩展</h3> <p>框架会把 app/extend/response.js 中定义的对象与 内置对象 response 的 prototype 对象进行合并，在应用启动时会基于扩展后的 prototype 生成 response 对象</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 推荐使用 Symbol + Getter 的模式</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+	<span class="token keyword">set</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'x-response-foo'</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="helper-扩展"><a href="#helper-扩展" class="header-anchor">#</a> Helper 扩展</h3> <p>框架会把 app/extend/helper.js 中定义的对象与 内置对象 helper 的 prototype 对象进行合并，在应用启动时会基于扩展后的 prototype 生成 helper 对象</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 推荐使用 Symbol + Getter 的模式</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+	<span class="token keyword">set</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'x-response-foo'</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="按照环境进行扩展"><a href="#按照环境进行扩展" class="header-anchor">#</a> 按照环境进行扩展</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// app/extend/application.unittest.js</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+	<span class="token function">mockXX</span><span class="token punctuation">(</span><span class="token parameter">k<span class="token punctuation">,</span> v</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li><p>正文内容</p> <ul><li>还可以根据环境进行有选择的扩展</li> <li>该文件只会在 unittest 环境加载，同理对于其他内置对象也可以使用这种方式针对某个环境进行扩展</li></ul></li> <li><p>config 文件夹下</p></li></ul> <p>不指定开发环境默认先加载 config.default.js， 之后加载 config.local.js， 打印 this.config.testVar = 'local';</p> <p>可以通过 在 config 文件夹下 新建 env 文件 ， 指定环境</p> <blockquote><p>更改环境需要重新启动进， 除了本地环境，其他环境改变需要重启</p></blockquote> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// config.default.js</span>
+exports<span class="token punctuation">.</span>keys <span class="token operator">=</span> <span class="token string">'cookie secrets'</span>
+exports<span class="token punctuation">.</span>security <span class="token operator">=</span> <span class="token punctuation">{</span>
+	csrf<span class="token operator">:</span> <span class="token punctuation">{</span>
+		enable<span class="token operator">:</span> <span class="token boolean">false</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+exports<span class="token punctuation">.</span>testVar <span class="token operator">=</span> <span class="token string">'defalut'</span>
+
+<span class="token comment">// config.local.js</span>
+exports<span class="token punctuation">.</span>testVar <span class="token operator">=</span> <span class="token string">'local'</span>
+
+<span class="token comment">// config.prod.js</span>
+exports<span class="token punctuation">.</span>testVar <span class="token operator">=</span> <span class="token string">'prod'</span>
+
+<span class="token comment">// config.unittest.js</span>
+exports<span class="token punctuation">.</span>testVar <span class="token operator">=</span> <span class="token string">'unittest'</span>
+
+<span class="token comment">// env</span>
+unittest
+</code></pre></div><ul><li>配置文件中的写法</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 1</span>
+exports<span class="token punctuation">.</span>testVar <span class="token operator">=</span> <span class="token string">'defalut'</span>
+
+<span class="token comment">// 2</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+	testVar<span class="token operator">:</span> <span class="token string">'unittest'</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 2</span>
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token parameter">appInfo</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token comment">// pkg name baseDir HOME root</span>
+
+	<span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="中间件"><a href="#中间件" class="header-anchor">#</a> 中间件</h3> <ul><li>自定义中间件</li></ul> <p>根据规范写在 app 文件夹 的 middleware 文件夹下</p> <p>在加载 gzip.js 时， 会运行导出的方法</p> <ol><li>请求级别的中间件的使用</li></ol> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// /app/middleware/gzip.js</span>
+<span class="token keyword">const</span> isJson <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-is-json'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> zlib <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'zlib'</span><span class="token punctuation">)</span>   <span class="token comment">// 核心？？？ 怎么称呼来着</span>
+
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">options<span class="token punctuation">,</span> app</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+	<span class="token keyword">return</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">gzip</span><span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment">// 压缩是最后才进行的， 需要将后边的中间件执行完之后在压缩</span>
+
+		<span class="token comment">// 后续中间件都执行完后，将响应体转成 gzip</span>
+		<span class="token keyword">let</span> body <span class="token operator">=</span> ctx<span class="token punctuation">.</span>body
+		<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>body<span class="token punctuation">)</span> <span class="token keyword">return</span>
+
+		<span class="token comment">// 支持 threshold  ctx.response.content.length</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>threshold <span class="token operator">&amp;&amp;</span> ctx<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> options<span class="token punctuation">.</span>threshold <span class="token punctuation">)</span> <span class="token keyword">return</span>
+
+		<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isJson</span><span class="token punctuation">(</span>body<span class="token punctuation">)</span><span class="token punctuation">)</span> body <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>body<span class="token punctuation">)</span>
+
+		<span class="token keyword">const</span> stream <span class="token operator">=</span> zlib<span class="token punctuation">.</span><span class="token function">createGzip</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		stream<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>body<span class="token punctuation">)</span>
+		ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> stream
+		ctx<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'Content-Encoding'</span><span class="token punctuation">,</span> <span class="token string">'gzip'</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// config/config.default.js</span>
+exports<span class="token punctuation">.</span>testVar <span class="token operator">=</span> <span class="token string">'defalut'</span>
+
+exports<span class="token punctuation">.</span>gzip <span class="token operator">=</span> <span class="token punctuation">{</span>
+	threshold<span class="token operator">:</span> <span class="token number">1</span>  <span class="token comment">// options.threshold 的配置项</span>
+<span class="token punctuation">}</span> 
+
+exports<span class="token punctuation">.</span>middleware <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'gzip'</span><span class="token punctuation">]</span>   <span class="token comment">// gzip 开始使用</span>
+</code></pre></div><ol start="2"><li>在框架和插件中使用自定义中间件</li></ol> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// /app.js</span>
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token parameter">app</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token comment">// app.config.coreMiddleware 是一个数组, 他包含了插件中带了一些中间件框架默认一些中间件</span>
+	<span class="token comment">// 应用层自定义的中间件 app.config.appMiddleware， 框架默认的中间件 app.config.coreMiddleware， 在加载的时候框架会合并到一起，并且挂载在 app.middleware 上， 所有在框架运行起来的时候我们可以在别的地方去查看应用中使用的中间件</span>
+	app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>coreMiddleware<span class="token punctuation">.</span><span class="token function">unshift</span><span class="token punctuation">(</span><span class="token string">'gzip'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// /app/controller/home.js  index 方法中打印中间件</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>config<span class="token punctuation">.</span>appMiddleware<span class="token punctuation">)</span>  <span class="token comment">// 应用层定义的中间件  数组</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>config<span class="token punctuation">.</span>coreMiddleware<span class="token punctuation">)</span>  <span class="token comment">// 应用层定义的中间件  数组</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>config<span class="token punctuation">.</span>middlewate<span class="token punctuation">)</span>  <span class="token comment">// </span>
+
+</code></pre></div><ol start="3"><li>在路由中使用中间件</li></ol> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// /app/router.js </span>
+
+modules<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token parameter">app</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token keyword">const</span> gzip <span class="token operator">=</span> app<span class="token punctuation">.</span>middleware<span class="token punctuation">.</span><span class="token function">gzip</span><span class="token punctuation">(</span><span class="token punctuation">{</span>threshold<span class="token operator">:</span> <span class="token number">2048</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+	router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> gzip<span class="token punctuation">,</span> controller<span class="token punctuation">.</span>home<span class="token punctuation">.</span>index<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 测试的时候先 注销掉 app.js 中在框架级别使用中间件</span>
+</code></pre></div><ol start="4"><li>使用 koa 中间件</li></ol> <p>需要进行封装</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// /app/middleware/gzip.js</span>
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">options<span class="token punctuation">,</span> app</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+	<span class="token comment">// options 包含当前中间件的配置项</span>
+
+	<span class="token keyword">return</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">koaMiddleware</span><span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token comment">// 对于 koa 中间件的配置</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ol start="5"><li>常用配置项</li></ol> <p>enable</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// config/config.default.js</span>
+exports<span class="token punctuation">.</span>testVar <span class="token operator">=</span> <span class="token string">'defalut'</span>
+
+exports<span class="token punctuation">.</span>gzip <span class="token operator">=</span> <span class="token punctuation">{</span>
+	enable<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+	threshold<span class="token operator">:</span> <span class="token number">1</span>  <span class="token comment">// options.threshold 的配置项</span>
+<span class="token punctuation">}</span> 
+
+exports<span class="token punctuation">.</span>middleware <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'gzip'</span><span class="token punctuation">]</span>   <span class="token comment">// gzip 开始使用</span>
+</code></pre></div><h3 id="对五个内置对象进行扩展"><a href="#对五个内置对象进行扩展" class="header-anchor">#</a> 对五个内置对象进行扩展</h3> <ul><li>在 /app/extend 下新建文件</li> <li>对 application 进行扩展，新建 application.js 文件</li> <li>对 context 进行扩展，新建 context.js 文件</li> <li>对 help 进行扩展，新建 help.js 文件</li></ul> <p>help.unittest.js 只在单元测试中进行使用， 先加载 help.js 在加载 help.unittext.js</p> <blockquote><p>推荐使用 Symbol + Getter 的模式去扩展</p></blockquote> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// /app/extend/help.js</span>
+
+<span class="token keyword">const</span> comment <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'commont'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+	<span class="token function">getTime</span><span class="token punctuation">(</span><span class="token parameter">time</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token function">commont</span><span class="token punctuation">(</span>time <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'YYYY-MM-DD HH:mm:ss'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/myblog/node/egg.js应用实践/3.基础功能（一）.html" class="prev">
+        3.基础功能（一）
+      </a></span> <span class="next"><a href="/myblog/node/egg.js应用实践/5.插件运用.html">
+        5. 插件运用
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/myblog/assets/js/app.a57ac0d5.js" defer></script><script src="/myblog/assets/js/2.c43035d6.js" defer></script><script src="/myblog/assets/js/163.77bde8ea.js" defer></script>
+  </body>
+</html>

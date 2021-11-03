@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>2.操作数据库 | 毕克有的技术笔记</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="blog">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/myblog/assets/css/0.styles.40e1e284.css" as="style"><link rel="preload" href="/myblog/assets/js/app.a57ac0d5.js" as="script"><link rel="preload" href="/myblog/assets/js/2.c43035d6.js" as="script"><link rel="preload" href="/myblog/assets/js/204.c9d0c180.js" as="script"><link rel="prefetch" href="/myblog/assets/js/10.07b7921f.js"><link rel="prefetch" href="/myblog/assets/js/100.11a25418.js"><link rel="prefetch" href="/myblog/assets/js/101.2a4b9d1b.js"><link rel="prefetch" href="/myblog/assets/js/102.5c5e8569.js"><link rel="prefetch" href="/myblog/assets/js/103.7d43997d.js"><link rel="prefetch" href="/myblog/assets/js/104.56909006.js"><link rel="prefetch" href="/myblog/assets/js/105.b356d601.js"><link rel="prefetch" href="/myblog/assets/js/106.b6a2693a.js"><link rel="prefetch" href="/myblog/assets/js/107.5763fe96.js"><link rel="prefetch" href="/myblog/assets/js/108.7e427146.js"><link rel="prefetch" href="/myblog/assets/js/109.9b832835.js"><link rel="prefetch" href="/myblog/assets/js/11.ba30b9f3.js"><link rel="prefetch" href="/myblog/assets/js/110.4cc8da0d.js"><link rel="prefetch" href="/myblog/assets/js/111.3c0d1470.js"><link rel="prefetch" href="/myblog/assets/js/112.04dd0c30.js"><link rel="prefetch" href="/myblog/assets/js/113.0ce6f7f9.js"><link rel="prefetch" href="/myblog/assets/js/114.66a4dad0.js"><link rel="prefetch" href="/myblog/assets/js/115.588e3a1c.js"><link rel="prefetch" href="/myblog/assets/js/116.e4692081.js"><link rel="prefetch" href="/myblog/assets/js/117.eeb46d05.js"><link rel="prefetch" href="/myblog/assets/js/118.9ce6a379.js"><link rel="prefetch" href="/myblog/assets/js/119.cbc5ddc4.js"><link rel="prefetch" href="/myblog/assets/js/12.06827346.js"><link rel="prefetch" href="/myblog/assets/js/120.6956fcb0.js"><link rel="prefetch" href="/myblog/assets/js/121.78bfbf79.js"><link rel="prefetch" href="/myblog/assets/js/122.8bf82b41.js"><link rel="prefetch" href="/myblog/assets/js/123.76579dce.js"><link rel="prefetch" href="/myblog/assets/js/124.d4c46e2e.js"><link rel="prefetch" href="/myblog/assets/js/125.840cbbf6.js"><link rel="prefetch" href="/myblog/assets/js/126.2778cb68.js"><link rel="prefetch" href="/myblog/assets/js/127.c9c81372.js"><link rel="prefetch" href="/myblog/assets/js/128.7f369399.js"><link rel="prefetch" href="/myblog/assets/js/129.3878b4e7.js"><link rel="prefetch" href="/myblog/assets/js/13.88316be5.js"><link rel="prefetch" href="/myblog/assets/js/130.2d23c388.js"><link rel="prefetch" href="/myblog/assets/js/131.8cf1c94b.js"><link rel="prefetch" href="/myblog/assets/js/132.0dc37921.js"><link rel="prefetch" href="/myblog/assets/js/133.012e9cf7.js"><link rel="prefetch" href="/myblog/assets/js/134.8f011d37.js"><link rel="prefetch" href="/myblog/assets/js/135.415d7d13.js"><link rel="prefetch" href="/myblog/assets/js/136.e72bbd13.js"><link rel="prefetch" href="/myblog/assets/js/137.06a48200.js"><link rel="prefetch" href="/myblog/assets/js/138.33080acc.js"><link rel="prefetch" href="/myblog/assets/js/139.8384e0b0.js"><link rel="prefetch" href="/myblog/assets/js/14.99d3dca8.js"><link rel="prefetch" href="/myblog/assets/js/140.4cb6c178.js"><link rel="prefetch" href="/myblog/assets/js/141.146bf5d2.js"><link rel="prefetch" href="/myblog/assets/js/142.ef68aa99.js"><link rel="prefetch" href="/myblog/assets/js/143.19e37b30.js"><link rel="prefetch" href="/myblog/assets/js/144.f62c30d3.js"><link rel="prefetch" href="/myblog/assets/js/145.a2723ae4.js"><link rel="prefetch" href="/myblog/assets/js/146.fbe03b4d.js"><link rel="prefetch" href="/myblog/assets/js/147.7db49bd4.js"><link rel="prefetch" href="/myblog/assets/js/148.e7ae552b.js"><link rel="prefetch" href="/myblog/assets/js/149.6cf7b502.js"><link rel="prefetch" href="/myblog/assets/js/15.82a2c4f9.js"><link rel="prefetch" href="/myblog/assets/js/150.ab4d2bdb.js"><link rel="prefetch" href="/myblog/assets/js/151.6401db4c.js"><link rel="prefetch" href="/myblog/assets/js/152.ff202788.js"><link rel="prefetch" href="/myblog/assets/js/153.b2f9b547.js"><link rel="prefetch" href="/myblog/assets/js/154.cc4e224d.js"><link rel="prefetch" href="/myblog/assets/js/155.6a77a50c.js"><link rel="prefetch" href="/myblog/assets/js/156.2c0b1622.js"><link rel="prefetch" href="/myblog/assets/js/157.7577fe0d.js"><link rel="prefetch" href="/myblog/assets/js/158.2355a21e.js"><link rel="prefetch" href="/myblog/assets/js/159.ea745bb9.js"><link rel="prefetch" href="/myblog/assets/js/16.1d2ec6d3.js"><link rel="prefetch" href="/myblog/assets/js/160.2a07aac3.js"><link rel="prefetch" href="/myblog/assets/js/161.8cb64830.js"><link rel="prefetch" href="/myblog/assets/js/162.d7e47e93.js"><link rel="prefetch" href="/myblog/assets/js/163.77bde8ea.js"><link rel="prefetch" href="/myblog/assets/js/164.d8ca4a09.js"><link rel="prefetch" href="/myblog/assets/js/165.7f52c854.js"><link rel="prefetch" href="/myblog/assets/js/166.2953e745.js"><link rel="prefetch" href="/myblog/assets/js/167.2ac5b7b2.js"><link rel="prefetch" href="/myblog/assets/js/168.6cb98427.js"><link rel="prefetch" href="/myblog/assets/js/169.72a4effc.js"><link rel="prefetch" href="/myblog/assets/js/17.915983b2.js"><link rel="prefetch" href="/myblog/assets/js/170.5f61fdfe.js"><link rel="prefetch" href="/myblog/assets/js/171.6fef5a4d.js"><link rel="prefetch" href="/myblog/assets/js/172.181ad380.js"><link rel="prefetch" href="/myblog/assets/js/173.c4eb27f2.js"><link rel="prefetch" href="/myblog/assets/js/174.0ad1026c.js"><link rel="prefetch" href="/myblog/assets/js/175.ab2c05d3.js"><link rel="prefetch" href="/myblog/assets/js/176.4455a85b.js"><link rel="prefetch" href="/myblog/assets/js/177.521ff190.js"><link rel="prefetch" href="/myblog/assets/js/178.9d6c9d99.js"><link rel="prefetch" href="/myblog/assets/js/179.4bc87309.js"><link rel="prefetch" href="/myblog/assets/js/18.3e5e0b45.js"><link rel="prefetch" href="/myblog/assets/js/180.729394ac.js"><link rel="prefetch" href="/myblog/assets/js/181.c8b58a50.js"><link rel="prefetch" href="/myblog/assets/js/182.9426b0d5.js"><link rel="prefetch" href="/myblog/assets/js/183.bb9eb7d5.js"><link rel="prefetch" href="/myblog/assets/js/184.c4406c54.js"><link rel="prefetch" href="/myblog/assets/js/185.a177ac1c.js"><link rel="prefetch" href="/myblog/assets/js/186.a6d1b500.js"><link rel="prefetch" href="/myblog/assets/js/187.3c2ca942.js"><link rel="prefetch" href="/myblog/assets/js/188.4d6fb5e8.js"><link rel="prefetch" href="/myblog/assets/js/189.8ccd0358.js"><link rel="prefetch" href="/myblog/assets/js/19.cb20c224.js"><link rel="prefetch" href="/myblog/assets/js/190.ea07e988.js"><link rel="prefetch" href="/myblog/assets/js/191.403bbf9b.js"><link rel="prefetch" href="/myblog/assets/js/192.b371fd96.js"><link rel="prefetch" href="/myblog/assets/js/193.eabeb879.js"><link rel="prefetch" href="/myblog/assets/js/194.4e00185b.js"><link rel="prefetch" href="/myblog/assets/js/195.4f9082bf.js"><link rel="prefetch" href="/myblog/assets/js/196.aafa19a9.js"><link rel="prefetch" href="/myblog/assets/js/197.4bda5f3e.js"><link rel="prefetch" href="/myblog/assets/js/198.6b64b087.js"><link rel="prefetch" href="/myblog/assets/js/199.b9718ea4.js"><link rel="prefetch" href="/myblog/assets/js/20.c798f29c.js"><link rel="prefetch" href="/myblog/assets/js/200.1597dffd.js"><link rel="prefetch" href="/myblog/assets/js/201.9bb6fc04.js"><link rel="prefetch" href="/myblog/assets/js/202.ce59ca28.js"><link rel="prefetch" href="/myblog/assets/js/203.1896892b.js"><link rel="prefetch" href="/myblog/assets/js/205.9ff44edd.js"><link rel="prefetch" href="/myblog/assets/js/206.1cf8d218.js"><link rel="prefetch" href="/myblog/assets/js/207.96e97b0c.js"><link rel="prefetch" href="/myblog/assets/js/208.1e33d4c8.js"><link rel="prefetch" href="/myblog/assets/js/209.ada731c2.js"><link rel="prefetch" href="/myblog/assets/js/21.655abeaa.js"><link rel="prefetch" href="/myblog/assets/js/210.2f1c7064.js"><link rel="prefetch" href="/myblog/assets/js/211.ca3cee97.js"><link rel="prefetch" href="/myblog/assets/js/212.5ac12744.js"><link rel="prefetch" href="/myblog/assets/js/213.faf9a9c9.js"><link rel="prefetch" href="/myblog/assets/js/214.c4400c5d.js"><link rel="prefetch" href="/myblog/assets/js/215.9380f85a.js"><link rel="prefetch" href="/myblog/assets/js/216.3c53519d.js"><link rel="prefetch" href="/myblog/assets/js/217.3c25255e.js"><link rel="prefetch" href="/myblog/assets/js/218.4096d396.js"><link rel="prefetch" href="/myblog/assets/js/219.3ba50632.js"><link rel="prefetch" href="/myblog/assets/js/22.5e1f4388.js"><link rel="prefetch" href="/myblog/assets/js/220.41879c75.js"><link rel="prefetch" href="/myblog/assets/js/221.6c0a23c2.js"><link rel="prefetch" href="/myblog/assets/js/222.26b099e8.js"><link rel="prefetch" href="/myblog/assets/js/223.95014eca.js"><link rel="prefetch" href="/myblog/assets/js/224.a1d696d4.js"><link rel="prefetch" href="/myblog/assets/js/225.4263fbfe.js"><link rel="prefetch" href="/myblog/assets/js/226.509b1730.js"><link rel="prefetch" href="/myblog/assets/js/227.6028d6f5.js"><link rel="prefetch" href="/myblog/assets/js/228.5e8563b6.js"><link rel="prefetch" href="/myblog/assets/js/229.b917cdb6.js"><link rel="prefetch" href="/myblog/assets/js/23.13a086fa.js"><link rel="prefetch" href="/myblog/assets/js/230.945106e6.js"><link rel="prefetch" href="/myblog/assets/js/231.365cdd0a.js"><link rel="prefetch" href="/myblog/assets/js/232.f939e861.js"><link rel="prefetch" href="/myblog/assets/js/233.f4f923b0.js"><link rel="prefetch" href="/myblog/assets/js/234.3e277502.js"><link rel="prefetch" href="/myblog/assets/js/235.44e61b24.js"><link rel="prefetch" href="/myblog/assets/js/236.a80b9096.js"><link rel="prefetch" href="/myblog/assets/js/237.ca36bbba.js"><link rel="prefetch" href="/myblog/assets/js/238.d3964ee9.js"><link rel="prefetch" href="/myblog/assets/js/239.47b44c27.js"><link rel="prefetch" href="/myblog/assets/js/24.dbd26072.js"><link rel="prefetch" href="/myblog/assets/js/240.1e84b031.js"><link rel="prefetch" href="/myblog/assets/js/241.edb84980.js"><link rel="prefetch" href="/myblog/assets/js/242.fcdf735c.js"><link rel="prefetch" href="/myblog/assets/js/243.54202e94.js"><link rel="prefetch" href="/myblog/assets/js/244.7c026007.js"><link rel="prefetch" href="/myblog/assets/js/245.c4fc4f2a.js"><link rel="prefetch" href="/myblog/assets/js/246.62970817.js"><link rel="prefetch" href="/myblog/assets/js/247.e69563c9.js"><link rel="prefetch" href="/myblog/assets/js/248.7aea3a26.js"><link rel="prefetch" href="/myblog/assets/js/249.c4f2d870.js"><link rel="prefetch" href="/myblog/assets/js/25.0663a650.js"><link rel="prefetch" href="/myblog/assets/js/250.fa474404.js"><link rel="prefetch" href="/myblog/assets/js/251.62aed90e.js"><link rel="prefetch" href="/myblog/assets/js/252.0167dd95.js"><link rel="prefetch" href="/myblog/assets/js/253.4e214afb.js"><link rel="prefetch" href="/myblog/assets/js/254.2f5d33fc.js"><link rel="prefetch" href="/myblog/assets/js/26.ab9cdd70.js"><link rel="prefetch" href="/myblog/assets/js/27.60025544.js"><link rel="prefetch" href="/myblog/assets/js/28.ba766e49.js"><link rel="prefetch" href="/myblog/assets/js/29.93798c70.js"><link rel="prefetch" href="/myblog/assets/js/3.c86b0f8e.js"><link rel="prefetch" href="/myblog/assets/js/30.84df4894.js"><link rel="prefetch" href="/myblog/assets/js/31.8ad4a49d.js"><link rel="prefetch" href="/myblog/assets/js/32.3348c92b.js"><link rel="prefetch" href="/myblog/assets/js/33.9a59fde7.js"><link rel="prefetch" href="/myblog/assets/js/34.ae6fd224.js"><link rel="prefetch" href="/myblog/assets/js/35.27056c49.js"><link rel="prefetch" href="/myblog/assets/js/36.41db82f9.js"><link rel="prefetch" href="/myblog/assets/js/37.2f2720d2.js"><link rel="prefetch" href="/myblog/assets/js/38.a24f4abc.js"><link rel="prefetch" href="/myblog/assets/js/39.0bf5bf04.js"><link rel="prefetch" href="/myblog/assets/js/4.842d3f04.js"><link rel="prefetch" href="/myblog/assets/js/40.d5451484.js"><link rel="prefetch" href="/myblog/assets/js/41.7403060e.js"><link rel="prefetch" href="/myblog/assets/js/42.8e52d854.js"><link rel="prefetch" href="/myblog/assets/js/43.6d3c54a3.js"><link rel="prefetch" href="/myblog/assets/js/44.5eb1214a.js"><link rel="prefetch" href="/myblog/assets/js/45.2332b00e.js"><link rel="prefetch" href="/myblog/assets/js/46.280b9baa.js"><link rel="prefetch" href="/myblog/assets/js/47.47ed3750.js"><link rel="prefetch" href="/myblog/assets/js/48.04d186c6.js"><link rel="prefetch" href="/myblog/assets/js/49.04478990.js"><link rel="prefetch" href="/myblog/assets/js/5.7c2c7f0e.js"><link rel="prefetch" href="/myblog/assets/js/50.ce5f0298.js"><link rel="prefetch" href="/myblog/assets/js/51.2e2b8083.js"><link rel="prefetch" href="/myblog/assets/js/52.f7ae824c.js"><link rel="prefetch" href="/myblog/assets/js/53.da888a41.js"><link rel="prefetch" href="/myblog/assets/js/54.f880428d.js"><link rel="prefetch" href="/myblog/assets/js/55.db9fc1a7.js"><link rel="prefetch" href="/myblog/assets/js/56.3cf7f6e3.js"><link rel="prefetch" href="/myblog/assets/js/57.732a9978.js"><link rel="prefetch" href="/myblog/assets/js/58.6b41b2e6.js"><link rel="prefetch" href="/myblog/assets/js/59.dc52124b.js"><link rel="prefetch" href="/myblog/assets/js/6.d0e2dea7.js"><link rel="prefetch" href="/myblog/assets/js/60.5f44ebad.js"><link rel="prefetch" href="/myblog/assets/js/61.5507bb31.js"><link rel="prefetch" href="/myblog/assets/js/62.a5698aa3.js"><link rel="prefetch" href="/myblog/assets/js/63.b9a4cc43.js"><link rel="prefetch" href="/myblog/assets/js/64.c59a1aa1.js"><link rel="prefetch" href="/myblog/assets/js/65.0e9f550a.js"><link rel="prefetch" href="/myblog/assets/js/66.949dfdc7.js"><link rel="prefetch" href="/myblog/assets/js/67.9421c16f.js"><link rel="prefetch" href="/myblog/assets/js/68.1ef91538.js"><link rel="prefetch" href="/myblog/assets/js/69.83581b60.js"><link rel="prefetch" href="/myblog/assets/js/7.39c3366e.js"><link rel="prefetch" href="/myblog/assets/js/70.29feaf98.js"><link rel="prefetch" href="/myblog/assets/js/71.0ab96622.js"><link rel="prefetch" href="/myblog/assets/js/72.3697dc49.js"><link rel="prefetch" href="/myblog/assets/js/73.f8da4c1d.js"><link rel="prefetch" href="/myblog/assets/js/74.d96f8c75.js"><link rel="prefetch" href="/myblog/assets/js/75.11173df1.js"><link rel="prefetch" href="/myblog/assets/js/76.c3f17014.js"><link rel="prefetch" href="/myblog/assets/js/77.34d99fd1.js"><link rel="prefetch" href="/myblog/assets/js/78.0e36e77a.js"><link rel="prefetch" href="/myblog/assets/js/79.09c6e157.js"><link rel="prefetch" href="/myblog/assets/js/8.56dfc095.js"><link rel="prefetch" href="/myblog/assets/js/80.23bc22b8.js"><link rel="prefetch" href="/myblog/assets/js/81.01b23d1c.js"><link rel="prefetch" href="/myblog/assets/js/82.aee036bc.js"><link rel="prefetch" href="/myblog/assets/js/83.73944dc9.js"><link rel="prefetch" href="/myblog/assets/js/84.153d52d6.js"><link rel="prefetch" href="/myblog/assets/js/85.a1bb5344.js"><link rel="prefetch" href="/myblog/assets/js/86.9913fb3c.js"><link rel="prefetch" href="/myblog/assets/js/87.1e13d29b.js"><link rel="prefetch" href="/myblog/assets/js/88.1301cf1e.js"><link rel="prefetch" href="/myblog/assets/js/89.7d2b4a8b.js"><link rel="prefetch" href="/myblog/assets/js/9.65d4632d.js"><link rel="prefetch" href="/myblog/assets/js/90.8b2bd4d5.js"><link rel="prefetch" href="/myblog/assets/js/91.66d83ae9.js"><link rel="prefetch" href="/myblog/assets/js/92.1de93a91.js"><link rel="prefetch" href="/myblog/assets/js/93.aba2fb10.js"><link rel="prefetch" href="/myblog/assets/js/94.26917b96.js"><link rel="prefetch" href="/myblog/assets/js/95.4970a974.js"><link rel="prefetch" href="/myblog/assets/js/96.0583d1f4.js"><link rel="prefetch" href="/myblog/assets/js/97.ba312663.js"><link rel="prefetch" href="/myblog/assets/js/98.eaf31225.js"><link rel="prefetch" href="/myblog/assets/js/99.4417c184.js">
+    <link rel="stylesheet" href="/myblog/assets/css/0.styles.40e1e284.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/myblog/" class="home-link router-link-active"><!----> <span class="site-name">毕克有的技术笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="技术笔记" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/js/" class="nav-link">
+  js篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/css/" class="nav-link">
+  css篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/tool/" class="nav-link router-link-active">
+  工具篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/framework/" class="nav-link">
+  框架篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/webapp/" class="nav-link">
+  移动端app开发
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/weChatMiniProgram/" class="nav-link">
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/node/" class="nav-link">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/http/" class="nav-link">
+  http
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码解析" class="dropdown-title"><span class="title">源码解析</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码解析" class="mobile-dropdown-title"><span class="title">源码解析</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/sourceCode/" class="nav-link">
+  jQuery
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="技术笔记" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/js/" class="nav-link">
+  js篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/css/" class="nav-link">
+  css篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/tool/" class="nav-link router-link-active">
+  工具篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/framework/" class="nav-link">
+  框架篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/webapp/" class="nav-link">
+  移动端app开发
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/weChatMiniProgram/" class="nav-link">
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/node/" class="nav-link">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/http/" class="nav-link">
+  http
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码解析" class="dropdown-title"><span class="title">源码解析</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码解析" class="mobile-dropdown-title"><span class="title">源码解析</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/sourceCode/" class="nav-link">
+  jQuery
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>webpack</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>1.webpack学习</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/myblog/tool/webpack/1.webpack学习/1.初识 webpack.html" class="sidebar-link">1.初识 webpack</a></li><li><a href="/myblog/tool/webpack/1.webpack学习/2.webpack优化.html" class="sidebar-link">2.webpack优化</a></li><li><a href="/myblog/tool/webpack/1.webpack学习/3.webpack的实现.html" class="sidebar-link">3.webpack的实现</a></li><li><a href="/myblog/tool/webpack/1.webpack学习/4.如何调适和阅读webpack源码.html" class="sidebar-link">4.如何调适和阅读webpack源码</a></li><li><a href="/myblog/tool/webpack/1.webpack学习/5.webpack自定义loader.html" class="sidebar-link">5.webpack自定义loader</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>2.整理练习webpack的错误</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>3.webpack学习</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>nvm</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>git</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Docker</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>mysql</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>mysql学习</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/myblog/tool/mysql/mysql学习/1.初识mysql.html" class="sidebar-link">1.初识mysql</a></li><li><a href="/myblog/tool/mysql/mysql学习/2.操作数据库.html" class="active sidebar-link">2.操作数据库</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/myblog/tool/mysql/mysql学习/2.操作数据库.html#_2-1-操作数据库" class="sidebar-link">2.1 操作数据库</a></li><li class="sidebar-sub-header"><a href="/myblog/tool/mysql/mysql学习/2.操作数据库.html#_3-mysql-数据管理" class="sidebar-link">3. MySQL 数据管理</a></li></ul></li><li><a href="/myblog/tool/mysql/mysql学习/3.列的数据类型讲解.html" class="sidebar-link">3.列的数据类型讲解</a></li><li><a href="/myblog/tool/mysql/mysql学习/4.DQL 查询数据.html" class="sidebar-link">4.DQL 查询数据</a></li><li><a href="/myblog/tool/mysql/mysql学习/5.MySQL函数.html" class="sidebar-link">5.MySQL函数</a></li><li><a href="/myblog/tool/mysql/mysql学习/6.SELECT小结.html" class="sidebar-link">6.SELECT小结</a></li><li><a href="/myblog/tool/mysql/mysql学习/7.事务.html" class="sidebar-link">7.事务</a></li><li><a href="/myblog/tool/mysql/mysql学习/8.索引介绍及索引分类.html" class="sidebar-link">8.索引介绍及索引分类</a></li><li><a href="/myblog/tool/mysql/mysql学习/9.权限管理和备份.html" class="sidebar-link">9.权限管理和备份</a></li><li><a href="/myblog/tool/mysql/mysql学习/10.规范数据库设计.html" class="sidebar-link">10.规范数据库设计</a></li><li><a href="/myblog/tool/mysql/mysql学习/11.JDBC.html" class="sidebar-link">11.JDBC</a></li></ul></section></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>脚手架工具</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="_2-操作数据库"><a href="#_2-操作数据库" class="header-anchor">#</a> 2.操作数据库</h1> <p>操作数据库 &gt; 操作数据库中的表 &gt; 操作数据库中表的数据</p> <blockquote><p>mysql 关键字不区分大小写</p></blockquote> <blockquote><p>[] 里面都是可选命令</p></blockquote> <blockquote><p>如果你的表名或者字段名是一个特殊字符，就需要带 ``
+use <code>school</code>
+SELECT <code>user</code> FROM test</p></blockquote> <h2 id="_2-1-操作数据库"><a href="#_2-1-操作数据库" class="header-anchor">#</a> 2.1 操作数据库</h2> <p>了解</p> <h3 id="_2-1-1-创建数据库"><a href="#_2-1-1-创建数据库" class="header-anchor">#</a> 2.1.1 创建数据库</h3> <div class="language-s extra-class"><pre class="language-text"><code>CREATE DATABASE [IF NOT EXISTS] westos;
+</code></pre></div><p>在可视化见面创建表</p> <p>字符集 utf8； 排序规则  utf8_general_ci</p> <h3 id="_2-1-2-删除数据库"><a href="#_2-1-2-删除数据库" class="header-anchor">#</a> 2.1.2 删除数据库</h3> <div class="language-s extra-class"><pre class="language-text"><code># hello 是数据库名
+DROP DATABASE [IF EXISTS] hello
+</code></pre></div><h3 id="_2-1-3-使用数据库"><a href="#_2-1-3-使用数据库" class="header-anchor">#</a> 2.1.3 使用数据库</h3> <div class="language-s extra-class"><pre class="language-text"><code># school 是数据库名
+use school
+</code></pre></div><h3 id="_2-1-4-查看数据库"><a href="#_2-1-4-查看数据库" class="header-anchor">#</a> 2.1.4 查看数据库</h3> <div class="language-s extra-class"><pre class="language-text"><code># 查看所有数据库
+show databases 
+</code></pre></div><h3 id="_2-1-5-修改表"><a href="#_2-1-5-修改表" class="header-anchor">#</a> 2.1.5 修改表</h3> <div class="language-s extra-class"><pre class="language-text"><code># 修改表明 ALTER TABLE 旧表名 RENAME AS 新表名
+ALTER TABLE teacher RENAME AS teacher1
+
+# 增加表的字段 ALTER TABLE 表名 ADD 字段名 列属性
+ALTER TABLE teacher1 ADD age INT(11)
+ALTER TABLE teacher1 ADD pwd VARCHAR(20) DEFAULT '123456'
+
+# 修改表的字段 （重命令，修改约束）
+## ALTER TABLE 表名 MODIFY 字段名 列属性
+## ALTER TABLE 表名 CHANGE 旧名字 新名字 列属性
+ALTER TABLE teacher1 MODIFY age VARCHAR(11) -- 修改约束
+ALTER TABLE teacher1 CHANGE age age1 int(2) -- 字段重命令
+</code></pre></div><p>TODO ？？？</p> <blockquote><p>modify 能够修改字段类型和约束，而change不能</p></blockquote> <blockquote><p>change 用来字段重命名，不能修改字段类型和约束
+modify 不用来字段重命名，只能修改字段类型和约束</p></blockquote> <h3 id="_2-1-4-删除表的字段"><a href="#_2-1-4-删除表的字段" class="header-anchor">#</a> 2.1.4 删除表的字段</h3> <div class="language-s extra-class"><pre class="language-text"><code># ALTER TABLE 表名 DROP 字段名
+ALTER TABLE teacher1 DROP age1
+</code></pre></div><h3 id="_2-1-4-删除表"><a href="#_2-1-4-删除表" class="header-anchor">#</a> 2.1.4 删除表</h3> <div class="language-s extra-class"><pre class="language-text"><code># 删除表， 如果表存在再删除
+DROP TABLE IF EXISTS teacher1
+</code></pre></div><blockquote><p>所有的创建和删除操作尽量加上判断，以免报错</p></blockquote> <blockquote><p>注意点
+`` 字段名，使用这个包裹
+注释 -- /**/
+sql 关键字大小写不敏感，建议大家写小写
+所有的符号都要用英文</p></blockquote> <div class="language-S extra-class"><pre class="language-text"><code># 之前练习的
+CREATE TABLE IF NOT EXISTS `student` (
+	`id` INT(4) NOT NULL AUTO_INCREMENT COMMENT '学号',
+	`name` VARCHAR(30) NOT NULL DEFAULT '匿名' COMMENT '姓名',
+	`pwd` VARCHAR(20) NOT NULL DEFAULT '123456' COMMENT '密码',
+	`sex` VARCHAR(2) NOT NULL DEFAULT  '女' COMMENT '性别',
+	`birthday` DATETIME DEFAULT NULL COMMENT '出生日期',
+	`address` VARCHAR(100) DEFAULT NULL COMMENT '家庭住址',
+	`email` VARCHAR(50) DEFAULT NULL COMMENT '邮箱',
+	PRIMARY KEY (`id`)
+ ) ENGINE=INNODB DEFAULT CHARSET=utf8
+ 
+ SHOW CREATE TABLE student
+ 
+ DESC student
+ 
+ CREATE TABLE `teacher`(
+		`id` INT(4) NOT NULL AUTO_INCREMENT COMMENT '老师编号',
+		`name` VARCHAR(30) NOT NULL DEFAULT '匿名' COMMENT '名字',
+		`age` INT(3) NOT NULL DEFAULT '30' COMMENT '年龄',
+		`sex` VARCHAR(2) NOT NULL DEFAULT '男' COMMENT '性别',
+		`address` VARCHAR(100) DEFAULT NULL COMMENT '地址',
+		`phone` INT(11) DEFAULT NULL COMMENT '电话',
+		`email` VARCHAR(50) DEFAULT NULL COMMENT '邮箱',
+		PRIMARY KEY (`id`)
+ ) ENGINE=INNODB DEFAULT CHARSET=utf8
+ 
+ ALTER TABLE teacher RENAME AS teacher1
+ 
+ ALTER TABLE teacher1 ADD pwd VARCHAR(20) DEFAULT '123456'
+ 
+ ALTER TABLE teacher1 MODIFY age VARCHAR(11)
+ 
+ ALTER TABLE teacher1 CHANGE age age1 int(2)
+ 
+ ALTER TABLE teacher1 DROP age1
+ 
+ DROP TABLE IF EXISTS teacher1
+</code></pre></div><h2 id="_3-mysql-数据管理"><a href="#_3-mysql-数据管理" class="header-anchor">#</a> 3. MySQL 数据管理</h2> <h3 id="_3-1-外键-了解"><a href="#_3-1-外键-了解" class="header-anchor">#</a> 3.1 外键 （了解）</h3> <ul><li>方式一</li></ul> <p>在创建表的时候，增加约束（麻烦，比较复杂）</p> <div class="language-s extra-class"><pre class="language-text"><code># -- 学生表的 gradeid 字段 要去引用年级表的 gradeid
+# -- 定义外键 key
+# -- 给这个外键添加约束 （执行引用）
+CREATE TABLE IF NOT EXISTS `student`(
+	`id` INT(4) NOT NULL AUTO_INCREMENT COMMENT '学号',
+	`name` VARCHAR(30) NOT NULL DEFAULT '匿名' COMMENT '姓名',
+	`pwd` VARCHAR(20) NOT NULL DEFAULT '123456' COMMENT '密码',
+	`sex` VARCHAR(2) NOT NULL DEFAULT  '女' COMMENT '性别',
+	`birthday` DATETIME DEFAULT NULL COMMENT '出生日期',
+	`gradeid` INT(10) NOT NULL COMMENT '学生年级',
+	`address` VARCHAR(100) DEFAULT NULL COMMENT '家庭住址',
+	`email` VARCHAR(50) DEFAULT NULL COMMENT '邮箱',
+	PRIMARY KEY (`id`),
+	KEY `FK_gradeid` (`gradeid`),
+	CONSTRAINT `FK_gradeid` FOREIGN KEY (`gradeid`) REFERENCES `grade`(`gradeid`)
+ ) ENGINE=INNODB DEFAULT CHARSET=utf8
+</code></pre></div><blockquote><p>删除有外键关系的表的时候，必须要先删除引用别人的表（从表），再删除被应用的表（主表）</p></blockquote> <ul><li>方式二</li></ul> <div class="language-S extra-class"><pre class="language-text"><code>CREATE TABLE IF NOT EXISTS `student`(
+	`id` INT(4) NOT NULL AUTO_INCREMENT COMMENT '学号',
+	`name` VARCHAR(30) NOT NULL DEFAULT '匿名' COMMENT '姓名',
+	`pwd` VARCHAR(20) NOT NULL DEFAULT '123456' COMMENT '密码',
+	`sex` VARCHAR(2) NOT NULL DEFAULT  '女' COMMENT '性别',
+	`birthday` DATETIME DEFAULT NULL COMMENT '出生日期',
+	`gradeid` INT(10) NOT NULL COMMENT '学生年级',
+	`address` VARCHAR(100) DEFAULT NULL COMMENT '家庭住址',
+	`email` VARCHAR(50) DEFAULT NULL COMMENT '邮箱',
+	PRIMARY KEY (`id`)
+ ) ENGINE=INNODB DEFAULT CHARSET=utf8
+</code></pre></div><ul><li>创建表的时候没有外键关系，后添加外键操作</li></ul> <div class="language-s extra-class"><pre class="language-text"><code># ALTER TABLE 表 ADD CONSTRAINT 约束名  FOREIGN KEY (`gradeid`) REFERENCES `grade`(`gradeid`)
+ALTER TABLE `student` 
+ADD CONSTRAINT `FK_gradeid`  FOREIGN KEY (作为外键的列) REFERENCES 引用表(`哪个字段`)
+</code></pre></div><div class="language-s extra-class"><pre class="language-text"><code>REFERENCES references 参考
+FOREIGN foreign 国外
+CONSTRAINT constraint 约束
+</code></pre></div><p>以上的操作都是物理外键，数据库级别的外键，不建议使用 （避免数据库过多造成困扰，这里了解即可）</p> <ul><li><p>最佳实践</p> <ul><li>数据库就是单纯的表，只用来存数据，只有行（数据） 和 列（数据）</li> <li>我们想使用多张表的数据，想使用外键（程序去实现）</li></ul></li></ul> <h3 id="_3-2-dml-语言-全部记住-背下来"><a href="#_3-2-dml-语言-全部记住-背下来" class="header-anchor">#</a> 3.2 DML 语言 （全部记住，背下来）</h3> <p>DML：数据库管理语言</p> <p>数据库的意义： 数据存储，数据管理</p> <ul><li>insert</li> <li>update</li> <li>delete</li></ul> <h3 id="_3-3-insert-插入语句-添加"><a href="#_3-3-insert-插入语句-添加" class="header-anchor">#</a> 3.3 insert 插入语句 (添加)</h3> <div class="language-s extra-class"><pre class="language-text"><code># 插入字段
+insert into 表名（[字段名1, 字段名2, 字段名3...]）values('值1', '值2', '值3'...);
+
+# 插入多个值
+INSERT INTO `grade`(`gradename`) VALUES('大一'), ('大二');
+
+INSERT INTO `student`(`name`, `gradeid`) VALUES('张三', '1')
+
+# 插入多条数据
+INSERT INTO student(`name`, gradeid, sex) 
+VALUES('李四', '2', '男'),('王五', '2', '女')
+</code></pre></div><blockquote><p>由于主键自增我们可以省略。如果不写表的字段，他就会一一匹配
+一般写插入语句，我们一定要数据和字段一一对应</p></blockquote> <ul><li>总结</li></ul> <div class="language-s extra-class"><pre class="language-text"><code>insert into 表名（[字段名1, 字段名2, 字段名3...]）values('值1', '值2', '值3'...)[, ('值1', '值2', '值3'...)];
+</code></pre></div><blockquote><p>字段和字段之间使用英文逗号隔开
+字段是可以省略的，但是后边的值必须要一一对应，不能少
+可以同时插入多条数据，VALUES 后边的值，需要使用 , 隔开即可 VALUES(),()...</p></blockquote> <h3 id="_3-4-update-修改"><a href="#_3-4-update-修改" class="header-anchor">#</a> 3.4 update 修改</h3> <div class="language-s extra-class"><pre class="language-text"><code>update 修改谁（条件）set 原来的值=新值
+
+# 语法
+update 表名 set column_name=value[, column_name=value...] where 条件
+
+# 修改一个属性
+UPDATE student SET `name`='风' WHERE id = 1;
+
+# 修改多个属性，逗号隔开
+UPDATE student SET `name`='雨', email='123@qq.com' WHERE id = 2;
+</code></pre></div><blockquote><p>不指定条件的情况下，会改动所有表！！！</p></blockquote> <ul><li>条件</li></ul> <p>where 字句运算符， id 等于某个值，大于某个值，在某个区间修改</p> <table><thead><tr><th>操作符</th> <th>含义</th> <th>范围</th> <th>结构</th></tr></thead> <tbody><tr><td>=</td> <td>等于</td> <td>5 = 6</td> <td>false</td></tr> <tr><td>&lt;&gt;或!=</td> <td>不等于</td> <td>5&lt;&gt;6</td> <td>true</td></tr> <tr><td>&gt;=</td> <td>大于等于</td> <td>6&gt;=5</td> <td>true</td></tr> <tr><td>&lt;=</td> <td>小于等于</td> <td>5&lt;=6</td> <td>true</td></tr> <tr><td>between...and...</td> <td>在某个范围内</td> <td>[2,5]</td> <td>true</td></tr> <tr><td>AND</td> <td>我和你 &amp;&amp;</td> <td>5&gt;1 and 1&gt;2</td> <td>false</td></tr> <tr><td>OR</td> <td>我或你</td> <td>5&gt;1 or 1&gt;2</td> <td>true</td></tr></tbody></table> <div class="language-s extra-class"><pre class="language-text"><code># 通过多个条件定位数据
+UPDATE student SET `name`='长江七号' WHERE `name`='雨' AND sex='男'
+</code></pre></div><ul><li>语法</li></ul> <div class="language-s extra-class"><pre class="language-text"><code>update 表名 set column_name=value[, column_name=value...] where 条件
+</code></pre></div><blockquote><p>注意</p> <ul><li>column_name 是数据库的列，尽量带上 ``</li> <li>条件，筛选的条件，如果没有指定则会修改所有的列</li> <li>是一个具体的值，也可以是一个变量</li></ul></blockquote> <div class="language-s extra-class"><pre class="language-text"><code># 变量
+UPDATE student SET birthday=CURRENT_TIME WHERE `name`='风'
+</code></pre></div><h3 id="_3-5-删除"><a href="#_3-5-删除" class="header-anchor">#</a> 3.5 删除</h3> <h4 id="delete"><a href="#delete" class="header-anchor">#</a> delete</h4> <div class="language-s extra-class"><pre class="language-text"><code># 语法
+delete from 表名 [where 条件]
+
+# 避免这样写，会全部删除
+delete from `student`
+
+# 删除指定数据
+delete from student where id = 1;
+</code></pre></div><h4 id="truncate"><a href="#truncate" class="header-anchor">#</a> truncate</h4> <p>作用： 完全晴空一个数据库表，表的结构和索引约束不会变</p> <div class="language-s extra-class"><pre class="language-text"><code># 清空表
+TRUNCATE `student`
+</code></pre></div><h4 id="delete-和-truncate-区别"><a href="#delete-和-truncate-区别" class="header-anchor">#</a> delete 和 TRUNCATE 区别</h4> <ul><li>相同点</li></ul> <p>都能删除数据，都不会删除表结构</p> <blockquote><p>设计表 =&gt; 选项 中可以查看</p></blockquote> <ul><li><p>不同点</p> <ul><li>TRUNCATE 重新设置自增列，计数器会归零</li> <li>TRUNCATE 不会影响事务</li></ul></li> <li><p>了解即可： delete 删除问题，重启数据库，现象</p> <ul><li>InnoDB 自增列会重 1 开始（存在内存当中，断电即失）</li> <li>MyISAM 继续从上一个字增量开始（存在文件中的，不会丢失）</li></ul></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/myblog/tool/mysql/mysql学习/1.初识mysql.html" class="prev">
+        1.初识mysql
+      </a></span> <span class="next"><a href="/myblog/tool/mysql/mysql学习/3.列的数据类型讲解.html">
+        3.列的数据类型讲解
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/myblog/assets/js/app.a57ac0d5.js" defer></script><script src="/myblog/assets/js/2.c43035d6.js" defer></script><script src="/myblog/assets/js/204.c9d0c180.js" defer></script>
+  </body>
+</html>
