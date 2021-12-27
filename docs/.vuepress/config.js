@@ -80,6 +80,10 @@ module.exports = {
             text: 'http',
             link: '/http/'
           },
+          {
+            text: '面试题',
+            link: '/interviewQuestions/'
+          },
         ]
       },
       {
@@ -330,24 +334,6 @@ module.exports = {
             'scaffoldingTools/1.创建 Generator 模块', // 你的md文件地址
           ]
         },
-        // {
-        //   title: 'Docker', // 侧边栏名称
-        //   collapsable: true, // 可折叠
-        //   children: [
-        //     {
-        //       title: '1.Docker学习', // 侧边栏名称
-        //       collapsable: true, // 可折叠
-        //       children: [
-        //         'Docker/1.Docker学习/1.Docker学习大纲',
-        //         'Docker/1.Docker学习/2.Docker基础',
-        //         'Docker/1.Docker学习/3.练习',
-        //         'Docker/1.Docker学习/4.Portainer可视化面板安装',
-        //         'Docker/1.Docker学习/5.docker镜像讲解',
-        //         'Docker/1.Docker学习/7.DockerFIle',
-        //       ]
-        //     },
-        //   ]
-        // },
       ],
       '/framework/': [
         {
@@ -563,6 +549,22 @@ module.exports = {
             'node内置对象学习/3.fs',
             'node内置对象学习/4.os',
           ],
+        },
+      ],
+      '/interviewQuestions/': [
+        {
+          title: 'js',
+          collapsable: true,
+          children: [
+            'js/1.箭头函数和构造函数的区别',
+          ]
+        },
+        {
+          title: 'internet',
+          collapsable: true,
+          children: [
+            'internet/1.TCP ISN、三次握手、四次挥手',
+          ]
         },
       ]
     }
