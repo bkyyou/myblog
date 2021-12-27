@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function merge(mergeLeftArray, mergeRightArray) {
+        const res = [];
+        while (mergeLeftArray.length && mergeRightArray.length) {
+          // console.log('mergeLeftArray', mergeLeftArray);
+          // console.log('mergeLeftArray', mergeRightArray);
+          if (mergeLeftArray[0] <= mergeRightArray[0]) {
+            res.push(mergeLeftArray.shift());
+          } else {
+            res.push(mergeRightArray.shift());
+          }
+        }
+        if (mergeLeftArray.length) res.push(...mergeLeftArray);
+        if (mergeRightArray.length) res.push(...mergeRightArray);
+        return res;
+      }
+      // 归并排序
+      function mergeSort(arr) {
+        console.log("arrr", arr);
+        if (arr.length <= 1) return arr;
+        const res = [];
+        const index = Math.floor(arr.length / 2);
+        const mergeLeftArray = arr.slice(0, index);
+        const mergeRightArray = arr.slice(index);
+        const resLeft = mergeSort(mergeLeftArray);
+        const resRigth = mergeSort(mergeRightArray);
+        return merge(resLeft, resRigth);
+      }
+
+      // let arr = [2, 9, 6, 7, 4, 3, 1, 7, 0, -1, -2];
+      // let arr = [2, 9, 6, 7, 4];
+      // console.log(mergeSort(arr));
+
+      // 计数排序
+      function countSort(arr) {
+        const min = Math.min(...arr);
+        const max = Math.max(...arr);
+        const add = min < 0 ? -min : 0;
+        const countArr = new Array(max + 1 + add).fill(0);
+        const res = [];
+        arr.forEach((val) => {
+          countArr[val + add] += 1;
+        });
+        countArr.forEach((val, i) => {
+          val > 0 && res.push(...new Array(val).fill(i - add));
+        });
+        return res;
+      }
+      // let arr = [2, 9, 6, 7, 4, 3, 1, 7, 0, -1, -2];
+      // console.log(countSort(arr));
+
+      // 快排
+      function quickSort(arr) {
+        if (arr.length <= 1) return arr;
+        const cen = arr.shift();
+        const left = [];
+        const right = [];
+        arr.forEach((val) => {
+          val >= cen ? right.push(val) : left.push(val);
+        });
+        // debugger
+        return [...quickSort(left), cen, ...quickSort(right)];
+      }
+      // let arr = [2, 9, 6, 7, 4, 3, 1, 7, 0, -1, -2];
+      // // let arr = [2, -1, -2];
+      // console.log(quickSort(arr));
+
+      // 插入排序
+      const insertionSort = function(arr) {
+        arr = JSON.parse(JSON.stringify(arr));
+        const res = [arr[0]]
+        for (let j = 1; j < arr.length; j++) {
+          let current = arr[j];
+          let index = res.length;
+          // debugger
+          for (let i = res.length - 1; i >= 0; i--) {
+            if (res[i] > current) {
+              index--;
+            }
+          }
+          res.splice(index, 0 ,current);
+        }
+        return res;
+      }
+      // let arr = [2, 9, 6, 7, 4, 3, 1, 7, 0, -1, -2];
+      // let arr = [2, 9, 6];
+      // console.log(insertionSort(arr))
+
+      // 选择排序
+      // 每一次循环选择最小的，交换到最前面，按照第一个是有序的
+      const selectSort = function (arr) {
+        const len = arr.length
+        for (let i = 0; i < len - 1; i++) {
+          let minIndex = i;
+          for (let j = i + 1; j < len; j++) {
+            if (arr[j] < arr[minIndex]) {
+              minIndex = j;
+            }
+          }
+          minIndex !== i && ([arr[i], arr[minIndex]] = [arr[minIndex], arr[i]]);
+        }
+        return arr;
+      }
+      // let arr = [2, 9, 6, 7, 4, 3, 1, 7, 0, -1, -2];
+      // console.log(selectSort(arr))
+
+      // 相邻比较，每一次循环会把最大值排到最后
+      // 每排一次最大值会到最后边，所以每排序一次后边的值是被排序好的
+      // 有 +1 的操作比较 边界条件 len - 1
+      const bubbleSort = function(arr) {
+        const len = arr.length;
+        for (let i = 0; i < len - 1; i++) {
+          for (let j = 0; j < len - 1 - i; j++) {
+            if (arr[j] > arr[j + 1]) {
+              [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
+            }
+          }
+        }
+        return arr;
+      }
+      let arr = [2, 9, 6, 7, 4, 3, 1, 7, 0, -1, -2];
+      console.log(bubbleSort(arr))
+
+      // 暂时看几种算法的总结
+      // 有 +1 的操作比较 边界条件 len - 1
+      // +1 的操作是在循环的起始点， len 不能 -1 eg: for (let j = i + 1; j < len; j++) {
+
+
+      
+    </script>
+  </body>
+</html>
