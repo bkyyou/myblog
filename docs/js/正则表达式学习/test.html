@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // var regex = /(\d{4})-(\d{2})-(\d{2})/;
+      // var string = "2017-06-12";
+      // regex.test(string); // 正则操作即可，例如
+      // //regex.exec(string);
+      // //string.match(regex);
+      // console.log(RegExp.$1); // "2017"
+      // console.log(RegExp.$2); // "06"
+      // console.log(RegExp.$3); // "12"
+
+      // var regex = /(\d{4})-(\d{2})-(\d{2})/;
+      // var string = "2017-06-12";
+      // var result = string.replace(regex, function(match, year, month, day) {
+      //   console.log('match', match);
+      //   return month + "/" + day + "/" + year;
+      // });
+      // console.log(result);
+      // => "06/12/2017"
+
+      // const reg = /^.*\d$/g;
+      // const str = "1";
+      // console.log(reg.test(str));
+
+      // function titleize(str) {
+      //   return str.toLowerCase().replace(/(?:^|\s)\w/g, function(c) {
+      //     console.log('c', c);
+      //     return c.toUpperCase();
+      //   });
+      // }
+      // console.log(titleize("my   name is epeli"));
+      // // => "My Name Is Epeli"
+
+      // var reg = /^\s*[a-z]|\s+[a-z]/g;
+      // var str = "my name is epeli";
+      // const str1 = str.replace(reg, function(a) {
+      //   // console.log(arguments);
+      //   // // return a.toUpperCase()
+      //   console.log(a);
+      //   console.log(a.toUpperCase());
+      //   return a.toUpperCase();
+      // });
+      // // console.log(str.match(reg));
+      // console.log(str1);
+      
+      const arr = [1, 2, 3]
+      for (const v of arr) {
+        if (v === 1) {
+          console.log('v', v);
+          break
+        }
+      }
+
+      // todo 为什么只在 循环中 会导致 test 验证错误
+      // const reg = /(\d)/g
+      // const a = '1111aaaa';
+      // console.log(reg.test('1111aaaa'))
+      // console.log(reg.test('1111aaaa'))
+      // console.log(reg.test('1111aaaa'))
+      // for (let i = 0; i < 10; i++) {
+      //   console.log(reg.test(a))
+      // }
+      // console.log(RegExp.$1)
+      // console.log(RegExp.$1)
+
+      const reg = /(?=(\d{3})+)\d+$/g
+      const str = '111111';
+      console.log(str.replace(reg, ','));
+      console.log(reg.test(str));
+
+    </script>
+  </body>
+</html>
