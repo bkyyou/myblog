@@ -37,3 +37,9 @@ https://juejin.cn/post/6844903478880370701
 
 vue 生命周期
 https://juejin.cn/post/6844904114879463437
+
+vue异步组件(高级异步组件)使用场景及实践
+https://segmentfault.com/a/1190000012138052
+
+组件递归
+https://mp.weixin.qq.com/s?__biz=Mzg5ODA5NTM1Mw==&mid=2247498049&idx=2&sn=0b7f9006baebf7ac0077db839b49da4e&chksm=c06578d7f712f1c1afdb524337deff5b6bd4b6c6f7e444153f13dee930b8cbfb4b1bdbad9261&mpshare=1&scene=1&srcid=0224lyJxcKNyWsIeZMflo97E&sharer_sharetime=1645674713937&sharer_shareid=5bfa1b33e387a9e25a43b9c158a3677d&version=3.1.16.70061&platform=mac#rd
