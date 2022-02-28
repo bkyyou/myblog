@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.js"></script>
+    <script>
+      // const vue = {};
+      // const configDef = {};
+      // // Vue 的众多默认配置项
+      // configDef.get = () => {
+      //   return {
+      //     a: 1
+      //   }
+      // };
+      // configDef.set = () => {
+      //   console.log(
+      //     "Do not replace the Vue.config object, set individual fields instead."
+      //   );
+      // };
+
+      // Object.defineProperty(vue, "config", configDef);
+      // const reg = /.*(?=.*[a-zA-Z]+)(?=.*\d+)/g
+      // const reg = /.*(?=[a-zA-Z]+)(?=\d+)/g
+      // const reg = /.*(?=[a-zA-Z]+)/g
+      // const reg = /.{0,}(?=[a-zA-Z])*(?=[0-9])*/g
+      // const obj = {a: 1, b: 2};
+      // const arr = [{id: 0}, {id:1}, {id:2}];
+
+     const str = ` id="app" :class="'111'">
+        <!-- {{ obj.a }} -->
+        <div>111</div>
+        <div>{{printMsg}}</div>
+        <!-- <div>{{printMsg}}</div>
+        <div>{{test()}}</div>
+        <div>{{test()}}</div> -->
+        <comp @click="handleClick" v-model="val" :aaa="222"></comp>
+        <input type="text" @input="handleInput('aaa', $event.target.value)">
+        <div v-pre="">{{msg}}</div>
+        <div>???msg??? ???</div>
+      </div>`
+    const reg = /^\s*([^\s"'<>\/=]+)(?:\s*(=)\s*(?:"([^"]*)"+|'([^']*)'+|([^\s"'=<>`]+)))?/
+    console.log(str.match(reg));
+    console.log(RegExp.$1)
+    console.log(RegExp.$2)
+    console.log(RegExp.$3)
+    console.log(RegExp.$4)
+    console.log(RegExp.$5)
+
+    // const str1 = '11a';
+    // const reg1 = /(.*)a*/
+    // console.log(str1.match(reg1));
+
+      // console.log(_.omit(obj, 'a'))
+      // console.log(obj);
+
+      // console.log(arr.filter(val => val.id !== 0)[0].aa = 1)
+      // console.log(arr)
+    </script>
+  </body>
+</html>
