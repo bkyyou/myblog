@@ -9,6 +9,8 @@
   },
   "repository": "/myBlog",
   "scripts": {
+    "open:dev": "opener http://localhost:9090",
+    "predev": "sh ./test.sh",
     "dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },

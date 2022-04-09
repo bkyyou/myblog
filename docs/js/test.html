@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrapper {
+        overflow-y: scroll;
+        max-height: 228px;
+        background-color: #f0f2f5;
+        /* padding: 8px 8px 0; */
+        padding: 8px;
+        box-sizing: border-box;
+        line-height: 1;
+        color: #666666;
+        font-size: 14px;
+      }
+      /* .wrapper div,
+      .model-content-scroll-area-overflow div {
+        padding-bottom: 8px;
+      } */
+      .wrapper div,
+      .model-content-scroll-area-overflow div {
+        margin-bottom: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div>这是一个公司</div>
+      <div>这是一个公司</div>
+      <div>这是一个公司</div>
+      <div>这是一个公司</div>
+      <div>这是一个公司</div>
+      <div>这是一个公司</div>
+      <div>这是一个公司</div>
+      <div>这是一个公司</div>
+      <div>这是一个公司</div>
+      <div>这是一个公司</div>
+      <div>这是一个公司</div>
+      <div>这是一个公司</div>
+    </div>
+    <script>
+      const arr = [
+        {
+          level: 1,
+          name: "1",
+        },
+        {
+          level: 2,
+          name: "1-1",
+        },
+        {
+          level: 3,
+          name: "1-1-1",
+        },
+        {
+          level: 2,
+          name: "1-2",
+        },
+        {
+          level: 3,
+          name: "1-2-1",
+        },
+        {
+          level: 1,
+          name: "2",
+        },
+        {
+          level: 2,
+          name: "2-1",
+        },
+      ];
+      function fun(arr) {
+        const newArr = [arr[0]];
+        let currentLevelArr = [arr[0]];
+        let children = [];
+        let parent;
+        for (let i = 1; i < arr.length; i++) {
+          currentLevelArr[arr[i].level - 1] = arr[i];
+          if (arr[i].level === 1) {
+            newArr.push(arr[i]);
+            continue;
+          }
+          parent = currentLevelArr[arr[i].level - 2];
+          parent.children || (parent.children = []);
+          children = parent.children
+          // if (parent.children) {
+          //   children = parent.children;
+          // } else {
+          //   children = parent.children = [];
+          // }
+          children.push(arr[i]);
+        }
+        return newArr;
+      }
+      console.log(fun(arr))
+
+      const reg = /(?!^)(?=(\d{3})+$)/g
+      const str = '1111111';
+      console.log(str.replace(reg, ','))
+
+      const reg1 = /(?=.*?[0-9]+)(?=.*?[a-z]+).{6,}/g
+      // console.log(reg1.test(str))
+    </script>
+  </body>
+</html>

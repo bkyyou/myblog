@@ -5,105 +5,102 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-      .wrapper {
-        overflow-y: scroll;
-        max-height: 228px;
-        background-color: #f0f2f5;
-        /* padding: 8px 8px 0; */
-        padding: 8px;
-        box-sizing: border-box;
-        line-height: 1;
-        color: #666666;
-        font-size: 14px;
-      }
-      /* .wrapper div,
-      .model-content-scroll-area-overflow div {
-        padding-bottom: 8px;
-      } */
-      .wrapper div,
-      .model-content-scroll-area-overflow div {
-        margin-bottom: 8px;
-      }
-    </style>
   </head>
   <body>
-    <div class="wrapper">
-      <div>这是一个公司</div>
-      <div>这是一个公司</div>
-      <div>这是一个公司</div>
-      <div>这是一个公司</div>
-      <div>这是一个公司</div>
-      <div>这是一个公司</div>
-      <div>这是一个公司</div>
-      <div>这是一个公司</div>
-      <div>这是一个公司</div>
-      <div>这是一个公司</div>
-      <div>这是一个公司</div>
-      <div>这是一个公司</div>
-    </div>
-    <script>
-      const arr = [
-        {
-          level: 1,
-          name: "1",
-        },
-        {
-          level: 2,
-          name: "1-1",
-        },
-        {
-          level: 3,
-          name: "1-1-1",
-        },
-        {
-          level: 2,
-          name: "1-2",
-        },
-        {
-          level: 3,
-          name: "1-2-1",
-        },
-        {
-          level: 1,
-          name: "2",
-        },
-        {
-          level: 2,
-          name: "2-1",
-        },
-      ];
-      function fun(arr) {
-        const newArr = [arr[0]];
-        let currentLevelArr = [arr[0]];
-        let children = [];
-        let parent;
-        for (let i = 1; i < arr.length; i++) {
-          currentLevelArr[arr[i].level - 1] = arr[i];
-          if (arr[i].level === 1) {
-            newArr.push(arr[i]);
-            continue;
-          }
-          parent = currentLevelArr[arr[i].level - 2];
-          parent.children || (parent.children = []);
-          children = parent.children
-          // if (parent.children) {
-          //   children = parent.children;
-          // } else {
-          //   children = parent.children = [];
-          // }
-          children.push(arr[i]);
-        }
-        return newArr;
+    <style>
+      /* .parent {
+        background: #ff8787;
+
+        position: relative;
+        height: 300px;
       }
-      console.log(fun(arr))
 
-      const reg = /(?!^)(?=(\d{3})+$)/g
-      const str = '1111111';
-      console.log(str.replace(reg, ','))
+      .child {
+        height: 300px;
+        width: 300px;
+        background: #e599f7;
 
-      const reg1 = /(?=.*?[0-9]+)(?=.*?[a-z]+).{6,}/g
-      // console.log(reg1.test(str))
+        开启定位 父相子绝
+        position: absolute;
+        水平拉满屏幕
+        left: 30px;
+        right: 0;
+        width: 300px;
+        拉满屏幕之后设置宽度，最后通过 margin 实现水平居中
+        margin-left: 100px;
+      } */
+
+      .parent {
+        background: #ff8787;
+
+        position: relative;
+        height: 300px;
+      }
+
+      .child {
+        height: 100px;
+        width: 100%;
+        background: #e599f7;
+
+        position: absolute;
+        /* 垂直拉满 */
+        top: 0;
+        bottom: 0;
+        /* margin: auto 即可实现 */
+        margin: auto;
+      }
+
+      .c0 {
+        overflow: hidden;
+        /* width: 100px;s */
+        /* height: 100px; */
+        background-color: red;
+      }
+
+      .c1 {
+        /* height: 10px; */
+        /* background-color: red; */
+        overflow: hidden;
+      }
+
+      .c2 {
+        background-color: skyblue;
+        height: 10px;
+        margin-bottom: 30px;
+      }
+
+      .c3 {
+        overflow: hidden;
+        height: 30px;
+        background-color: seagreen;
+      }
+    </style>
+    <div class="parent">
+      <div class="child"></div>
+    </div>
+
+    <!-- <div class="c0">
+      <div class="c1">
+        <div class="c2">111</div>
+      </div>
+      <div class="c3"></div>
+    </div> -->
+
+    <script>
+
+      // 参考 https://mp.weixin.qq.com/s?__biz=MjM5OTA1MDUyMA==&mid=2655472354&idx=4&sn=60d017dccc260cd74cc2b8a14584a51b&chksm=bd7286958a050f83c22daa9cbdcc05d07ed69345792ff89c9a8f56bcc42075e393e1b55d11d9&mpshare=1&scene=1&srcid=0314lglksdN76laR1kAf8OCq&sharer_sharetime=1647265667683&sharer_shareid=5bfa1b33e387a9e25a43b9c158a3677d&version=3.1.16.70061&platform=mac#rd
+      
+      const obj = {
+        a: 1,
+        b: 2,
+        c: 3
+      }
+
+      const objJson = JSON.stringify(obj, (k, v) => {
+        console.log('k', k);
+        console.log('v', v);
+        return v
+      })
     </script>
   </body>
 </html>
