@@ -13,3 +13,7 @@ https://blog.csdn.net/weixin_44977950/article/details/100593159
 
 cd /var/lib/docker/volumes/tomcat01/webapps
 tar zxvf dist.tar.gz
+
+# node 部署
+
+dockerfile 位置 /data/koa-admin

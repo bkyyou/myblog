@@ -304,6 +304,13 @@ module.exports = {
                 'Docker/1.Docker学习/8.Docker网络',
               ]
             },
+            {
+              title: '2.Docker练习', // 侧边栏名称
+              collapsable: true, // 可折叠
+              children: [
+                'Docker/2.Docker练习/1.node服务部署',
+              ]
+            },
           ]
         },
         {
