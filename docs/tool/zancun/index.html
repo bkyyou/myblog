@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var something = (function() {
+      var nextVal;
+      return {
+        [Symbol.iterator]: function() {return this},
+        next: function() {
+          if (nextVal === undefined) {
+            nextVal = 1;
+          }
+          else {
+            nextVal = (3 * nextVal) + 6;
+          }
+          return {done: false, value: nextVal};
+        }
+      }
+    })();
+
+    for (const v of something) {
+      console.log(v);
+
+      if (v>500) {
+        break;
+      }
+    }
+  </script>
+</body>
+</html>

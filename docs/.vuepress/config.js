@@ -215,7 +215,7 @@ module.exports = {
       '/tool/': [
         {
           title: 'webpack', // 侧边栏名称
-          collapsable: false, // 可折叠
+          collapsable: true, // 可折叠
           children: [
             {
               title: '1.webpack学习', // 侧边栏名称
