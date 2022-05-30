@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function myNew(constructor, ...rest) {
+        if (typeof constructor !== "function") {
+          return constructor;
+        }
+        //创建新的对象,关联构造函数的原型对象
+        const _constructor = Object.create(constructor.prototype);
+        //执行构造函数
+        const obj = constructor.apply(_constructor, rest);
+        //如果构造函数执行结果是对象则返回执行结果
+        if (typeof obj === "object") {
+          return obj;
+        } else {
+          return _constructor;
+        }
+      }
+
+      function Fun(name, sex) {
+        this.name = name;
+        this.sex = sex;
+      }
+
+      Fun.prototype.getUserInfo = function() {
+        return `我的姓名${this.name},我的性别${this.sex}`;
+      };
+
+      new Fun();
+
+      const fun1 = myNew(Fun, "zs", "man");
+
+      function myNew(constructor, ...rest) {
+        const newObj = Object.create(constructor.prototype);
+        const conRes = constructor.apply(newObj, rest);
+        if (typeof conRes === 'object') {
+          return conRes;
+        }
+        return newObj;
+      }
+    </script>
+  </body>
+</html>

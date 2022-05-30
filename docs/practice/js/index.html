@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 请在 sum函数中调用此函数，完成数值计算
+       * @param {*} a 要相加的第一个值
+       * @param {*} b 要相加的第二个值
+       * @param {*} callback 相加之后的回调函数
+       */
+      function asyncAdd(a, b, callback) {
+        setTimeout(function() {
+          callback(null, a + b);
+        }, 1000);
+      }
+
+      /**
+       * 请在此方法中调用asyncAdd方法，完成数值计算
+       * @param  {...any} rest 传入的参数
+       */
+      async function sum(...rest) {
+        // 请在此处完善代码
+        let result = 0;
+        let obj = {};
+        obj.toString = () => {
+          return result
+        }
+        const pro = rest.map((val) => new Promise(resolve => asyncAdd(obj, val, (error, sum) => resolve(sum) )).then(res => result = res))
+        return Promise.all(pro).then(() => result);
+      }
+
+      let start = window.performance.now();
+      // sum(1, 2, 3, 4, 5, 6).then((res) => {
+      //   // 请保证在调用sum方法之后，返回结果21
+      //   console.log(res);
+      //   console.log(`程序执行共耗时: ${window.performance.now() - start}`);
+      // });
+
+      // 按照一定顺序乱序
+      function mySort(arr, arr1) {
+        const len = arr.length;
+        arr1 = arr1.map(val => Math.floor(val * len));
+        console.log('arr1', arr1);
+        for (let i = 0; i < len; i++) {
+          [arr[i], arr[arr1[i]]] = [arr[arr1[i]], arr[i]]   
+        }
+        return arr;
+      }
+
+      const arr = mySort([1,2,3,4,5,6], [0.1, 0.5, 0.5, 0.4, 0.6, 0.3])
+      console.log(arr)
+    </script>
+  </body>
+</html>
