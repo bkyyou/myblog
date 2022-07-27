@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Foo {
+        // 静态属性
+        static a = 1;
+
+        constructor(element) {
+          this.element = element;
+        }
+
+        // 静态属性
+        static get staticA() {
+          console.log("staticA");
+          return this.a;
+        }
+        static set staticA(val) {
+          console.log("staticA");
+          this.a = val;
+        }
+
+        get html() {
+          return this.element.innerHTML;
+        }
+        set html(value) {
+          this.element.innerHTML = value;
+        }
+
+        // 静态方法
+        static bar() {
+          // this 指向 类
+          this.baz();
+        }
+        static baz() {
+          console.log(this.a);
+          this.staticA = 2;
+          console.log("staticA", this.staticA);
+          // this.staticA
+          console.log("baz static");
+        }
+        baz() {
+          console.log("baz");
+        }
+      }
+
+      Foo.bar();
+
+      //私有方法
+      class Bar {
+        #a=1;
+        #b=2;
+        static a = 1;
+        constructor(a, b) {
+          // this.#a = a;
+          this.#b = b;
+        }
+        #sum() {
+          return this.#a + this.#b;
+        }
+        privatePrintSum() {
+          console.log(this.#sum());
+        }
+      }
+
+      // Bar.a = 'a';
+      // class Example {
+      //   @writable
+      //   sum(a, b) {
+      //     return a + b;
+      //   }
+      // }
+      // function writable(target, name, descriptor) {
+      //   descriptor.writable = false;
+      //   return descriptor; // 必须返回
+      // }
+      console.log(new Bar().a)
+      console.log(Bar.a)
+
+        // 私有属性 和 静态属性区别
+      // https://blog.csdn.net/a361457200/article/details/121741218
+    </script>
+  </body>
+</html>
