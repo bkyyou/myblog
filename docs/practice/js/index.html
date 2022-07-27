@@ -29,9 +29,13 @@
         let result = 0;
         let obj = {};
         obj.toString = () => {
-          return result
-        }
-        const pro = rest.map((val) => new Promise(resolve => asyncAdd(obj, val, (error, sum) => resolve(sum) )).then(res => result = res))
+          return result;
+        };
+        const pro = rest.map((val) =>
+          new Promise((resolve) =>
+            asyncAdd(obj, val, (error, sum) => resolve(sum))
+          ).then((res) => (result = res))
+        );
         return Promise.all(pro).then(() => result);
       }
 
@@ -45,16 +49,50 @@
       // 按照一定顺序乱序
       function mySort(arr, arr1) {
         const len = arr.length;
-        arr1 = arr1.map(val => Math.floor(val * len));
-        console.log('arr1', arr1);
+        arr1 = arr1.map((val) => Math.floor(val * len));
+        console.log("arr1", arr1);
         for (let i = 0; i < len; i++) {
-          [arr[i], arr[arr1[i]]] = [arr[arr1[i]], arr[i]]   
+          [arr[i], arr[arr1[i]]] = [arr[arr1[i]], arr[i]];
         }
         return arr;
       }
 
-      const arr = mySort([1,2,3,4,5,6], [0.1, 0.5, 0.5, 0.4, 0.6, 0.3])
-      console.log(arr)
+      const arr = mySort([1, 2, 3, 4, 5, 6], [0.1, 0.5, 0.5, 0.4, 0.6, 0.3]);
+      console.log(arr);
+
+      var a = 0;
+      var b = async () => {
+        a = a + (await 10);
+        console.log("2", a); // -> ？
+      };
+      b();
+      a++;
+      console.log("1", a); // -> ？
+
+      function formatNumber(value) {
+        if (typeof value === "undefined") {
+          return "- -";
+        }
+        const paramNumdefine = 0;
+        const toFixedNum = 2;
+        const num = value === null ? paramNumdefine : value || paramNumdefine;
+        if (isNaN(Number(num))) {
+          return "- -";
+        }
+        const numType = typeof num;
+        if (numType === "number" || numType === "string") {
+          return Number(num)
+            .toFixed(toFixedNum)
+            .split(".")
+            .map((a, i) =>
+              i ? a : a.replace(/(\d{1,2})(?=(\d{3})+$)/g, "$1,")
+            )
+            .join(".");
+        }
+        return num;
+      }
+
+      console.log('formatNumber', formatNumber('-111111200'))
     </script>
   </body>
 </html>
