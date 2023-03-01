@@ -1,8 +1,9 @@
-vue 学习记录
+# vue 学习记录
 
 
-VUE动态加载路由是如何处理组件加载
+## VUE动态加载路由是如何处理组件加载
 https://www.jianshu.com/p/495588a49d8d
+```js
 export const filterAsyncRouter = (routers) => { // 遍历后台传来的路由字符串，转换为组件对象
   return routers.filter(router => {
     if (router.component) {
@@ -19,9 +20,25 @@ export const filterAsyncRouter = (routers) => { // 遍历后台传来的路由�
 export const loadView = (view) => {
   return () => import(`@/views/${view}`)
 }
+```
 
 
-vue-cli3 会将public下的文件打包到 dist 目录下
+## vue-cli-service
+
+```s
+官方文档： 
+https://cli.vuejs.org/zh/guide/cli-service.html#vue-cli-service-serve
+```
+
+```js
+// 强制配置了入口文件 会导致 vue.config.js 中的配置的入口不生效 
+const mouldCmd = `node_modules/.bin/vue-cli-service build tmp/entry.js`
+```
+
+
+-------
+
+* vue-cli3 会将public下的文件打包到 dist 目录下
 
 Vue.js render函数那些事儿 
 https://segmentfault.com/a/1190000022162951

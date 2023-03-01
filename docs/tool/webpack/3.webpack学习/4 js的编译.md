@@ -56,6 +56,8 @@ npm install babel-loader @babel/core -save-dev
 npm install @babel/preset-env -save-dev
 ```
 
+> 注意很重要的一点就是，babel只是转译新标准引入的语法，比如ES6的箭头函数转译成ES5的函数，Class转成函数；而新标准引入的新的原生对象，部分原生对象新增的原型方法，新增的API等（如Proxy、Set等），这些babel是不会转译的。需要自己去引入polyfill来解决
+
 ### babel-preset 配置参数
 ```js
 module.exports = {

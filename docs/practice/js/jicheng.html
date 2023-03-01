@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function fun(o) {
+      function Fun() {};
+      Fun.prototype = o;
+      return new Fun();
+    }
+    const obj = {
+      name: 'zs',
+      book: ['yuwen', 'yingyu']
+    }
+
+    const people1 = fun(obj);
+    const people2 = fun(obj);
+
+    people1.book.push('shuxue')
+    console.log('people1', people1.name);
+
+    people2.__proto__.name = 'ls';
+
+    console.log('people1', people1.name);
+    console.log('people2', people2.book);
+
+    function Fun() {
+      
+    }
+    Fun.prototype.name = 'zs';
+    Fun.prototype.books = ['shuxue'];
+    const obj1 = new Fun();
+    obj1.books.push('yingyu');
+    const obj2 = new Fun();
+    console.log(obj2.books)
+
+
+
+  </script>
+</body>
+</html>
