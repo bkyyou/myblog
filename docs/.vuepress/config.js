@@ -73,7 +73,7 @@ module.exports = {
             link: '/weChatMiniProgram/'
           },
           {
-            text: 'node',
+            text: 'nodejs',
             link: '/node/'
           },
           {
@@ -557,6 +557,19 @@ module.exports = {
             'node内置对象学习/2.process介绍（核心对象）',
             'node内置对象学习/3.fs',
             'node内置对象学习/4.os',
+          ],
+        },
+        {
+          title: 'node学习',
+          collapsable: true,
+          children: [
+            'node学习/1.常用工具块',
+            'node学习/2.文件操作',
+            'node学习/3.buffer和流',
+            'node学习/4.node做http, https等各种服务',
+            'node学习/5.node框架express和koa',
+            'node学习/6.koa实战BFF中间层',
+            'node学习/7.node工程化案例',
           ],
         },
       ],
