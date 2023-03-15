@@ -84,6 +84,10 @@ module.exports = {
             text: '面试题',
             link: '/interviewQuestions/'
           },
+          {
+            text: '常见需求',
+            link: '/demandSolution/'
+          },
         ]
       },
       {
@@ -586,6 +590,15 @@ module.exports = {
           collapsable: true,
           children: [
             'internet/1.TCP ISN、三次握手、四次挥手',
+          ]
+        },
+      ],
+      '/demandSolution': [
+        {
+          title: 'demandSolution',
+          collapsable: true,
+          children: [
+            'demandSolution/1.前端文件上传与文件相关操作',
           ]
         },
       ]
