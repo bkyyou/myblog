@@ -9,6 +9,8 @@ git pull origin master
 # 生成静态文件
 npm run docs:build
 
+node ./build/index.js
+
 # 进入生成的文件夹
 cd docs/.vuepress/dist
 
