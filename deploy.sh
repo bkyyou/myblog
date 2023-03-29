@@ -6,6 +6,12 @@ set -e
 
 git pull origin master
 
+git add .
+git commit -m  $1
+git pull origin master
+# git push -u origin master
+git push
+
 # 生成静态文件
 npm run docs:build
 
@@ -15,7 +21,7 @@ node ./build/index.js
 cd docs/.vuepress/dist
 
 git init
-git add -A
+git add .
 git commit -m $1
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
@@ -31,14 +37,9 @@ git push -f git@github.com:bkyyou/myblog.git master:gh-pages
 
 # echo $2
 
-cd ../../../
-
-git add .
-
-git commit -m  $1
-
-git pull origin master
-
-# git push -u origin master
-
-git push
+# cd ../../../
+# git add .
+# git commit -m  $1
+# git pull origin master
+# # git push -u origin master
+# git push
