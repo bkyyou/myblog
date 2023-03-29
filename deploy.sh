@@ -6,11 +6,11 @@ set -e
 
 git pull origin master
 
+
 git add .
 git commit -m  $1
-git pull origin master
-# git push -u origin master
 git push
+echo 1111
 
 # 生成静态文件
 npm run docs:build
