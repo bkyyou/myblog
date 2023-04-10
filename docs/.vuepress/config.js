@@ -603,6 +603,7 @@ module.exports = {
             'demandSolution/1.前端文件上传与文件相关操作',
             'demandSolution/2.vue组件设计的经验和技巧',
             'demandSolution/3.前端玩转excel,word操作指南',
+            'demandSolution/4.前端接收后端文件指南',
           ]
         },
       ]
