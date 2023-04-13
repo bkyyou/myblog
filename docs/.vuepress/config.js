@@ -349,6 +349,23 @@ module.exports = {
             'scaffoldingTools/1.创建 Generator 模块', // 你的md文件地址
           ]
         },
+        {
+          title: 'ts', // 侧边栏名称
+          collapsable: true, // 可折叠
+          children: [
+            'ts/ts学习/1.基础环境搭建', // 你的md文件地址
+            'ts/ts学习/2.基础类型',
+            'ts/ts学习/3.数组和对象',
+            'ts/ts学习/4.函数',
+            'ts/ts学习/5.typescript类',
+            'ts/ts学习/6.特殊类型和高级类型',
+            'ts/ts学习/7.接口和type',
+            'ts/ts学习/8.泛型和断言',
+            'ts/ts学习/9.ts的推导机制',
+            'ts/ts学习/10.Symbol和枚举',
+            'ts/ts学习/11.工程化编译和tsconfig',
+          ]
+        },
       ],
       '/framework/': [
         {
