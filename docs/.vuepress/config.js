@@ -621,6 +621,7 @@ module.exports = {
             'demandSolution/2.vue组件设计的经验和技巧',
             'demandSolution/3.前端玩转excel,word操作指南',
             'demandSolution/4.前端接收后端文件指南',
+            'demandSolution/5.axios请求二次封装',
           ]
         },
       ]
