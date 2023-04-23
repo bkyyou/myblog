@@ -294,6 +294,15 @@ module.exports = {
           ]
         },
         {
+          title: 'mac', // 侧边栏名称
+          collapsable: true, // 可折叠
+          children: [
+            'mac/1.mac上传文件',
+            'mac/2.查看环境变量', // 你的md文件地址
+            'mac/3.在mac上添加全局可调用的脚本',
+          ]
+        },
+        {
           title: 'Docker', // 侧边栏名称
           collapsable: true, // 可折叠
           children: [
