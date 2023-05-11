@@ -77,6 +77,10 @@ module.exports = {
             link: '/node/'
           },
           {
+            text: 'shell',
+            link: '/shell/'
+          },
+          {
             text: 'http',
             link: '/http/'
           },
@@ -604,6 +608,28 @@ module.exports = {
             'node学习/7.node工程化案例',
           ],
         },
+      ],
+      '/shell/': [
+        {
+          title: 'shell学习1',
+          collapsable: true,
+          children: [
+            'shell学习1/1.使用linux背后shell概念',
+            'shell学习1/2.bash特性',
+            'shell学习1/3.shell变量',
+            'shell学习1/4.环境变量设置',
+            'shell学习1/5.shell变量',
+            'shell学习1/6.shell子串',
+            'shell学习1/7.父子shell',
+            'shell学习1/8.linux的内外置命令',
+            'shell学习1/9.shell的脚本开发',
+            'shell学习1/10.shell的数学运算和双小括号',
+            'shell学习1/11.expr命令实战',
+            'shell学习1/12.数学计算命令完结',
+            'shell学习1/13.shell条件测试',
+            'shell学习1/14.if表达式',
+          ]
+        }
       ],
       '/interviewQuestions/': [
         {
