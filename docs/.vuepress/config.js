@@ -77,8 +77,8 @@ module.exports = {
             link: '/node/'
           },
           {
-            text: 'shell',
-            link: '/shell/'
+            text: 'linux',
+            link: '/linux/'
           },
           {
             text: 'http',
@@ -609,7 +609,7 @@ module.exports = {
           ],
         },
       ],
-      '/shell/': [
+      '/linux/': [
         {
           title: 'shell学习1',
           collapsable: true,
@@ -628,6 +628,9 @@ module.exports = {
             'shell学习1/12.数学计算命令完结',
             'shell学习1/13.shell条件测试',
             'shell学习1/14.if表达式',
+            'shell学习1/15.理解函数',
+            'shell学习1/16.grep命令',
+            'shell学习1/17.crontab',
           ]
         }
       ],
