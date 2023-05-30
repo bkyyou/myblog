@@ -632,7 +632,20 @@ module.exports = {
             'shell学习1/16.grep命令',
             'shell学习1/17.crontab',
           ]
-        }
+        },
+        {
+          title: "linux学习1",
+          collapsable: true,
+          children: [
+            'linux学习1/1.计算机基础',
+            'linux学习1/2.linux的入门学习',
+            'linux学习1/3.linux命令',
+            'linux学习1/4.linux文件属性和管理',
+            'linux学习1/5.用户管理',
+            'linux学习1/6.文件权限',
+            'linux学习1/7.linux通配符',
+          ]
+        },
       ],
       '/interviewQuestions/': [
         {
