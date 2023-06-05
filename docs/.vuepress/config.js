@@ -57,6 +57,14 @@ module.exports = {
             link: '/css/'
           },
           {
+            text: '性能优化',
+            link: '/performanceOptimizing/'
+          },
+          {
+            text: 'canvas',
+            link: '/canvas/'
+          },
+          {
             text: '工具篇',
             link: '/tool/'
           },
@@ -219,6 +227,38 @@ module.exports = {
           children: [
             'flex/',
             // 'using-vue',
+          ]
+        }
+      ],
+      '/performanceOptimizing/': [
+        {
+          title: '性能优化',
+          collapsable: true,
+          children: [
+            {
+              title: '前端性能优化方案', // 侧边栏名称
+              collapsable: true, // 可折叠
+              children: [
+                '前端性能优化方案/1.从资源加载优化角度加速项目',
+                '前端性能优化方案/2.减少CORS预检时间',
+              ]
+            },
+          ]
+        }
+      ],
+      '/canvas/': [
+        {
+          title: 'canvas',
+          collapsable: true,
+          children: [
+            {
+              title: 'canvas学习1', // 侧边栏名称
+              collapsable: true, // 可折叠
+              children: [
+                'canvas学习/1.canvas简单绘制',
+                'canvas学习/2.canvas图片处理',
+              ]
+            },
           ]
         }
       ],
