@@ -85,6 +85,10 @@ module.exports = {
             link: '/node/'
           },
           {
+            text: 'java',
+            link: '/java/'
+          },
+          {
             text: 'linux',
             link: '/linux/'
           },
@@ -649,6 +653,24 @@ module.exports = {
           ],
         },
       ],
+      '/java/': [
+        {
+          title: 'java入门学习',
+          collapsable: true,
+          children: [
+            'java入门学习/1.初始java文件',
+            'java入门学习/2.Java的基础概念',
+            'java入门学习/3.运算符',
+            'java入门学习/4.判断和循环',
+            'java入门学习/5.数组',
+            'java入门学习/6.方法',
+            'java入门学习/7.面向对象',
+            'java入门学习/8.字符串',
+            'java入门学习/9.集合',
+            'java入门学习/10.面向对象进阶',
+          ]
+        },
+      ],
       '/linux/': [
         {
           title: 'shell学习1',
@@ -693,6 +715,10 @@ module.exports = {
           collapsable: true,
           children: [
             'js/1.箭头函数和构造函数的区别',
+            'js/2.new的执行并实现',
+            'js/3.forin forof keys',
+            'js/4.preload和prefetch',
+            'js/5.script标签中async与defer的区别',
           ]
         },
         {
@@ -713,6 +739,7 @@ module.exports = {
             'demandSolution/3.前端玩转excel,word操作指南',
             'demandSolution/4.前端接收后端文件指南',
             'demandSolution/5.axios请求二次封装',
+            'demandSolution/6.前端操作图片做实际的事情',
           ]
         },
       ]
