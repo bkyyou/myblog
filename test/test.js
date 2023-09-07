@@ -37,13 +37,22 @@
 //   this.time = time;
 // }
 
-let count = 0;
-export default {
-  count,
-  add: function(a, b) {
-    count++;
-    return a + b;
-  }
-}
+// let count = 0;
+// export default {
+//   count,
+//   add: function(a, b) {
+//     count++;
+//     return a + b;
+//   }
+// }
 // export count;
 // export const add = 
+
+const fs = require('fs');
+const path = require('path');
+
+// const targetFile = path.join(__dirname, '../docs/.vuepress/dist/index.html');
+
+console.log(parseInt("3c", 16));
+console.log(110 .toString(2));
+// console.log(fs.readFileSync(targetFile));

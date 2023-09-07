@@ -14,7 +14,8 @@ git push
 # 生成静态文件
 npm run docs:build
 
-node ./build/index.js
+## 这个是为了首页图片打包完位置不对写的, 设置了 base 就可以避免
+# node ./build/index.js
 
 # 进入生成的文件夹
 cd docs/.vuepress/dist

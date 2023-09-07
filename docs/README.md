@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /api.png
+heroImage: /myblog/api.png
 # tagline: blog
 # actionText: Quick Start →
 # actionLink: /guide/

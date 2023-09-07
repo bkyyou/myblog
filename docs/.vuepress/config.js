@@ -26,6 +26,7 @@ module.exports = {
     ['meta', { 'http-equiv': 'pragma', content: 'no-cache' }],
 		['meta', { 'http-equiv': 'cache-control', content: 'no-cache' }],
 		['meta', { 'http-equiv': 'expires', content: 'no-cache' }],
+    ['link', {rel: 'icon', href: '/myblog/huahua.png'}]
   ],
 
   /**
@@ -201,7 +202,9 @@ module.exports = {
               collapsable: true, // 可折叠
               children: [
                 'es6/Generator/1.Generator函数及其异步的应用',
-                'es6/async和await',
+                'es6/1.__defineGetter__和__defineSetter__',
+                'es6/2.async和await',
+                'es6/3.Symbol',
               ]
             },
             {
@@ -668,6 +671,19 @@ module.exports = {
             'java入门学习/8.字符串',
             'java入门学习/9.集合',
             'java入门学习/10.面向对象进阶',
+            'java入门学习/11.常用类',
+            'java入门学习/12.常见的算法',
+            'java入门学习/13.集合进阶',
+            'java入门学习/14.双列集合',
+            'java入门学习/15.不可变集合详解',
+            'java入门学习/16.Stream',
+            'java入门学习/17.方法引用',
+            'java入门学习/18.异常',
+            'java入门学习/19.File',
+            'java入门学习/20.IO流',
+            'java入门学习/21.多线程',
+            'java入门学习/22.网络编程',
+            'java入门学习/23.反射',
           ]
         },
       ],
