@@ -232,8 +232,24 @@ module.exports = {
           title: 'css篇',
           collapsable: false,
           children: [
-            'flex/',
-            // 'using-vue',
+            {
+              title: 'flex', // 侧边栏名称
+              collapsable: true, // 可折叠
+              children: [
+                'flex/',
+              ]
+            },
+            {
+              title: '常见的样式', // 侧边栏名称
+              collapsable: true, // 可折叠
+              children: [
+                '常见的样式/1.css添加多行或单行省略(点点点)',
+                '常见的样式/2.边框设置0.5px',
+                '常见的样式/3.放大某一个元素',
+                '常见的样式/4.:root选择器',
+                '常见的样式/5.css中写变量',
+              ]
+            },
           ]
         }
       ],
