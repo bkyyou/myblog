@@ -1,5 +1,12 @@
 # 探秘 flex
 
+* CSS ::marker 让文字序号更有意思
+https://juejin.cn/post/6973849126609879047
+
+* CSS 滤镜 : backdrop-filter
+
+* css cubic-bezier
+
 ## flex 上下文中神奇的自动 margin
 
 为了引出本文的主题，先看看这个问题，最快水平垂直居中一个元素的方法是什么？
@@ -460,3 +467,9 @@ p {
 
 * 使用了自动 margin 的 flex 子项目，它们父元素设置的 justify-content 以及它们本身的 align-self 将不再生效
 
+## 常用布局
+
+https://mp.weixin.qq.com/s?__biz=MjM5OTA1MDUyMA==&mid=2655472354&idx=4&sn=60d017dccc260cd74cc2b8a14584a51b&chksm=bd7286958a050f83c22daa9cbdcc05d07ed69345792ff89c9a8f56bcc42075e393e1b55d11d9&mpshare=1&scene=1&srcid=0314lglksdN76laR1kAf8OCq&sharer_sharetime=1647265667683&sharer_shareid=5bfa1b33e387a9e25a43b9c158a3677d&version=3.1.16.70061&platform=mac#rd
+
+* 总结了 42 种前端常用布局方案
+https://mp.weixin.qq.com/s?__biz=MjM5OTA1MDUyMA==&mid=2655472354&idx=4&sn=60d017dccc260cd74cc2b8a14584a51b&chksm=bd7286958a050f83c22daa9cbdcc05d07ed69345792ff89c9a8f56bcc42075e393e1b55d11d9&mpshare=1&scene=1&srcid=0314lglksdN76laR1kAf8OCq&sharer_sharetime=1647265667683&sharer_shareid=5bfa1b33e387a9e25a43b9c158a3677d&version=3.1.16.70061&platform=mac#rd
