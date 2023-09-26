@@ -391,6 +391,9 @@ module.exports = {
               collapsable: true, // 可折叠
               children: [
                 'Docker/2.Docker练习/1.node服务部署',
+                'Docker/2.Docker练习/2.进入mysql内部并登录操作',
+                'Docker/2.Docker练习/3.启动nginx',
+                'Docker/2.Docker练习/4.容器内部安装vim',
               ]
             },
           ]
