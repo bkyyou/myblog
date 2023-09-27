@@ -358,6 +358,7 @@ module.exports = {
             'git/1.git取消add操作',
             'git/2..gitignore 忽略文件和忽略已经提交过的文件', // 你的md文件地址
             'git/3.git merge 一个指定文件',
+            'git/4.git忽略文件权限变更',
           ]
         },
         {
