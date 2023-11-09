@@ -704,6 +704,19 @@ module.exports = {
             'java入门学习/21.多线程',
             'java入门学习/22.网络编程',
             'java入门学习/23.反射',
+            'java入门学习/24.番外-字符集简单介绍',
+            'java入门学习/25.番外-字节与字符',
+          ]
+        },
+        {
+          title: 'javaweb开发',
+          collapsable: true,
+          children: [
+            'javaweb开发/1.maven',
+            'javaweb开发/2.web入门',
+            'javaweb开发/3.MySQL',
+            'javaweb开发/4.Mybatis',
+            'javaweb开发/5.项目练习',
           ]
         },
       ],

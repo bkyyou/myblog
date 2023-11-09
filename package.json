@@ -12,12 +12,17 @@
     "open:dev": "opener http://localhost:9090",
     "predev": "sh ./test.sh",
     "dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "mvimg": "node build/mvimg.js"
   },
   "license": "MIT",
   "devDependencies": {
-    "vuepress": "^1.0.0",
     "@vuepress/plugin-back-to-top": "^1.0.0",
-    "@vuepress/plugin-medium-zoom": "^1.0.0"
+    "@vuepress/plugin-medium-zoom": "^1.0.0",
+    "vuepress": "^1.0.0"
+  },
+  "dependencies": {
+    "colors-console": "^1.0.3",
+    "tinify": "^1.7.1"
   }
 }
