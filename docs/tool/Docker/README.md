@@ -17,3 +17,32 @@ tar zxvf dist.tar.gz
 # node 部署
 
 dockerfile 位置 /data/koa-admin
+
+# 乱记
+
+SHA256:/XitwdUfZHkmF+IoJOaL0FGB3YBStNVpu3iMyshG9bI 596737739@qq.com
+
+/root/.ssh/id_rsa.pub
+
+/root/.ssh/id_rsa
+
+https://github.com/bkyyou/myblog
+
+    // 'http://1.116.142.138:8080/myblog/socket.io.js',
+    // 'http://1.116.142.138:8080/myblog/pwy-socketio-v2.js’,]
+
+
+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
+
+generate token
+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
+
+/home/jenkins_home
+
+# yarn 不好用
+
+
+sudo chown -R j ~/.npm
+sudo chown -R j ~/.config
+
+j 是用户名
