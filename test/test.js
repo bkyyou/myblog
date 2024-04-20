@@ -56,3 +56,40 @@ const path = require('path');
 console.log(parseInt("3c", 16));
 console.log(110 .toString(2));
 // console.log(fs.readFileSync(targetFile));
+
+
+async function fun() {
+    // const res = await fun2().then(res => {
+    //     console.log(res);
+    //     return 3
+    // })
+    try {
+        const res = await fun2()
+        console.log('res', res);
+    } catch (error) {
+        console.log('error', error);
+    }
+    // console.log(res);
+}
+function fun2() {
+    // return new Promise((resolve, reject) => {
+    //     reject(1)
+    // }).then(() => {
+
+    // }, () => {
+    //     return 4
+    // })
+    return new Promise((resolve, reject) => {
+        reject(1)
+    }).then(() => {
+
+    }).catch(res => {
+        console.log(res, 'catch');
+        return 22
+    }).then(res => {
+        console.log(res);
+        return 33
+    })
+}
+
+fun()
