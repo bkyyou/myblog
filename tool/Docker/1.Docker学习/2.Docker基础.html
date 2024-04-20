@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>2.Docker基础 | 毕克有的技术笔记</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/myblog/myblog/huahua.png">
+    <meta name="description" content="blog">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="no-cache">
+    
+    <link rel="preload" href="/myblog/assets/css/0.styles.f1869f8e.css" as="style"><link rel="preload" href="/myblog/assets/js/app.6ec94062.js" as="script"><link rel="preload" href="/myblog/assets/js/2.80c01313.js" as="script"><link rel="preload" href="/myblog/assets/js/1.ace66f3f.js" as="script"><link rel="preload" href="/myblog/assets/js/32.13b05ed2.js" as="script"><link rel="prefetch" href="/myblog/assets/js/10.731c8f29.js"><link rel="prefetch" href="/myblog/assets/js/100.38a17bf9.js"><link rel="prefetch" href="/myblog/assets/js/101.91d1c01c.js"><link rel="prefetch" href="/myblog/assets/js/102.3c0f8970.js"><link rel="prefetch" href="/myblog/assets/js/103.fe55726f.js"><link rel="prefetch" href="/myblog/assets/js/104.66f37cb1.js"><link rel="prefetch" href="/myblog/assets/js/105.b6d8a61b.js"><link rel="prefetch" href="/myblog/assets/js/106.707cdf74.js"><link rel="prefetch" href="/myblog/assets/js/107.2f218e3e.js"><link rel="prefetch" href="/myblog/assets/js/108.3cb275d5.js"><link rel="prefetch" href="/myblog/assets/js/109.e7e3b434.js"><link rel="prefetch" href="/myblog/assets/js/11.d7300208.js"><link rel="prefetch" href="/myblog/assets/js/110.54b95ebe.js"><link rel="prefetch" href="/myblog/assets/js/111.2de01913.js"><link rel="prefetch" href="/myblog/assets/js/112.ae1033af.js"><link rel="prefetch" href="/myblog/assets/js/113.95dc9107.js"><link rel="prefetch" href="/myblog/assets/js/114.ca312c4e.js"><link rel="prefetch" href="/myblog/assets/js/115.dcb1d536.js"><link rel="prefetch" href="/myblog/assets/js/116.2e8b43ff.js"><link rel="prefetch" href="/myblog/assets/js/117.3e89d692.js"><link rel="prefetch" href="/myblog/assets/js/118.6325e485.js"><link rel="prefetch" href="/myblog/assets/js/119.1512fd8c.js"><link rel="prefetch" href="/myblog/assets/js/12.319399ad.js"><link rel="prefetch" href="/myblog/assets/js/120.9eabef3f.js"><link rel="prefetch" href="/myblog/assets/js/121.fe57c0e7.js"><link rel="prefetch" href="/myblog/assets/js/122.7621376b.js"><link rel="prefetch" href="/myblog/assets/js/123.b95a2ccd.js"><link rel="prefetch" href="/myblog/assets/js/124.457dafe0.js"><link rel="prefetch" href="/myblog/assets/js/125.be371009.js"><link rel="prefetch" href="/myblog/assets/js/126.5a475681.js"><link rel="prefetch" href="/myblog/assets/js/127.b42617ae.js"><link rel="prefetch" href="/myblog/assets/js/128.14cd7cb7.js"><link rel="prefetch" href="/myblog/assets/js/129.e1dbc04a.js"><link rel="prefetch" href="/myblog/assets/js/13.49a4a7df.js"><link rel="prefetch" href="/myblog/assets/js/130.4446a489.js"><link rel="prefetch" href="/myblog/assets/js/131.40315b3c.js"><link rel="prefetch" href="/myblog/assets/js/132.0a8f372f.js"><link rel="prefetch" href="/myblog/assets/js/133.155b0a73.js"><link rel="prefetch" href="/myblog/assets/js/134.cffc60b9.js"><link rel="prefetch" href="/myblog/assets/js/135.f4314a51.js"><link rel="prefetch" href="/myblog/assets/js/136.ca287f46.js"><link rel="prefetch" href="/myblog/assets/js/137.2341daf7.js"><link rel="prefetch" href="/myblog/assets/js/138.c717883b.js"><link rel="prefetch" href="/myblog/assets/js/139.55e8826c.js"><link rel="prefetch" href="/myblog/assets/js/14.d30ef3d4.js"><link rel="prefetch" href="/myblog/assets/js/140.2ff37e87.js"><link rel="prefetch" href="/myblog/assets/js/141.71f906ab.js"><link rel="prefetch" href="/myblog/assets/js/142.0ce8d303.js"><link rel="prefetch" href="/myblog/assets/js/143.7cd94e6e.js"><link rel="prefetch" href="/myblog/assets/js/144.9ad46ebf.js"><link rel="prefetch" href="/myblog/assets/js/145.5300c994.js"><link rel="prefetch" href="/myblog/assets/js/146.e551ab90.js"><link rel="prefetch" href="/myblog/assets/js/147.e4471fc1.js"><link rel="prefetch" href="/myblog/assets/js/148.21dae23a.js"><link rel="prefetch" href="/myblog/assets/js/149.92fcef19.js"><link rel="prefetch" href="/myblog/assets/js/15.97ba8694.js"><link rel="prefetch" href="/myblog/assets/js/150.08cab2dc.js"><link rel="prefetch" href="/myblog/assets/js/151.19697dba.js"><link rel="prefetch" href="/myblog/assets/js/152.33a6db9a.js"><link rel="prefetch" href="/myblog/assets/js/153.8847c989.js"><link rel="prefetch" href="/myblog/assets/js/154.82db50db.js"><link rel="prefetch" href="/myblog/assets/js/155.ff1a6e5d.js"><link rel="prefetch" href="/myblog/assets/js/156.82cdef74.js"><link rel="prefetch" href="/myblog/assets/js/157.5a2d8504.js"><link rel="prefetch" href="/myblog/assets/js/158.22020c29.js"><link rel="prefetch" href="/myblog/assets/js/159.632b4b30.js"><link rel="prefetch" href="/myblog/assets/js/16.7723d04a.js"><link rel="prefetch" href="/myblog/assets/js/160.fb528040.js"><link rel="prefetch" href="/myblog/assets/js/161.50176b00.js"><link rel="prefetch" href="/myblog/assets/js/162.55863b55.js"><link rel="prefetch" href="/myblog/assets/js/163.31957ed1.js"><link rel="prefetch" href="/myblog/assets/js/164.cd255bc9.js"><link rel="prefetch" href="/myblog/assets/js/165.ced0cb1b.js"><link rel="prefetch" href="/myblog/assets/js/166.f26e4127.js"><link rel="prefetch" href="/myblog/assets/js/167.846b0a6f.js"><link rel="prefetch" href="/myblog/assets/js/168.6312bdbc.js"><link rel="prefetch" href="/myblog/assets/js/169.66e412a9.js"><link rel="prefetch" href="/myblog/assets/js/17.327eb606.js"><link rel="prefetch" href="/myblog/assets/js/170.2cde1a14.js"><link rel="prefetch" href="/myblog/assets/js/171.5bc51d78.js"><link rel="prefetch" href="/myblog/assets/js/172.5d11a06f.js"><link rel="prefetch" href="/myblog/assets/js/173.7358a338.js"><link rel="prefetch" href="/myblog/assets/js/174.d9830870.js"><link rel="prefetch" href="/myblog/assets/js/175.abe2db15.js"><link rel="prefetch" href="/myblog/assets/js/176.722c8098.js"><link rel="prefetch" href="/myblog/assets/js/177.d9c4fc4d.js"><link rel="prefetch" href="/myblog/assets/js/178.2e43a680.js"><link rel="prefetch" href="/myblog/assets/js/179.39352e0e.js"><link rel="prefetch" href="/myblog/assets/js/18.564e0a83.js"><link rel="prefetch" href="/myblog/assets/js/180.ad54fd11.js"><link rel="prefetch" href="/myblog/assets/js/181.ec2bf2ef.js"><link rel="prefetch" href="/myblog/assets/js/182.cd70c002.js"><link rel="prefetch" href="/myblog/assets/js/183.bb8c729e.js"><link rel="prefetch" href="/myblog/assets/js/184.aba0f79e.js"><link rel="prefetch" href="/myblog/assets/js/185.e0f7b31a.js"><link rel="prefetch" href="/myblog/assets/js/186.bbf49711.js"><link rel="prefetch" href="/myblog/assets/js/187.252e0fcc.js"><link rel="prefetch" href="/myblog/assets/js/188.cc656f93.js"><link rel="prefetch" href="/myblog/assets/js/189.03dc21c3.js"><link rel="prefetch" href="/myblog/assets/js/19.cee86f61.js"><link rel="prefetch" href="/myblog/assets/js/190.5f87bcaf.js"><link rel="prefetch" href="/myblog/assets/js/191.7e2a7be8.js"><link rel="prefetch" href="/myblog/assets/js/192.9adad97f.js"><link rel="prefetch" href="/myblog/assets/js/193.baca65d7.js"><link rel="prefetch" href="/myblog/assets/js/194.ccb9ada5.js"><link rel="prefetch" href="/myblog/assets/js/195.4e1ab391.js"><link rel="prefetch" href="/myblog/assets/js/196.2794e1c7.js"><link rel="prefetch" href="/myblog/assets/js/197.28f7d2dd.js"><link rel="prefetch" href="/myblog/assets/js/198.7e90e37e.js"><link rel="prefetch" href="/myblog/assets/js/199.eb446f7f.js"><link rel="prefetch" href="/myblog/assets/js/20.386c9928.js"><link rel="prefetch" href="/myblog/assets/js/200.9a405d5a.js"><link rel="prefetch" href="/myblog/assets/js/201.50a80b5d.js"><link rel="prefetch" href="/myblog/assets/js/202.084f4b13.js"><link rel="prefetch" href="/myblog/assets/js/203.707d92f2.js"><link rel="prefetch" href="/myblog/assets/js/204.cb48dede.js"><link rel="prefetch" href="/myblog/assets/js/205.4eef818b.js"><link rel="prefetch" href="/myblog/assets/js/206.6a23327d.js"><link rel="prefetch" href="/myblog/assets/js/207.f0a44125.js"><link rel="prefetch" href="/myblog/assets/js/208.a4d2d2d0.js"><link rel="prefetch" href="/myblog/assets/js/209.3167db24.js"><link rel="prefetch" href="/myblog/assets/js/21.50e99e88.js"><link rel="prefetch" href="/myblog/assets/js/210.5070fae4.js"><link rel="prefetch" href="/myblog/assets/js/211.630ac339.js"><link rel="prefetch" href="/myblog/assets/js/212.bd60ec92.js"><link rel="prefetch" href="/myblog/assets/js/213.1f1dd462.js"><link rel="prefetch" href="/myblog/assets/js/214.b3b41afa.js"><link rel="prefetch" href="/myblog/assets/js/215.7a9eed5c.js"><link rel="prefetch" href="/myblog/assets/js/216.4563bf20.js"><link rel="prefetch" href="/myblog/assets/js/217.c534c01d.js"><link rel="prefetch" href="/myblog/assets/js/218.237e432c.js"><link rel="prefetch" href="/myblog/assets/js/219.05ed61e9.js"><link rel="prefetch" href="/myblog/assets/js/22.e41748a4.js"><link rel="prefetch" href="/myblog/assets/js/220.716a8094.js"><link rel="prefetch" href="/myblog/assets/js/221.b627d47f.js"><link rel="prefetch" href="/myblog/assets/js/222.356f56de.js"><link rel="prefetch" href="/myblog/assets/js/223.e16b0d3d.js"><link rel="prefetch" href="/myblog/assets/js/224.cc0d9939.js"><link rel="prefetch" href="/myblog/assets/js/225.a8949a47.js"><link rel="prefetch" href="/myblog/assets/js/226.b7ca6c2e.js"><link rel="prefetch" href="/myblog/assets/js/227.461d87f6.js"><link rel="prefetch" href="/myblog/assets/js/228.1d0f373a.js"><link rel="prefetch" href="/myblog/assets/js/229.d7750e53.js"><link rel="prefetch" href="/myblog/assets/js/23.8b45116b.js"><link rel="prefetch" href="/myblog/assets/js/230.f37f6b8d.js"><link rel="prefetch" href="/myblog/assets/js/231.209f5870.js"><link rel="prefetch" href="/myblog/assets/js/232.2fe100ec.js"><link rel="prefetch" href="/myblog/assets/js/233.0e61d4cd.js"><link rel="prefetch" href="/myblog/assets/js/234.a391ba77.js"><link rel="prefetch" href="/myblog/assets/js/235.5e0eba4d.js"><link rel="prefetch" href="/myblog/assets/js/236.ab437f5e.js"><link rel="prefetch" href="/myblog/assets/js/237.d19885e5.js"><link rel="prefetch" href="/myblog/assets/js/238.a74b2b59.js"><link rel="prefetch" href="/myblog/assets/js/239.e8465400.js"><link rel="prefetch" href="/myblog/assets/js/24.91be6373.js"><link rel="prefetch" href="/myblog/assets/js/240.d4da3818.js"><link rel="prefetch" href="/myblog/assets/js/241.fea8e769.js"><link rel="prefetch" href="/myblog/assets/js/242.1ba23aa6.js"><link rel="prefetch" href="/myblog/assets/js/243.0fce3d69.js"><link rel="prefetch" href="/myblog/assets/js/244.12de7e4d.js"><link rel="prefetch" href="/myblog/assets/js/245.972ecb89.js"><link rel="prefetch" href="/myblog/assets/js/246.a9175ef6.js"><link rel="prefetch" href="/myblog/assets/js/247.c87eff86.js"><link rel="prefetch" href="/myblog/assets/js/248.c9f601e8.js"><link rel="prefetch" href="/myblog/assets/js/249.95bb78a7.js"><link rel="prefetch" href="/myblog/assets/js/25.4640db29.js"><link rel="prefetch" href="/myblog/assets/js/250.3ac0561c.js"><link rel="prefetch" href="/myblog/assets/js/251.89bfbc3d.js"><link rel="prefetch" href="/myblog/assets/js/252.75d1529b.js"><link rel="prefetch" href="/myblog/assets/js/253.fb878099.js"><link rel="prefetch" href="/myblog/assets/js/254.781e5cef.js"><link rel="prefetch" href="/myblog/assets/js/255.de774a4e.js"><link rel="prefetch" href="/myblog/assets/js/256.24ea4660.js"><link rel="prefetch" href="/myblog/assets/js/257.a8dc063a.js"><link rel="prefetch" href="/myblog/assets/js/258.285aabd0.js"><link rel="prefetch" href="/myblog/assets/js/259.d059e12f.js"><link rel="prefetch" href="/myblog/assets/js/26.d4bfba6b.js"><link rel="prefetch" href="/myblog/assets/js/260.7fa9eebb.js"><link rel="prefetch" href="/myblog/assets/js/261.7adc2baf.js"><link rel="prefetch" href="/myblog/assets/js/262.4e193f0b.js"><link rel="prefetch" href="/myblog/assets/js/263.e64b74b0.js"><link rel="prefetch" href="/myblog/assets/js/264.7c500acb.js"><link rel="prefetch" href="/myblog/assets/js/265.20833685.js"><link rel="prefetch" href="/myblog/assets/js/266.d11e8a3d.js"><link rel="prefetch" href="/myblog/assets/js/267.cc4a3088.js"><link rel="prefetch" href="/myblog/assets/js/268.2e6f9eaf.js"><link rel="prefetch" href="/myblog/assets/js/269.54f9b0b5.js"><link rel="prefetch" href="/myblog/assets/js/27.695d3ef9.js"><link rel="prefetch" href="/myblog/assets/js/270.719e97b1.js"><link rel="prefetch" href="/myblog/assets/js/271.38f5f5bc.js"><link rel="prefetch" href="/myblog/assets/js/272.1c18706e.js"><link rel="prefetch" href="/myblog/assets/js/273.9c97c53a.js"><link rel="prefetch" href="/myblog/assets/js/274.54b975a2.js"><link rel="prefetch" href="/myblog/assets/js/275.a5d1b3c7.js"><link rel="prefetch" href="/myblog/assets/js/276.bea0cba5.js"><link rel="prefetch" href="/myblog/assets/js/277.eb900558.js"><link rel="prefetch" href="/myblog/assets/js/278.3f3698ea.js"><link rel="prefetch" href="/myblog/assets/js/279.7124fc62.js"><link rel="prefetch" href="/myblog/assets/js/28.eba8a6e7.js"><link rel="prefetch" href="/myblog/assets/js/280.65f11c97.js"><link rel="prefetch" href="/myblog/assets/js/281.0f107526.js"><link rel="prefetch" href="/myblog/assets/js/282.08888806.js"><link rel="prefetch" href="/myblog/assets/js/283.b612a9bf.js"><link rel="prefetch" href="/myblog/assets/js/284.991b4a41.js"><link rel="prefetch" href="/myblog/assets/js/285.c3789f09.js"><link rel="prefetch" href="/myblog/assets/js/286.65235892.js"><link rel="prefetch" href="/myblog/assets/js/287.8db8d008.js"><link rel="prefetch" href="/myblog/assets/js/288.4b675449.js"><link rel="prefetch" href="/myblog/assets/js/289.eadeeac9.js"><link rel="prefetch" href="/myblog/assets/js/29.a75869be.js"><link rel="prefetch" href="/myblog/assets/js/290.e341c97a.js"><link rel="prefetch" href="/myblog/assets/js/291.062d90e3.js"><link rel="prefetch" href="/myblog/assets/js/292.00acc181.js"><link rel="prefetch" href="/myblog/assets/js/293.24089a7b.js"><link rel="prefetch" href="/myblog/assets/js/294.b73de5c4.js"><link rel="prefetch" href="/myblog/assets/js/295.82d67c0b.js"><link rel="prefetch" href="/myblog/assets/js/296.0e29f3ac.js"><link rel="prefetch" href="/myblog/assets/js/297.e9c52593.js"><link rel="prefetch" href="/myblog/assets/js/298.e1edbade.js"><link rel="prefetch" href="/myblog/assets/js/299.e12297b2.js"><link rel="prefetch" href="/myblog/assets/js/3.2190bbb0.js"><link rel="prefetch" href="/myblog/assets/js/30.ef895ecd.js"><link rel="prefetch" href="/myblog/assets/js/300.41c9d5f8.js"><link rel="prefetch" href="/myblog/assets/js/301.64f51163.js"><link rel="prefetch" href="/myblog/assets/js/302.6d63c42b.js"><link rel="prefetch" href="/myblog/assets/js/303.5f5c80cd.js"><link rel="prefetch" href="/myblog/assets/js/304.447341e6.js"><link rel="prefetch" href="/myblog/assets/js/305.e0a1386c.js"><link rel="prefetch" href="/myblog/assets/js/306.98beb9a5.js"><link rel="prefetch" href="/myblog/assets/js/307.4ed03c79.js"><link rel="prefetch" href="/myblog/assets/js/308.920400fb.js"><link rel="prefetch" href="/myblog/assets/js/309.c37fe015.js"><link rel="prefetch" href="/myblog/assets/js/31.96e41949.js"><link rel="prefetch" href="/myblog/assets/js/310.2a981546.js"><link rel="prefetch" href="/myblog/assets/js/311.5f97771e.js"><link rel="prefetch" href="/myblog/assets/js/312.18e3b446.js"><link rel="prefetch" href="/myblog/assets/js/313.6e6c6d33.js"><link rel="prefetch" href="/myblog/assets/js/314.75d49dce.js"><link rel="prefetch" href="/myblog/assets/js/315.e3cff8bd.js"><link rel="prefetch" href="/myblog/assets/js/316.d84b9dc5.js"><link rel="prefetch" href="/myblog/assets/js/317.23a75169.js"><link rel="prefetch" href="/myblog/assets/js/318.cba99c11.js"><link rel="prefetch" href="/myblog/assets/js/319.086c3b0c.js"><link rel="prefetch" href="/myblog/assets/js/320.b4022084.js"><link rel="prefetch" href="/myblog/assets/js/321.edad1423.js"><link rel="prefetch" href="/myblog/assets/js/322.4a122e3c.js"><link rel="prefetch" href="/myblog/assets/js/323.c79b6b07.js"><link rel="prefetch" href="/myblog/assets/js/324.6d491187.js"><link rel="prefetch" href="/myblog/assets/js/325.90ae654f.js"><link rel="prefetch" href="/myblog/assets/js/326.47be845a.js"><link rel="prefetch" href="/myblog/assets/js/327.e728c140.js"><link rel="prefetch" href="/myblog/assets/js/328.7ccb8b33.js"><link rel="prefetch" href="/myblog/assets/js/329.f704d633.js"><link rel="prefetch" href="/myblog/assets/js/33.92b79c63.js"><link rel="prefetch" href="/myblog/assets/js/330.6d655ceb.js"><link rel="prefetch" href="/myblog/assets/js/331.139da091.js"><link rel="prefetch" href="/myblog/assets/js/332.82472b58.js"><link rel="prefetch" href="/myblog/assets/js/333.47f17b16.js"><link rel="prefetch" href="/myblog/assets/js/334.525f6896.js"><link rel="prefetch" href="/myblog/assets/js/335.5df44e03.js"><link rel="prefetch" href="/myblog/assets/js/336.1b39e12c.js"><link rel="prefetch" href="/myblog/assets/js/337.65ea8bd2.js"><link rel="prefetch" href="/myblog/assets/js/338.ab6f5d5a.js"><link rel="prefetch" href="/myblog/assets/js/339.e411fbed.js"><link rel="prefetch" href="/myblog/assets/js/34.32729d08.js"><link rel="prefetch" href="/myblog/assets/js/340.6de9f19a.js"><link rel="prefetch" href="/myblog/assets/js/341.2508d47d.js"><link rel="prefetch" href="/myblog/assets/js/342.0f21d6de.js"><link rel="prefetch" href="/myblog/assets/js/343.f3e9c181.js"><link rel="prefetch" href="/myblog/assets/js/344.821d45bc.js"><link rel="prefetch" href="/myblog/assets/js/345.279296d9.js"><link rel="prefetch" href="/myblog/assets/js/346.59e14a35.js"><link rel="prefetch" href="/myblog/assets/js/347.795ac621.js"><link rel="prefetch" href="/myblog/assets/js/348.25c9576d.js"><link rel="prefetch" href="/myblog/assets/js/349.16e5c21e.js"><link rel="prefetch" href="/myblog/assets/js/35.5a16aeef.js"><link rel="prefetch" href="/myblog/assets/js/350.4ce4e077.js"><link rel="prefetch" href="/myblog/assets/js/351.53428853.js"><link rel="prefetch" href="/myblog/assets/js/352.bd126fc4.js"><link rel="prefetch" href="/myblog/assets/js/353.7867ceea.js"><link rel="prefetch" href="/myblog/assets/js/354.f3a37191.js"><link rel="prefetch" href="/myblog/assets/js/355.75334f71.js"><link rel="prefetch" href="/myblog/assets/js/356.5f608dcc.js"><link rel="prefetch" href="/myblog/assets/js/357.f77135ea.js"><link rel="prefetch" href="/myblog/assets/js/358.e480d5ea.js"><link rel="prefetch" href="/myblog/assets/js/359.98f31a5b.js"><link rel="prefetch" href="/myblog/assets/js/36.6d4e62da.js"><link rel="prefetch" href="/myblog/assets/js/360.79fb2fb1.js"><link rel="prefetch" href="/myblog/assets/js/361.47ecb428.js"><link rel="prefetch" href="/myblog/assets/js/362.46c64ba3.js"><link rel="prefetch" href="/myblog/assets/js/363.3302d63d.js"><link rel="prefetch" href="/myblog/assets/js/364.a98362c9.js"><link rel="prefetch" href="/myblog/assets/js/365.6cee0972.js"><link rel="prefetch" href="/myblog/assets/js/366.c5d63832.js"><link rel="prefetch" href="/myblog/assets/js/367.4025b80c.js"><link rel="prefetch" href="/myblog/assets/js/368.519cd4be.js"><link rel="prefetch" href="/myblog/assets/js/369.c037e34c.js"><link rel="prefetch" href="/myblog/assets/js/37.ea6b27ca.js"><link rel="prefetch" href="/myblog/assets/js/370.dbaac54a.js"><link rel="prefetch" href="/myblog/assets/js/371.b6aead54.js"><link rel="prefetch" href="/myblog/assets/js/372.12f910f1.js"><link rel="prefetch" href="/myblog/assets/js/373.eff6636e.js"><link rel="prefetch" href="/myblog/assets/js/374.616957a3.js"><link rel="prefetch" href="/myblog/assets/js/375.25605b27.js"><link rel="prefetch" href="/myblog/assets/js/376.a13a8b53.js"><link rel="prefetch" href="/myblog/assets/js/377.b783aa81.js"><link rel="prefetch" href="/myblog/assets/js/378.d1611815.js"><link rel="prefetch" href="/myblog/assets/js/379.dce4e96d.js"><link rel="prefetch" href="/myblog/assets/js/38.1d075e7e.js"><link rel="prefetch" href="/myblog/assets/js/380.ccca794e.js"><link rel="prefetch" href="/myblog/assets/js/381.4703e7a8.js"><link rel="prefetch" href="/myblog/assets/js/382.522b3fdf.js"><link rel="prefetch" href="/myblog/assets/js/383.88f7078f.js"><link rel="prefetch" href="/myblog/assets/js/384.9a8b3e2f.js"><link rel="prefetch" href="/myblog/assets/js/385.9634a92e.js"><link rel="prefetch" href="/myblog/assets/js/386.462abc96.js"><link rel="prefetch" href="/myblog/assets/js/387.eb868b74.js"><link rel="prefetch" href="/myblog/assets/js/388.0c122aa1.js"><link rel="prefetch" href="/myblog/assets/js/389.25b113cd.js"><link rel="prefetch" href="/myblog/assets/js/39.c518873f.js"><link rel="prefetch" href="/myblog/assets/js/390.1e41b20a.js"><link rel="prefetch" href="/myblog/assets/js/391.daa569b9.js"><link rel="prefetch" href="/myblog/assets/js/392.45688d0a.js"><link rel="prefetch" href="/myblog/assets/js/393.4cef495c.js"><link rel="prefetch" href="/myblog/assets/js/394.0972fa14.js"><link rel="prefetch" href="/myblog/assets/js/395.d1895d79.js"><link rel="prefetch" href="/myblog/assets/js/396.89f6a47b.js"><link rel="prefetch" href="/myblog/assets/js/397.230825b8.js"><link rel="prefetch" href="/myblog/assets/js/398.63eceb86.js"><link rel="prefetch" href="/myblog/assets/js/399.fd48b382.js"><link rel="prefetch" href="/myblog/assets/js/4.708382be.js"><link rel="prefetch" href="/myblog/assets/js/40.4a806aef.js"><link rel="prefetch" href="/myblog/assets/js/400.9a8cf4ba.js"><link rel="prefetch" href="/myblog/assets/js/401.733d8bd1.js"><link rel="prefetch" href="/myblog/assets/js/402.ea872749.js"><link rel="prefetch" href="/myblog/assets/js/403.d3c3dbca.js"><link rel="prefetch" href="/myblog/assets/js/404.0368c59e.js"><link rel="prefetch" href="/myblog/assets/js/405.1b6ace61.js"><link rel="prefetch" href="/myblog/assets/js/406.f3a1f866.js"><link rel="prefetch" href="/myblog/assets/js/41.af894fa8.js"><link rel="prefetch" href="/myblog/assets/js/42.35fd750b.js"><link rel="prefetch" href="/myblog/assets/js/43.43fa1cba.js"><link rel="prefetch" href="/myblog/assets/js/44.e36f0053.js"><link rel="prefetch" href="/myblog/assets/js/45.36352668.js"><link rel="prefetch" href="/myblog/assets/js/46.de25e8f6.js"><link rel="prefetch" href="/myblog/assets/js/47.9d311117.js"><link rel="prefetch" href="/myblog/assets/js/48.c50cef2c.js"><link rel="prefetch" href="/myblog/assets/js/49.28471bc7.js"><link rel="prefetch" href="/myblog/assets/js/5.55042874.js"><link rel="prefetch" href="/myblog/assets/js/50.78ea3deb.js"><link rel="prefetch" href="/myblog/assets/js/51.2d6f633b.js"><link rel="prefetch" href="/myblog/assets/js/52.dfdd7f60.js"><link rel="prefetch" href="/myblog/assets/js/53.05415b45.js"><link rel="prefetch" href="/myblog/assets/js/54.5dd8ef0b.js"><link rel="prefetch" href="/myblog/assets/js/55.1b839ab3.js"><link rel="prefetch" href="/myblog/assets/js/56.cc8bda0e.js"><link rel="prefetch" href="/myblog/assets/js/57.ed9d9231.js"><link rel="prefetch" href="/myblog/assets/js/58.c7d5cb89.js"><link rel="prefetch" href="/myblog/assets/js/59.9675f0f1.js"><link rel="prefetch" href="/myblog/assets/js/6.0a22b321.js"><link rel="prefetch" href="/myblog/assets/js/60.e48cc1b9.js"><link rel="prefetch" href="/myblog/assets/js/61.7965b60d.js"><link rel="prefetch" href="/myblog/assets/js/62.453c9822.js"><link rel="prefetch" href="/myblog/assets/js/63.f4f2009e.js"><link rel="prefetch" href="/myblog/assets/js/64.22eb060c.js"><link rel="prefetch" href="/myblog/assets/js/65.d5aa9daa.js"><link rel="prefetch" href="/myblog/assets/js/66.6f69d5ff.js"><link rel="prefetch" href="/myblog/assets/js/67.942ce6e2.js"><link rel="prefetch" href="/myblog/assets/js/68.3a7eb083.js"><link rel="prefetch" href="/myblog/assets/js/69.d60b36bb.js"><link rel="prefetch" href="/myblog/assets/js/7.1b8336d2.js"><link rel="prefetch" href="/myblog/assets/js/70.ce8331c5.js"><link rel="prefetch" href="/myblog/assets/js/71.263effad.js"><link rel="prefetch" href="/myblog/assets/js/72.e5a73cfb.js"><link rel="prefetch" href="/myblog/assets/js/73.845fe2a2.js"><link rel="prefetch" href="/myblog/assets/js/74.713e0086.js"><link rel="prefetch" href="/myblog/assets/js/75.bbdd19b8.js"><link rel="prefetch" href="/myblog/assets/js/76.d1c07cc1.js"><link rel="prefetch" href="/myblog/assets/js/77.1ab72ab7.js"><link rel="prefetch" href="/myblog/assets/js/78.00268d1c.js"><link rel="prefetch" href="/myblog/assets/js/79.ad89fe55.js"><link rel="prefetch" href="/myblog/assets/js/80.44145bfe.js"><link rel="prefetch" href="/myblog/assets/js/81.2d201fbf.js"><link rel="prefetch" href="/myblog/assets/js/82.71110b3d.js"><link rel="prefetch" href="/myblog/assets/js/83.72c02e9a.js"><link rel="prefetch" href="/myblog/assets/js/84.02f75dd9.js"><link rel="prefetch" href="/myblog/assets/js/85.b6a9ad03.js"><link rel="prefetch" href="/myblog/assets/js/86.ea7a5c8b.js"><link rel="prefetch" href="/myblog/assets/js/87.dd4d4d63.js"><link rel="prefetch" href="/myblog/assets/js/88.b1d9798f.js"><link rel="prefetch" href="/myblog/assets/js/89.9abbbdcd.js"><link rel="prefetch" href="/myblog/assets/js/90.ba5c32de.js"><link rel="prefetch" href="/myblog/assets/js/91.ce8e2fbf.js"><link rel="prefetch" href="/myblog/assets/js/92.c035586d.js"><link rel="prefetch" href="/myblog/assets/js/93.876516c6.js"><link rel="prefetch" href="/myblog/assets/js/94.8d6b0784.js"><link rel="prefetch" href="/myblog/assets/js/95.9d5b10c4.js"><link rel="prefetch" href="/myblog/assets/js/96.72d7cfe7.js"><link rel="prefetch" href="/myblog/assets/js/97.14b59e01.js"><link rel="prefetch" href="/myblog/assets/js/98.a5f3cb04.js"><link rel="prefetch" href="/myblog/assets/js/99.4a78afa1.js"><link rel="prefetch" href="/myblog/assets/js/vendors~docsearch.9fc5db6b.js">
+    <link rel="stylesheet" href="/myblog/assets/css/0.styles.f1869f8e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/myblog/" class="home-link router-link-active"><!----> <span class="site-name">毕克有的技术笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="技术笔记" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/js/" class="nav-link">
+  js篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/css/" class="nav-link">
+  css篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/performanceOptimizing/" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/canvas/" class="nav-link">
+  canvas
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/tool/" class="nav-link router-link-active">
+  工具篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/framework/" class="nav-link">
+  框架篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/webapp/" class="nav-link">
+  移动端app开发
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/weChatMiniProgram/" class="nav-link">
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/node/" class="nav-link">
+  nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/java/" class="nav-link">
+  java
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/linux/" class="nav-link">
+  linux
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/http/" class="nav-link">
+  http
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/interviewQuestions/" class="nav-link">
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/demandSolution/" class="nav-link">
+  常见需求
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码解析" class="dropdown-title"><span class="title">源码解析</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码解析" class="mobile-dropdown-title"><span class="title">源码解析</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/sourceCode/" class="nav-link">
+  jQuery
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="技术笔记" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/js/" class="nav-link">
+  js篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/css/" class="nav-link">
+  css篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/performanceOptimizing/" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/canvas/" class="nav-link">
+  canvas
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/tool/" class="nav-link router-link-active">
+  工具篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/framework/" class="nav-link">
+  框架篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/webapp/" class="nav-link">
+  移动端app开发
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/weChatMiniProgram/" class="nav-link">
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/node/" class="nav-link">
+  nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/java/" class="nav-link">
+  java
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/linux/" class="nav-link">
+  linux
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/http/" class="nav-link">
+  http
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/interviewQuestions/" class="nav-link">
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/demandSolution/" class="nav-link">
+  常见需求
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码解析" class="dropdown-title"><span class="title">源码解析</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码解析" class="mobile-dropdown-title"><span class="title">源码解析</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/sourceCode/" class="nav-link">
+  jQuery
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>webpack</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>nvm</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>nrm</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>yarn</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>git</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>mac</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Docker</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>1.Docker学习</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/myblog/tool/Docker/1.Docker学习/1.Docker学习大纲.html" class="sidebar-link">Docker学习大纲</a></li><li><a href="/myblog/tool/Docker/1.Docker学习/2.Docker基础.html" class="active sidebar-link">2.Docker基础</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/myblog/tool/Docker/1.Docker学习/2.Docker基础.html#dokcer概念" class="sidebar-link">Dokcer概念</a></li><li class="sidebar-sub-header"><a href="/myblog/tool/Docker/1.Docker学习/2.Docker基础.html#docker作用" class="sidebar-link">Docker作用</a></li><li class="sidebar-sub-header"><a href="/myblog/tool/Docker/1.Docker学习/2.Docker基础.html#docker中的名次概念" class="sidebar-link">Docker中的名次概念</a></li><li class="sidebar-sub-header"><a href="/myblog/tool/Docker/1.Docker学习/2.Docker基础.html#安装-docker" class="sidebar-link">安装 Docker</a></li><li class="sidebar-sub-header"><a href="/myblog/tool/Docker/1.Docker学习/2.Docker基础.html#配置阿里云镜像加速" class="sidebar-link">配置阿里云镜像加速</a></li><li class="sidebar-sub-header"><a href="/myblog/tool/Docker/1.Docker学习/2.Docker基础.html#回顾-helloword-流程" class="sidebar-link">回顾 helloword 流程</a></li><li class="sidebar-sub-header"><a href="/myblog/tool/Docker/1.Docker学习/2.Docker基础.html#底层原理" class="sidebar-link">底层原理</a></li><li class="sidebar-sub-header"><a href="/myblog/tool/Docker/1.Docker学习/2.Docker基础.html#docker-为什么比虚拟机快" class="sidebar-link">Docker 为什么比虚拟机快</a></li><li class="sidebar-sub-header"><a href="/myblog/tool/Docker/1.Docker学习/2.Docker基础.html#docker-常用命令" class="sidebar-link">Docker 常用命令</a></li><li class="sidebar-sub-header"><a href="/myblog/tool/Docker/1.Docker学习/2.Docker基础.html#容器命令" class="sidebar-link">容器命令</a></li><li class="sidebar-sub-header"><a href="/myblog/tool/Docker/1.Docker学习/2.Docker基础.html#常用的其他命令" class="sidebar-link">常用的其他命令</a></li><li class="sidebar-sub-header"><a href="/myblog/tool/Docker/1.Docker学习/2.Docker基础.html#查看容器进程信息-ps" class="sidebar-link">查看容器进程信息 ps</a></li><li class="sidebar-sub-header"><a href="/myblog/tool/Docker/1.Docker学习/2.Docker基础.html#查看镜像元数据" class="sidebar-link">查看镜像元数据</a></li><li class="sidebar-sub-header"><a href="/myblog/tool/Docker/1.Docker学习/2.Docker基础.html#进入当前正在运行的容器" class="sidebar-link">进入当前正在运行的容器</a></li></ul></li><li><a href="/myblog/tool/Docker/1.Docker学习/3.练习.html" class="sidebar-link">3.练习</a></li><li><a href="/myblog/tool/Docker/1.Docker学习/4.Portainer可视化面板安装.html" class="sidebar-link">4.Portainer可视化面板安装</a></li><li><a href="/myblog/tool/Docker/1.Docker学习/5.docker镜像讲解.html" class="sidebar-link">5.docker镜像讲解</a></li><li><a href="/myblog/tool/Docker/1.Docker学习/7.DockerFIle.html" class="sidebar-link">7.Dockerfile</a></li><li><a href="/myblog/tool/Docker/1.Docker学习/8.Docker网络.html" class="sidebar-link">8.Docker网络</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>2.Docker练习</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>mysql</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>脚手架工具</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ts</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="_2-docker基础"><a href="#_2-docker基础" class="header-anchor">#</a> 2.Docker基础</h1> <h2 id="dokcer概念"><a href="#dokcer概念" class="header-anchor">#</a> Dokcer概念</h2> <p>Docker 是基于 GO 语音开发的</p> <p>官网： https://www.docker.com/</p> <p>文档： https://www.docs.docker.com/  Docker的文档是超级详细的</p> <p>仓库地址：https://hub.docker.com/</p> <h2 id="docker作用"><a href="#docker作用" class="header-anchor">#</a> Docker作用</h2> <ol><li>更快速的交付和部署</li></ol> <p>打包镜像，发布测试，一键部署</p> <ol start="2"><li>更快捷的升级和扩容</li></ol> <p>使用了docker之后，我们部署和应用就和搭积木一样</p> <ol start="3"><li><p>更简单的系统运维</p></li> <li><p>更高效的计算资源利用</p></li></ol> <blockquote><p>Docker 是内核级别的虚拟化，可以在一个物理机上运行很多的容器实例。服务器的性能可以充分使用</p></blockquote> <h3 id="比较虚拟机技术不同"><a href="#比较虚拟机技术不同" class="header-anchor">#</a> 比较虚拟机技术不同</h3> <ul><li>传统虚拟机， 虚拟出一条硬件，运行一个完整的操作系统，然后在这个系统上安装和运行软件</li> <li>容器内的应用，直接应用在宿主机的内容，容器是没有自己的内核的，也没有虚拟我们的硬件，所以就轻便了</li> <li>每个容器互相间隔，每个容器内都有属于自己的文件系统，互不影响</li></ul> <h2 id="docker中的名次概念"><a href="#docker中的名次概念" class="header-anchor">#</a> Docker中的名次概念</h2> <h3 id="docker-基础组成"><a href="#docker-基础组成" class="header-anchor">#</a> Docker 基础组成</h3> <h4 id="客户端"><a href="#客户端" class="header-anchor">#</a> 客户端</h4> <p>docker build</p> <p>docker pull</p> <p>docker run</p> <h4 id="服务器"><a href="#服务器" class="header-anchor">#</a> 服务器</h4> <h4 id="仓库"><a href="#仓库" class="header-anchor">#</a> 仓库</h4> <h3 id="名次概念"><a href="#名次概念" class="header-anchor">#</a> 名次概念</h3> <h4 id="镜像-image"><a href="#镜像-image" class="header-anchor">#</a> 镜像(image)</h4> <p>镜像就好比是一个模版，可以通过这个模版来创建容器服务，tomcat镜像 ===&gt; run ===&gt; tomcat01(提供服务器)，通过这个镜像可以创建多个容器（最终服务运行或项目运行就是在一个容器中的）。</p> <h4 id="容器-container"><a href="#容器-container" class="header-anchor">#</a> 容器(container)</h4> <p>Docker 可以利用容器技术，独立运行一个或者一组应用，通过镜像来创建的。</p> <p>启动，停止，删除，基本命令。</p> <p>目前就可以把这个容器看成简易的linux系统。</p> <h4 id="仓库-repository"><a href="#仓库-repository" class="header-anchor">#</a> 仓库(repository)</h4> <p>仓库就是存放镜像的地方。</p> <p>仓库分为共有仓库，和私有仓库</p> <p>Docker Hub（默认都是国外的）</p> <p>阿里云...都有容器服务器（配置镜像加速）</p> <h2 id="安装-docker"><a href="#安装-docker" class="header-anchor">#</a> 安装 Docker</h2> <p>文档： https://docs.docker.com/engine/install/centos/</p> <h3 id="环境准备"><a href="#环境准备" class="header-anchor">#</a> 环境准备</h3> <ul><li>需要一点linux的基础</li> <li>CenOS 7</li> <li>使用 Xshell连接远程服务器进行操作</li></ul> <h3 id="环境查看"><a href="#环境查看" class="header-anchor">#</a> 环境查看</h3> <h3 id="帮助文档"><a href="#帮助文档" class="header-anchor">#</a> 帮助文档</h3> <p>https://docs.docker.com/engine/install/centos/</p> <div class="language- extra-class"><pre class="language-text"><code># 1. 卸载旧版本
+yum remove docker \
+                docker-client \
+                docker-client-latest \
+                docker-common \
+                docker-latest \
+                docker-latest-logrotate \
+                docker-logrotate \
+                docker-engine
+
+# 2. 需要的安装包
+yum install -y yum-utils
+
+# 3. 设置仓库的镜像
+yum-config-manager \
+  --add-repo \
+  https://download.docker.com/linux/centos/docker-ce.repo // 文档默认是国外的，很慢， 要配置国内的
+
+yum-config-manager \
+  --add-repo \
+  http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo // 推荐使用 阿里云的
+
+
+# 更新yum软件包索引
+yum makecache fast
+
+# 4. 安装 docker docker-ce 社区版， docker-ee 企业版
+yum install docker-ce docker-ce-cli containerd.io
+
+# 5. 启动 docker
+systemctl start docker
+
+# 6. 使用 docker version 是否安装
+
+# 7. docker run hello-world
+
+# 8. 查看一下下载的 hello-world 镜像
+docker images
+</code></pre></div><h3 id="了解-卸载-docker"><a href="#了解-卸载-docker" class="header-anchor">#</a> 了解 卸载 docker</h3> <div class="language- extra-class"><pre class="language-text"><code># 1. 卸载依赖
+yum remove docker-ce docker-ce-cli containerd.io
+
+# 2. 删除资源
+rm -rf /var/lib/docker
+
+# /var/lib/docker docker的默认工作路径
+</code></pre></div><p>搜索 docker 阿里云镜像地址</p> <h2 id="配置阿里云镜像加速"><a href="#配置阿里云镜像加速" class="header-anchor">#</a> 配置阿里云镜像加速</h2> <ol><li>登陆阿里云找到容器服务</li></ol> <p><img src="/myblog/assets/img/2.1.71635505.jpg" alt=""></p> <ol start="2"><li>找到镜像加速地址</li></ol> <p><img src="/myblog/assets/img/2.2.209d1e5b.jpg" alt=""></p> <ol start="3"><li>配置使用</li></ol> <p>https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors</p> <div class="language- extra-class"><pre class="language-text"><code>sudo mkdir -p /etc/docker
+
+sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
+{
+  &quot;registry-mirrors&quot;: [&quot;https://pa55k8dt.mirror.aliyuncs.com&quot;]
+}
+EOF
+
+sudo systemctl daemon-reload
+
+sudo systemctl restart docker
+</code></pre></div><h2 id="回顾-helloword-流程"><a href="#回顾-helloword-流程" class="header-anchor">#</a> 回顾 helloword 流程</h2> <p>docker run hello-world =&gt; docker会在本级寻找镜像 =&gt; 判断本机是否有这个镜像
+=&gt; 有 =&gt; 使用这个镜像运行
+=&gt; 否 =&gt; 去 DockerHub 上下载 =&gt; DockerHub是否可以找到 =&gt; 找不到返回错误，找到下载这个镜像到本地使用这个镜像运行</p> <p><img src="/myblog/assets/img/2.3.e2c6cb49.jpg" alt="run流程分析图"></p> <h2 id="底层原理"><a href="#底层原理" class="header-anchor">#</a> 底层原理</h2> <h3 id="docker-是怎么工作的"><a href="#docker-是怎么工作的" class="header-anchor">#</a> Docker 是怎么工作的</h3> <p>Docker 是一个 Client-Sever 结构的系统， Docker 的守护进程运行在主机上，通过 socket 从客户端访问。</p> <p>DockerSever 接收到 Docker-Client 的指令， 就会执行这个命令</p> <p><img src="/myblog/assets/img/2.4.e67f4398.jpg" alt="Docker工作过程"></p> <h2 id="docker-为什么比虚拟机快"><a href="#docker-为什么比虚拟机快" class="header-anchor">#</a> Docker 为什么比虚拟机快</h2> <ol><li>Docker 有着比虚拟机更少的抽象层</li> <li>Docker 利用宿主机的内核，vm需要是 Guest OS.</li></ol> <p><img src="/myblog/assets/img/2.5.9ebf7c1f.jpg" alt="Docker 为什么比虚拟机快图解"></p> <p>所以说，新建一个容器的时候，docker 不需要向虚拟机一样重新加载一个操作系统内核，避免引导操作。虚拟机是加载 Guest OS，分钟级别的， 而 docker 是利用宿主机的操作系统，省略了复杂的过程，秒级。</p> <blockquote><p>之后学过所有的命令，再回头看这段理论，就会很清晰。</p></blockquote> <h2 id="docker-常用命令"><a href="#docker-常用命令" class="header-anchor">#</a> Docker 常用命令</h2> <h3 id="帮助命令"><a href="#帮助命令" class="header-anchor">#</a> 帮助命令</h3> <ul><li>docker version  显示docker的版本信息</li> <li>docker info     显示 docker 的系统信息，包括镜像和容器的数量</li> <li>docker 命令 --help  万能命令  docker --help 帮助命令</li></ul> <h3 id="帮助文档的地址"><a href="#帮助文档的地址" class="header-anchor">#</a> 帮助文档的地址</h3> <p>https://docs.docker.com/reference/</p> <h3 id="镜像命令"><a href="#镜像命令" class="header-anchor">#</a> 镜像命令</h3> <ul><li><ol><li>docker images 查看所有本地主机上的镜像</li></ol></li></ul> <div class="language- extra-class"><pre class="language-text"><code>[root@VM-0-4-centos ~]# docker images
+REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
+hello-world   latest    d1165f221234   2 months ago   13.3kB
+</code></pre></div><ul><li>1.1 解释</li></ul> <p>REPOSITORY 镜像的仓库源</p> <p>TAG        镜像的标签</p> <p>IMAGE ID   镜像的id</p> <p>CREATED    镜像的创建时间</p> <p>SIZE       镜像的大小</p> <ul><li>1.2 可选项</li></ul> <div class="language- extra-class"><pre class="language-text"><code> Options:
+ -a, --all             Show all images (default hides intermediate images) 列出所有的镜像
+     --digests         Show digests
+ -f, --filter filter   Filter output based on conditions provided
+     --format string   Pretty-print images using a Go template
+     --no-trunc        Don't truncate output
+ -q, --quiet           Only show image IDs   只显示镜像的 id
+</code></pre></div><ul><li><ol start="2"><li>docker search   搜索镜像</li></ol></li></ul> <div class="language- extra-class"><pre class="language-text"><code>docker search mysql
+NAME                              DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+mysql                             MySQL is a widely used, open-source relation…   10886     [OK]       
+mariadb                           MariaDB Server is a high performing open sou…   4104      [OK]       
+mysql/mysql-server                Optimized MySQL Server Docker images. Create…   809                  [OK]
+centos/mysql-57-centos7           MySQL 5.7 SQL database server                   87     
+</code></pre></div><ul><li>2.1 可选项， 通过搜索来过滤</li></ul> <p>docker search mysql --filter=STARS=3000   搜索出来的镜像就是 STARS 大于 3000 的镜像</p> <div class="language- extra-class"><pre class="language-text"><code>[root@VM-0-4-centos ~]# docker search mysql --filter=STARS=3000
+NAME      DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+mysql     MySQL is a widely used, open-source relation…   10886     [OK]       
+mariadb   MariaDB Server is a high performing open sou…   4104      [OK]
+</code></pre></div><ul><li><ol start="3"><li>docker pull 下载镜像</li></ol></li></ul> <p>docker pull 镜像名[:tag]</p> <div class="language- extra-class"><pre class="language-text"><code># 下载镜像 
+[root@VM-0-4-centos ~]# docker pull mysql
+Using default tag: latest       # 如果不写版本，默认就是 latest， 最新的
+latest: Pulling from library/mysql
+69692152171a: Pull complete     # 分层下载， docker image 的核心，联合文件系统
+1651b0be3df3: Pull complete 
+951da7386bc8: Pull complete 
+0f86c95aa242: Pull complete 
+37ba2d8bd4fe: Pull complete 
+6d278bb05e94: Pull complete 
+497efbd93a3e: Pull complete 
+f7fddf10c2c2: Pull complete 
+16415d159dfb: Pull complete 
+0e530ffc6b73: Pull complete 
+b0a4a1a77178: Pull complete 
+cd90f92aa9ef: Pull complete 
+Digest: sha256:d50098d7fcb25b1fcb24e2d3247cae3fc55815d64fec640dc395840f8fa80969     # 签名 
+Status: Downloaded newer image for mysql:latest
+docker.io/library/mysql:latest          # 真实地址
+</code></pre></div><ul><li><p>3.1 等价
+docker pull mysql === docker pull docker.io/library/mysql:latest</p></li> <li><p>3.2 docker pull mysql:5.7</p></li></ul> <blockquote><p>版本官方文档得有</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>[root@VM-0-4-centos ~]# docker pull mysql:5.7
+5.7: Pulling from library/mysql
+69692152171a: Already exists 
+1651b0be3df3: Already exists 
+951da7386bc8: Already exists 
+0f86c95aa242: Already exists 
+37ba2d8bd4fe: Already exists 
+6d278bb05e94: Already exists 
+497efbd93a3e: Already exists 
+a023ae82eef5: Pull complete 
+e76c35f20ee7: Pull complete 
+e887524d2ef9: Pull complete 
+ccb65627e1c3: Pull complete 
+Digest: sha256:a682e3c78fc5bd941e9db080b4796c75f69a28a8cad65677c23f7a9f18ba21fa
+Status: Downloaded newer image for mysql:5.7
+docker.io/library/mysql:5.7
+</code></pre></div><ul><li><ol start="4"><li>docker rmi  删除镜像</li></ol></li> <li><p>4.1 docker rmi -f 镜像id</p></li></ul> <p>docker rmi -f c0cdc95609f1     删除指定的镜像</p> <p>docker rmi -f 镜像id 镜像id 镜像id    删除多个镜像</p> <ul><li>4.2 docker rmi -f $(docker images -aq)  删除全部镜像</li></ul> <h2 id="容器命令"><a href="#容器命令" class="header-anchor">#</a> 容器命令</h2> <blockquote><p>有了镜像才能创建容器，linux ， 下载一个 centos 镜像来测试学习</p></blockquote> <ul><li><ol><li>创建容器</li></ol></li></ul> <p>docker pull centos</p> <ul><li><ol start="2"><li>新建容器并启动</li></ol></li></ul> <p>docker run --help</p> <div class="language- extra-class"><pre class="language-text"><code>docker run [可选参数] image
+
+# 参数说明
+--name=&quot;Name&quot;  容器名字  tomcat01
+-d   后台方式运行 ja  
+-it  使用交互方式进行，进入容器查看内容
+-p   指定容器的端口    小
+    -p   ip:主机端口:容器端口
+    -p   主机端口:容器端口  （常用） 
+    -p   容器端口
+    容器端口
+-P   随机指定端口      大
+
+# 测试， 启动并进入容器
+[root@VM-0-4-centos ~]# docker run -it centos /bin/bash
+[root@79286024b996 /]# 
+
+# 查看容器内的 centos ， 基础版本， 很多命令都是不完善的
+[root@79286024b996 /]# ls
+bin  etc   lib	  lost+found  mnt  proc  run   srv  tmp  var
+dev  home  lib64  media       opt  root  sbin  sys  usr
+</code></pre></div><ul><li><ol start="3"><li>从容器退到主机</li></ol></li></ul> <p>exit</p> <ul><li><ol start="4"><li>容器不停止退出</li></ol></li></ul> <p>ctrl + P + Q</p> <ul><li><ol start="5"><li>列出所有运行的容器</li></ol></li></ul> <p>docker ps</p> <ul><li><ol start="6"><li>删除容器</li></ol></li></ul> <p>docker rm 容器id    删除指定容器, 不能删除正在运行的容器</p> <p>docker rm -f 容器id    强制删除容器</p> <p>docker rm -f $(docker ps -aq)   删除所有容器</p> <p>docker ps -a -q|xargs docker rm    删除所有容器</p> <ul><li><ol start="7"><li>启动和停止容器操作</li></ol></li> <li><p>7.1 docker start 容器id      启动容器</p></li></ul> <p>docker start CONTAINER_ID</p> <ul><li><p>7.2 docker restart 容器id   重启容器</p></li> <li><p>7.3 docker stop 容器id      停止当前正在运行的容器</p></li> <li><p>7.4 docker kill 容器id     强制停止当前容器</p></li></ul> <h2 id="常用的其他命令"><a href="#常用的其他命令" class="header-anchor">#</a> 常用的其他命令</h2> <ul><li><ol><li>后台启动容器</li></ol></li></ul> <p>docker run -d 镜像名</p> <div class="language- extra-class"><pre class="language-text"><code># 启动
+[root@VM-0-4-centos ~]# docker run -d centos
+242e7fd17b50481516e195d91eeb74f6053ce57615d84aa4b416c8d12edc5b37
+
+# 问题： 
+docker ps 发现centos停止了
+
+# 常见的坑
+容器使用后台运行，就必须要有一个前台的进程，docker 发现没有应用，就会自动停止
+
+# nginx 容器启动后，发现自己没有提供服务，就会立刻停止 ，就是没有程序了
+</code></pre></div><ul><li><ol start="2"><li>查看日志</li></ol></li></ul> <p>docker logs</p> <div class="language- extra-class"><pre class="language-text"><code>docker run -it centos /bin/bash
+ctrl + p + q
+
+docker logs -tf --tail 10 6c05ff85b129   6c05ff85b129 是 CONTAINER_ID
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>docker logs -f -t --tail 10 6c05ff85b129  没有日志
+
+# 自己编写一段 shell 脚本
+docker run -d centos /bin/bash -c &quot;while true;do echo 1;sleep 1;done&quot;
+
+# [root@VM-0-4-centos ~]# docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS     NAMES
+ff1efccb099f   centos    &quot;/bin/bash -c 'while…&quot;   4 seconds ago   Up 3 seconds             friendly_sinoussi
+
+# 显示日志
+-tf     #显示日志  -f 带上时间戳
+--tail    # 显示条数
+
+[root@VM-0-4-centos ~]# docker logs -tf --tail 10 ff1efccb099f
+2021-05-20T12:41:24.132331109Z 1
+2021-05-20T12:41:25.134264766Z 1
+2021-05-20T12:41:26.136215077Z 1
+2021-05-20T12:41:27.138141416Z 1
+2021-05-20T12:41:28.140077091Z 1
+2021-05-20T12:41:29.141998628Z 1
+2021-05-20T12:41:30.144141848Z 1
+</code></pre></div><h2 id="查看容器进程信息-ps"><a href="#查看容器进程信息-ps" class="header-anchor">#</a> 查看容器进程信息 ps</h2> <p>docker top 容器id</p> <div class="language- extra-class"><pre class="language-text"><code>[root@VM-0-4-centos ~]# docker top ff1efccb099f
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                25511               25492               0                   20:41               ?                   00:00:00            /bin/bash -c while true;do echo 1;sleep 1;done
+root                28177               25511               0                   20:54               ?                   00:00:00            /usr/bin/coreutils --coreutils-prog-shebang=sleep /usr/bin/sleep 1
+</code></pre></div><h2 id="查看镜像元数据"><a href="#查看镜像元数据" class="header-anchor">#</a> 查看镜像元数据</h2> <p>docker inspect  容器id</p> <p><img src="/myblog/assets/img/2.3.e2c6cb49.jpg" alt="容器信息"></p> <div class="language- extra-class"><pre class="language-text"><code>[root@VM-0-4-centos ~]# docker inspect ff1efccb099f
+[
+    {
+        &quot;Id&quot;: &quot;ff1efccb099f11de49cd9f00b61c6909e7f28da5412b472d9290b4c9cf91e8b9&quot;,
+        &quot;Created&quot;: &quot;2021-05-20T12:41:07.762528629Z&quot;,
+        &quot;Path&quot;: &quot;/bin/bash&quot;,
+        &quot;Args&quot;: [
+            &quot;-c&quot;,
+            &quot;while true;do echo 1;sleep 1;done&quot;
+        ],
+        &quot;State&quot;: {
+            &quot;Status&quot;: &quot;running&quot;,
+            &quot;Running&quot;: true,
+            &quot;Paused&quot;: false,
+            &quot;Restarting&quot;: false,
+            &quot;OOMKilled&quot;: false,
+            &quot;Dead&quot;: false,
+            &quot;Pid&quot;: 25511,
+            &quot;ExitCode&quot;: 0,
+            &quot;Error&quot;: &quot;&quot;,
+            &quot;StartedAt&quot;: &quot;2021-05-20T12:41:08.102408984Z&quot;,
+            &quot;FinishedAt&quot;: &quot;0001-01-01T00:00:00Z&quot;
+        },
+        &quot;Image&quot;: &quot;sha256:300e315adb2f96afe5f0b2780b87f28ae95231fe3bdd1e16b9ba606307728f55&quot;,
+        &quot;ResolvConfPath&quot;: &quot;/var/lib/docker/containers/ff1efccb099f11de49cd9f00b61c6909e7f28da5412b472d9290b4c9cf91e8b9/resolv.conf&quot;,
+        &quot;HostnamePath&quot;: &quot;/var/lib/docker/containers/ff1efccb099f11de49cd9f00b61c6909e7f28da5412b472d9290b4c9cf91e8b9/hostname&quot;,
+        &quot;HostsPath&quot;: &quot;/var/lib/docker/containers/ff1efccb099f11de49cd9f00b61c6909e7f28da5412b472d9290b4c9cf91e8b9/hosts&quot;,
+        &quot;LogPath&quot;: &quot;/var/lib/docker/containers/ff1efccb099f11de49cd9f00b61c6909e7f28da5412b472d9290b4c9cf91e8b9/ff1efccb099f11de49cd9f00b61c6909e7f28da5412b472d9290b4c9cf91e8b9-json.log&quot;,
+        &quot;Name&quot;: &quot;/friendly_sinoussi&quot;,
+        &quot;RestartCount&quot;: 0,
+        &quot;Driver&quot;: &quot;overlay2&quot;,
+        &quot;Platform&quot;: &quot;linux&quot;,
+        &quot;MountLabel&quot;: &quot;&quot;,
+        &quot;ProcessLabel&quot;: &quot;&quot;,
+        &quot;AppArmorProfile&quot;: &quot;&quot;,
+        &quot;ExecIDs&quot;: null,
+        &quot;HostConfig&quot;: {
+            &quot;Binds&quot;: null,
+            &quot;ContainerIDFile&quot;: &quot;&quot;,
+            &quot;LogConfig&quot;: {
+                &quot;Type&quot;: &quot;json-file&quot;,
+                &quot;Config&quot;: {}
+            },
+            &quot;NetworkMode&quot;: &quot;default&quot;,
+            &quot;PortBindings&quot;: {},
+            &quot;RestartPolicy&quot;: {
+                &quot;Name&quot;: &quot;no&quot;,
+                &quot;MaximumRetryCount&quot;: 0
+            },
+            &quot;AutoRemove&quot;: false,
+            &quot;VolumeDriver&quot;: &quot;&quot;,
+            &quot;VolumesFrom&quot;: null,
+            &quot;CapAdd&quot;: null,
+            &quot;CapDrop&quot;: null,
+            &quot;CgroupnsMode&quot;: &quot;host&quot;,
+            &quot;Dns&quot;: [],
+            &quot;DnsOptions&quot;: [],
+            &quot;DnsSearch&quot;: [],
+            &quot;ExtraHosts&quot;: null,
+            &quot;GroupAdd&quot;: null,
+            &quot;IpcMode&quot;: &quot;private&quot;,
+            &quot;Cgroup&quot;: &quot;&quot;,
+            &quot;Links&quot;: null,
+            &quot;OomScoreAdj&quot;: 0,
+            &quot;PidMode&quot;: &quot;&quot;,
+            &quot;Privileged&quot;: false,
+            &quot;PublishAllPorts&quot;: false,
+            &quot;ReadonlyRootfs&quot;: false,
+            &quot;SecurityOpt&quot;: null,
+            &quot;UTSMode&quot;: &quot;&quot;,
+            &quot;UsernsMode&quot;: &quot;&quot;,
+            &quot;ShmSize&quot;: 67108864,
+            &quot;Runtime&quot;: &quot;runc&quot;,
+            &quot;ConsoleSize&quot;: [
+                0,
+                0
+            ],
+            &quot;Isolation&quot;: &quot;&quot;,
+            &quot;CpuShares&quot;: 0,
+            &quot;Memory&quot;: 0,
+            &quot;NanoCpus&quot;: 0,
+            &quot;CgroupParent&quot;: &quot;&quot;,
+            &quot;BlkioWeight&quot;: 0,
+            &quot;BlkioWeightDevice&quot;: [],
+            &quot;BlkioDeviceReadBps&quot;: null,
+            &quot;BlkioDeviceWriteBps&quot;: null,
+            &quot;BlkioDeviceReadIOps&quot;: null,
+            &quot;BlkioDeviceWriteIOps&quot;: null,
+            &quot;CpuPeriod&quot;: 0,
+            &quot;CpuQuota&quot;: 0,
+            &quot;CpuRealtimePeriod&quot;: 0,
+            &quot;CpuRealtimeRuntime&quot;: 0,
+            &quot;CpusetCpus&quot;: &quot;&quot;,
+            &quot;CpusetMems&quot;: &quot;&quot;,
+            &quot;Devices&quot;: [],
+            &quot;DeviceCgroupRules&quot;: null,
+            &quot;DeviceRequests&quot;: null,
+            &quot;KernelMemory&quot;: 0,
+            &quot;KernelMemoryTCP&quot;: 0,
+            &quot;MemoryReservation&quot;: 0,
+            &quot;MemorySwap&quot;: 0,
+            &quot;MemorySwappiness&quot;: null,
+            &quot;OomKillDisable&quot;: false,
+            &quot;PidsLimit&quot;: null,
+            &quot;Ulimits&quot;: null,
+            &quot;CpuCount&quot;: 0,
+            &quot;CpuPercent&quot;: 0,
+            &quot;IOMaximumIOps&quot;: 0,
+            &quot;IOMaximumBandwidth&quot;: 0,
+            &quot;MaskedPaths&quot;: [
+                &quot;/proc/asound&quot;,
+                &quot;/proc/acpi&quot;,
+                &quot;/proc/kcore&quot;,
+                &quot;/proc/keys&quot;,
+                &quot;/proc/latency_stats&quot;,
+                &quot;/proc/timer_list&quot;,
+                &quot;/proc/timer_stats&quot;,
+                &quot;/proc/sched_debug&quot;,
+                &quot;/proc/scsi&quot;,
+                &quot;/sys/firmware&quot;
+            ],
+            &quot;ReadonlyPaths&quot;: [
+                &quot;/proc/bus&quot;,
+                &quot;/proc/fs&quot;,
+                &quot;/proc/irq&quot;,
+                &quot;/proc/sys&quot;,
+                &quot;/proc/sysrq-trigger&quot;
+            ]
+        },
+        &quot;GraphDriver&quot;: {
+            &quot;Data&quot;: {
+                &quot;LowerDir&quot;: &quot;/var/lib/docker/overlay2/265e4e5982f95505a01cd3502c3991994703718e9b21362fcd2fc766eed6a937-init/diff:/var/lib/docker/overlay2/bcfaf25d511d8afdca79e7813cc52c0eb33e26a6fe4161cb249d0b2597fe783b/diff&quot;,
+                &quot;MergedDir&quot;: &quot;/var/lib/docker/overlay2/265e4e5982f95505a01cd3502c3991994703718e9b21362fcd2fc766eed6a937/merged&quot;,
+                &quot;UpperDir&quot;: &quot;/var/lib/docker/overlay2/265e4e5982f95505a01cd3502c3991994703718e9b21362fcd2fc766eed6a937/diff&quot;,
+                &quot;WorkDir&quot;: &quot;/var/lib/docker/overlay2/265e4e5982f95505a01cd3502c3991994703718e9b21362fcd2fc766eed6a937/work&quot;
+            },
+            &quot;Name&quot;: &quot;overlay2&quot;
+        },
+        &quot;Mounts&quot;: [],
+        &quot;Config&quot;: {
+            &quot;Hostname&quot;: &quot;ff1efccb099f&quot;,
+            &quot;Domainname&quot;: &quot;&quot;,
+            &quot;User&quot;: &quot;&quot;,
+            &quot;AttachStdin&quot;: false,
+            &quot;AttachStdout&quot;: false,
+            &quot;AttachStderr&quot;: false,
+            &quot;Tty&quot;: false,
+            &quot;OpenStdin&quot;: false,
+            &quot;StdinOnce&quot;: false,
+            &quot;Env&quot;: [
+                &quot;PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&quot;
+            ],
+            &quot;Cmd&quot;: [
+                &quot;/bin/bash&quot;,
+                &quot;-c&quot;,
+                &quot;while true;do echo 1;sleep 1;done&quot;
+            ],
+            &quot;Image&quot;: &quot;centos&quot;,
+            &quot;Volumes&quot;: null,
+            &quot;WorkingDir&quot;: &quot;&quot;,
+            &quot;Entrypoint&quot;: null,
+            &quot;OnBuild&quot;: null,
+            &quot;Labels&quot;: {
+                &quot;org.label-schema.build-date&quot;: &quot;20201204&quot;,
+                &quot;org.label-schema.license&quot;: &quot;GPLv2&quot;,
+                &quot;org.label-schema.name&quot;: &quot;CentOS Base Image&quot;,
+                &quot;org.label-schema.schema-version&quot;: &quot;1.0&quot;,
+                &quot;org.label-schema.vendor&quot;: &quot;CentOS&quot;
+            }
+        },
+        &quot;NetworkSettings&quot;: {
+            &quot;Bridge&quot;: &quot;&quot;,
+            &quot;SandboxID&quot;: &quot;2f0438d50ff0ef4d7e2af695ef18eeb8bc5bfe0ad011f85d769255db45c5dee0&quot;,
+            &quot;HairpinMode&quot;: false,
+            &quot;LinkLocalIPv6Address&quot;: &quot;&quot;,
+            &quot;LinkLocalIPv6PrefixLen&quot;: 0,
+            &quot;Ports&quot;: {},
+            &quot;SandboxKey&quot;: &quot;/var/run/docker/netns/2f0438d50ff0&quot;,
+            &quot;SecondaryIPAddresses&quot;: null,
+            &quot;SecondaryIPv6Addresses&quot;: null,
+            &quot;EndpointID&quot;: &quot;b6aa356a38b1baee48ac8ecb3800b48f361b310aef71cd7306cae1501222391d&quot;,
+            &quot;Gateway&quot;: &quot;172.18.0.1&quot;,
+            &quot;GlobalIPv6Address&quot;: &quot;&quot;,
+            &quot;GlobalIPv6PrefixLen&quot;: 0,
+            &quot;IPAddress&quot;: &quot;172.18.0.2&quot;,
+            &quot;IPPrefixLen&quot;: 16,
+            &quot;IPv6Gateway&quot;: &quot;&quot;,
+            &quot;MacAddress&quot;: &quot;02:42:ac:12:00:02&quot;,
+            &quot;Networks&quot;: {
+                &quot;bridge&quot;: {
+                    &quot;IPAMConfig&quot;: null,
+                    &quot;Links&quot;: null,
+                    &quot;Aliases&quot;: null,
+                    &quot;NetworkID&quot;: &quot;9d496db23b8596a0de65a51ea34116151b7946b4751f8453d48feab9b7d0b3d0&quot;,
+                    &quot;EndpointID&quot;: &quot;b6aa356a38b1baee48ac8ecb3800b48f361b310aef71cd7306cae1501222391d&quot;,
+                    &quot;Gateway&quot;: &quot;172.18.0.1&quot;,
+                    &quot;IPAddress&quot;: &quot;172.18.0.2&quot;,
+                    &quot;IPPrefixLen&quot;: 16,
+                    &quot;IPv6Gateway&quot;: &quot;&quot;,
+                    &quot;GlobalIPv6Address&quot;: &quot;&quot;,
+                    &quot;GlobalIPv6PrefixLen&quot;: 0,
+                    &quot;MacAddress&quot;: &quot;02:42:ac:12:00:02&quot;,
+                    &quot;DriverOpts&quot;: null
+                }
+            }
+        }
+    }
+]
+</code></pre></div><h2 id="进入当前正在运行的容器"><a href="#进入当前正在运行的容器" class="header-anchor">#</a> 进入当前正在运行的容器</h2> <blockquote><p>我们通常容器都是使用后台方式运行的，需要进入容器修改一些配置</p></blockquote> <ul><li><ol><li>命令1</li></ol></li></ul> <p>docker exec -it 容器id  bashShell</p> <ul><li>测试</li></ul> <div class="language- extra-class"><pre class="language-text"><code>[root@VM-0-4-centos ~]# docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS     NAMES
+ff1efccb099f   centos    &quot;/bin/bash -c 'while…&quot;   29 minutes ago   Up 29 minutes             friendly_sinoussi
+[root@VM-0-4-centos ~]# docker exec -it ff1efccb099f /bin/bash
+[root@ff1efccb099f /]# ls
+bin  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+[root@ff1efccb099f /]# ps -ef
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 12:41 ?        00:00:00 /bin/bash -c while true;do echo 1;sleep 1;done
+root      1949     0  0 13:13 pts/0    00:00:00 /bin/bash
+root      1989     1  0 13:13 ?        00:00:00 /usr/bin/coreutils --coreutils-prog-shebang=sleep /usr/bin/sleep 1
+root      1990  1949  0 13:13 pts/0    00:00:00 ps -ef
+</code></pre></div><ul><li><ol start="2"><li>命令2</li></ol></li></ul> <p>docker attach 容器id</p> <ul><li><ol start="3"><li>exec 和 attach 区别</li></ol></li></ul> <p>docker exec   进入一个容器后开启一个新的终端， 可以在里面操作</p> <p>docker attach    进入容器正在执行的终端，不会启动新的进程</p> <ul><li><ol start="4"><li>从容器内拷贝文件到主机上</li></ol></li></ul> <p>docker  cp  容器id:容器内路径   目的主机路径</p> <blockquote><p>只要容器在，数据就在</p></blockquote> <ul><li>测试</li></ul> <div class="language- extra-class"><pre class="language-text"><code>[root@VM-0-4-centos home]# docker ps -aq
+96128ce250ef
+
+# 进入容器内容
+[root@VM-0-4-centos home]# docker attach 96128ce250ef
+[root@96128ce250ef home]# ls
+
+# 在容器内新建一个文件
+[root@96128ce250ef home]# touch test.java 
+[root@96128ce250ef home]# ls
+test.java
+[root@96128ce250ef home]# exit
+exit
+[root@VM-0-4-centos home]# ls
+
+# 将这文件拷贝到主机上
+[root@VM-0-4-centos home]# docker cp 96128ce250ef:/home/test.java /home
+[root@VM-0-4-centos home]# ls
+test.java
+[root@VM-0-4-centos home]# 
+</code></pre></div><blockquote><p>现在拷贝是一个手动过程，后边会使用 -V 卷的技术，可以实现自动同步   /home  /home</p></blockquote> <p><img src="/myblog/assets/img/2.7.96b09bbf.jpg" alt="命令总结"></p> <p><img src="/myblog/assets/img/2.8.a7ef7462.jpg" alt="命令总结"></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/myblog/tool/Docker/1.Docker学习/1.Docker学习大纲.html" class="prev">
+        Docker学习大纲
+      </a></span> <span class="next"><a href="/myblog/tool/Docker/1.Docker学习/3.练习.html">
+        3.练习
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/myblog/assets/js/app.6ec94062.js" defer></script><script src="/myblog/assets/js/2.80c01313.js" defer></script><script src="/myblog/assets/js/1.ace66f3f.js" defer></script><script src="/myblog/assets/js/32.13b05ed2.js" defer></script>
+  </body>
+</html>

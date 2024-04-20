@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>3.linux命令 | 毕克有的技术笔记</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/myblog/myblog/huahua.png">
+    <meta name="description" content="blog">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="no-cache">
+    
+    <link rel="preload" href="/myblog/assets/css/0.styles.f1869f8e.css" as="style"><link rel="preload" href="/myblog/assets/js/app.6ec94062.js" as="script"><link rel="preload" href="/myblog/assets/js/2.80c01313.js" as="script"><link rel="preload" href="/myblog/assets/js/1.ace66f3f.js" as="script"><link rel="preload" href="/myblog/assets/js/18.564e0a83.js" as="script"><link rel="prefetch" href="/myblog/assets/js/10.731c8f29.js"><link rel="prefetch" href="/myblog/assets/js/100.38a17bf9.js"><link rel="prefetch" href="/myblog/assets/js/101.91d1c01c.js"><link rel="prefetch" href="/myblog/assets/js/102.3c0f8970.js"><link rel="prefetch" href="/myblog/assets/js/103.fe55726f.js"><link rel="prefetch" href="/myblog/assets/js/104.66f37cb1.js"><link rel="prefetch" href="/myblog/assets/js/105.b6d8a61b.js"><link rel="prefetch" href="/myblog/assets/js/106.707cdf74.js"><link rel="prefetch" href="/myblog/assets/js/107.2f218e3e.js"><link rel="prefetch" href="/myblog/assets/js/108.3cb275d5.js"><link rel="prefetch" href="/myblog/assets/js/109.e7e3b434.js"><link rel="prefetch" href="/myblog/assets/js/11.d7300208.js"><link rel="prefetch" href="/myblog/assets/js/110.54b95ebe.js"><link rel="prefetch" href="/myblog/assets/js/111.2de01913.js"><link rel="prefetch" href="/myblog/assets/js/112.ae1033af.js"><link rel="prefetch" href="/myblog/assets/js/113.95dc9107.js"><link rel="prefetch" href="/myblog/assets/js/114.ca312c4e.js"><link rel="prefetch" href="/myblog/assets/js/115.dcb1d536.js"><link rel="prefetch" href="/myblog/assets/js/116.2e8b43ff.js"><link rel="prefetch" href="/myblog/assets/js/117.3e89d692.js"><link rel="prefetch" href="/myblog/assets/js/118.6325e485.js"><link rel="prefetch" href="/myblog/assets/js/119.1512fd8c.js"><link rel="prefetch" href="/myblog/assets/js/12.319399ad.js"><link rel="prefetch" href="/myblog/assets/js/120.9eabef3f.js"><link rel="prefetch" href="/myblog/assets/js/121.fe57c0e7.js"><link rel="prefetch" href="/myblog/assets/js/122.7621376b.js"><link rel="prefetch" href="/myblog/assets/js/123.b95a2ccd.js"><link rel="prefetch" href="/myblog/assets/js/124.457dafe0.js"><link rel="prefetch" href="/myblog/assets/js/125.be371009.js"><link rel="prefetch" href="/myblog/assets/js/126.5a475681.js"><link rel="prefetch" href="/myblog/assets/js/127.b42617ae.js"><link rel="prefetch" href="/myblog/assets/js/128.14cd7cb7.js"><link rel="prefetch" href="/myblog/assets/js/129.e1dbc04a.js"><link rel="prefetch" href="/myblog/assets/js/13.49a4a7df.js"><link rel="prefetch" href="/myblog/assets/js/130.4446a489.js"><link rel="prefetch" href="/myblog/assets/js/131.40315b3c.js"><link rel="prefetch" href="/myblog/assets/js/132.0a8f372f.js"><link rel="prefetch" href="/myblog/assets/js/133.155b0a73.js"><link rel="prefetch" href="/myblog/assets/js/134.cffc60b9.js"><link rel="prefetch" href="/myblog/assets/js/135.f4314a51.js"><link rel="prefetch" href="/myblog/assets/js/136.ca287f46.js"><link rel="prefetch" href="/myblog/assets/js/137.2341daf7.js"><link rel="prefetch" href="/myblog/assets/js/138.c717883b.js"><link rel="prefetch" href="/myblog/assets/js/139.55e8826c.js"><link rel="prefetch" href="/myblog/assets/js/14.d30ef3d4.js"><link rel="prefetch" href="/myblog/assets/js/140.2ff37e87.js"><link rel="prefetch" href="/myblog/assets/js/141.71f906ab.js"><link rel="prefetch" href="/myblog/assets/js/142.0ce8d303.js"><link rel="prefetch" href="/myblog/assets/js/143.7cd94e6e.js"><link rel="prefetch" href="/myblog/assets/js/144.9ad46ebf.js"><link rel="prefetch" href="/myblog/assets/js/145.5300c994.js"><link rel="prefetch" href="/myblog/assets/js/146.e551ab90.js"><link rel="prefetch" href="/myblog/assets/js/147.e4471fc1.js"><link rel="prefetch" href="/myblog/assets/js/148.21dae23a.js"><link rel="prefetch" href="/myblog/assets/js/149.92fcef19.js"><link rel="prefetch" href="/myblog/assets/js/15.97ba8694.js"><link rel="prefetch" href="/myblog/assets/js/150.08cab2dc.js"><link rel="prefetch" href="/myblog/assets/js/151.19697dba.js"><link rel="prefetch" href="/myblog/assets/js/152.33a6db9a.js"><link rel="prefetch" href="/myblog/assets/js/153.8847c989.js"><link rel="prefetch" href="/myblog/assets/js/154.82db50db.js"><link rel="prefetch" href="/myblog/assets/js/155.ff1a6e5d.js"><link rel="prefetch" href="/myblog/assets/js/156.82cdef74.js"><link rel="prefetch" href="/myblog/assets/js/157.5a2d8504.js"><link rel="prefetch" href="/myblog/assets/js/158.22020c29.js"><link rel="prefetch" href="/myblog/assets/js/159.632b4b30.js"><link rel="prefetch" href="/myblog/assets/js/16.7723d04a.js"><link rel="prefetch" href="/myblog/assets/js/160.fb528040.js"><link rel="prefetch" href="/myblog/assets/js/161.50176b00.js"><link rel="prefetch" href="/myblog/assets/js/162.55863b55.js"><link rel="prefetch" href="/myblog/assets/js/163.31957ed1.js"><link rel="prefetch" href="/myblog/assets/js/164.cd255bc9.js"><link rel="prefetch" href="/myblog/assets/js/165.ced0cb1b.js"><link rel="prefetch" href="/myblog/assets/js/166.f26e4127.js"><link rel="prefetch" href="/myblog/assets/js/167.846b0a6f.js"><link rel="prefetch" href="/myblog/assets/js/168.6312bdbc.js"><link rel="prefetch" href="/myblog/assets/js/169.66e412a9.js"><link rel="prefetch" href="/myblog/assets/js/17.327eb606.js"><link rel="prefetch" href="/myblog/assets/js/170.2cde1a14.js"><link rel="prefetch" href="/myblog/assets/js/171.5bc51d78.js"><link rel="prefetch" href="/myblog/assets/js/172.5d11a06f.js"><link rel="prefetch" href="/myblog/assets/js/173.7358a338.js"><link rel="prefetch" href="/myblog/assets/js/174.d9830870.js"><link rel="prefetch" href="/myblog/assets/js/175.abe2db15.js"><link rel="prefetch" href="/myblog/assets/js/176.722c8098.js"><link rel="prefetch" href="/myblog/assets/js/177.d9c4fc4d.js"><link rel="prefetch" href="/myblog/assets/js/178.2e43a680.js"><link rel="prefetch" href="/myblog/assets/js/179.39352e0e.js"><link rel="prefetch" href="/myblog/assets/js/180.ad54fd11.js"><link rel="prefetch" href="/myblog/assets/js/181.ec2bf2ef.js"><link rel="prefetch" href="/myblog/assets/js/182.cd70c002.js"><link rel="prefetch" href="/myblog/assets/js/183.bb8c729e.js"><link rel="prefetch" href="/myblog/assets/js/184.aba0f79e.js"><link rel="prefetch" href="/myblog/assets/js/185.e0f7b31a.js"><link rel="prefetch" href="/myblog/assets/js/186.bbf49711.js"><link rel="prefetch" href="/myblog/assets/js/187.252e0fcc.js"><link rel="prefetch" href="/myblog/assets/js/188.cc656f93.js"><link rel="prefetch" href="/myblog/assets/js/189.03dc21c3.js"><link rel="prefetch" href="/myblog/assets/js/19.cee86f61.js"><link rel="prefetch" href="/myblog/assets/js/190.5f87bcaf.js"><link rel="prefetch" href="/myblog/assets/js/191.7e2a7be8.js"><link rel="prefetch" href="/myblog/assets/js/192.9adad97f.js"><link rel="prefetch" href="/myblog/assets/js/193.baca65d7.js"><link rel="prefetch" href="/myblog/assets/js/194.ccb9ada5.js"><link rel="prefetch" href="/myblog/assets/js/195.4e1ab391.js"><link rel="prefetch" href="/myblog/assets/js/196.2794e1c7.js"><link rel="prefetch" href="/myblog/assets/js/197.28f7d2dd.js"><link rel="prefetch" href="/myblog/assets/js/198.7e90e37e.js"><link rel="prefetch" href="/myblog/assets/js/199.eb446f7f.js"><link rel="prefetch" href="/myblog/assets/js/20.386c9928.js"><link rel="prefetch" href="/myblog/assets/js/200.9a405d5a.js"><link rel="prefetch" href="/myblog/assets/js/201.50a80b5d.js"><link rel="prefetch" href="/myblog/assets/js/202.084f4b13.js"><link rel="prefetch" href="/myblog/assets/js/203.707d92f2.js"><link rel="prefetch" href="/myblog/assets/js/204.cb48dede.js"><link rel="prefetch" href="/myblog/assets/js/205.4eef818b.js"><link rel="prefetch" href="/myblog/assets/js/206.6a23327d.js"><link rel="prefetch" href="/myblog/assets/js/207.f0a44125.js"><link rel="prefetch" href="/myblog/assets/js/208.a4d2d2d0.js"><link rel="prefetch" href="/myblog/assets/js/209.3167db24.js"><link rel="prefetch" href="/myblog/assets/js/21.50e99e88.js"><link rel="prefetch" href="/myblog/assets/js/210.5070fae4.js"><link rel="prefetch" href="/myblog/assets/js/211.630ac339.js"><link rel="prefetch" href="/myblog/assets/js/212.bd60ec92.js"><link rel="prefetch" href="/myblog/assets/js/213.1f1dd462.js"><link rel="prefetch" href="/myblog/assets/js/214.b3b41afa.js"><link rel="prefetch" href="/myblog/assets/js/215.7a9eed5c.js"><link rel="prefetch" href="/myblog/assets/js/216.4563bf20.js"><link rel="prefetch" href="/myblog/assets/js/217.c534c01d.js"><link rel="prefetch" href="/myblog/assets/js/218.237e432c.js"><link rel="prefetch" href="/myblog/assets/js/219.05ed61e9.js"><link rel="prefetch" href="/myblog/assets/js/22.e41748a4.js"><link rel="prefetch" href="/myblog/assets/js/220.716a8094.js"><link rel="prefetch" href="/myblog/assets/js/221.b627d47f.js"><link rel="prefetch" href="/myblog/assets/js/222.356f56de.js"><link rel="prefetch" href="/myblog/assets/js/223.e16b0d3d.js"><link rel="prefetch" href="/myblog/assets/js/224.cc0d9939.js"><link rel="prefetch" href="/myblog/assets/js/225.a8949a47.js"><link rel="prefetch" href="/myblog/assets/js/226.b7ca6c2e.js"><link rel="prefetch" href="/myblog/assets/js/227.461d87f6.js"><link rel="prefetch" href="/myblog/assets/js/228.1d0f373a.js"><link rel="prefetch" href="/myblog/assets/js/229.d7750e53.js"><link rel="prefetch" href="/myblog/assets/js/23.8b45116b.js"><link rel="prefetch" href="/myblog/assets/js/230.f37f6b8d.js"><link rel="prefetch" href="/myblog/assets/js/231.209f5870.js"><link rel="prefetch" href="/myblog/assets/js/232.2fe100ec.js"><link rel="prefetch" href="/myblog/assets/js/233.0e61d4cd.js"><link rel="prefetch" href="/myblog/assets/js/234.a391ba77.js"><link rel="prefetch" href="/myblog/assets/js/235.5e0eba4d.js"><link rel="prefetch" href="/myblog/assets/js/236.ab437f5e.js"><link rel="prefetch" href="/myblog/assets/js/237.d19885e5.js"><link rel="prefetch" href="/myblog/assets/js/238.a74b2b59.js"><link rel="prefetch" href="/myblog/assets/js/239.e8465400.js"><link rel="prefetch" href="/myblog/assets/js/24.91be6373.js"><link rel="prefetch" href="/myblog/assets/js/240.d4da3818.js"><link rel="prefetch" href="/myblog/assets/js/241.fea8e769.js"><link rel="prefetch" href="/myblog/assets/js/242.1ba23aa6.js"><link rel="prefetch" href="/myblog/assets/js/243.0fce3d69.js"><link rel="prefetch" href="/myblog/assets/js/244.12de7e4d.js"><link rel="prefetch" href="/myblog/assets/js/245.972ecb89.js"><link rel="prefetch" href="/myblog/assets/js/246.a9175ef6.js"><link rel="prefetch" href="/myblog/assets/js/247.c87eff86.js"><link rel="prefetch" href="/myblog/assets/js/248.c9f601e8.js"><link rel="prefetch" href="/myblog/assets/js/249.95bb78a7.js"><link rel="prefetch" href="/myblog/assets/js/25.4640db29.js"><link rel="prefetch" href="/myblog/assets/js/250.3ac0561c.js"><link rel="prefetch" href="/myblog/assets/js/251.89bfbc3d.js"><link rel="prefetch" href="/myblog/assets/js/252.75d1529b.js"><link rel="prefetch" href="/myblog/assets/js/253.fb878099.js"><link rel="prefetch" href="/myblog/assets/js/254.781e5cef.js"><link rel="prefetch" href="/myblog/assets/js/255.de774a4e.js"><link rel="prefetch" href="/myblog/assets/js/256.24ea4660.js"><link rel="prefetch" href="/myblog/assets/js/257.a8dc063a.js"><link rel="prefetch" href="/myblog/assets/js/258.285aabd0.js"><link rel="prefetch" href="/myblog/assets/js/259.d059e12f.js"><link rel="prefetch" href="/myblog/assets/js/26.d4bfba6b.js"><link rel="prefetch" href="/myblog/assets/js/260.7fa9eebb.js"><link rel="prefetch" href="/myblog/assets/js/261.7adc2baf.js"><link rel="prefetch" href="/myblog/assets/js/262.4e193f0b.js"><link rel="prefetch" href="/myblog/assets/js/263.e64b74b0.js"><link rel="prefetch" href="/myblog/assets/js/264.7c500acb.js"><link rel="prefetch" href="/myblog/assets/js/265.20833685.js"><link rel="prefetch" href="/myblog/assets/js/266.d11e8a3d.js"><link rel="prefetch" href="/myblog/assets/js/267.cc4a3088.js"><link rel="prefetch" href="/myblog/assets/js/268.2e6f9eaf.js"><link rel="prefetch" href="/myblog/assets/js/269.54f9b0b5.js"><link rel="prefetch" href="/myblog/assets/js/27.695d3ef9.js"><link rel="prefetch" href="/myblog/assets/js/270.719e97b1.js"><link rel="prefetch" href="/myblog/assets/js/271.38f5f5bc.js"><link rel="prefetch" href="/myblog/assets/js/272.1c18706e.js"><link rel="prefetch" href="/myblog/assets/js/273.9c97c53a.js"><link rel="prefetch" href="/myblog/assets/js/274.54b975a2.js"><link rel="prefetch" href="/myblog/assets/js/275.a5d1b3c7.js"><link rel="prefetch" href="/myblog/assets/js/276.bea0cba5.js"><link rel="prefetch" href="/myblog/assets/js/277.eb900558.js"><link rel="prefetch" href="/myblog/assets/js/278.3f3698ea.js"><link rel="prefetch" href="/myblog/assets/js/279.7124fc62.js"><link rel="prefetch" href="/myblog/assets/js/28.eba8a6e7.js"><link rel="prefetch" href="/myblog/assets/js/280.65f11c97.js"><link rel="prefetch" href="/myblog/assets/js/281.0f107526.js"><link rel="prefetch" href="/myblog/assets/js/282.08888806.js"><link rel="prefetch" href="/myblog/assets/js/283.b612a9bf.js"><link rel="prefetch" href="/myblog/assets/js/284.991b4a41.js"><link rel="prefetch" href="/myblog/assets/js/285.c3789f09.js"><link rel="prefetch" href="/myblog/assets/js/286.65235892.js"><link rel="prefetch" href="/myblog/assets/js/287.8db8d008.js"><link rel="prefetch" href="/myblog/assets/js/288.4b675449.js"><link rel="prefetch" href="/myblog/assets/js/289.eadeeac9.js"><link rel="prefetch" href="/myblog/assets/js/29.a75869be.js"><link rel="prefetch" href="/myblog/assets/js/290.e341c97a.js"><link rel="prefetch" href="/myblog/assets/js/291.062d90e3.js"><link rel="prefetch" href="/myblog/assets/js/292.00acc181.js"><link rel="prefetch" href="/myblog/assets/js/293.24089a7b.js"><link rel="prefetch" href="/myblog/assets/js/294.b73de5c4.js"><link rel="prefetch" href="/myblog/assets/js/295.82d67c0b.js"><link rel="prefetch" href="/myblog/assets/js/296.0e29f3ac.js"><link rel="prefetch" href="/myblog/assets/js/297.e9c52593.js"><link rel="prefetch" href="/myblog/assets/js/298.e1edbade.js"><link rel="prefetch" href="/myblog/assets/js/299.e12297b2.js"><link rel="prefetch" href="/myblog/assets/js/3.2190bbb0.js"><link rel="prefetch" href="/myblog/assets/js/30.ef895ecd.js"><link rel="prefetch" href="/myblog/assets/js/300.41c9d5f8.js"><link rel="prefetch" href="/myblog/assets/js/301.64f51163.js"><link rel="prefetch" href="/myblog/assets/js/302.6d63c42b.js"><link rel="prefetch" href="/myblog/assets/js/303.5f5c80cd.js"><link rel="prefetch" href="/myblog/assets/js/304.447341e6.js"><link rel="prefetch" href="/myblog/assets/js/305.e0a1386c.js"><link rel="prefetch" href="/myblog/assets/js/306.98beb9a5.js"><link rel="prefetch" href="/myblog/assets/js/307.4ed03c79.js"><link rel="prefetch" href="/myblog/assets/js/308.920400fb.js"><link rel="prefetch" href="/myblog/assets/js/309.c37fe015.js"><link rel="prefetch" href="/myblog/assets/js/31.96e41949.js"><link rel="prefetch" href="/myblog/assets/js/310.2a981546.js"><link rel="prefetch" href="/myblog/assets/js/311.5f97771e.js"><link rel="prefetch" href="/myblog/assets/js/312.18e3b446.js"><link rel="prefetch" href="/myblog/assets/js/313.6e6c6d33.js"><link rel="prefetch" href="/myblog/assets/js/314.75d49dce.js"><link rel="prefetch" href="/myblog/assets/js/315.e3cff8bd.js"><link rel="prefetch" href="/myblog/assets/js/316.d84b9dc5.js"><link rel="prefetch" href="/myblog/assets/js/317.23a75169.js"><link rel="prefetch" href="/myblog/assets/js/318.cba99c11.js"><link rel="prefetch" href="/myblog/assets/js/319.086c3b0c.js"><link rel="prefetch" href="/myblog/assets/js/32.13b05ed2.js"><link rel="prefetch" href="/myblog/assets/js/320.b4022084.js"><link rel="prefetch" href="/myblog/assets/js/321.edad1423.js"><link rel="prefetch" href="/myblog/assets/js/322.4a122e3c.js"><link rel="prefetch" href="/myblog/assets/js/323.c79b6b07.js"><link rel="prefetch" href="/myblog/assets/js/324.6d491187.js"><link rel="prefetch" href="/myblog/assets/js/325.90ae654f.js"><link rel="prefetch" href="/myblog/assets/js/326.47be845a.js"><link rel="prefetch" href="/myblog/assets/js/327.e728c140.js"><link rel="prefetch" href="/myblog/assets/js/328.7ccb8b33.js"><link rel="prefetch" href="/myblog/assets/js/329.f704d633.js"><link rel="prefetch" href="/myblog/assets/js/33.92b79c63.js"><link rel="prefetch" href="/myblog/assets/js/330.6d655ceb.js"><link rel="prefetch" href="/myblog/assets/js/331.139da091.js"><link rel="prefetch" href="/myblog/assets/js/332.82472b58.js"><link rel="prefetch" href="/myblog/assets/js/333.47f17b16.js"><link rel="prefetch" href="/myblog/assets/js/334.525f6896.js"><link rel="prefetch" href="/myblog/assets/js/335.5df44e03.js"><link rel="prefetch" href="/myblog/assets/js/336.1b39e12c.js"><link rel="prefetch" href="/myblog/assets/js/337.65ea8bd2.js"><link rel="prefetch" href="/myblog/assets/js/338.ab6f5d5a.js"><link rel="prefetch" href="/myblog/assets/js/339.e411fbed.js"><link rel="prefetch" href="/myblog/assets/js/34.32729d08.js"><link rel="prefetch" href="/myblog/assets/js/340.6de9f19a.js"><link rel="prefetch" href="/myblog/assets/js/341.2508d47d.js"><link rel="prefetch" href="/myblog/assets/js/342.0f21d6de.js"><link rel="prefetch" href="/myblog/assets/js/343.f3e9c181.js"><link rel="prefetch" href="/myblog/assets/js/344.821d45bc.js"><link rel="prefetch" href="/myblog/assets/js/345.279296d9.js"><link rel="prefetch" href="/myblog/assets/js/346.59e14a35.js"><link rel="prefetch" href="/myblog/assets/js/347.795ac621.js"><link rel="prefetch" href="/myblog/assets/js/348.25c9576d.js"><link rel="prefetch" href="/myblog/assets/js/349.16e5c21e.js"><link rel="prefetch" href="/myblog/assets/js/35.5a16aeef.js"><link rel="prefetch" href="/myblog/assets/js/350.4ce4e077.js"><link rel="prefetch" href="/myblog/assets/js/351.53428853.js"><link rel="prefetch" href="/myblog/assets/js/352.bd126fc4.js"><link rel="prefetch" href="/myblog/assets/js/353.7867ceea.js"><link rel="prefetch" href="/myblog/assets/js/354.f3a37191.js"><link rel="prefetch" href="/myblog/assets/js/355.75334f71.js"><link rel="prefetch" href="/myblog/assets/js/356.5f608dcc.js"><link rel="prefetch" href="/myblog/assets/js/357.f77135ea.js"><link rel="prefetch" href="/myblog/assets/js/358.e480d5ea.js"><link rel="prefetch" href="/myblog/assets/js/359.98f31a5b.js"><link rel="prefetch" href="/myblog/assets/js/36.6d4e62da.js"><link rel="prefetch" href="/myblog/assets/js/360.79fb2fb1.js"><link rel="prefetch" href="/myblog/assets/js/361.47ecb428.js"><link rel="prefetch" href="/myblog/assets/js/362.46c64ba3.js"><link rel="prefetch" href="/myblog/assets/js/363.3302d63d.js"><link rel="prefetch" href="/myblog/assets/js/364.a98362c9.js"><link rel="prefetch" href="/myblog/assets/js/365.6cee0972.js"><link rel="prefetch" href="/myblog/assets/js/366.c5d63832.js"><link rel="prefetch" href="/myblog/assets/js/367.4025b80c.js"><link rel="prefetch" href="/myblog/assets/js/368.519cd4be.js"><link rel="prefetch" href="/myblog/assets/js/369.c037e34c.js"><link rel="prefetch" href="/myblog/assets/js/37.ea6b27ca.js"><link rel="prefetch" href="/myblog/assets/js/370.dbaac54a.js"><link rel="prefetch" href="/myblog/assets/js/371.b6aead54.js"><link rel="prefetch" href="/myblog/assets/js/372.12f910f1.js"><link rel="prefetch" href="/myblog/assets/js/373.eff6636e.js"><link rel="prefetch" href="/myblog/assets/js/374.616957a3.js"><link rel="prefetch" href="/myblog/assets/js/375.25605b27.js"><link rel="prefetch" href="/myblog/assets/js/376.a13a8b53.js"><link rel="prefetch" href="/myblog/assets/js/377.b783aa81.js"><link rel="prefetch" href="/myblog/assets/js/378.d1611815.js"><link rel="prefetch" href="/myblog/assets/js/379.dce4e96d.js"><link rel="prefetch" href="/myblog/assets/js/38.1d075e7e.js"><link rel="prefetch" href="/myblog/assets/js/380.ccca794e.js"><link rel="prefetch" href="/myblog/assets/js/381.4703e7a8.js"><link rel="prefetch" href="/myblog/assets/js/382.522b3fdf.js"><link rel="prefetch" href="/myblog/assets/js/383.88f7078f.js"><link rel="prefetch" href="/myblog/assets/js/384.9a8b3e2f.js"><link rel="prefetch" href="/myblog/assets/js/385.9634a92e.js"><link rel="prefetch" href="/myblog/assets/js/386.462abc96.js"><link rel="prefetch" href="/myblog/assets/js/387.eb868b74.js"><link rel="prefetch" href="/myblog/assets/js/388.0c122aa1.js"><link rel="prefetch" href="/myblog/assets/js/389.25b113cd.js"><link rel="prefetch" href="/myblog/assets/js/39.c518873f.js"><link rel="prefetch" href="/myblog/assets/js/390.1e41b20a.js"><link rel="prefetch" href="/myblog/assets/js/391.daa569b9.js"><link rel="prefetch" href="/myblog/assets/js/392.45688d0a.js"><link rel="prefetch" href="/myblog/assets/js/393.4cef495c.js"><link rel="prefetch" href="/myblog/assets/js/394.0972fa14.js"><link rel="prefetch" href="/myblog/assets/js/395.d1895d79.js"><link rel="prefetch" href="/myblog/assets/js/396.89f6a47b.js"><link rel="prefetch" href="/myblog/assets/js/397.230825b8.js"><link rel="prefetch" href="/myblog/assets/js/398.63eceb86.js"><link rel="prefetch" href="/myblog/assets/js/399.fd48b382.js"><link rel="prefetch" href="/myblog/assets/js/4.708382be.js"><link rel="prefetch" href="/myblog/assets/js/40.4a806aef.js"><link rel="prefetch" href="/myblog/assets/js/400.9a8cf4ba.js"><link rel="prefetch" href="/myblog/assets/js/401.733d8bd1.js"><link rel="prefetch" href="/myblog/assets/js/402.ea872749.js"><link rel="prefetch" href="/myblog/assets/js/403.d3c3dbca.js"><link rel="prefetch" href="/myblog/assets/js/404.0368c59e.js"><link rel="prefetch" href="/myblog/assets/js/405.1b6ace61.js"><link rel="prefetch" href="/myblog/assets/js/406.f3a1f866.js"><link rel="prefetch" href="/myblog/assets/js/41.af894fa8.js"><link rel="prefetch" href="/myblog/assets/js/42.35fd750b.js"><link rel="prefetch" href="/myblog/assets/js/43.43fa1cba.js"><link rel="prefetch" href="/myblog/assets/js/44.e36f0053.js"><link rel="prefetch" href="/myblog/assets/js/45.36352668.js"><link rel="prefetch" href="/myblog/assets/js/46.de25e8f6.js"><link rel="prefetch" href="/myblog/assets/js/47.9d311117.js"><link rel="prefetch" href="/myblog/assets/js/48.c50cef2c.js"><link rel="prefetch" href="/myblog/assets/js/49.28471bc7.js"><link rel="prefetch" href="/myblog/assets/js/5.55042874.js"><link rel="prefetch" href="/myblog/assets/js/50.78ea3deb.js"><link rel="prefetch" href="/myblog/assets/js/51.2d6f633b.js"><link rel="prefetch" href="/myblog/assets/js/52.dfdd7f60.js"><link rel="prefetch" href="/myblog/assets/js/53.05415b45.js"><link rel="prefetch" href="/myblog/assets/js/54.5dd8ef0b.js"><link rel="prefetch" href="/myblog/assets/js/55.1b839ab3.js"><link rel="prefetch" href="/myblog/assets/js/56.cc8bda0e.js"><link rel="prefetch" href="/myblog/assets/js/57.ed9d9231.js"><link rel="prefetch" href="/myblog/assets/js/58.c7d5cb89.js"><link rel="prefetch" href="/myblog/assets/js/59.9675f0f1.js"><link rel="prefetch" href="/myblog/assets/js/6.0a22b321.js"><link rel="prefetch" href="/myblog/assets/js/60.e48cc1b9.js"><link rel="prefetch" href="/myblog/assets/js/61.7965b60d.js"><link rel="prefetch" href="/myblog/assets/js/62.453c9822.js"><link rel="prefetch" href="/myblog/assets/js/63.f4f2009e.js"><link rel="prefetch" href="/myblog/assets/js/64.22eb060c.js"><link rel="prefetch" href="/myblog/assets/js/65.d5aa9daa.js"><link rel="prefetch" href="/myblog/assets/js/66.6f69d5ff.js"><link rel="prefetch" href="/myblog/assets/js/67.942ce6e2.js"><link rel="prefetch" href="/myblog/assets/js/68.3a7eb083.js"><link rel="prefetch" href="/myblog/assets/js/69.d60b36bb.js"><link rel="prefetch" href="/myblog/assets/js/7.1b8336d2.js"><link rel="prefetch" href="/myblog/assets/js/70.ce8331c5.js"><link rel="prefetch" href="/myblog/assets/js/71.263effad.js"><link rel="prefetch" href="/myblog/assets/js/72.e5a73cfb.js"><link rel="prefetch" href="/myblog/assets/js/73.845fe2a2.js"><link rel="prefetch" href="/myblog/assets/js/74.713e0086.js"><link rel="prefetch" href="/myblog/assets/js/75.bbdd19b8.js"><link rel="prefetch" href="/myblog/assets/js/76.d1c07cc1.js"><link rel="prefetch" href="/myblog/assets/js/77.1ab72ab7.js"><link rel="prefetch" href="/myblog/assets/js/78.00268d1c.js"><link rel="prefetch" href="/myblog/assets/js/79.ad89fe55.js"><link rel="prefetch" href="/myblog/assets/js/80.44145bfe.js"><link rel="prefetch" href="/myblog/assets/js/81.2d201fbf.js"><link rel="prefetch" href="/myblog/assets/js/82.71110b3d.js"><link rel="prefetch" href="/myblog/assets/js/83.72c02e9a.js"><link rel="prefetch" href="/myblog/assets/js/84.02f75dd9.js"><link rel="prefetch" href="/myblog/assets/js/85.b6a9ad03.js"><link rel="prefetch" href="/myblog/assets/js/86.ea7a5c8b.js"><link rel="prefetch" href="/myblog/assets/js/87.dd4d4d63.js"><link rel="prefetch" href="/myblog/assets/js/88.b1d9798f.js"><link rel="prefetch" href="/myblog/assets/js/89.9abbbdcd.js"><link rel="prefetch" href="/myblog/assets/js/90.ba5c32de.js"><link rel="prefetch" href="/myblog/assets/js/91.ce8e2fbf.js"><link rel="prefetch" href="/myblog/assets/js/92.c035586d.js"><link rel="prefetch" href="/myblog/assets/js/93.876516c6.js"><link rel="prefetch" href="/myblog/assets/js/94.8d6b0784.js"><link rel="prefetch" href="/myblog/assets/js/95.9d5b10c4.js"><link rel="prefetch" href="/myblog/assets/js/96.72d7cfe7.js"><link rel="prefetch" href="/myblog/assets/js/97.14b59e01.js"><link rel="prefetch" href="/myblog/assets/js/98.a5f3cb04.js"><link rel="prefetch" href="/myblog/assets/js/99.4a78afa1.js"><link rel="prefetch" href="/myblog/assets/js/vendors~docsearch.9fc5db6b.js">
+    <link rel="stylesheet" href="/myblog/assets/css/0.styles.f1869f8e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/myblog/" class="home-link router-link-active"><!----> <span class="site-name">毕克有的技术笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="技术笔记" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/js/" class="nav-link">
+  js篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/css/" class="nav-link">
+  css篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/performanceOptimizing/" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/canvas/" class="nav-link">
+  canvas
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/tool/" class="nav-link">
+  工具篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/framework/" class="nav-link">
+  框架篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/webapp/" class="nav-link">
+  移动端app开发
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/weChatMiniProgram/" class="nav-link">
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/node/" class="nav-link">
+  nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/java/" class="nav-link">
+  java
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/linux/" class="nav-link router-link-active">
+  linux
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/http/" class="nav-link">
+  http
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/interviewQuestions/" class="nav-link">
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/demandSolution/" class="nav-link">
+  常见需求
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码解析" class="dropdown-title"><span class="title">源码解析</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码解析" class="mobile-dropdown-title"><span class="title">源码解析</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/sourceCode/" class="nav-link">
+  jQuery
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="技术笔记" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/js/" class="nav-link">
+  js篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/css/" class="nav-link">
+  css篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/performanceOptimizing/" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/canvas/" class="nav-link">
+  canvas
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/tool/" class="nav-link">
+  工具篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/framework/" class="nav-link">
+  框架篇
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/webapp/" class="nav-link">
+  移动端app开发
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/weChatMiniProgram/" class="nav-link">
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/node/" class="nav-link">
+  nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/java/" class="nav-link">
+  java
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/linux/" class="nav-link router-link-active">
+  linux
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/http/" class="nav-link">
+  http
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/interviewQuestions/" class="nav-link">
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/demandSolution/" class="nav-link">
+  常见需求
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码解析" class="dropdown-title"><span class="title">源码解析</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码解析" class="mobile-dropdown-title"><span class="title">源码解析</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/sourceCode/" class="nav-link">
+  jQuery
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>shell学习1</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>linux学习1</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/myblog/linux/linux学习1/1.计算机基础.html" class="sidebar-link">1.计算机基础</a></li><li><a href="/myblog/linux/linux学习1/2.linux的入门学习.html" class="sidebar-link">2.linux的入门学习</a></li><li><a href="/myblog/linux/linux学习1/3.linux命令.html" class="active sidebar-link">3.linux命令</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-1-cd" class="sidebar-link">3.1.cd</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-2-ls" class="sidebar-link">3.2.ls</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-3-pwd" class="sidebar-link">3.3.pwd</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-4-su" class="sidebar-link">3.4.su</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-5-mkdir" class="sidebar-link">3.5.mkdir</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-6-touch" class="sidebar-link">3.6.touch</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-7-cp" class="sidebar-link">3.7.cp</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-8-mv" class="sidebar-link">3.8.mv</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-9-rm" class="sidebar-link">3.9.rm</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-10-linux帮助命令" class="sidebar-link">3.10.linux帮助命令</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-11-linux开关机-shutdown" class="sidebar-link">3.11.linux开关机 - shutdown</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-12-linux命令行常用快捷键" class="sidebar-link">3.12.linux命令行常用快捷键</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-13-linux环境变量" class="sidebar-link">3.13.linux环境变量</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-14-vi-vim" class="sidebar-link">3.14.vi/vim</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-15-重定向符号" class="sidebar-link">3.15.重定向符号</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-16-cat-concatenate" class="sidebar-link">3.16.cat (concatenate)</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-17-tac" class="sidebar-link">3.17.tac</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-18-管道符" class="sidebar-link">3.18.管道符</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-19-grep" class="sidebar-link">3.19.grep</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-20-more-命令-和-less-命令" class="sidebar-link">3.20.more 命令 和 less 命令</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-21-head-命令-和-tail-命令" class="sidebar-link">3.21.head 命令 和 tail 命令</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-22-cut-命令" class="sidebar-link">3.22.cut 命令</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-23-sort" class="sidebar-link">3.23.sort</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-24-uniq" class="sidebar-link">3.24.uniq</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-24-wc" class="sidebar-link">3.24.wc</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-24-tr" class="sidebar-link">3.24.tr</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-25-who-和-w" class="sidebar-link">3.25.who 和 w</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-26-stat" class="sidebar-link">3.26.stat</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-26-find" class="sidebar-link">3.26.find</a></li><li class="sidebar-sub-header"><a href="/myblog/linux/linux学习1/3.linux命令.html#_3-27-xargs" class="sidebar-link">3.27.xargs</a></li></ul></li><li><a href="/myblog/linux/linux学习1/4.linux文件属性和管理.html" class="sidebar-link">4.linux文件属性和管理</a></li><li><a href="/myblog/linux/linux学习1/5.用户管理.html" class="sidebar-link">5.用户管理</a></li><li><a href="/myblog/linux/linux学习1/6.文件权限.html" class="sidebar-link">6.文件权限</a></li><li><a href="/myblog/linux/linux学习1/7.linux通配符.html" class="sidebar-link">7.linux符号</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="_3-linux命令"><a href="#_3-linux命令" class="header-anchor">#</a> 3.linux命令</h1> <blockquote><p>linux 命令可以简写</p></blockquote> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">ls</span> <span class="token parameter variable">-l</span> <span class="token parameter variable">-h</span>
+<span class="token comment"># 简写</span>
+<span class="token function">ls</span> <span class="token parameter variable">-lh</span>
+<span class="token function">ls</span> <span class="token parameter variable">-hl</span>
+</code></pre></div><h2 id="_3-1-cd"><a href="#_3-1-cd" class="header-anchor">#</a> 3.1.cd</h2> <p>change directory 的缩写: 更改目录的意思</p> <div class="language- extra-class"><pre class="language-text"><code>cd 可选参数 文件夹
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code># 几个特殊的目录
+.  当前目录
+..  上一级目录
+-  上一次工作目录
+~  当前系统登录的用户目录
+</code></pre></div><h2 id="_3-2-ls"><a href="#_3-2-ls" class="header-anchor">#</a> 3.2.ls</h2> <p>list 缩写: 列出文件夹中内容</p> <div class="language- extra-class"><pre class="language-text"><code>ls 可选参数 文件夹
+
+# 可选参数
+-a 显示所有文件
+-l 详细显示文件夹中内容
+-h 以人类可阅读方式输出文件大小
+--full-time 已完整的时间格式输出
+-t 根据最后修改的时间排序文件
+-F 在不同的文件结尾，输出不同的特殊符号
+    以 / 结尾就是文件夹
+    以 * 结尾就是可执行文件
+    以 @ 结果就是软连接，快捷方式
+    普通文件结尾什么都没有
+-d 显示文件夹本身信息，不输出其中内容
+-r 逆转排序 (reverse)
+-S 根据文件大写进行排序 （大写的S）默认是从大到小
+-i 显示文件inode信息（文件的身份证号，存储文件的元信息，文件大小，位置，权限等）
+</code></pre></div><h2 id="_3-3-pwd"><a href="#_3-3-pwd" class="header-anchor">#</a> 3.3.pwd</h2> <p>print work directory 打印工作目录, 输出当前所处的一个绝对路径</p> <h2 id="_3-4-su"><a href="#_3-4-su" class="header-anchor">#</a> 3.4.su</h2> <p>切换用户</p> <div class="language- extra-class"><pre class="language-text"><code>su - 用户名  # 完全的环境变量切换用户
+</code></pre></div><h2 id="_3-5-mkdir"><a href="#_3-5-mkdir" class="header-anchor">#</a> 3.5.mkdir</h2> <p>make directory 创建文件夹</p> <div class="language- extra-class"><pre class="language-text"><code>mkdir 文件夹名称
+
+mkdir {zs,ls,ww} # 会同时创建 zs ls ww 这三个文件夹
+mkdir -p ./zs/zschild/zschildchild/ 
+mkdir chaoge{1..100} # 创建 chaoge1,chaoge2...chaoge100 这100个文件夹
+
+# 参数
+-p 递归创建文件夹
+</code></pre></div><h2 id="_3-6-touch"><a href="#_3-6-touch" class="header-anchor">#</a> 3.6.touch</h2> <ul><li>创建普通文件</li> <li>修改文件时间</li></ul> <div class="language- extra-class"><pre class="language-text"><code>touch [选项] 文件名
+
+touch 1.txt 2.js 3.css
+touch chaoge{1..100} # 创建 chaoge1,chaoge2...chaoge100 这100个文件
+touch chaoge{a..z} # 创建 chaogea,chaogeb...chaogez 多个文件
+
+# 参数 
+-t 修改时间
+    touch 1.txt 文件时间就会变
+    touch -t 10240606 1.txt # 10月26号6点6分
+</code></pre></div><h2 id="_3-7-cp"><a href="#_3-7-cp" class="header-anchor">#</a> 3.7.cp</h2> <blockquote><p>默认系统做了 alias 别名功能，让我们输入 cp 时候，其实是 cp -i</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>cp [选项] 源文件 目录
+
+# 参数
+-r 递推式复制目录，即复制目录下所有层级的子目录及文件。 
+-p 复制的时候，保持属性不变 （ ls 时看到的属性 ）
+-d 拷贝软连接时候，保持连接属性不变
+-i 覆盖前提示
+
+# 案例
+# 复制普通文件
+cp 1.txt ./oldbody/
+# 复制普通文件且改名
+cp 1.txt ./oldbody/1.1.txt
+# 一次性复制多个文件
+cp 1.txt 2.txt ./oldbody/
+# 复制整个文件夹
+cp -r mjj mjj2
+# -p
+cp -p 1.txt 2.txt
+</code></pre></div><h2 id="_3-8-mv"><a href="#_3-8-mv" class="header-anchor">#</a> 3.8.mv</h2> <blockquote><p>默认系统做了 alias 别名功能，让我们输入 mv 时候，其实是 mv -i</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>mv 源文件 目标文件
+
+mv luffy* ./oldbody  将 luffy 为前缀的文件都复制到 oldbody 文件夹下
+
+mv 1.txt 2.txt.txt  重命名用法
+
+-i 覆盖询问
+</code></pre></div><h2 id="_3-9-rm"><a href="#_3-9-rm" class="header-anchor">#</a> 3.9.rm</h2> <blockquote><p>默认系统做了 alias 别名功能，让我们输入 rm 时候，其实是 rm -i</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>rm [选项] 文件名
+
+#选项
+-i 询问是否删除
+-f --force 强制删除，忽略不存在文件，不提示确认
+-I 删除超过3个文件或者递归删除前要求确认
+-d --dir 删除空目录
+-r -R --recursive 递归删除目录及其内容
+-v --verbose 详细显示进行的步骤
+
+
+rm 1.txt 删除会提示，删除文件
+rm 1.txt 2.txt 一次性删除多个文件
+rm -r mjj 删除mjj文件夹及其中的内容
+rm -f mjj* 强制删除 mjj 开头的文件，文件夹无法删除
+rm -f -r mjj* 强制删除 mjj 开头的文件和文件夹，以及文件夹的内容
+rm -f -r ./* 强制删除当前目录所有内容 
+rm -rfv ./* 强制删除当前目录所有内容, 并显示过程
+</code></pre></div><h2 id="_3-10-linux帮助命令"><a href="#_3-10-linux帮助命令" class="header-anchor">#</a> 3.10.linux帮助命令</h2> <h3 id="_3-10-1-man"><a href="#_3-10-1-man" class="header-anchor">#</a> 3.10.1.man</h3> <div class="language- extra-class"><pre class="language-text"><code>man 命令
+
+man rm 
+
+回车往下看
+</code></pre></div><h3 id="_3-10-2-help"><a href="#_3-10-2-help" class="header-anchor">#</a> 3.10.2.--help</h3> <div class="language- extra-class"><pre class="language-text"><code>命令 --help
+</code></pre></div><h3 id="_3-10-3-info"><a href="#_3-10-3-info" class="header-anchor">#</a> 3.10.3.info</h3> <div class="language- extra-class"><pre class="language-text"><code>info 命令
+
+info rm 
+</code></pre></div><h2 id="_3-11-linux开关机-shutdown"><a href="#_3-11-linux开关机-shutdown" class="header-anchor">#</a> 3.11.linux开关机 - shutdown</h2> <p>重启或关机</p> <ul><li>重启</li></ul> <div class="language- extra-class"><pre class="language-text"><code>shutdown -r参数 -r --reboot 
+
+shutdown -r 10  # 十分钟后重启
+shutdown -r 0  # 立即重启
+shutdown -r now  # 立即重启
+</code></pre></div><ul><li>关机</li></ul> <div class="language- extra-class"><pre class="language-text"><code>shutdown -h --halt 停止的含义 
+
+shutdown -h 10  # 十分钟后停止
+shutdown -h 0  # 立即停止
+shutdown -h now  # 立即停止
+</code></pre></div><p>halt poweroff reboot 命令关机与重启</p> <div class="language- extra-class"><pre class="language-text"><code>reboot  重启
+poweroff
+reboot  关节
+</code></pre></div><p><img src="/myblog/assets/img/3.1.e9aca0e2.png" alt="关机重启"></p> <h2 id="_3-12-linux命令行常用快捷键"><a href="#_3-12-linux命令行常用快捷键" class="header-anchor">#</a> 3.12.linux命令行常用快捷键</h2> <div class="language- extra-class"><pre class="language-text"><code>ctrl + c  cancel取消当前操作
+ctrl + l  清空屏幕内容
+ctrl + d  退出当前用户
+ctrl + a  光标移到首行
+ctrl + e  光标移到行尾
+ctrl + u  删除光标到首行的内容
+</code></pre></div><h2 id="_3-13-linux环境变量"><a href="#_3-13-linux环境变量" class="header-anchor">#</a> 3.13.linux环境变量</h2> <p>windows 下的环境变量（PATH）， 系统会按照 PATH 的设定， 去定义每个 PATH 定义的目录下搜索可执行文件</p> <p>PATH 是由一堆目录组成， linux : 分割， window ; 分割</p> <p>查看 linux  下的 PATH 环境变量</p> <div class="language- extra-class"><pre class="language-text"><code>echo $PATH
+</code></pre></div><h2 id="_3-14-vi-vim"><a href="#_3-14-vi-vim" class="header-anchor">#</a> 3.14.vi/vim</h2> <p>vi/vim 分为三种模式， 分别是命令模式(Command mode), 输入模式 (insert mode) 和底线命令模式 (Last line mode)</p> <h3 id="_3-14-1-作用"><a href="#_3-14-1-作用" class="header-anchor">#</a> 3.14.1.作用</h3> <ul><li>命令模式： 进入 vim 的默认模式</li> <li>编辑模式： 按 i 进入，aio 也可以进入</li> <li>底线模式： 按 : 之后进入的模式</li></ul> <p><img src="/myblog/assets/img/3.2.03e65fae.png" alt="三种模式"></p> <h3 id="_3-14-2-安装-vim"><a href="#_3-14-2-安装-vim" class="header-anchor">#</a> 3.14.2.安装 vim</h3> <blockquote><p>当 vim 打开不存在文件时，默认会创建文件</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>yum install vim -y # 通过yum软件管理工具下载 vim， -y 是默认是 yes
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>输入o， 在光标的下一行进行编辑
+wq! 强制写入文件并推出
+q! 不保存退出
+</code></pre></div><h3 id="_3-14-3-vim快捷键"><a href="#_3-14-3-vim快捷键" class="header-anchor">#</a> 3.14.3.vim快捷键</h3> <ul><li>vim提供的上下左右</li></ul> <div class="language- extra-class"><pre class="language-text"><code>h 向左
+l 向右
+j 向下
+k 向上
+</code></pre></div><ul><li>移动光标的快捷键</li></ul> <div class="language- extra-class"><pre class="language-text"><code>w 移动到下一个单词
+b 移动到上一个单词
+
+数字0 移动到行首
+数字$ 移动到行尾
+
+g 移动到文章的开头
+G 移动到文章的结尾
+
+H 移动到屏幕的开头
+L 移动到屏幕的结尾
+M 移动到屏幕的中间
+</code></pre></div><ul><li>命令模式的查找</li></ul> <div class="language- extra-class"><pre class="language-text"><code>向下查找  /你要找的内容    按下 n 跳到下一个单词
+  /echo 查找echo
+
+向上查找  ?你要找的内容    按下 n 跳到下一个单词
+  ?echo 查找echo
+</code></pre></div><ul><li>命令模式下的删除，复制，粘贴</li></ul> <div class="language- extra-class"><pre class="language-text"><code>yy  复制光标所在行
+4yy  复制光标所在行及以下4行
+p   打印粘贴的内容
+
+dd  删除光标所在行
+D   删除光标当前位置到结尾的内容
+x   删除光标当前字节， 向后删除
+X   删除光标当前字节， 向前删除
+
+u   撤销上一步操作
+</code></pre></div><ul><li>快捷操作</li></ul> <div class="language- extra-class"><pre class="language-text"><code>C 删除光标所在位置，到行尾的内容，且进入编辑模式
+o 当前光标的下一行开始编辑
+O 当前光标的上一行开始编辑
+A 快速进入光标的行尾开始编辑
+ZZ 快速的保存并退出
+</code></pre></div><ul><li>快捷批量操作</li></ul> <div class="language- extra-class"><pre class="language-text"><code># 删除多行
+1. 输入 ctrl + v 进入可视块模式
+2. 用上下左右命令，选择你要操作的块
+3. 选中块后，输入d 删除块内容
+
+# 快捷插入多行
+1. 输入 ctrl + v 进入可视块模式
+2. 用上下左右命令，选择你要操作的块
+3. 选中块后，输入I 
+4. 按下 esc 两次，会自动生成多行代码
+</code></pre></div><h3 id="_3-14-4-vim交换文件的解决办法"><a href="#_3-14-4-vim交换文件的解决办法" class="header-anchor">#</a> 3.14.4.vim交换文件的解决办法</h3> <p>多个用户要同时操作一个文件，或者上次操作文件不保存退出了</p> <p>目录中会存在一个 .swp 的隐藏文件，将之前内容恢复，删除隐藏文件就好</p> <h2 id="_3-15-重定向符号"><a href="#_3-15-重定向符号" class="header-anchor">#</a> 3.15.重定向符号</h2> <p>重定向的意思是将数据传到其它地方</p> <table><thead><tr><th>符号</th> <th>解释</th></tr></thead> <tbody><tr><td>&gt;</td> <td>输入覆盖重定向</td></tr> <tr><td>&gt;&gt;</td> <td>输入追加重定向</td></tr> <tr><td>&lt;或&lt;&lt;</td> <td>标准输入重定向</td></tr></tbody></table> <h3 id="_3-15-1-重定向案例"><a href="#_3-15-1-重定向案例" class="header-anchor">#</a> 3.15.1.重定向案例</h3> <div class="language- extra-class"><pre class="language-text"><code>cat 1.txt  &gt; ./2.txt # 覆盖原文件内容
+cat 1.txt  &gt;&gt; ./2.txt # 追加原文件内容末尾
+cat &lt;  1.txt 重定向写入 把 1.txt 内容给 cat
+xargs -n 3 &lt; 1.txt # 把文本拆多行输出
+
+cat &gt;&gt; gushi.txt &lt;&lt;EOF ???
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>[root@VM-0-4-centos test_scripts]# xargs -n 3 &lt; 1.sh 
+1 2 3
+4 5 6
+7 8 9
+</code></pre></div><h2 id="_3-16-cat-concatenate"><a href="#_3-16-cat-concatenate" class="header-anchor">#</a> 3.16.cat (concatenate)</h2> <p>用于查看纯文本文件(常用于内容较少)。可以连接多个文件打印到屏幕，或重定向到文件中</p> <div class="language- extra-class"><pre class="language-text"><code>cat [参数] 文件路径|文件名
+
+# 参数
+-n  显示每一行的行号
+</code></pre></div><h3 id="_3-16-1-cat功能"><a href="#_3-16-1-cat功能" class="header-anchor">#</a> 3.16.1.cat功能</h3> <table><thead><tr><th>功能</th> <th>说明</th></tr></thead> <tbody><tr><td>查看文件内容</td> <td>cat file.txt</td></tr> <tr><td>多个文件合并写入到新的文件中</td> <td>cat file.txt file1.txt &gt; file2.txt</td></tr> <tr><td>非交互式编辑或追加内容</td> <td>cat &gt;&gt; file.txt &lt;&lt;EOF \n hello world \n EOF</td></tr> <tr><td>清空文件内容</td> <td>cat /dev/null &gt; file.txt (/dev/null 是linux系统的黑洞文件)</td></tr></tbody></table> <p><img src="/myblog/assets/img/3.3.59a91d03.png" alt="cat命令"></p> <ul><li>参数</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 对非空行显示行号</span>
+<span class="token function">cat</span> <span class="token parameter variable">-b</span> <span class="token number">1</span>.txt
+
+<span class="token comment"># 对所有行显示行号</span>
+<span class="token function">cat</span> <span class="token parameter variable">-n</span> <span class="token number">1</span>.txt
+
+<span class="token comment"># 在每行末尾显示 $ 符号</span>
+<span class="token function">cat</span> <span class="token parameter variable">-n</span> <span class="token parameter variable">-E</span> <span class="token number">1</span>.txt
+
+<span class="token comment"># 减少空格行，多个空格行减为一个</span>
+<span class="token function">cat</span> <span class="token parameter variable">-s</span> <span class="token number">1</span>.txt
+</code></pre></div><ul><li>cat 合并合并多个文件</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 读 这两个文件的内容</span>
+<span class="token function">cat</span> file.txt file1.txt
+
+<span class="token function">cat</span> file.txt file1.txt <span class="token operator">&gt;</span> file2.txt
+</code></pre></div><ul><li>cat 非交互式写入文件内容信息</li></ul> <div class="language- extra-class"><pre class="language-text"><code>[root@VM-0-4-centos test_scripts]# cat &gt;&gt;  1.txt &lt;&lt;EOF
+&gt; 床前明月光
+&gt; 疑是地上霜
+&gt; EOF
+[root@VM-0-4-centos test_scripts]# cat 1.txt
+床前明月光
+疑是地上霜
+</code></pre></div><ul><li>清空文件</li></ul> <div class="language- extra-class"><pre class="language-text"><code>1. 清空文件但是留下一个空格
+echo &gt; 1.txt
+
+2. 直接清空文件
+&gt; 1.txt
+
+3. 利用 cat 读黑洞文件，然后清空其他文本
+cat /dev/null &gt; 1.txt
+</code></pre></div><h2 id="_3-17-tac"><a href="#_3-17-tac" class="header-anchor">#</a> 3.17.tac</h2> <p>和 cat 一样，显示内容倒转</p> <h2 id="_3-18-管道符"><a href="#_3-18-管道符" class="header-anchor">#</a> 3.18.管道符</h2> <p><img src="/myblog/assets/img/3.4.d0f2e898.png" alt="管道符"></p> <h3 id="_3-18-1-管道符用法"><a href="#_3-18-1-管道符用法" class="header-anchor">#</a> 3.18.1.管道符用法</h3> <ul><li>对字符串进行二次过滤</li></ul> <div class="language- extra-class"><pre class="language-text"><code># 查看 1.txt 文本， 对内容进行过滤，找出 有 hello 的行
+cat 1.txt | grep hello
+</code></pre></div><h2 id="_3-19-grep"><a href="#_3-19-grep" class="header-anchor">#</a> 3.19.grep</h2> <p>过滤字符串信息命令</p> <h2 id="_3-20-more-命令-和-less-命令"><a href="#_3-20-more-命令-和-less-命令" class="header-anchor">#</a> 3.20.more 命令 和 less 命令</h2> <p>分屏查看文本内容的命令</p> <div class="language- extra-class"><pre class="language-text"><code>more 文件名 # 分屏显示文件内容
+
+按下 enter 回车是下一行
+空格是向下滚动一个屏大小
+=显示当前行号
+按下q是退出more
+</code></pre></div><h2 id="_3-21-head-命令-和-tail-命令"><a href="#_3-21-head-命令-和-tail-命令" class="header-anchor">#</a> 3.21.head 命令 和 tail 命令</h2> <ul><li>head</li></ul> <p>用于查看文件开头 n 行</p> <div class="language- extra-class"><pre class="language-text"><code>head -n 文件名
+
+head 文件名 # 默认显示10行
+
+head -c 文件名
+
+-c 指定字符数量，显示字符数
+</code></pre></div><ul><li>tail</li></ul> <p>用于查看文件末尾 n 行</p> <div class="language- extra-class"><pre class="language-text"><code>tail -n 文件名
+
+tail 文件名 # 默认显示10行
+
+tail -f 文件名
+
+-f 实时刷新文件内容
+-F 可以监听不存在的文件，当文件被创建和写入时，可以看到变化
+</code></pre></div><h2 id="_3-22-cut-命令"><a href="#_3-22-cut-命令" class="header-anchor">#</a> 3.22.cut 命令</h2> <p><img src="/myblog/assets/img/3.5.9128a7ae.png" alt="cut参数"></p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">cut</span> <span class="token parameter variable">-c</span> <span class="token number">4</span> <span class="token number">1</span>.txt <span class="token comment"># 截取 1.txt 每一行第四个字符</span>
+
+<span class="token function">cut</span> <span class="token parameter variable">-c</span> <span class="token number">4</span>-7 <span class="token number">1</span>.txt <span class="token comment"># 截取 1.txt 每一行第 4-7 的字符</span>
+
+<span class="token function">cut</span> <span class="token parameter variable">-c</span> <span class="token number">4,6</span> <span class="token number">1</span>.txt <span class="token comment"># 截取 1.txt 每一行第 4 和 6 的字符</span>
+
+<span class="token function">cut</span> <span class="token parameter variable">-c</span> <span class="token parameter variable">-6</span> <span class="token number">1</span>.txt <span class="token comment"># 截取 1.txt 每一行 从头到 6 的字符</span>
+
+<span class="token function">cut</span> <span class="token parameter variable">-c</span> <span class="token number">6</span>- <span class="token number">1</span>.txt <span class="token comment"># 截取 1.txt 每一行 从 6 到 最后 的字符</span>
+
+<span class="token comment"># 指定分割符号进行截取</span>
+<span class="token function">cut</span> <span class="token parameter variable">-d</span> <span class="token string">&quot;:&quot;</span> <span class="token parameter variable">-f</span> 截取范围 <span class="token number">1</span>.txt
+
+<span class="token comment"># 指定分割符号进行截取, 找到第三个区域的内容</span>
+<span class="token function">cut</span> <span class="token parameter variable">-d</span> <span class="token string">&quot;:&quot;</span> <span class="token parameter variable">-f</span> <span class="token number">3</span> <span class="token number">1</span>.txt
+
+<span class="token comment"># 指定分割符号进行截取, 从开头到第三个区域的内容</span>
+<span class="token function">cut</span> <span class="token parameter variable">-d</span> <span class="token string">&quot;:&quot;</span> <span class="token parameter variable">-f</span> <span class="token parameter variable">-3</span> <span class="token number">1</span>.txt
+<span class="token comment"># 指定分割符号进行截取, 从开头到第三个区域的内容给到管道符，取出前五行</span>
+<span class="token function">cut</span> <span class="token parameter variable">-d</span> <span class="token string">&quot;:&quot;</span> <span class="token parameter variable">-f</span> <span class="token parameter variable">-3</span> <span class="token number">1</span>.txt <span class="token operator">|</span> <span class="token function">head</span> <span class="token number">5</span> 
+
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>[root@VM-0-4-centos test_scripts]# cat 1.txt 
+床前明月光
+疑是地上霜
+ 
+举头望明月 
+
+
+ 低头思故乡
+[root@VM-0-4-centos test_scripts]# cut -c 4 1.txt
+月
+上
+
+明
+
+
+思
+[root@VM-0-4-centos test_scripts]# cut -c 4-5 1.txt
+月光
+上霜
+
+明月
+
+
+思故
+[root@VM-0-4-centos test_scripts]# 
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>
+[root@VM-0-4-centos test_scripts]# cut -d &quot;:&quot; -f 1 1.txt
+床前
+疑是
+ 
+举头
+
+
+低头
+[root@VM-0-4-centos test_scripts]# cut -d &quot;:&quot; -f 2 1.txt
+明月光
+地上霜
+ 
+望明月 
+
+
+思故乡
+[root@VM-0-4-centos test_scripts]# 
+</code></pre></div><h2 id="_3-23-sort"><a href="#_3-23-sort" class="header-anchor">#</a> 3.23.sort</h2> <p>将输入的文件的内容按照规则排序，然后输出结果</p> <p><img src="/myblog/assets/img/3.6.00579236.png" alt="sort"></p> <div class="language- extra-class"><pre class="language-text"><code>1. 对文件第一个子节进行排序，默认从小到大
+sort -n 1.txt
+
+2. 对排序结果进行反转 -r
+sort -n -r 1.txt
+
+3. 对排序结果去重 -u
+sort -u 1.txt
+
+4. 指定分割符，指定区域进行排序
+sort -n  -t &quot;.&quot; -k 4 ip.txt # 把 ip 分割进行排序，从小到大排序
+</code></pre></div><ul><li>可以把读取的内容通过管道符交给 sort</li></ul> <div class="language- extra-class"><pre class="language-text"><code>[root@VM-0-4-centos test_scripts]# echo -e  &quot;3 \n  5 \n 1 \n 5 \n 8&quot; |   sort -n
+ 1 
+3 
+  5 
+ 5 
+ 8
+[root@VM-0-4-centos test_scripts]# 
+[root@VM-0-4-centos test_scripts]# cat 1.txt | sort -n
+
+
+ 
+1举头:望明月 
+2床前:明月光
+3低头:思故乡
+4疑是:地上霜
+</code></pre></div><h2 id="_3-24-uniq"><a href="#_3-24-uniq" class="header-anchor">#</a> 3.24.uniq</h2> <p>uniq 命令可以输出或者忽略文件中重复行，常与sort排序结合使用</p> <p><img src="/myblog/assets/img/3.7.44c3aed5.png" alt="uniq"></p> <div class="language- extra-class"><pre class="language-text"><code>1. 去除连续重复行
+uniq 1.txt
+
+2. 与sort结合使用， 去重更精准
+sort -n 1.txt | uniq
+
+3. -c 统计每一行的重复次数，次数显示在 开头
+sort -n 1.txt | uniq -c
+
+4. -d 只输出重复的行
+sort -n 1.txt | uniq -d -c
+
+4. -u 只输出不重复的行
+sort -n 1.txt | uniq -u -c
+</code></pre></div><h2 id="_3-24-wc"><a href="#_3-24-wc" class="header-anchor">#</a> 3.24.wc</h2> <p>用于统计文件的行数、单词、字节数</p> <p><img src="/myblog/assets/img/3.8.d2ff5f23.png" alt="wc"></p> <div class="language- extra-class"><pre class="language-text"><code>1. 统计文件行数
+wc -l 1.txt
+
+2. 统计单词的数量
+echo &quot;zs ls ww &quot; | wc -w
+
+3. -m 统计字符数量
+[root@VM-0-4-centos test_scripts]# echo &quot;123456&quot; |wc -m
+7
+为什么是 7 个字符，因为字符串结尾有一个$, echo &quot;123456&quot; | cat -E 进行验证猜想
+
+
+4. -L 输出最长的字符数
+cat 1.txt | wc -L
+
+5. 统计登录人数
+who | wc -l
+</code></pre></div><h2 id="_3-24-tr"><a href="#_3-24-tr" class="header-anchor">#</a> 3.24.tr</h2> <p>从标准输入中替换，缩减或删除字符，将结果写入到标准输出</p> <p><img src="/myblog/assets/img/3.9.f1f84b03.png" alt="tr"></p> <div class="language- extra-class"><pre class="language-text"><code>1. 替换标准输入的大小写
+echo &quot;my name is zs&quot; | tr '[a-z]' '[A-Z]'
+
+2. 使用 -d 删除参数
+[root@VM-0-4-centos ~]#  echo &quot;my name is zs and i am 18 years old&quot; | tr -d &quot;a&quot;
+my nme is zs nd i m 18 yers old
+[root@VM-0-4-centos ~]#  echo &quot;my name is zs and i am 18 years old&quot; | tr -d &quot;0-9&quot;
+my name is zs and i am  years old
+[root@VM-0-4-centos ~]# 
+
+3. 把文件作为标注输入进行替换
+[root@VM-0-4-centos ~]# tr 'a' &quot;A&quot; &lt; alex.txt 
+my nAme is Alex.
+i like leArning linux.
+[root@VM-0-4-centos ~]# cat alex.txt 
+my name is alex.
+i like learning linux.
+
+4. -s 删除连续字符
+[root@VM-0-4-centos ~]# echo '111122223333444 555' | tr -s '12345'
+1234 5
+</code></pre></div><h2 id="_3-25-who-和-w"><a href="#_3-25-who-和-w" class="header-anchor">#</a> 3.25.who 和 w</h2> <p>显示当前登录用户</p> <h2 id="_3-26-stat"><a href="#_3-26-stat" class="header-anchor">#</a> 3.26.stat</h2> <p>显示文件的状态信息。stat命令的输出信息比ls命令的输出信息更详细</p> <div class="language- extra-class"><pre class="language-text"><code>stat [选项] [参数]
+</code></pre></div><p><img src="/myblog/assets/img/3.10.0ca2c69f.png" alt="stat选项"></p> <h2 id="_3-26-find"><a href="#_3-26-find" class="header-anchor">#</a> 3.26.find</h2> <p>用来指定目录下查找文件。任何位于参数之前的字符串都被视为欲查找的目录名</p> <p>如果使用该命令时不设置任何参数，则 find 命令将在当前目录下查找子目录与文件，并且将查找到的子目录和文件全部进行显示</p> <div class="language- extra-class"><pre class="language-text"><code># maxdepth 层级
+[root@VM-0-4-centos ~]# find /shell_program/test_scripts/ -maxdepth 1 -name &quot;*.txt&quot;
+/shell_program/test_scripts/messages.txt
+/shell_program/test_scripts/jen_message.txt
+/shell_program/test_scripts/1.txt
+[root@VM-0-4-centos ~]# 
+
+# -name 名字开头是数字的文件
+[root@VM-0-4-centos ~]# find /shell_program/test_scripts/  -name   &quot;[0-9]*&quot;
+/shell_program/test_scripts/1.sh
+/shell_program/test_scripts/1.txt
+
+# -type 限制文件类型
+[root@VM-0-4-centos ~]# find /shell_program/test_scripts/ -type f  -name   &quot;[0-9]*&quot;
+
+# -delete 删除符合的文件
+[root@VM-0-4-centos ~]# find /shell_program/test_scripts/ -type f  -name   &quot;[0-9]*&quot; -delete
+
+# 找到两天以内被访问的文件
+[root@VM-0-4-centos test_scripts]# find . -atime -2
+.
+./check_jen.sh
+./1.txt
+./compare_1
+
+# 找除了文件夹之外的类型
+[root@VM-0-4-centos test_scripts]# find . -maxdepth 1 ! -type d
+
+# 根据文件大小进行搜索
+find . -type f -size +200M
+
+# 排除目录进行搜索
+find . -path &quot;./test_find&quot; -prune -o -name &quot;*.txt&quot;-print
+
+# -ok  询问
+[root@VM-0-4-centos test_scripts]# find . -type f -name &quot;*.txt&quot; -ok rm {} \;
+&lt; rm ... ./messages.txt &gt; ? n
+&lt; rm ... ./jen_message.txt &gt; ? n
+&lt; rm ... ./1.txt &gt; ? n
+</code></pre></div><h2 id="_3-27-xargs"><a href="#_3-27-xargs" class="header-anchor">#</a> 3.27.xargs</h2> <p>又称管道命令，构造参数等</p> <p>是给命令传递参数的一个过滤器， 也是组合多个命令的一个工具它把一个数据分割为一些足够小的块，以方便过滤器和命令进行处理</p> <p>简单就是说，把其他命令给它的数据，传递给它后面的命令作为参数</p> <p><img src="/myblog/assets/img/3.11.034c1170.png" alt="xargs"></p> <div class="language- extra-class"><pre class="language-text"><code>[root@VM-0-4-centos test_scripts]# cat 1.sh 
+1 2
+3 4
+5 6
+7 8
+9
+
+# 从定向
+[root@VM-0-4-centos test_scripts]# xargs &lt; 1.sh 
+1 2 3 4 5 6 7 8 9
+
+# -n 限制输出个数
+[root@VM-0-4-centos test_scripts]# xargs -n 4 &lt; 1.sh 
+1 2 3 4
+5 6 7 8
+9
+
+# -d 指定分隔符号
+[root@VM-0-4-centos test_scripts]# echo &quot;zs,ls,ww&quot; | xargs -d &quot;,&quot;
+zs ls ww
+
+# -i {} 替换传输的数据
+find . -name &quot;*.js&quot; | xargs -i mv {} alljs/
+
+# -I 用字符串替换数据 
+find . -name &quot;*.js&quot; | xargs -I alljs mv alljs ./
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/myblog/linux/linux学习1/2.linux的入门学习.html" class="prev">
+        2.linux的入门学习
+      </a></span> <span class="next"><a href="/myblog/linux/linux学习1/4.linux文件属性和管理.html">
+        4.linux文件属性和管理
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/myblog/assets/js/app.6ec94062.js" defer></script><script src="/myblog/assets/js/2.80c01313.js" defer></script><script src="/myblog/assets/js/1.ace66f3f.js" defer></script><script src="/myblog/assets/js/18.564e0a83.js" defer></script>
+  </body>
+</html>
