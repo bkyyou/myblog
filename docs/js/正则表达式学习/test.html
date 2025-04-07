@@ -1,81 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <script>
-      // var regex = /(\d{4})-(\d{2})-(\d{2})/;
-      // var string = "2017-06-12";
-      // regex.test(string); // 正则操作即可，例如
-      // //regex.exec(string);
-      // //string.match(regex);
-      // console.log(RegExp.$1); // "2017"
-      // console.log(RegExp.$2); // "06"
-      // console.log(RegExp.$3); // "12"
 
-      // var regex = /(\d{4})-(\d{2})-(\d{2})/;
-      // var string = "2017-06-12";
-      // var result = string.replace(regex, function(match, year, month, day) {
-      //   console.log('match', match);
-      //   return month + "/" + day + "/" + year;
-      // });
-      // console.log(result);
-      // => "06/12/2017"
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .box {
+      width: 0;
+      height: 0;
+      margin-top: 20px;
+      border: 30px red solid;
+      border-color: red blue sandybrown skyblue;
+    }
+  </style>
+</head>
 
-      // const reg = /^.*\d$/g;
-      // const str = "1";
-      // console.log(reg.test(str));
+<body>
+  <input type="text" id="int">
 
-      // function titleize(str) {
-      //   return str.toLowerCase().replace(/(?:^|\s)\w/g, function(c) {
-      //     console.log('c', c);
-      //     return c.toUpperCase();
-      //   });
-      // }
-      // console.log(titleize("my   name is epeli"));
-      // // => "My Name Is Epeli"
+  <div class="box"></div>
+  <script>
+    // var regex = /(\d{4})-(\d{2})-(\d{2})/;
+    // var string = "2017-06-12";
+    // regex.test(string); // 正则操作即可，例如
+    // //regex.exec(string);
+    // //string.match(regex);
+    // console.log(RegExp.$1); // "2017"
+    // console.log(RegExp.$2); // "06"
+    // console.log(RegExp.$3); // "12"
 
-      // var reg = /^\s*[a-z]|\s+[a-z]/g;
-      // var str = "my name is epeli";
-      // const str1 = str.replace(reg, function(a) {
-      //   // console.log(arguments);
-      //   // // return a.toUpperCase()
-      //   console.log(a);
-      //   console.log(a.toUpperCase());
-      //   return a.toUpperCase();
-      // });
-      // // console.log(str.match(reg));
-      // console.log(str1);
-      
-      const arr = [1, 2, 3]
-      for (const v of arr) {
-        if (v === 1) {
-          console.log('v', v);
-          break
-        }
+    // var regex = /(\d{4})-(\d{2})-(\d{2})/;
+    // var string = "2017-06-12";
+    // var result = string.replace(regex, function(match, year, month, day) {
+    //   console.log('match', match);
+    //   return month + "/" + day + "/" + year;
+    // });
+    // console.log(result);
+    // => "06/12/2017"
+
+    // const reg = /^.*\d$/g;
+    // const str = "1";
+    // console.log(reg.test(str));
+
+    // function titleize(str) {
+    //   return str.toLowerCase().replace(/(?:^|\s)\w/g, function(c) {
+    //     console.log('c', c);
+    //     return c.toUpperCase();
+    //   });
+    // }
+    // console.log(titleize("my   name is epeli"));
+    // // => "My Name Is Epeli"
+
+    // var reg = /^\s*[a-z]|\s+[a-z]/g;
+    // var str = "my name is epeli";
+    // const str1 = str.replace(reg, function(a) {
+    //   // console.log(arguments);
+    //   // // return a.toUpperCase()
+    //   console.log(a);
+    //   console.log(a.toUpperCase());
+    //   return a.toUpperCase();
+    // });
+    // // console.log(str.match(reg));
+    // console.log(str1);
+
+    const arr = [1, 2, 3]
+    for (const v of arr) {
+      if (v === 1) {
+        console.log('v', v);
+        break
+      }
+    }
+
+    // todo 为什么只在 循环中 会导致 test 验证错误
+    // const reg = /(\d)/g
+    // const a = '1111aaaa';
+    // console.log(reg.test('1111aaaa'))
+    // console.log(reg.test('1111aaaa'))
+    // console.log(reg.test('1111aaaa'))
+    // for (let i = 0; i < 10; i++) {
+    //   console.log(reg.test(a))
+    // }
+    // console.log(RegExp.$1)
+    // console.log(RegExp.$1)
+
+    const reg = /(?=(\d{3})+)\d+$/g
+    const reg1 = /(?!^|-)(?=(\d{3})+($|\.))(?<!\.\d*)/g;
+    const reg2 = /(?<!^)(?<!-)(?=(\d{3})+($|\.))(?<!\.\d*)/g
+    const str = '1111111';
+    console.log(str.replace(reg, ','));
+    console.log(str.replace(reg1, ','), 'reg1');
+    console.log(str.replace(reg2, ','), 'reg2');
+    console.log(reg.test(str));
+
+
+    const formatNum = (num, config) => {
+      const { max, min, precision = 0, isForceDigits = false } = config
+      console.log('num', num, max, min, precision);
+
+      if (typeof (num) !== 'string' && typeof (num) !== 'number') {
+        return null;
       }
 
-      // todo 为什么只在 循环中 会导致 test 验证错误
-      // const reg = /(\d)/g
-      // const a = '1111aaaa';
-      // console.log(reg.test('1111aaaa'))
-      // console.log(reg.test('1111aaaa'))
-      // console.log(reg.test('1111aaaa'))
-      // for (let i = 0; i < 10; i++) {
-      //   console.log(reg.test(a))
-      // }
-      // console.log(RegExp.$1)
-      // console.log(RegExp.$1)
+      const _num = num.toString();
+      const formatReg = /^-?\d+(?:\.\d+)?/;
+      // var result = parseFloat(num.toString().match(/^\d+(?:\.\d{0,2})?/)); // 返回结果为数值3.14
 
-      const reg = /(?=(\d{3})+)\d+$/g
-      const str = '111111';
-      console.log(str.replace(reg, ','));
-      console.log(reg.test(str));
+      const toPerReg = precision === 0 ? /-?\d+/ : new RegExp('^-?\\d+(?:\\.\\d{1,' + precision + '})?')
 
-    </script>
-  </body>
+      console.log('toPerReg', toPerReg);
+
+      let formtedNum = _num.match(formatReg)?.[0];
+
+      console.log('formtedNum', formtedNum);
+
+
+      if (!formtedNum) {
+        return null;
+      }
+
+      if (Number(formtedNum) > max) {
+        return max
+      }
+
+      if (Number(formtedNum) < min) {
+        return min
+      }
+
+      if (isForceDigits) {
+        formtedNum = Number(formtedNum).toFixed(precision + 1);
+      }
+
+      console.log('formtedNum.match(toPerReg)', formtedNum.match(toPerReg));
+
+      return formtedNum.match(toPerReg)?.[0];
+    }
+
+    function getNums(num, precision = 2) {
+      const formatReg = /^-?\d+(?:\.\d+)?/;
+      const toPerReg = new RegExp('^-?\\d+(?:\\.\\d{0,' + precision + '})?');
+      // return parseFloat(num.toString().match(toPerReg));
+      return (num.toString().match(toPerReg));
+    }
+
+    console.log(getNums('11.1', 2));
+
+
+    document.querySelector('#int').addEventListener('blur', (e) => {
+      const res = formatNum(e.target.value, {
+        max: 10000,
+        min: 0,
+        precision: 2,
+        // isForceDigits: true,
+      });
+      // console.log(res);
+      document.querySelector('#int').value = res;
+    })
+    // console.log(formatNum(1.3, 10000, 1, 1));
+    // const formatNum = async (num, max, min) => {
+    //   console.log('e', e.target.value, (udp.getCmpApi('baseForm').getValues()).initiaInstlNumSection);
+    //   let res = null;
+    //   const reg1 = new RegExp('^\d{1,4}$');
+    //   const reg2 = /^(-)?\d+(\.\d+)?$/;
+    //   const reg3 = /^\d+(?:\.\d+)?/
+
+    //   if (reg2.test(num)) {
+    //     return
+    //   }
+
+
+
+
+
+    //   if (reg2.test(num)) {
+    //     if (reg1.test(num)) {
+    //       res = num;
+    //       udp.getCmpApi('baseForm').setFieldValue('initiaInstlNumSection', res)
+    //       return
+    //     }
+    //     if (num > 10000) {
+    //       res = 10000;
+    //       udp.getCmpApi('baseForm').setFieldValue('initiaInstlNumSection', res)
+    //       return
+    //     }
+    //     if (num < 0) {
+    //       res = 0;
+    //       udp.getCmpApi('baseForm').setFieldValue('initiaInstlNumSection', res)
+    //       return;
+    //     }
+
+    //     res = parseFloat(num.toString().match(/^\d+/)[0]);
+    //     udp.getCmpApi('baseForm').setFieldValue('initiaInstlNumSection', res);
+    //     return;
+    //   }
+
+    //   if (reg3.test(num)) {
+    //     res = num.match(reg3)[0];
+    //     udp.getCmpApi('baseForm').setFieldValue('initiaInstlNumSection', res);
+    //     return
+    //   }
+
+    //   // res = null;
+    //   console.log(res, '---');
+
+    //   udp.getCmpApi('baseForm').setFieldValue('initiaInstlNumSection', res)
+    // }
+
+
+    // requestList.forEach(async item => {
+    //   const res = await request(item, 10);
+    //   console.log(res);
+    // });
+
+
+    // const requestList = [];
+    // const pool = new Set();
+    // const waitQueue = [];
+    // const limitRequest = (reqFn, max) => {
+    //   return new Promise((resolve, reject) => {
+    //     const isFull = pool.size >= max;
+
+    //     const newReqFn = () => {
+    //       reqFn()
+    //         .then(res => {
+    //           resolve(res);
+    //         })
+    //         .catch(err => {
+    //           reject(err);
+    //         })
+    //         .finally(() => {
+    //           pool.delete(newReqFn);
+    //           const next = waitQueue.shift();
+    //           if (next) {
+    //             pool.add(next);
+    //             next();
+    //           }
+    //         });
+    //     };
+
+    //     if (isFull) {
+    //       waitQueue.push(newReqFn);
+    //     } else {
+    //       pool.add(newReqFn);
+    //       newReqFn();
+    //     }
+    //   });
+    // };
+    // requestList.forEach(async item => {
+    //   const res = await limitRequest(item, 10);
+    //   console.log(res);
+    // });
+
+
+    const limitRequest2 = (arr, limitNum) => {
+      const resArr = [];
+      const pool = new Set();
+      const waitQueue = [];
+      let resv;
+      const newArr = arr.map(fn => {
+        return () => {
+          fn().then(res => {
+            // resArr[i] = res;
+            console.log('res', res);
+            resArr.push(res);
+          }).catch(err => {
+            // resArr[i] = err;
+            resArr.push(err);
+          }).finally(() => {
+
+            const next = waitQueue.shift();
+            console.log('waitQueue0--', waitQueue);
+            
+            if (next) {
+              console.log('next', next);
+              next();
+            }
+
+            if (resArr.length >= arr.length) {
+              resv(resArr);
+            }
+          })
+        }
+      } )
+      return new Promise(resolve => {
+        resv = resolve;
+        // const newRequest = (fn, i) => {
+        //   fn().then(res => {
+        //     // resArr[i] = res;
+        //     resArr.push(res);
+        //   }).catch(err => {
+        //     // resArr[i] = err;
+        //     resArr.push(err);
+        //   }).finally(() => {
+
+        //     const next = waitQueue.unshift();
+            
+        //     if (next) {
+        //       pool.add(newRequest);
+        //       newRequest(val, i);
+        //     }
+
+        //     if (resArr.length) {
+        //       resolve(resArr);
+        //     }
+        //   })
+        // }
+        console.log('newArr', newArr);
+        newArr.forEach((newFn) => {
+          if (pool.size > limitNum) {
+            waitQueue.push(newFn)
+          } else {
+            pool.add(newFn);
+            newFn();
+          }
+
+        })
+
+        console.log('waitQueue', waitQueue);
+      })
+
+
+
+    }
+
+
+    const fn1 = () =>  new Promise(resolve => setTimeout(resolve, 100, 1));
+    const fn2 = () =>  new Promise(resolve => setTimeout(resolve, 1000, 2));
+    const fn3 = () =>  new Promise(resolve => setTimeout(resolve, 5000, 3));
+    const fn4 = () =>  new Promise(resolve => setTimeout(resolve, 100, 5));
+    const fn5 = () =>  new Promise(resolve => setTimeout(resolve, 100, 6));
+
+    let a = 0;
+    console.log(a = Date.now());
+    limitRequest2([fn1, fn2, fn3, fn4, fn5], 2).then(res => {
+    console.log(Date.now() - a);
+      console.log(res);
+    })
+  </script>
+</body>
+
 </html>
